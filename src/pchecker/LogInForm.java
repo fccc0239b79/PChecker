@@ -139,7 +139,7 @@ public class LogInForm extends javax.swing.JFrame {
         LogInPanelLayout.setVerticalGroup(
             LogInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogInPanelLayout.createSequentialGroup()
-                .addContainerGap(132, Short.MAX_VALUE)
+                .addContainerGap(136, Short.MAX_VALUE)
                 .addComponent(logo)
                 .addGap(75, 75, 75)
                 .addGroup(LogInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -202,18 +202,17 @@ public class LogInForm extends javax.swing.JFrame {
         RegistrationPanelLayout.setHorizontalGroup(
             RegistrationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RegistrationPanelLayout.createSequentialGroup()
+                .addGap(140, 140, 140)
                 .addGroup(RegistrationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(RegistrationPanelLayout.createSequentialGroup()
-                        .addGap(220, 220, 220)
-                        .addComponent(jLabel1))
-                    .addGroup(RegistrationPanelLayout.createSequentialGroup()
-                        .addGap(402, 402, 402)
+                        .addGap(182, 182, 182)
                         .addComponent(titleLabel))
                     .addGroup(RegistrationPanelLayout.createSequentialGroup()
-                        .addGap(480, 480, 480)
+                        .addGap(260, 260, 260)
                         .addComponent(headingLabel))
                     .addGroup(RegistrationPanelLayout.createSequentialGroup()
-                        .addGap(373, 373, 373)
+                        .addGap(153, 153, 153)
                         .addGroup(RegistrationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RegistrationPanelLayout.createSequentialGroup()
                                 .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -235,7 +234,7 @@ public class LogInForm extends javax.swing.JFrame {
                                     .addComponent(forenameField)
                                     .addComponent(surnameField)
                                     .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(256, Short.MAX_VALUE))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
         RegistrationPanelLayout.setVerticalGroup(
             RegistrationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,7 +277,7 @@ public class LogInForm extends javax.swing.JFrame {
         );
 
         getContentPane().add(RegistrationPanel);
-        RegistrationPanel.setBounds(0, 0, 1078, 625);
+        RegistrationPanel.setBounds(0, 0, 900, 625);
 
         ForgotPasswordPanel.setBackground(new java.awt.Color(255, 255, 255));
         ForgotPasswordPanel.setMaximumSize(new java.awt.Dimension(900, 600));
@@ -302,36 +301,38 @@ public class LogInForm extends javax.swing.JFrame {
         ForgotPasswordPanelLayout.setHorizontalGroup(
             ForgotPasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ForgotPasswordPanelLayout.createSequentialGroup()
+                .addGap(149, 149, 149)
                 .addGroup(ForgotPasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ForgotPasswordPanelLayout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addComponent(jLabel2))
+                    .addComponent(jLabel2)
                     .addGroup(ForgotPasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ForgotPasswordPanelLayout.createSequentialGroup()
-                            .addGap(347, 347, 347)
+                            .addGap(133, 133, 133)
                             .addComponent(informLabelFP))
                         .addGroup(ForgotPasswordPanelLayout.createSequentialGroup()
-                            .addGap(401, 401, 401)
-                            .addGroup(ForgotPasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(cancelBtnFP, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(usernameLabelFP)
-                                .addComponent(emailLabelFP))
-                            .addGap(18, 18, 18)
-                            .addGroup(ForgotPasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(ForgotPasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(usernameFieldFP, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                                    .addComponent(emailFieldFP))
-                                .addComponent(acceptBtnFP, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(237, Short.MAX_VALUE))
+                            .addGap(187, 187, 187)
+                            .addGroup(ForgotPasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(ForgotPasswordPanelLayout.createSequentialGroup()
+                                    .addGroup(ForgotPasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(usernameLabelFP)
+                                        .addComponent(emailLabelFP))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(ForgotPasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(usernameFieldFP)
+                                        .addComponent(emailFieldFP, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(ForgotPasswordPanelLayout.createSequentialGroup()
+                                    .addComponent(cancelBtnFP, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(112, 112, 112)
+                                    .addComponent(acceptBtnFP, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
         ForgotPasswordPanelLayout.setVerticalGroup(
             ForgotPasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ForgotPasswordPanelLayout.createSequentialGroup()
-                .addGap(71, 71, 71)
+                .addGap(78, 78, 78)
                 .addComponent(jLabel2)
                 .addGap(118, 118, 118)
                 .addComponent(informLabelFP)
-                .addGap(44, 44, 44)
+                .addGap(45, 45, 45)
                 .addGroup(ForgotPasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(usernameLabelFP)
                     .addComponent(usernameFieldFP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -339,15 +340,15 @@ public class LogInForm extends javax.swing.JFrame {
                 .addGroup(ForgotPasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailLabelFP)
                     .addComponent(emailFieldFP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addGap(62, 62, 62)
                 .addGroup(ForgotPasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(acceptBtnFP)
                     .addComponent(cancelBtnFP))
-                .addGap(176, 176, 176))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         getContentPane().add(ForgotPasswordPanel);
-        ForgotPasswordPanel.setBounds(0, 0, 1053, 705);
+        ForgotPasswordPanel.setBounds(0, 0, 900, 630);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
