@@ -27,7 +27,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        mainPanel = new javax.swing.JPanel();
+        mainUserPanel = new javax.swing.JPanel();
         logoMain = new javax.swing.JLabel();
         menuLabel = new javax.swing.JLabel();
         profileBtn = new javax.swing.JButton();
@@ -40,6 +40,20 @@ public class AdminUserFrame extends javax.swing.JFrame {
         editBtnProfile = new javax.swing.JButton();
         settingsLabel = new javax.swing.JLabel();
         acceptBtnProfile = new javax.swing.JButton();
+        mainAdminPanel = new javax.swing.JPanel();
+        logoAdmin = new javax.swing.JLabel();
+        createAccountAdminBtn = new javax.swing.JButton();
+        editAccountAdminBtn = new javax.swing.JButton();
+        viewAccountAdminBtn = new javax.swing.JButton();
+        logOffAdminBtn = new javax.swing.JButton();
+        profileAdminBtn = new javax.swing.JButton();
+        newComponentAdminBtn = new javax.swing.JButton();
+        editComponentAdminBtn = new javax.swing.JButton();
+        viewComponentAdminBtn = new javax.swing.JButton();
+        createBuildAdminBtn = new javax.swing.JButton();
+        editBuildAdminBtn = new javax.swing.JButton();
+        viewBuildAdminBtn = new javax.swing.JButton();
+        adminMenuLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(900, 600));
@@ -47,22 +61,22 @@ public class AdminUserFrame extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(900, 600));
         getContentPane().setLayout(null);
 
-        mainPanel.setBackground(new java.awt.Color(255, 255, 255));
-        mainPanel.setMaximumSize(new java.awt.Dimension(900, 600));
-        mainPanel.setMinimumSize(new java.awt.Dimension(900, 600));
-        mainPanel.setLayout(null);
+        mainUserPanel.setBackground(new java.awt.Color(255, 255, 255));
+        mainUserPanel.setMaximumSize(new java.awt.Dimension(900, 600));
+        mainUserPanel.setMinimumSize(new java.awt.Dimension(900, 600));
+        mainUserPanel.setLayout(null);
 
         logoMain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
-        mainPanel.add(logoMain);
+        mainUserPanel.add(logoMain);
         logoMain.setBounds(148, 70, 602, 119);
 
         menuLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         menuLabel.setText("MENU");
-        mainPanel.add(menuLabel);
+        mainUserPanel.add(menuLabel);
         menuLabel.setBounds(394, 215, 109, 44);
 
         profileBtn.setText("Profile");
-        mainPanel.add(profileBtn);
+        mainUserPanel.add(profileBtn);
         profileBtn.setBounds(740, 11, 63, 43);
 
         logOffBtn.setText("Log Off");
@@ -71,19 +85,19 @@ public class AdminUserFrame extends javax.swing.JFrame {
                 logOffBtnActionPerformed(evt);
             }
         });
-        mainPanel.add(logOffBtn);
+        mainUserPanel.add(logOffBtn);
         logOffBtn.setBounds(809, 11, 69, 43);
 
         buildList.setBackground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(buildList);
+        mainUserPanel.add(buildList);
         buildList.setBounds(206, 277, 491, 172);
 
         addBuildBtn.setText("Add Build");
-        mainPanel.add(addBuildBtn);
+        mainUserPanel.add(addBuildBtn);
         addBuildBtn.setBounds(407, 467, 95, 43);
 
-        getContentPane().add(mainPanel);
-        mainPanel.setBounds(0, 0, 900, 600);
+        getContentPane().add(mainUserPanel);
+        mainUserPanel.setBounds(0, 0, 900, 600);
 
         profilePanel.setBackground(new java.awt.Color(255, 255, 255));
         profilePanel.setMaximumSize(new java.awt.Dimension(900, 600));
@@ -118,7 +132,97 @@ public class AdminUserFrame extends javax.swing.JFrame {
         acceptBtnProfile.setBounds(752, 11, 65, 41);
 
         getContentPane().add(profilePanel);
-        profilePanel.setBounds(0, 0, 900, 600);
+        profilePanel.setBounds(0, 0, 910, 600);
+
+        mainAdminPanel.setBackground(new java.awt.Color(204, 255, 204));
+        mainAdminPanel.setMaximumSize(new java.awt.Dimension(900, 600));
+        mainAdminPanel.setMinimumSize(new java.awt.Dimension(900, 600));
+        mainAdminPanel.setLayout(null);
+
+        logoAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
+        mainAdminPanel.add(logoAdmin);
+        logoAdmin.setBounds(150, 80, 602, 119);
+
+        createAccountAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        createAccountAdminBtn.setText("Create Account");
+        createAccountAdminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createAccountAdminBtnActionPerformed(evt);
+            }
+        });
+        mainAdminPanel.add(createAccountAdminBtn);
+        createAccountAdminBtn.setBounds(200, 290, 160, 80);
+
+        editAccountAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        editAccountAdminBtn.setText("Edit Account");
+        mainAdminPanel.add(editAccountAdminBtn);
+        editAccountAdminBtn.setBounds(200, 380, 160, 80);
+
+        viewAccountAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        viewAccountAdminBtn.setText("View Account");
+        viewAccountAdminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewAccountAdminBtnActionPerformed(evt);
+            }
+        });
+        mainAdminPanel.add(viewAccountAdminBtn);
+        viewAccountAdminBtn.setBounds(200, 470, 160, 80);
+
+        logOffAdminBtn.setText("Log Off");
+        logOffAdminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logOffAdminBtnActionPerformed(evt);
+            }
+        });
+        mainAdminPanel.add(logOffAdminBtn);
+        logOffAdminBtn.setBounds(809, 11, 69, 43);
+
+        profileAdminBtn.setText("Profile");
+        mainAdminPanel.add(profileAdminBtn);
+        profileAdminBtn.setBounds(740, 11, 63, 43);
+
+        newComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        newComponentAdminBtn.setText("New Component");
+        newComponentAdminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newComponentAdminBtnActionPerformed(evt);
+            }
+        });
+        mainAdminPanel.add(newComponentAdminBtn);
+        newComponentAdminBtn.setBounds(370, 290, 160, 80);
+
+        editComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        editComponentAdminBtn.setText("Edit Component");
+        mainAdminPanel.add(editComponentAdminBtn);
+        editComponentAdminBtn.setBounds(370, 380, 160, 80);
+
+        viewComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        viewComponentAdminBtn.setText("View Components");
+        mainAdminPanel.add(viewComponentAdminBtn);
+        viewComponentAdminBtn.setBounds(370, 470, 160, 80);
+
+        createBuildAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        createBuildAdminBtn.setText("Create Build");
+        mainAdminPanel.add(createBuildAdminBtn);
+        createBuildAdminBtn.setBounds(540, 290, 160, 80);
+
+        editBuildAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        editBuildAdminBtn.setText("Edit Build");
+        mainAdminPanel.add(editBuildAdminBtn);
+        editBuildAdminBtn.setBounds(540, 380, 160, 80);
+
+        viewBuildAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        viewBuildAdminBtn.setText("View Build");
+        mainAdminPanel.add(viewBuildAdminBtn);
+        viewBuildAdminBtn.setBounds(540, 470, 160, 80);
+
+        adminMenuLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        adminMenuLabel.setText("Admin Menu");
+        mainAdminPanel.add(adminMenuLabel);
+        adminMenuLabel.setBounds(370, 220, 160, 40);
+
+        getContentPane().add(mainAdminPanel);
+        mainAdminPanel.setBounds(0, 0, 1041, 705);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -130,6 +234,22 @@ public class AdminUserFrame extends javax.swing.JFrame {
     private void acceptBtnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnProfileActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_acceptBtnProfileActionPerformed
+
+    private void logOffAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOffAdminBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logOffAdminBtnActionPerformed
+
+    private void viewAccountAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAccountAdminBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_viewAccountAdminBtnActionPerformed
+
+    private void createAccountAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountAdminBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createAccountAdminBtnActionPerformed
+
+    private void newComponentAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newComponentAdminBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newComponentAdminBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,16 +289,30 @@ public class AdminUserFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton acceptBtnProfile;
     private javax.swing.JButton addBuildBtn;
+    private javax.swing.JLabel adminMenuLabel;
     private javax.swing.JButton backBtnProfile;
     private javax.swing.JScrollPane buildList;
+    private javax.swing.JButton createAccountAdminBtn;
+    private javax.swing.JButton createBuildAdminBtn;
+    private javax.swing.JButton editAccountAdminBtn;
     private javax.swing.JButton editBtnProfile;
+    private javax.swing.JButton editBuildAdminBtn;
+    private javax.swing.JButton editComponentAdminBtn;
+    private javax.swing.JButton logOffAdminBtn;
     private javax.swing.JButton logOffBtn;
+    private javax.swing.JLabel logoAdmin;
     private javax.swing.JLabel logoMain;
-    private javax.swing.JPanel mainPanel;
+    private javax.swing.JPanel mainAdminPanel;
+    private javax.swing.JPanel mainUserPanel;
     private javax.swing.JLabel menuLabel;
+    private javax.swing.JButton newComponentAdminBtn;
+    private javax.swing.JButton profileAdminBtn;
     private javax.swing.JButton profileBtn;
     private javax.swing.JLabel profileLabel;
     private javax.swing.JPanel profilePanel;
     private javax.swing.JLabel settingsLabel;
+    private javax.swing.JButton viewAccountAdminBtn;
+    private javax.swing.JButton viewBuildAdminBtn;
+    private javax.swing.JButton viewComponentAdminBtn;
     // End of variables declaration//GEN-END:variables
 }
