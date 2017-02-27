@@ -467,7 +467,7 @@ public class BuildForm extends javax.swing.JFrame {
         jButton4.setBounds(50, 500, 130, 60);
 
         getContentPane().add(viewAccount);
-        viewAccount.setBounds(0, 0, 974, 705);
+        viewAccount.setBounds(0, 0, 900, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
