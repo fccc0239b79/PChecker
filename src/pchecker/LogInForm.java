@@ -106,9 +106,9 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         LogInPanel.add(UsernameInput);
-        UsernameInput.setBounds(355, 341, 200, 20);
+        UsernameInput.setBounds(355, 341, 210, 20);
         LogInPanel.add(PasswordInput);
-        PasswordInput.setBounds(355, 383, 200, 20);
+        PasswordInput.setBounds(355, 383, 210, 20);
 
         forgotPswLink.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         forgotPswLink.setForeground(new java.awt.Color(255, 0, 0));
@@ -195,7 +195,7 @@ public class LogInForm extends javax.swing.JFrame {
         jLabel1.setBounds(140, 61, 602, 104);
 
         getContentPane().add(RegistrationPanel);
-        RegistrationPanel.setBounds(0, 0, 900, 625);
+        RegistrationPanel.setBounds(0, 0, 900, 600);
 
         ForgotPasswordPanel.setBackground(new java.awt.Color(255, 255, 255));
         ForgotPasswordPanel.setMaximumSize(new java.awt.Dimension(900, 600));
@@ -232,7 +232,7 @@ public class LogInForm extends javax.swing.JFrame {
         cancelBtnFP.setBounds(320, 500, 86, 23);
 
         getContentPane().add(ForgotPasswordPanel);
-        ForgotPasswordPanel.setBounds(0, 0, 900, 630);
+        ForgotPasswordPanel.setBounds(0, 0, 900, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
