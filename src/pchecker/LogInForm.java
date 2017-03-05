@@ -5,7 +5,12 @@
  */
 package pchecker;
 
+import java.awt.Component;
+import java.awt.Container;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -52,14 +57,18 @@ public class LogInForm extends javax.swing.JFrame {
         surnameLabel = new javax.swing.JLabel();
         emailLabel = new javax.swing.JLabel();
         usernameField = new javax.swing.JTextField();
-        passField = new javax.swing.JTextField();
-        confirmField = new javax.swing.JTextField();
         forenameField = new javax.swing.JTextField();
         surnameField = new javax.swing.JTextField();
         emailField = new javax.swing.JTextField();
         cancelBtn = new javax.swing.JButton();
         createBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        passField = new javax.swing.JPasswordField();
+        confirmPassField = new javax.swing.JPasswordField();
+        emailLabel1 = new javax.swing.JLabel();
+        mobilNumField = new javax.swing.JTextField();
+        emailLabel2 = new javax.swing.JLabel();
+        DOBField = new javax.swing.JTextField();
         ForgotPasswordPanel = new javax.swing.JPanel();
         informLabelFP = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -126,12 +135,24 @@ public class LogInForm extends javax.swing.JFrame {
         forgotPswLink.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         forgotPswLink.setForeground(new java.awt.Color(255, 0, 0));
         forgotPswLink.setText("Forgot Password ?");
+        forgotPswLink.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        forgotPswLink.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                forgotPswLinkMouseClicked(evt);
+            }
+        });
         LogInPanel.add(forgotPswLink);
         forgotPswLink.setBounds(413, 516, 117, 15);
 
         createAccountLink.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         createAccountLink.setForeground(new java.awt.Color(255, 0, 0));
         createAccountLink.setText("Create Account");
+        createAccountLink.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        createAccountLink.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                createAccountLinkMouseClicked(evt);
+            }
+        });
         LogInPanel.add(createAccountLink);
         createAccountLink.setBounds(413, 495, 81, 15);
 
@@ -172,7 +193,7 @@ public class LogInForm extends javax.swing.JFrame {
 
         confirmLabel.setText("Confirm password:");
         RegistrationPanel.add(confirmLabel);
-        confirmLabel.setBounds(293, 352, 119, 16);
+        confirmLabel.setBounds(280, 350, 119, 16);
 
         nameLabel.setText("Forename:");
         RegistrationPanel.add(nameLabel);
@@ -187,16 +208,6 @@ public class LogInForm extends javax.swing.JFrame {
         emailLabel.setBounds(355, 442, 38, 16);
         RegistrationPanel.add(usernameField);
         usernameField.setBounds(401, 287, 201, 26);
-
-        passField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passFieldActionPerformed(evt);
-            }
-        });
-        RegistrationPanel.add(passField);
-        passField.setBounds(401, 318, 201, 26);
-        RegistrationPanel.add(confirmField);
-        confirmField.setBounds(401, 349, 201, 26);
         RegistrationPanel.add(forenameField);
         forenameField.setBounds(401, 380, 201, 26);
         RegistrationPanel.add(surnameField);
@@ -205,16 +216,56 @@ public class LogInForm extends javax.swing.JFrame {
         emailField.setBounds(401, 442, 201, 26);
 
         cancelBtn.setText("Cancel");
+        cancelBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelBtnActionPerformed(evt);
+            }
+        });
         RegistrationPanel.add(cancelBtn);
-        cancelBtn.setBounds(293, 504, 107, 29);
+        cancelBtn.setBounds(300, 560, 107, 29);
 
         createBtn.setText("Create Account");
+        createBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createBtnActionPerformed(evt);
+            }
+        });
         RegistrationPanel.add(createBtn);
-        createBtn.setBounds(495, 504, 140, 29);
+        createBtn.setBounds(500, 560, 140, 29);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         RegistrationPanel.add(jLabel1);
         jLabel1.setBounds(140, 61, 602, 104);
+
+        passField.setToolTipText("");
+        passField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passFieldActionPerformed(evt);
+            }
+        });
+        RegistrationPanel.add(passField);
+        passField.setBounds(400, 320, 210, 26);
+
+        confirmPassField.setToolTipText("");
+        confirmPassField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmPassFieldActionPerformed(evt);
+            }
+        });
+        RegistrationPanel.add(confirmPassField);
+        confirmPassField.setBounds(400, 350, 210, 26);
+
+        emailLabel1.setText("Mobile No.");
+        RegistrationPanel.add(emailLabel1);
+        emailLabel1.setBounds(318, 470, 70, 16);
+        RegistrationPanel.add(mobilNumField);
+        mobilNumField.setBounds(400, 470, 201, 26);
+
+        emailLabel2.setText("Date of birth (dd/mm/yyyy)");
+        RegistrationPanel.add(emailLabel2);
+        emailLabel2.setBounds(218, 500, 180, 16);
+        RegistrationPanel.add(DOBField);
+        DOBField.setBounds(400, 500, 201, 26);
 
         getContentPane().add(RegistrationPanel);
         RegistrationPanel.setBounds(0, 0, 900, 600);
@@ -263,10 +314,6 @@ public class LogInForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_UsernameInputActionPerformed
 
-    private void passFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passFieldActionPerformed
-
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
        System.exit(0);
     }//GEN-LAST:event_exitBtnActionPerformed
@@ -278,6 +325,143 @@ public class LogInForm extends javax.swing.JFrame {
     private void PasswordInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordInputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PasswordInputActionPerformed
+
+    private void createAccountLinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAccountLinkMouseClicked
+        
+        
+            LogInPanel.setVisible(false);
+            RegistrationPanel.setVisible(true);
+            
+        
+                              
+        
+        
+    }//GEN-LAST:event_createAccountLinkMouseClicked
+
+    private void passFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passFieldActionPerformed
+
+    private void confirmPassFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPassFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_confirmPassFieldActionPerformed
+
+    private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
+        
+        String username = usernameField.getText();
+        String password = String.valueOf(passField.getPassword());
+        String passwordConfirm = String.valueOf(confirmPassField.getPassword());
+
+        String name = forenameField.getText();
+        String surname = surnameField.getText();
+        String email = emailField.getText();
+        String DOB = DOBField.getText();
+        
+        String mobilNumber = mobilNumField.getText();
+        //Integer mobilNumber = Integer.parseInt(mobilNumField.getText());
+        
+        int emailValidation = email.indexOf('@');
+
+        
+        boolean confirm = true;
+        
+        if(username.isEmpty()|| password.isEmpty() || passwordConfirm.isEmpty() || name.isEmpty() || surname.isEmpty() || email.isEmpty()|| DOB.isEmpty() || mobilNumber.isEmpty()){
+          
+        confirm = false;
+        
+        }
+        
+        // validation process, sets lenths and types needed to validate form
+        if (confirm) { //Checks to see all fields are complete.
+            if (emailValidation >= 0) {
+              
+                if (surname.length() <= 45) {
+                    if (name.length() <= 45) {
+                        if(DOB.length() >= 10){
+                            if(mobilNumber.length()>=11){
+                            if(password.equals(passwordConfirm)){
+                                
+                            
+                        userAdminAccount user = new userAdminAccount();
+                        boolean result = user.usernameAvailability(username);
+                        if (result) {
+                            
+                            user.setUsername(username);                        
+                            user.setPassword(password);
+                            user.setFname(name);
+                            user.setSname(surname);
+                            user.setEmail(email);
+                            user.setDOB(DOB);     
+                            user.setMobil(mobilNumber); 
+                            user.setType(false);
+                            
+                            user.saveUser();
+                            
+                            //if valid the account is created in database 
+                            JOptionPane.showMessageDialog(null, "Account Created. You will be returned to the Log In Page", "Account Created", JOptionPane.INFORMATION_MESSAGE);
+                            LogInForm frm = new LogInForm();
+                            this.setVisible(false);
+                            frm.setVisible(true);
+
+                        }else{ //error messages for validation
+                         JOptionPane.showMessageDialog(null, "Account in use, ","", JOptionPane.INFORMATION_MESSAGE);
+                        
+                        }
+                        } else {
+                        JOptionPane.showMessageDialog(null, "Passwords dont match", "", JOptionPane.INFORMATION_MESSAGE);
+
+                    }
+                            } else {
+                        JOptionPane.showMessageDialog(null, "Mobile Number too short.", "", JOptionPane.INFORMATION_MESSAGE);
+
+                    }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Date of Birth too short.", "", JOptionPane.INFORMATION_MESSAGE);
+
+                    }
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Name too long.", "", JOptionPane.INFORMATION_MESSAGE);
+
+                    }
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "Surname too long.", "", JOptionPane.INFORMATION_MESSAGE);
+
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Email Issue: Please ensure the email field contains an '@'.", "Email Issue", JOptionPane.INFORMATION_MESSAGE);
+
+            }
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Please complete all fields!", "Complete All fields", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+    }//GEN-LAST:event_createBtnActionPerformed
+
+    private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
+        LogInPanel.setVisible(true);
+        RegistrationPanel.setVisible(false);
+        
+       
+        for (Component c : RegistrationPanel.getComponents())
+        {
+            if (c instanceof JTextField)
+            {
+                JTextField j = (JTextField)c;
+                j.setText("");
+            }
+        }
+    }//GEN-LAST:event_cancelBtnActionPerformed
+
+    private void forgotPswLinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotPswLinkMouseClicked
+       LogInPanel.setVisible(false);
+       ForgotPasswordPanel.setVisible(true);
+    }//GEN-LAST:event_forgotPswLinkMouseClicked
    
     private void login() {
 
@@ -340,6 +524,7 @@ public class LogInForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField DOBField;
     private javax.swing.JPanel ForgotPasswordPanel;
     private javax.swing.JPanel LogInPanel;
     private javax.swing.JPasswordField PasswordInput;
@@ -350,13 +535,15 @@ public class LogInForm extends javax.swing.JFrame {
     private javax.swing.JButton acceptBtnFP;
     private javax.swing.JButton cancelBtn;
     private javax.swing.JButton cancelBtnFP;
-    private javax.swing.JTextField confirmField;
     private javax.swing.JLabel confirmLabel;
+    private javax.swing.JPasswordField confirmPassField;
     private javax.swing.JLabel createAccountLink;
     private javax.swing.JButton createBtn;
     private javax.swing.JTextField emailField;
     private javax.swing.JTextField emailFieldFP;
     private javax.swing.JLabel emailLabel;
+    private javax.swing.JLabel emailLabel1;
+    private javax.swing.JLabel emailLabel2;
     private javax.swing.JLabel emailLabelFP;
     private javax.swing.JButton exitBtn;
     private javax.swing.JTextField forenameField;
@@ -367,8 +554,9 @@ public class LogInForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton loginBtn;
     private javax.swing.JLabel logo;
+    private javax.swing.JTextField mobilNumField;
     private javax.swing.JLabel nameLabel;
-    private javax.swing.JTextField passField;
+    private javax.swing.JPasswordField passField;
     private javax.swing.JLabel passLabel;
     private javax.swing.JTextField surnameField;
     private javax.swing.JLabel surnameLabel;

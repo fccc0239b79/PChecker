@@ -258,7 +258,6 @@ private void loggOff(){
         LogInForm frm = new LogInForm(); //opens admin user form
         this.setVisible(false);
         frm.setVisible(true);
-        
         currentUser.reset();
         
 

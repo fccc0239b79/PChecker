@@ -19,8 +19,8 @@ import java.util.ArrayList;
  */
 public class userAdminAccount {
     
-    private String username, password, fName, sName, email;
-    private Integer mobileNum, DOB;
+    private String username, password, fName, sName, email, DOB,mobilNum;
+    ///private Integer mobilNum;
     private boolean type;          //True for admin, false for general. 
 
     
@@ -46,10 +46,10 @@ public class userAdminAccount {
     public String getEmail(){
         return email;
     }
-    public Integer getMobile(){
-        return mobileNum;
+    public String getMobile(){
+        return mobilNum;
     }
-    public Integer getDOB(){
+    public String getDOB(){
         return DOB;
     }
     
@@ -80,8 +80,8 @@ public class userAdminAccount {
                 fName = rs.getString("Fname");
                 sName = rs.getString("Sname");
                 email = rs.getString("Email");
-                mobileNum = rs.getInt("MobilNum");
-                DOB = rs.getInt("DOB");
+                mobilNum = rs.getString("MobilNum");
+                DOB = rs.getString("DOB");
 
                  //System.out.println(loggedFname + loggedSname + loggedEmail);
                  
@@ -245,6 +245,13 @@ public class userAdminAccount {
         this.email = email;
     }
 
+    
+    public void setMobil(String mobil) {
+        this.mobilNum = mobil;
+    }
+    public void setDOB(String dob) {
+        this.DOB = dob;
+    }
     /**
      *
      * @param type
@@ -284,7 +291,7 @@ public class userAdminAccount {
             int availability;
             Statement stmt = (Statement) con.createStatement();
             //checks username entered against usernames within database.
-            String query = ("SELECT COUNT(*) FROM Account WHERE ID = '" + username + "'");
+            String query = ("SELECT COUNT(*) FROM Account WHERE userName = '" + username + "'");
 
             stmt.executeQuery(query);
             ResultSet rs = stmt.getResultSet();
@@ -315,7 +322,7 @@ public class userAdminAccount {
     
     try {
         //SQL query for inserting data into account table
-       String query = "INSERT INTO Account values (?,?,?,?,?,?)"; 
+       String query = "INSERT INTO Account values (?,?,?,?,?,?,?,?)"; 
           
        PreparedStatement statement = con.prepareStatement(query);
        
@@ -325,7 +332,9 @@ public class userAdminAccount {
        statement.setString(3, fName);
        statement.setString(4, sName);
        statement.setString(5,email);
-       statement.setBoolean(6, type);
+       statement.setString(6,mobilNum);
+       statement.setString(7,DOB);
+       statement.setBoolean(8, type);
        statement.execute();
     }
     catch(SQLException err){
@@ -346,8 +355,8 @@ public class userAdminAccount {
         fName= " ";
         sName= " ";
         email= " ";
-        mobileNum = 0;
-        DOB = 0;
+        mobilNum = " ";
+        DOB = " ";
         
         type= false;         //True for admin, false for general. 
 
