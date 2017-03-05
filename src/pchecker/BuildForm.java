@@ -213,29 +213,29 @@ public class BuildForm extends javax.swing.JFrame {
         motherboardPanel.setLayout(motherboardPanelLayout);
         motherboardPanelLayout.setHorizontalGroup(
             motherboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 157, Short.MAX_VALUE)
         );
         motherboardPanelLayout.setVerticalGroup(
             motherboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 139, Short.MAX_VALUE)
         );
 
         getContentPane().add(motherboardPanel);
-        motherboardPanel.setBounds(0, 0, 100, 100);
+        motherboardPanel.setBounds(0, 0, 157, 139);
 
         javax.swing.GroupLayout cpuPanelLayout = new javax.swing.GroupLayout(cpuPanel);
         cpuPanel.setLayout(cpuPanelLayout);
         cpuPanelLayout.setHorizontalGroup(
             cpuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 289, Short.MAX_VALUE)
         );
         cpuPanelLayout.setVerticalGroup(
             cpuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 169, Short.MAX_VALUE)
         );
 
         getContentPane().add(cpuPanel);
-        cpuPanel.setBounds(0, 0, 100, 100);
+        cpuPanel.setBounds(0, 0, 289, 169);
 
         javax.swing.GroupLayout ramPanelLayout = new javax.swing.GroupLayout(ramPanel);
         ramPanel.setLayout(ramPanelLayout);
@@ -467,7 +467,7 @@ public class BuildForm extends javax.swing.JFrame {
         jButton4.setBounds(50, 500, 130, 60);
 
         getContentPane().add(viewAccount);
-        viewAccount.setBounds(0, 0, 974, 705);
+        viewAccount.setBounds(0, 0, 900, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
