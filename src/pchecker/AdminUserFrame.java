@@ -5,6 +5,8 @@
  */
 package pchecker;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Pawel
@@ -65,6 +67,16 @@ public class AdminUserFrame extends javax.swing.JFrame {
         editBtnProfile = new javax.swing.JButton();
         settingsLabel = new javax.swing.JLabel();
         acceptBtnProfile = new javax.swing.JButton();
+        mobilPro = new javax.swing.JTextField();
+        fnamePro = new javax.swing.JTextField();
+        snamePro = new javax.swing.JTextField();
+        DOBPro = new javax.swing.JTextField();
+        emailPro = new javax.swing.JTextField();
+        nameLabel = new javax.swing.JLabel();
+        surnameLabel = new javax.swing.JLabel();
+        emailLabel = new javax.swing.JLabel();
+        emailLabel1 = new javax.swing.JLabel();
+        emailLabel2 = new javax.swing.JLabel();
         mainAdminPanel = new javax.swing.JPanel();
         logoAdmin = new javax.swing.JLabel();
         createAccountAdminBtn = new javax.swing.JButton();
@@ -101,6 +113,11 @@ public class AdminUserFrame extends javax.swing.JFrame {
         menuLabel.setBounds(394, 215, 109, 44);
 
         profileBtn.setText("Profile");
+        profileBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profileBtnActionPerformed(evt);
+            }
+        });
         mainUserPanel.add(profileBtn);
         profileBtn.setBounds(740, 11, 84, 43);
 
@@ -134,26 +151,83 @@ public class AdminUserFrame extends javax.swing.JFrame {
         profileLabel.setBounds(387, 70, 159, 44);
 
         backBtnProfile.setText("Back");
+        backBtnProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnProfileActionPerformed(evt);
+            }
+        });
         profilePanel.add(backBtnProfile);
         backBtnProfile.setBounds(827, 11, 63, 41);
 
         editBtnProfile.setText("Edit Profile");
+        editBtnProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBtnProfileActionPerformed(evt);
+            }
+        });
         profilePanel.add(editBtnProfile);
         editBtnProfile.setBounds(564, 73, 112, 41);
 
         settingsLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         settingsLabel.setText("SETTINGS");
         profilePanel.add(settingsLabel);
-        settingsLabel.setBounds(375, 314, 184, 44);
+        settingsLabel.setBounds(370, 470, 184, 44);
 
         acceptBtnProfile.setText("Accept");
+        acceptBtnProfile.setEnabled(false);
         acceptBtnProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 acceptBtnProfileActionPerformed(evt);
             }
         });
         profilePanel.add(acceptBtnProfile);
-        acceptBtnProfile.setBounds(752, 11, 87, 41);
+        acceptBtnProfile.setBounds(450, 310, 87, 41);
+
+        mobilPro.setText("jTextField1");
+        mobilPro.setEnabled(false);
+        profilePanel.add(mobilPro);
+        mobilPro.setBounds(420, 270, 150, 26);
+
+        fnamePro.setText("jTextField1");
+        fnamePro.setDisabledTextColor(new java.awt.Color(102, 102, 102));
+        fnamePro.setEnabled(false);
+        profilePanel.add(fnamePro);
+        fnamePro.setBounds(420, 150, 150, 26);
+
+        snamePro.setText("jTextField1");
+        snamePro.setEnabled(false);
+        profilePanel.add(snamePro);
+        snamePro.setBounds(420, 180, 150, 26);
+
+        DOBPro.setText("jTextField1");
+        DOBPro.setEnabled(false);
+        profilePanel.add(DOBPro);
+        DOBPro.setBounds(420, 210, 150, 26);
+
+        emailPro.setText("jTextField1");
+        emailPro.setEnabled(false);
+        profilePanel.add(emailPro);
+        emailPro.setBounds(420, 240, 150, 26);
+
+        nameLabel.setText("Forename:");
+        profilePanel.add(nameLabel);
+        nameLabel.setBounds(350, 160, 65, 16);
+
+        surnameLabel.setText("Surname:");
+        profilePanel.add(surnameLabel);
+        surnameLabel.setBounds(360, 190, 58, 16);
+
+        emailLabel.setText("email:");
+        profilePanel.add(emailLabel);
+        emailLabel.setBounds(370, 250, 38, 16);
+
+        emailLabel1.setText("Mobile No.");
+        profilePanel.add(emailLabel1);
+        emailLabel1.setBounds(350, 270, 70, 16);
+
+        emailLabel2.setText("Date of birth");
+        profilePanel.add(emailLabel2);
+        emailLabel2.setBounds(330, 210, 90, 20);
 
         getContentPane().add(profilePanel);
         profilePanel.setBounds(0, 0, 910, 600);
@@ -203,6 +277,11 @@ public class AdminUserFrame extends javax.swing.JFrame {
         logOffAdminBtn.setBounds(809, 11, 91, 43);
 
         profileAdminBtn.setText("Profile");
+        profileAdminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profileAdminBtnActionPerformed(evt);
+            }
+        });
         mainAdminPanel.add(profileAdminBtn);
         profileAdminBtn.setBounds(740, 11, 84, 43);
 
@@ -262,13 +341,112 @@ private void loggOff(){
         
 
 }
+private void getProfile(){
+    mainAdminPanel.setVisible(false);
+    mainUserPanel.setVisible(false);
+    profilePanel.setVisible(true);
+    
+    fnamePro.setText(currentUser.getFname());
+    snamePro.setText(currentUser.getSname());
+    DOBPro.setText(currentUser.getDOB());
+    emailPro.setText(currentUser.getEmail());
+    mobilPro.setText(currentUser.getMobile());
+    
+}
+
+private void enbleEdit(boolean torf){
+    fnamePro.setEnabled(torf);
+    snamePro.setEnabled(torf);
+    DOBPro.setEnabled(torf);
+    emailPro.setEnabled(torf);
+    mobilPro.setEnabled(torf);
+    acceptBtnProfile.setEnabled(torf);
+}
     private void logOffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOffBtnActionPerformed
        loggOff();
         
     }//GEN-LAST:event_logOffBtnActionPerformed
 
     private void acceptBtnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnProfileActionPerformed
-        // TODO add your handling code here:
+        
+        
+
+        String name = fnamePro.getText();
+        String surname = snamePro.getText();
+        String email = emailPro.getText();
+        String DOB = DOBPro.getText();
+        String mobilNumber = mobilPro.getText();
+        
+       
+        int emailValidation = email.indexOf('@');
+
+        
+        boolean confirm = true;
+        
+        if( name.isEmpty() || surname.isEmpty() || email.isEmpty()|| DOB.isEmpty() || mobilNumber.isEmpty()){
+          
+        confirm = false;
+        
+        }
+        
+        // validation process, sets lenths and types needed to validate form
+        if (confirm) { //Checks to see all fields are complete.
+            
+          if (emailValidation >= 0) {
+
+                if (surname.length() <= 45) {
+                    if (name.length() <= 45) {
+                        if(DOB.length() >= 10){
+                            if(mobilNumber.length()>=11){
+                            
+                               
+                            currentUser.setFname(name);
+                            currentUser.setSname(surname);
+                            currentUser.setEmail(email);
+                            currentUser.setDOB(DOB);     
+                            currentUser.setMobil(mobilNumber); 
+                            
+                            currentUser.UpdateUser();
+                            
+                            enbleEdit(false);
+                            
+                            //if valid the account is created in database 
+                            JOptionPane.showMessageDialog(null, "Account Updated.", "Account Updated", JOptionPane.INFORMATION_MESSAGE);
+                           
+
+                        
+                            } else {
+                        JOptionPane.showMessageDialog(null, "Mobile Number too short.", "", JOptionPane.INFORMATION_MESSAGE);
+
+                    }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Date of Birth too short.", "", JOptionPane.INFORMATION_MESSAGE);
+
+                    }
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Name too long.", "", JOptionPane.INFORMATION_MESSAGE);
+
+                    }
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "Surname too long.", "", JOptionPane.INFORMATION_MESSAGE);
+
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Email Issue: Please ensure the email field contains an '@'.", "Email Issue", JOptionPane.INFORMATION_MESSAGE);
+
+            }
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Please complete all fields!", "Complete All fields", JOptionPane.INFORMATION_MESSAGE);
+        }
+                                       
+
+    
     }//GEN-LAST:event_acceptBtnProfileActionPerformed
 
     private void logOffAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOffAdminBtnActionPerformed
@@ -286,6 +464,35 @@ private void loggOff(){
     private void newComponentAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newComponentAdminBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_newComponentAdminBtnActionPerformed
+
+    private void profileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileBtnActionPerformed
+       getProfile();
+    }//GEN-LAST:event_profileBtnActionPerformed
+
+    private void profileAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileAdminBtnActionPerformed
+        getProfile();
+    }//GEN-LAST:event_profileAdminBtnActionPerformed
+
+    private void editBtnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnProfileActionPerformed
+
+    enbleEdit(true);
+       
+    }//GEN-LAST:event_editBtnProfileActionPerformed
+
+    private void backBtnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnProfileActionPerformed
+        profilePanel.setVisible(false);
+
+        if(currentUser.getType()){
+            this.setTitle("Admin Menu"); 
+            mainAdminPanel.setVisible(true);
+
+        }else{
+            this.setTitle("User Menu"); 
+            mainUserPanel.setVisible(true);
+
+        }
+        
+    }//GEN-LAST:event_backBtnProfileActionPerformed
 
     /**
      * @param args the command line arguments
@@ -323,6 +530,7 @@ private void loggOff(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField DOBPro;
     private javax.swing.JButton acceptBtnProfile;
     private javax.swing.JButton addBuildBtn;
     private javax.swing.JLabel adminMenuLabel;
@@ -334,6 +542,11 @@ private void loggOff(){
     private javax.swing.JButton editBtnProfile;
     private javax.swing.JButton editBuildAdminBtn;
     private javax.swing.JButton editComponentAdminBtn;
+    private javax.swing.JLabel emailLabel;
+    private javax.swing.JLabel emailLabel1;
+    private javax.swing.JLabel emailLabel2;
+    private javax.swing.JTextField emailPro;
+    private javax.swing.JTextField fnamePro;
     private javax.swing.JButton logOffAdminBtn;
     private javax.swing.JButton logOffBtn;
     private javax.swing.JLabel logoAdmin;
@@ -341,12 +554,16 @@ private void loggOff(){
     private javax.swing.JPanel mainAdminPanel;
     private javax.swing.JPanel mainUserPanel;
     private javax.swing.JLabel menuLabel;
+    private javax.swing.JTextField mobilPro;
+    private javax.swing.JLabel nameLabel;
     private javax.swing.JButton newComponentAdminBtn;
     private javax.swing.JButton profileAdminBtn;
     private javax.swing.JButton profileBtn;
     private javax.swing.JLabel profileLabel;
     private javax.swing.JPanel profilePanel;
     private javax.swing.JLabel settingsLabel;
+    private javax.swing.JTextField snamePro;
+    private javax.swing.JLabel surnameLabel;
     private javax.swing.JButton viewAccountAdminBtn;
     private javax.swing.JButton viewBuildAdminBtn;
     private javax.swing.JButton viewComponentAdminBtn;

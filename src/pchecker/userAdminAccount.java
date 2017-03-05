@@ -88,7 +88,7 @@ public class userAdminAccount {
                 boolean dbType = rs.getBoolean("accountType");
                 //if (dbUname.equals(enteredUname) && dbPassword.equals(enteredPass)) { //Comparison check
                 setType(dbType); //Sets type of user.
-                con.close();
+                
                 setUsername(dbUname);
                     //setPassword(dbPassword);
                     //return true;
@@ -335,6 +335,35 @@ public class userAdminAccount {
        statement.setString(6,mobilNum);
        statement.setString(7,DOB);
        statement.setBoolean(8, type);
+       statement.execute();
+      
+       
+    }
+    catch(SQLException err){
+        
+    
+    }
+    }
+    
+    public void UpdateUser(){
+    
+        //connecting to the vm
+    Connection con = ServerControl.ServerControl();
+    
+    try {
+        //SQL query for inserting data into account table
+       String query = "UPDATE Account SET Fname = ?, Sname = ?, Email = ?, MobilNum = ?, DOB = ? WHERE userName = ?"; 
+          
+       PreparedStatement statement = con.prepareStatement(query);
+       
+       //setting user inputs into sql query
+       statement.setString(1, fName);
+       statement.setString(2, sName);
+       statement.setString(3,email);
+       statement.setString(4,mobilNum);
+       statement.setString(5,DOB);
+       statement.setString(6, username);
+       System.out.println(statement);
        statement.execute();
     }
     catch(SQLException err){
