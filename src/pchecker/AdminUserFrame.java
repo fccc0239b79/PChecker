@@ -222,7 +222,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         adminMenuLabel.setBounds(370, 220, 160, 40);
 
         getContentPane().add(mainAdminPanel);
-        mainAdminPanel.setBounds(0, 0, 1041, 705);
+        mainAdminPanel.setBounds(0, 0, 900, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

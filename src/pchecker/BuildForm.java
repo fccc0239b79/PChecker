@@ -49,15 +49,6 @@ public class BuildForm extends javax.swing.JFrame {
         supplyBtn = new javax.swing.JButton();
         coolingBtn = new javax.swing.JButton();
         accessoriesBtn = new javax.swing.JButton();
-        motherboardPanel = new javax.swing.JPanel();
-        cpuPanel = new javax.swing.JPanel();
-        ramPanel = new javax.swing.JPanel();
-        coolingPanel = new javax.swing.JPanel();
-        gpuPanel = new javax.swing.JPanel();
-        hddPanel = new javax.swing.JPanel();
-        accessoriesPanel = new javax.swing.JPanel();
-        casePanel = new javax.swing.JPanel();
-        powerPanel = new javax.swing.JPanel();
         createAccount = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -83,6 +74,15 @@ public class BuildForm extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        addBuildPanel = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        deleteBuildBtn = new javax.swing.JButton();
+        addBuildBtn = new javax.swing.JButton();
+        editBuildBtn = new javax.swing.JButton();
+        buildCancelBtn = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(900, 600));
@@ -208,132 +208,6 @@ public class BuildForm extends javax.swing.JFrame {
 
         getContentPane().add(buildPanel);
         buildPanel.setBounds(0, 0, 900, 600);
-
-        javax.swing.GroupLayout motherboardPanelLayout = new javax.swing.GroupLayout(motherboardPanel);
-        motherboardPanel.setLayout(motherboardPanelLayout);
-        motherboardPanelLayout.setHorizontalGroup(
-            motherboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 157, Short.MAX_VALUE)
-        );
-        motherboardPanelLayout.setVerticalGroup(
-            motherboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 139, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(motherboardPanel);
-        motherboardPanel.setBounds(0, 0, 157, 139);
-
-        javax.swing.GroupLayout cpuPanelLayout = new javax.swing.GroupLayout(cpuPanel);
-        cpuPanel.setLayout(cpuPanelLayout);
-        cpuPanelLayout.setHorizontalGroup(
-            cpuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 289, Short.MAX_VALUE)
-        );
-        cpuPanelLayout.setVerticalGroup(
-            cpuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 169, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(cpuPanel);
-        cpuPanel.setBounds(0, 0, 289, 169);
-
-        javax.swing.GroupLayout ramPanelLayout = new javax.swing.GroupLayout(ramPanel);
-        ramPanel.setLayout(ramPanelLayout);
-        ramPanelLayout.setHorizontalGroup(
-            ramPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        ramPanelLayout.setVerticalGroup(
-            ramPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(ramPanel);
-        ramPanel.setBounds(0, 0, 100, 100);
-
-        javax.swing.GroupLayout coolingPanelLayout = new javax.swing.GroupLayout(coolingPanel);
-        coolingPanel.setLayout(coolingPanelLayout);
-        coolingPanelLayout.setHorizontalGroup(
-            coolingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        coolingPanelLayout.setVerticalGroup(
-            coolingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(coolingPanel);
-        coolingPanel.setBounds(0, 0, 100, 100);
-
-        javax.swing.GroupLayout gpuPanelLayout = new javax.swing.GroupLayout(gpuPanel);
-        gpuPanel.setLayout(gpuPanelLayout);
-        gpuPanelLayout.setHorizontalGroup(
-            gpuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        gpuPanelLayout.setVerticalGroup(
-            gpuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(gpuPanel);
-        gpuPanel.setBounds(0, 0, 100, 100);
-
-        javax.swing.GroupLayout hddPanelLayout = new javax.swing.GroupLayout(hddPanel);
-        hddPanel.setLayout(hddPanelLayout);
-        hddPanelLayout.setHorizontalGroup(
-            hddPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        hddPanelLayout.setVerticalGroup(
-            hddPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(hddPanel);
-        hddPanel.setBounds(0, 0, 100, 100);
-
-        javax.swing.GroupLayout accessoriesPanelLayout = new javax.swing.GroupLayout(accessoriesPanel);
-        accessoriesPanel.setLayout(accessoriesPanelLayout);
-        accessoriesPanelLayout.setHorizontalGroup(
-            accessoriesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        accessoriesPanelLayout.setVerticalGroup(
-            accessoriesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(accessoriesPanel);
-        accessoriesPanel.setBounds(0, 0, 100, 100);
-
-        javax.swing.GroupLayout casePanelLayout = new javax.swing.GroupLayout(casePanel);
-        casePanel.setLayout(casePanelLayout);
-        casePanelLayout.setHorizontalGroup(
-            casePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        casePanelLayout.setVerticalGroup(
-            casePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(casePanel);
-        casePanel.setBounds(0, 0, 100, 100);
-
-        javax.swing.GroupLayout powerPanelLayout = new javax.swing.GroupLayout(powerPanel);
-        powerPanel.setLayout(powerPanelLayout);
-        powerPanelLayout.setHorizontalGroup(
-            powerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        powerPanelLayout.setVerticalGroup(
-            powerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(powerPanel);
-        powerPanel.setBounds(0, 0, 100, 100);
 
         createAccount.setBackground(new java.awt.Color(255, 255, 204));
         createAccount.setMaximumSize(new java.awt.Dimension(900, 600));
@@ -469,6 +343,59 @@ public class BuildForm extends javax.swing.JFrame {
         getContentPane().add(viewAccount);
         viewAccount.setBounds(0, 0, 900, 600);
 
+        addBuildPanel.setBackground(new java.awt.Color(255, 255, 255));
+        addBuildPanel.setMaximumSize(new java.awt.Dimension(900, 600));
+        addBuildPanel.setMinimumSize(new java.awt.Dimension(900, 600));
+        addBuildPanel.setLayout(null);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        addBuildPanel.add(jScrollPane2);
+        jScrollPane2.setBounds(10, 160, 750, 430);
+
+        deleteBuildBtn.setText("DELETE BUILD");
+        addBuildPanel.add(deleteBuildBtn);
+        deleteBuildBtn.setBounds(770, 340, 120, 70);
+
+        addBuildBtn.setText("ADD BUILD");
+        addBuildPanel.add(addBuildBtn);
+        addBuildBtn.setBounds(770, 160, 120, 70);
+
+        editBuildBtn.setText("EDIT BUILD");
+        addBuildPanel.add(editBuildBtn);
+        editBuildBtn.setBounds(770, 250, 120, 70);
+
+        buildCancelBtn.setText("Cancel");
+        buildCancelBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buildCancelBtnActionPerformed(evt);
+            }
+        });
+        addBuildPanel.add(buildCancelBtn);
+        buildCancelBtn.setBounds(10, 10, 70, 40);
+
+        jButton3.setText("COMPARE BUILDS");
+        addBuildPanel.add(jButton3);
+        jButton3.setBounds(770, 430, 119, 70);
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
+        addBuildPanel.add(jLabel13);
+        jLabel13.setBounds(160, 10, 620, 150);
+
+        getContentPane().add(addBuildPanel);
+        addBuildPanel.setBounds(0, 0, 900, 600);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -491,6 +418,10 @@ public class BuildForm extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void buildCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildCancelBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buildCancelBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -531,33 +462,34 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JButton acceptBtnB;
     private javax.swing.JButton acceptBtnE;
     private javax.swing.JButton accessoriesBtn;
-    private javax.swing.JPanel accessoriesPanel;
+    private javax.swing.JButton addBuildBtn;
+    private javax.swing.JPanel addBuildPanel;
+    private javax.swing.JButton buildCancelBtn;
     private javax.swing.JTextField buildNameFieldB;
     private javax.swing.JLabel buildNameLabelB;
     private javax.swing.JPanel buildPanel;
     private javax.swing.JButton cancelBtnB;
     private javax.swing.JButton cancelBtnE;
     private javax.swing.JButton caseBtn;
-    private javax.swing.JPanel casePanel;
     private javax.swing.JScrollPane componentsListE;
     private javax.swing.JButton coolingBtn;
-    private javax.swing.JPanel coolingPanel;
-    private javax.swing.JPanel cpuPanel;
     private javax.swing.JPanel createAccount;
+    private javax.swing.JButton deleteBuildBtn;
+    private javax.swing.JButton editBuildBtn;
     private javax.swing.JLabel editLabelE;
     private javax.swing.JPanel editPanel;
-    private javax.swing.JPanel gpuPanel;
     private javax.swing.JButton graphicsBtn;
     private javax.swing.JButton hddBtn;
-    private javax.swing.JPanel hddPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -567,7 +499,9 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -577,11 +511,8 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel logoB;
     private javax.swing.JLabel logoE;
     private javax.swing.JButton motherboardBtn;
-    private javax.swing.JPanel motherboardPanel;
-    private javax.swing.JPanel powerPanel;
     private javax.swing.JButton processorBtn;
     private javax.swing.JButton ramBtn;
-    private javax.swing.JPanel ramPanel;
     private javax.swing.JButton supplyBtn;
     private javax.swing.JPanel viewAccount;
     // End of variables declaration//GEN-END:variables
