@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.*;
 import java.util.ArrayList;
 
 /**
@@ -66,14 +67,14 @@ public class userAdminAccount {
         
         try {
             Statement stmt = (Statement) con.createStatement();
-            String query = ("SELECT userName, accountType, Fname, Sname, Email, MobilNum, DOB FROM Account WHERE ID='" + enteredUname +"'");
+            String query = ("SELECT userName, accountType, Fname, Sname, Email, MobilNum, DOB FROM Account WHERE userName='" + enteredUname +"'");
 
             stmt.executeQuery(query);
             ResultSet rs = stmt.getResultSet();
 
             while (rs.next()) {
 
-                dbUname = rs.getString("ID");
+                dbUname = rs.getString("userName");
                 //dbPassword = rs.getString("Password");
                 
                 fName = rs.getString("Fname");
@@ -146,7 +147,7 @@ public class userAdminAccount {
            String enteredPassword = password;
             try {
             Statement stmt = (Statement) con.createStatement();
-            String query = ("SELECT ID, Password FROM Account WHERE ID='" + user+"'");
+            String query = ("SELECT userName, Password FROM Account WHERE userName='" + user+"'");
 
             stmt.executeQuery(query);
             ResultSet rs = stmt.getResultSet();

@@ -31,6 +31,8 @@ public class AdminUserFrame extends javax.swing.JFrame {
         if(userType){
             this.setTitle("Admin Menu"); 
             mainAdminPanel.setVisible(true);
+            //mainUserPanel.setVisible(false);
+
         }else{
             this.setTitle("User Menu"); 
             mainUserPanel.setVisible(true);
@@ -119,6 +121,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
 
         getContentPane().add(mainUserPanel);
         mainUserPanel.setBounds(0, 0, 900, 600);
+        mainUserPanel.setVisible(false);
 
         profilePanel.setBackground(new java.awt.Color(255, 255, 255));
         profilePanel.setMaximumSize(new java.awt.Dimension(900, 600));
@@ -154,6 +157,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
 
         getContentPane().add(profilePanel);
         profilePanel.setBounds(0, 0, 910, 600);
+        profilePanel.setVisible(false);
 
         mainAdminPanel.setBackground(new java.awt.Color(204, 255, 204));
         mainAdminPanel.setMaximumSize(new java.awt.Dimension(900, 600));
@@ -244,12 +248,24 @@ public class AdminUserFrame extends javax.swing.JFrame {
 
         getContentPane().add(mainAdminPanel);
         mainAdminPanel.setBounds(0, 0, 900, 600);
+        mainAdminPanel.setVisible(false);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+private void loggOff(){
 
+    
+        LogInForm frm = new LogInForm(); //opens admin user form
+        this.setVisible(false);
+        frm.setVisible(true);
+        
+        currentUser.reset();
+        
+
+}
     private void logOffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOffBtnActionPerformed
-        // TODO add your handling code here:
+       loggOff();
+        
     }//GEN-LAST:event_logOffBtnActionPerformed
 
     private void acceptBtnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnProfileActionPerformed
@@ -257,7 +273,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_acceptBtnProfileActionPerformed
 
     private void logOffAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOffAdminBtnActionPerformed
-        // TODO add your handling code here:
+        loggOff();
     }//GEN-LAST:event_logOffAdminBtnActionPerformed
 
     private void viewAccountAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAccountAdminBtnActionPerformed
