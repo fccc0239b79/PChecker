@@ -103,13 +103,11 @@ public class BuildForm extends javax.swing.JFrame {
 
         cancelBtnE.setText("Cancel");
         editPanel.add(cancelBtnE);
-        cancelBtnE.setBounds(825, 11, 65, 42);
+        cancelBtnE.setBounds(825, 11, 86, 42);
 
         acceptBtnE.setText("Accept");
         editPanel.add(acceptBtnE);
-        acceptBtnE.setBounds(754, 11, 65, 42);
-
-        componentsListE.setBackground(new java.awt.Color(255, 255, 255));
+        acceptBtnE.setBounds(754, 11, 87, 42);
         editPanel.add(componentsListE);
         componentsListE.setBounds(147, 258, 602, 282);
 
@@ -133,11 +131,11 @@ public class BuildForm extends javax.swing.JFrame {
 
         cancelBtnB.setText("Cancel");
         buildPanel.add(cancelBtnB);
-        cancelBtnB.setBounds(825, 11, 65, 42);
+        cancelBtnB.setBounds(825, 11, 86, 42);
 
         acceptBtnB.setText("Accept");
         buildPanel.add(acceptBtnB);
-        acceptBtnB.setBounds(754, 11, 65, 42);
+        acceptBtnB.setBounds(754, 11, 87, 42);
 
         logoB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         buildPanel.add(logoB);
@@ -159,7 +157,7 @@ public class BuildForm extends javax.swing.JFrame {
         motherboardBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         motherboardBtn.setText("MOTHERBOARD");
         buildPanel.add(motherboardBtn);
-        motherboardBtn.setBounds(259, 342, 119, 62);
+        motherboardBtn.setBounds(259, 342, 132, 62);
 
         processorBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         processorBtn.setText("PROCESSOR");
@@ -174,7 +172,7 @@ public class BuildForm extends javax.swing.JFrame {
         graphicsBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         graphicsBtn.setText("GRAPHICS CARD");
         buildPanel.add(graphicsBtn);
-        graphicsBtn.setBounds(384, 410, 125, 60);
+        graphicsBtn.setBounds(384, 410, 136, 60);
 
         hddBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         hddBtn.setText("HDD");
@@ -271,7 +269,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jComboBox1);
-        jComboBox1.setBounds(440, 290, 220, 20);
+        jComboBox1.setBounds(440, 290, 220, 27);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -279,11 +277,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField1);
-        jTextField1.setBounds(440, 320, 220, 20);
+        jTextField1.setBounds(440, 320, 220, 26);
         createAccount.add(jTextField2);
-        jTextField2.setBounds(440, 350, 220, 20);
+        jTextField2.setBounds(440, 350, 220, 26);
         createAccount.add(jTextField3);
-        jTextField3.setBounds(440, 380, 220, 20);
+        jTextField3.setBounds(440, 380, 220, 26);
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -291,14 +289,14 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField4);
-        jTextField4.setBounds(440, 410, 220, 20);
+        jTextField4.setBounds(440, 410, 220, 26);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("email:");
         createAccount.add(jLabel11);
         jLabel11.setBounds(300, 470, 70, 17);
         createAccount.add(jTextField5);
-        jTextField5.setBounds(440, 440, 220, 20);
+        jTextField5.setBounds(440, 440, 220, 26);
         createAccount.add(jTextField6);
         jTextField6.setBounds(440, 470, 220, 20);
 
@@ -328,7 +326,7 @@ public class BuildForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         viewAccount.add(jScrollPane1);
-        jScrollPane1.setBounds(220, 290, 452, 170);
+        jScrollPane1.setBounds(220, 290, 454, 170);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel12.setText("View Accounts:");
@@ -387,7 +385,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         jButton3.setText("COMPARE BUILDS");
         addBuildPanel.add(jButton3);
-        jButton3.setBounds(770, 430, 119, 70);
+        jButton3.setBounds(770, 430, 153, 70);
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         addBuildPanel.add(jLabel13);

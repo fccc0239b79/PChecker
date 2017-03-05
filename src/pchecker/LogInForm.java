@@ -5,6 +5,8 @@
  */
 package pchecker;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Pawel Szymczyk
@@ -37,9 +39,9 @@ public class LogInForm extends javax.swing.JFrame {
         UserNameLabel = new javax.swing.JLabel();
         PasswordLabel = new javax.swing.JLabel();
         UsernameInput = new javax.swing.JTextField();
-        PasswordInput = new javax.swing.JTextField();
         forgotPswLink = new javax.swing.JLabel();
         createAccountLink = new javax.swing.JLabel();
+        PasswordInput = new javax.swing.JPasswordField();
         RegistrationPanel = new javax.swing.JPanel();
         titleLabel = new javax.swing.JLabel();
         headingLabel = new javax.swing.JLabel();
@@ -86,6 +88,11 @@ public class LogInForm extends javax.swing.JFrame {
         logo.setBounds(140, 150, 602, 119);
 
         loginBtn.setText("Login");
+        loginBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginBtnActionPerformed(evt);
+            }
+        });
         LogInPanel.add(loginBtn);
         loginBtn.setBounds(377, 421, 70, 45);
 
@@ -101,12 +108,12 @@ public class LogInForm extends javax.swing.JFrame {
         UserNameLabel.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         UserNameLabel.setText("Username:");
         LogInPanel.add(UserNameLabel);
-        UserNameLabel.setBounds(240, 340, 76, 19);
+        UserNameLabel.setBounds(240, 340, 76, 17);
 
         PasswordLabel.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         PasswordLabel.setText("Password:");
         LogInPanel.add(PasswordLabel);
-        PasswordLabel.setBounds(251, 382, 65, 19);
+        PasswordLabel.setBounds(251, 382, 69, 17);
 
         UsernameInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,8 +122,6 @@ public class LogInForm extends javax.swing.JFrame {
         });
         LogInPanel.add(UsernameInput);
         UsernameInput.setBounds(355, 341, 210, 20);
-        LogInPanel.add(PasswordInput);
-        PasswordInput.setBounds(355, 383, 210, 20);
 
         forgotPswLink.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         forgotPswLink.setForeground(new java.awt.Color(255, 0, 0));
@@ -128,7 +133,16 @@ public class LogInForm extends javax.swing.JFrame {
         createAccountLink.setForeground(new java.awt.Color(255, 0, 0));
         createAccountLink.setText("Create Account");
         LogInPanel.add(createAccountLink);
-        createAccountLink.setBounds(413, 495, 86, 15);
+        createAccountLink.setBounds(413, 495, 81, 15);
+
+        PasswordInput.setToolTipText("");
+        PasswordInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasswordInputActionPerformed(evt);
+            }
+        });
+        LogInPanel.add(PasswordInput);
+        PasswordInput.setBounds(390, 380, 210, 26);
 
         getContentPane().add(LogInPanel);
         LogInPanel.setBounds(0, 0, 900, 610);
@@ -146,33 +160,33 @@ public class LogInForm extends javax.swing.JFrame {
         headingLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         headingLabel.setText("Create Account:");
         RegistrationPanel.add(headingLabel);
-        headingLabel.setBounds(400, 252, 100, 17);
+        headingLabel.setBounds(400, 252, 97, 17);
 
         userLabel.setText("Username: ");
         RegistrationPanel.add(userLabel);
-        userLabel.setBounds(328, 290, 55, 14);
+        userLabel.setBounds(328, 290, 70, 16);
 
         passLabel.setText("Password:");
         RegistrationPanel.add(passLabel);
-        passLabel.setBounds(333, 321, 50, 14);
+        passLabel.setBounds(333, 321, 63, 16);
 
         confirmLabel.setText("Confirm password:");
         RegistrationPanel.add(confirmLabel);
-        confirmLabel.setBounds(293, 352, 90, 14);
+        confirmLabel.setBounds(293, 352, 119, 16);
 
         nameLabel.setText("Forename:");
         RegistrationPanel.add(nameLabel);
-        nameLabel.setBounds(331, 383, 52, 14);
+        nameLabel.setBounds(331, 383, 65, 16);
 
         surnameLabel.setText("Surname:");
         RegistrationPanel.add(surnameLabel);
-        surnameLabel.setBounds(337, 411, 46, 14);
+        surnameLabel.setBounds(337, 411, 58, 16);
 
         emailLabel.setText("email:");
         RegistrationPanel.add(emailLabel);
-        emailLabel.setBounds(355, 442, 28, 14);
+        emailLabel.setBounds(355, 442, 38, 16);
         RegistrationPanel.add(usernameField);
-        usernameField.setBounds(401, 287, 201, 20);
+        usernameField.setBounds(401, 287, 201, 26);
 
         passField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,23 +194,23 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         RegistrationPanel.add(passField);
-        passField.setBounds(401, 318, 201, 20);
+        passField.setBounds(401, 318, 201, 26);
         RegistrationPanel.add(confirmField);
-        confirmField.setBounds(401, 349, 201, 20);
+        confirmField.setBounds(401, 349, 201, 26);
         RegistrationPanel.add(forenameField);
-        forenameField.setBounds(401, 380, 201, 20);
+        forenameField.setBounds(401, 380, 201, 26);
         RegistrationPanel.add(surnameField);
-        surnameField.setBounds(401, 411, 201, 20);
+        surnameField.setBounds(401, 411, 201, 26);
         RegistrationPanel.add(emailField);
-        emailField.setBounds(401, 442, 201, 20);
+        emailField.setBounds(401, 442, 201, 26);
 
         cancelBtn.setText("Cancel");
         RegistrationPanel.add(cancelBtn);
-        cancelBtn.setBounds(293, 504, 107, 23);
+        cancelBtn.setBounds(293, 504, 107, 29);
 
         createBtn.setText("Create Account");
         RegistrationPanel.add(createBtn);
-        createBtn.setBounds(495, 504, 107, 23);
+        createBtn.setBounds(495, 504, 140, 29);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         RegistrationPanel.add(jLabel1);
@@ -213,7 +227,7 @@ public class LogInForm extends javax.swing.JFrame {
         informLabelFP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         informLabelFP.setText("Did you forget password? Do NOT worry, please insert:");
         ForgotPasswordPanel.add(informLabelFP);
-        informLabelFP.setBounds(260, 320, 338, 15);
+        informLabelFP.setBounds(260, 320, 335, 15);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         ForgotPasswordPanel.add(jLabel2);
@@ -221,23 +235,23 @@ public class LogInForm extends javax.swing.JFrame {
 
         usernameLabelFP.setText("Username:");
         ForgotPasswordPanel.add(usernameLabelFP);
-        usernameLabelFP.setBounds(320, 380, 52, 14);
+        usernameLabelFP.setBounds(320, 380, 66, 16);
 
         emailLabelFP.setText("email:");
         ForgotPasswordPanel.add(emailLabelFP);
-        emailLabelFP.setBounds(340, 420, 28, 14);
+        emailLabelFP.setBounds(340, 420, 38, 16);
         ForgotPasswordPanel.add(usernameFieldFP);
-        usernameFieldFP.setBounds(390, 380, 180, 20);
+        usernameFieldFP.setBounds(390, 380, 180, 26);
         ForgotPasswordPanel.add(emailFieldFP);
-        emailFieldFP.setBounds(390, 410, 180, 20);
+        emailFieldFP.setBounds(390, 410, 180, 26);
 
         acceptBtnFP.setText("Accept");
         ForgotPasswordPanel.add(acceptBtnFP);
-        acceptBtnFP.setBounds(510, 500, 86, 23);
+        acceptBtnFP.setBounds(510, 500, 86, 29);
 
         cancelBtnFP.setText("Cancel");
         ForgotPasswordPanel.add(cancelBtnFP);
-        cancelBtnFP.setBounds(320, 500, 86, 23);
+        cancelBtnFP.setBounds(320, 500, 86, 29);
 
         getContentPane().add(ForgotPasswordPanel);
         ForgotPasswordPanel.setBounds(0, 0, 900, 600);
@@ -256,7 +270,40 @@ public class LogInForm extends javax.swing.JFrame {
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
        System.exit(0);
     }//GEN-LAST:event_exitBtnActionPerformed
+
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+        login();
+    }//GEN-LAST:event_loginBtnActionPerformed
+
+    private void PasswordInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PasswordInputActionPerformed
    
+    private void login() {
+
+        String username = UsernameInput.getText();
+        String password = String.valueOf(PasswordInput.getPassword());
+        
+//create new user account
+        userAdminAccount user = new userAdminAccount();
+        
+        boolean successful = user.checkPassword(username, password);
+        if (successful) {
+            
+            user.LogInService(username, password); //asks for username and password
+
+            AdminUserFrame frm = new AdminUserFrame(user); //opens general user form
+            this.setVisible(false);
+            frm.setVisible(true);
+
+          
+        } else { //error message prompted
+            JOptionPane.showMessageDialog(null, "User account can not be found. Please try again or create a new account", "No Account Found", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -295,7 +342,7 @@ public class LogInForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ForgotPasswordPanel;
     private javax.swing.JPanel LogInPanel;
-    private javax.swing.JTextField PasswordInput;
+    private javax.swing.JPasswordField PasswordInput;
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JPanel RegistrationPanel;
     private javax.swing.JLabel UserNameLabel;

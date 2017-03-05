@@ -11,12 +11,35 @@ package pchecker;
  */
 public class AdminUserFrame extends javax.swing.JFrame {
 
+    userAdminAccount currentUser;
     /**
      * Creates new form AdminUserFrame
      */
     public AdminUserFrame() {
         initComponents();
     }
+    
+    public AdminUserFrame(userAdminAccount user) {
+        initComponents();
+        
+        currentUser = user;
+
+        boolean userType = currentUser.getType();
+        
+        setLocationRelativeTo(null);
+
+        if(userType){
+            this.setTitle("Admin Menu"); 
+            mainAdminPanel.setVisible(true);
+        }else{
+            this.setTitle("User Menu"); 
+            mainUserPanel.setVisible(true);
+
+        }
+        
+           
+    }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,7 +100,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
 
         profileBtn.setText("Profile");
         mainUserPanel.add(profileBtn);
-        profileBtn.setBounds(740, 11, 63, 43);
+        profileBtn.setBounds(740, 11, 84, 43);
 
         logOffBtn.setText("Log Off");
         logOffBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -86,9 +109,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainUserPanel.add(logOffBtn);
-        logOffBtn.setBounds(809, 11, 69, 43);
-
-        buildList.setBackground(new java.awt.Color(255, 255, 255));
+        logOffBtn.setBounds(809, 11, 91, 43);
         mainUserPanel.add(buildList);
         buildList.setBounds(206, 277, 491, 172);
 
@@ -115,7 +136,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
 
         editBtnProfile.setText("Edit Profile");
         profilePanel.add(editBtnProfile);
-        editBtnProfile.setBounds(564, 73, 83, 41);
+        editBtnProfile.setBounds(564, 73, 112, 41);
 
         settingsLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         settingsLabel.setText("SETTINGS");
@@ -129,7 +150,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         profilePanel.add(acceptBtnProfile);
-        acceptBtnProfile.setBounds(752, 11, 65, 41);
+        acceptBtnProfile.setBounds(752, 11, 87, 41);
 
         getContentPane().add(profilePanel);
         profilePanel.setBounds(0, 0, 910, 600);
@@ -175,11 +196,11 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(logOffAdminBtn);
-        logOffAdminBtn.setBounds(809, 11, 69, 43);
+        logOffAdminBtn.setBounds(809, 11, 91, 43);
 
         profileAdminBtn.setText("Profile");
         mainAdminPanel.add(profileAdminBtn);
-        profileAdminBtn.setBounds(740, 11, 63, 43);
+        profileAdminBtn.setBounds(740, 11, 84, 43);
 
         newComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         newComponentAdminBtn.setText("New Component");

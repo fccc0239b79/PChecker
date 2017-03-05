@@ -25,13 +25,13 @@ public class ServerControl {
 
         try {
  
-            String host = "";   //Location of mySQL server
-            String uName = "root";    //account details for accessing database      
-            String uPass = "root";
-            Connection con = DriverManager.getConnection(host, uName, uPass);
-            System.out.println("Connected database successfully...");
+            String host = "jdbc:mysql://localhost:3306/PChecker";   //Location of mySQL server
+            String userName = "root";    
+            String userPass = "rootroot";
+            Connection DBconnection = DriverManager.getConnection(host, userName, userPass);
+            System.out.println("Connected to database successfully...");
 
-            return con;
+            return DBconnection;
         } catch (SQLException err) {
             System.out.println(err.getMessage());   //Prints out SQL error if connection is not established
             return null;
@@ -40,16 +40,16 @@ public class ServerControl {
     
     /**
      *
-     * @param con
+     * @param DBconnection
      */
-    public void closeConnection(Connection con){
+    public void closeConnection(Connection DBconnection){
     //end of connection
         try{
-        con.close();
+        DBconnection.close();
         }catch(SQLException err){
         
         
         }
-   
+    
     }
 }
