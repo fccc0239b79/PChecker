@@ -14,7 +14,6 @@ import java.util.Scanner;
 
 /**
  *
- * @author Tom
  */
 public class ServerControl {
 
@@ -26,7 +25,7 @@ public class ServerControl {
 
         try {
  
-            String host = "jdbc:mysql://213.104.129.95:3306/ComPChecker";   //Location of mySQL server
+            String host = "";   //Location of mySQL server
             String uName = "root";    //account details for accessing database      
             String uPass = "root";
             Connection con = DriverManager.getConnection(host, uName, uPass);

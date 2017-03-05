@@ -12,11 +12,11 @@ package pchecker;
 public class SystemLogic {
     int comp;
     
-    public int compatibility(int cpu, int gpu, int ram, int cooling, int hdd, int acc, int pcCase){
+    public int compatibility(int cpu, int gpu, int ram, int cooling, int hdd, int acc, int pcCase, int power){
             
-        comp = cpu + gpu + ram + cooling + hdd + acc + pcCase;
+        comp = cpu + gpu + ram + cooling + hdd + acc + pcCase + power;
         
-        comp = comp / 7 ;
+        comp = comp / 8 ;
         
             return comp;
 }
