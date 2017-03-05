@@ -5,19 +5,52 @@
  */
 package pchecker;
 
+import java.sql.DriverManager;
+import java.net.*;
+import java.io.*;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
- * @author Tomasz
+ * @author Tom
  */
-
-// Have everything we need to access the server on here so we don't repeat code
-// Make sure we have everything in one place to its easy to find and debug 
-// later on in the code
-
 public class ServerControl {
+
+    /**
+     *
+     * @return
+     */
+    public static Connection ServerControl() {    //This method connects to the database and returns the connection.
+
+        try {
+ 
+            String host = "jdbc:mysql://213.104.129.95:3306/ComPChecker";   //Location of mySQL server
+            String uName = "root";    //account details for accessing database      
+            String uPass = "root";
+            Connection con = DriverManager.getConnection(host, uName, uPass);
+            System.out.println("Connected database successfully...");
+
+            return con;
+        } catch (SQLException err) {
+            System.out.println(err.getMessage());   //Prints out SQL error if connection is not established
+            return null;
+        }
+    }
     
-    
-public void accessServer(){
-// quick example
-}   
+    /**
+     *
+     * @param con
+     */
+    public void closeConnection(Connection con){
+    //end of connection
+        try{
+        con.close();
+        }catch(SQLException err){
+        
+        
+        }
+   
+    }
 }
