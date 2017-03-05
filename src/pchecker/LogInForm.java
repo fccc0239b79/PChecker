@@ -16,6 +16,9 @@ public class LogInForm extends javax.swing.JFrame {
      */
     public LogInForm() {
         initComponents();
+        
+        RegistrationPanel.setVisible(false);
+        ForgotPasswordPanel.setVisible(false);
     }
 
     /**
@@ -84,11 +87,16 @@ public class LogInForm extends javax.swing.JFrame {
 
         loginBtn.setText("Login");
         LogInPanel.add(loginBtn);
-        loginBtn.setBounds(377, 421, 57, 45);
+        loginBtn.setBounds(377, 421, 70, 45);
 
         exitBtn.setText("Exit");
+        exitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitBtnActionPerformed(evt);
+            }
+        });
         LogInPanel.add(exitBtn);
-        exitBtn.setBounds(473, 421, 57, 45);
+        exitBtn.setBounds(460, 421, 70, 45);
 
         UserNameLabel.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         UserNameLabel.setText("Username:");
@@ -244,6 +252,10 @@ public class LogInForm extends javax.swing.JFrame {
     private void passFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passFieldActionPerformed
+
+    private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_exitBtnActionPerformed
    
     /**
      * @param args the command line arguments
