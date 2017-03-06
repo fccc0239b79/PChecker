@@ -28,7 +28,10 @@ public class BuildForm extends javax.swing.JFrame {
         editPanel.setVisible(true);
         
     }
-    
+    public void addPart(){
+        buildPanel.setVisible(false);
+        addBuildPanel.setVisible(true);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -169,48 +172,88 @@ public class BuildForm extends javax.swing.JFrame {
 
         motherboardBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         motherboardBtn.setText("MOTHERBOARD");
+        motherboardBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                motherboardBtnActionPerformed(evt);
+            }
+        });
         buildPanel.add(motherboardBtn);
         motherboardBtn.setBounds(250, 340, 132, 62);
 
         processorBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         processorBtn.setText("PROCESSOR");
         processorBtn.setEnabled(false);
+        processorBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                processorBtnActionPerformed(evt);
+            }
+        });
         buildPanel.add(processorBtn);
         processorBtn.setBounds(384, 342, 125, 62);
 
         ramBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ramBtn.setText("RAM");
         ramBtn.setEnabled(false);
+        ramBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ramBtnActionPerformed(evt);
+            }
+        });
         buildPanel.add(ramBtn);
         ramBtn.setBounds(515, 342, 115, 62);
 
         graphicsBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         graphicsBtn.setText("GRAPHICS CARD");
         graphicsBtn.setEnabled(false);
+        graphicsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                graphicsBtnActionPerformed(evt);
+            }
+        });
         buildPanel.add(graphicsBtn);
         graphicsBtn.setBounds(384, 410, 130, 60);
 
         hddBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         hddBtn.setText("HDD");
         hddBtn.setEnabled(false);
+        hddBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hddBtnActionPerformed(evt);
+            }
+        });
         buildPanel.add(hddBtn);
         hddBtn.setBounds(259, 410, 119, 60);
 
         caseBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         caseBtn.setText("CASE");
         caseBtn.setEnabled(false);
+        caseBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                caseBtnActionPerformed(evt);
+            }
+        });
         buildPanel.add(caseBtn);
         caseBtn.setBounds(515, 410, 115, 60);
 
         supplyBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         supplyBtn.setText("POWER SUPPLY");
         supplyBtn.setEnabled(false);
+        supplyBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supplyBtnActionPerformed(evt);
+            }
+        });
         buildPanel.add(supplyBtn);
         supplyBtn.setBounds(259, 476, 119, 60);
 
         coolingBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         coolingBtn.setText("COOLING");
         coolingBtn.setEnabled(false);
+        coolingBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                coolingBtnActionPerformed(evt);
+            }
+        });
         buildPanel.add(coolingBtn);
         coolingBtn.setBounds(384, 476, 125, 60);
 
@@ -427,7 +470,7 @@ public class BuildForm extends javax.swing.JFrame {
     }//GEN-LAST:event_buildNameFieldBActionPerformed
 
     private void accessoriesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accessoriesBtnActionPerformed
-        // TODO add your handling code here:
+        addPart();
     }//GEN-LAST:event_accessoriesBtnActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -445,6 +488,38 @@ public class BuildForm extends javax.swing.JFrame {
     private void buildCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildCancelBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buildCancelBtnActionPerformed
+
+    private void motherboardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motherboardBtnActionPerformed
+      addPart();
+    }//GEN-LAST:event_motherboardBtnActionPerformed
+
+    private void processorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processorBtnActionPerformed
+       addPart();
+    }//GEN-LAST:event_processorBtnActionPerformed
+
+    private void ramBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ramBtnActionPerformed
+       addPart();
+    }//GEN-LAST:event_ramBtnActionPerformed
+
+    private void hddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hddBtnActionPerformed
+        addPart();
+    }//GEN-LAST:event_hddBtnActionPerformed
+
+    private void graphicsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graphicsBtnActionPerformed
+        addPart();
+    }//GEN-LAST:event_graphicsBtnActionPerformed
+
+    private void caseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caseBtnActionPerformed
+        addPart();
+    }//GEN-LAST:event_caseBtnActionPerformed
+
+    private void supplyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplyBtnActionPerformed
+       addPart();
+    }//GEN-LAST:event_supplyBtnActionPerformed
+
+    private void coolingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coolingBtnActionPerformed
+       addPart();
+    }//GEN-LAST:event_coolingBtnActionPerformed
 
     /**
      * @param args the command line arguments

@@ -624,7 +624,6 @@ private void enbleEdit(boolean torf){
     private javax.swing.JTextField emailPro;
     private javax.swing.JTextField fnamePro;
     private javax.swing.JScrollPane jScrollBuildList;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logOffAdminBtn;
     private javax.swing.JButton logOffBtn;
     private javax.swing.JLabel logoAdmin;
