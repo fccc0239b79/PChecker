@@ -131,6 +131,7 @@ INSERT INTO Account VALUES ('user','user','User','User','user@gmail.co.uk','0123
 
 CREATE TABLE Build(
 ID INT AUTO_INCREMENT NOT NULL,
+BuildName VARCHAR(45) NOT NULL,
 Account VARCHAR(45) NOT NULL,
 Motherboard INT NOT NULL,
 CPU INT NOT NULL,
