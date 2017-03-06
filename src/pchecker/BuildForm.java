@@ -14,9 +14,20 @@ public class BuildForm extends javax.swing.JFrame {
     /**
      * Creates new form BuildForm
      */
+    
+
     public BuildForm() {
         initComponents();
+        setLocationRelativeTo(null);
+        buildPanel.setVisible(true);
     }
+    public BuildForm(userAdminAccount user,String Build) {
+        initComponents();
+        setLocationRelativeTo(null);
+        editPanel.setVisible(true);
+        
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -118,6 +129,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         getContentPane().add(editPanel);
         editPanel.setBounds(0, 0, 900, 600);
+        editPanel.setVisible(false);
 
         buildPanel.setBackground(new java.awt.Color(255, 255, 255));
         buildPanel.setMaximumSize(new java.awt.Dimension(900, 600));
@@ -157,45 +169,53 @@ public class BuildForm extends javax.swing.JFrame {
         motherboardBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         motherboardBtn.setText("MOTHERBOARD");
         buildPanel.add(motherboardBtn);
-        motherboardBtn.setBounds(259, 342, 132, 62);
+        motherboardBtn.setBounds(250, 340, 132, 62);
 
         processorBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         processorBtn.setText("PROCESSOR");
+        processorBtn.setEnabled(false);
         buildPanel.add(processorBtn);
         processorBtn.setBounds(384, 342, 125, 62);
 
         ramBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ramBtn.setText("RAM");
+        ramBtn.setEnabled(false);
         buildPanel.add(ramBtn);
         ramBtn.setBounds(515, 342, 115, 62);
 
         graphicsBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         graphicsBtn.setText("GRAPHICS CARD");
+        graphicsBtn.setEnabled(false);
         buildPanel.add(graphicsBtn);
-        graphicsBtn.setBounds(384, 410, 136, 60);
+        graphicsBtn.setBounds(384, 410, 130, 60);
 
         hddBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         hddBtn.setText("HDD");
+        hddBtn.setEnabled(false);
         buildPanel.add(hddBtn);
         hddBtn.setBounds(259, 410, 119, 60);
 
         caseBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         caseBtn.setText("CASE");
+        caseBtn.setEnabled(false);
         buildPanel.add(caseBtn);
         caseBtn.setBounds(515, 410, 115, 60);
 
         supplyBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         supplyBtn.setText("POWER SUPPLY");
+        supplyBtn.setEnabled(false);
         buildPanel.add(supplyBtn);
         supplyBtn.setBounds(259, 476, 119, 60);
 
         coolingBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         coolingBtn.setText("COOLING");
+        coolingBtn.setEnabled(false);
         buildPanel.add(coolingBtn);
         coolingBtn.setBounds(384, 476, 125, 60);
 
         accessoriesBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         accessoriesBtn.setText("ACCESSORIES");
+        accessoriesBtn.setEnabled(false);
         accessoriesBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 accessoriesBtnActionPerformed(evt);
@@ -206,6 +226,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         getContentPane().add(buildPanel);
         buildPanel.setBounds(0, 0, 900, 600);
+        buildPanel.setVisible(false);
 
         createAccount.setBackground(new java.awt.Color(255, 255, 204));
         createAccount.setMaximumSize(new java.awt.Dimension(900, 600));
@@ -302,6 +323,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         getContentPane().add(createAccount);
         createAccount.setBounds(0, 0, 900, 600);
+        createAccount.setVisible(false);
 
         viewAccount.setBackground(new java.awt.Color(255, 204, 204));
         viewAccount.setMaximumSize(new java.awt.Dimension(900, 600));
@@ -340,6 +362,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         getContentPane().add(viewAccount);
         viewAccount.setBounds(0, 0, 900, 600);
+        viewAccount.setVisible(false);
 
         addBuildPanel.setBackground(new java.awt.Color(255, 255, 255));
         addBuildPanel.setMaximumSize(new java.awt.Dimension(900, 600));
@@ -393,6 +416,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         getContentPane().add(addBuildPanel);
         addBuildPanel.setBounds(0, 0, 900, 600);
+        addBuildPanel.setVisible(false);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

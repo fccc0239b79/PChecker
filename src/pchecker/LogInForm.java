@@ -23,7 +23,7 @@ public class LogInForm extends javax.swing.JFrame {
      */
     public LogInForm() {
         initComponents();
-        
+        setLocationRelativeTo(null);
         RegistrationPanel.setVisible(false);
         ForgotPasswordPanel.setVisible(false);
     }

@@ -116,14 +116,14 @@ public class userAdminAccount {
            
             try {
             Statement stmt = (Statement) con.createStatement();
-            String query = ("SELECT name FROM Build WHERE Account='" + user+"'");
+            String query = ("SELECT BuildName FROM Build WHERE Account='" + user+"'");
 
             stmt.executeQuery(query);
             ResultSet rs = stmt.getResultSet();
             
             while (rs.next()) {
           
-                builds.add(rs.getString("name"));
+                builds.add(rs.getString("BuildName"));
                 
             }
             if(!rs.first()){

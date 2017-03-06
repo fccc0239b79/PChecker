@@ -5,6 +5,8 @@
  */
 package pchecker;
 
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,7 +27,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         initComponents();
         
         currentUser = user;
-
+        
         boolean userType = currentUser.getType();
         
         setLocationRelativeTo(null);
@@ -38,7 +40,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         }else{
             this.setTitle("User Menu"); 
             mainUserPanel.setVisible(true);
-
+            getBuilds();
         }
         
            
@@ -59,7 +61,8 @@ public class AdminUserFrame extends javax.swing.JFrame {
         menuLabel = new javax.swing.JLabel();
         profileBtn = new javax.swing.JButton();
         logOffBtn = new javax.swing.JButton();
-        buildList = new javax.swing.JScrollPane();
+        jScrollBuildList = new javax.swing.JScrollPane();
+        buildsList = new javax.swing.JList<>();
         addBuildBtn = new javax.swing.JButton();
         profilePanel = new javax.swing.JPanel();
         profileLabel = new javax.swing.JLabel();
@@ -129,10 +132,28 @@ public class AdminUserFrame extends javax.swing.JFrame {
         });
         mainUserPanel.add(logOffBtn);
         logOffBtn.setBounds(809, 11, 91, 43);
-        mainUserPanel.add(buildList);
-        buildList.setBounds(206, 277, 491, 172);
+
+        buildsList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        buildsList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buildsListMouseClicked(evt);
+            }
+        });
+        jScrollBuildList.setViewportView(buildsList);
+
+        mainUserPanel.add(jScrollBuildList);
+        jScrollBuildList.setBounds(206, 277, 491, 172);
 
         addBuildBtn.setText("Add Build");
+        addBuildBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBuildBtnActionPerformed(evt);
+            }
+        });
         mainUserPanel.add(addBuildBtn);
         addBuildBtn.setBounds(407, 467, 95, 43);
 
@@ -307,6 +328,11 @@ public class AdminUserFrame extends javax.swing.JFrame {
 
         createBuildAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         createBuildAdminBtn.setText("Create Build");
+        createBuildAdminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createBuildAdminBtnActionPerformed(evt);
+            }
+        });
         mainAdminPanel.add(createBuildAdminBtn);
         createBuildAdminBtn.setBounds(540, 290, 160, 80);
 
@@ -362,6 +388,27 @@ private void enbleEdit(boolean torf){
     mobilPro.setEnabled(torf);
     acceptBtnProfile.setEnabled(torf);
 }
+
+    private void getBuilds(){
+        buildsList.removeAll();
+        ArrayList builds = new ArrayList();
+        builds = currentUser.getBuilds();
+
+        System.out.println(builds);
+
+        DefaultListModel model = new DefaultListModel();
+        //model.clear();
+        for (Object str : builds) { 		      
+          // System.out.println(str); 	
+          model.addElement(str);
+
+        }
+        globalmodel = model;
+        buildsList.setModel(model);
+      }
+
+    DefaultListModel globalmodel;
+
     private void logOffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOffBtnActionPerformed
        loggOff();
         
@@ -494,6 +541,35 @@ private void enbleEdit(boolean torf){
         
     }//GEN-LAST:event_backBtnProfileActionPerformed
 
+    private void addBuildBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBuildBtnActionPerformed
+        
+        BuildForm frm = new BuildForm();
+        frm.setVisible(true);
+        this.dispose();
+        
+        
+        
+    }//GEN-LAST:event_addBuildBtnActionPerformed
+
+    private void createBuildAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBuildAdminBtnActionPerformed
+        BuildForm frm = new BuildForm();
+        frm.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_createBuildAdminBtnActionPerformed
+
+    private void buildsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buildsListMouseClicked
+
+
+        String selectedBuild = buildsList.getSelectedValue();
+        String username = currentUser.getUsername();
+        if(!selectedBuild.equals("No Builds")){
+            BuildForm frm = new BuildForm(currentUser,selectedBuild); //
+            this.dispose();
+            frm.setVisible(true);
+        }
+    }//GEN-LAST:event_buildsListMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -535,7 +611,7 @@ private void enbleEdit(boolean torf){
     private javax.swing.JButton addBuildBtn;
     private javax.swing.JLabel adminMenuLabel;
     private javax.swing.JButton backBtnProfile;
-    private javax.swing.JScrollPane buildList;
+    private javax.swing.JList<String> buildsList;
     private javax.swing.JButton createAccountAdminBtn;
     private javax.swing.JButton createBuildAdminBtn;
     private javax.swing.JButton editAccountAdminBtn;
@@ -547,6 +623,8 @@ private void enbleEdit(boolean torf){
     private javax.swing.JLabel emailLabel2;
     private javax.swing.JTextField emailPro;
     private javax.swing.JTextField fnamePro;
+    private javax.swing.JScrollPane jScrollBuildList;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logOffAdminBtn;
     private javax.swing.JButton logOffBtn;
     private javax.swing.JLabel logoAdmin;
