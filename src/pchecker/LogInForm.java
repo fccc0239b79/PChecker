@@ -377,8 +377,8 @@ public class LogInForm extends javax.swing.JFrame {
               
                 if (surname.length() <= 45) {
                     if (name.length() <= 45) {
-                        if(DOB.length() >= 10){
-                            if(mobilNumber.length()>=11){
+                        if(DOB.length() >= 10 && DOB.length() <= 10){
+                            if(mobilNumber.length()>=11 && mobilNumber.length()<=11){
                             if(password.equals(passwordConfirm)){
                                 
                             
@@ -412,11 +412,11 @@ public class LogInForm extends javax.swing.JFrame {
 
                     }
                             } else {
-                        JOptionPane.showMessageDialog(null, "Mobile Number too short.", "", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Invaild Mobile Number", "", JOptionPane.INFORMATION_MESSAGE);
 
                     }
                     } else {
-                        JOptionPane.showMessageDialog(null, "Date of Birth too short.", "", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Invaid Date of Birth", "", JOptionPane.INFORMATION_MESSAGE);
 
                     }
 
