@@ -14,7 +14,8 @@ public class BuildForm extends javax.swing.JFrame {
     /**
      * Creates new form BuildForm
      */
-    
+    build newBuild = new build();
+
 
     public BuildForm() {
         initComponents();
