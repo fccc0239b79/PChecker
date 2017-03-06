@@ -130,7 +130,7 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         LogInPanel.add(UsernameInput);
-        UsernameInput.setBounds(355, 341, 210, 30);
+        UsernameInput.setBounds(350, 340, 210, 30);
 
         forgotPswLink.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         forgotPswLink.setForeground(new java.awt.Color(255, 0, 0));
@@ -163,7 +163,7 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         LogInPanel.add(PasswordInput);
-        PasswordInput.setBounds(390, 380, 210, 26);
+        PasswordInput.setBounds(350, 376, 210, 30);
 
         getContentPane().add(LogInPanel);
         LogInPanel.setBounds(0, 0, 900, 610);
