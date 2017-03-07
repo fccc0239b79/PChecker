@@ -99,6 +99,18 @@ public class BuildForm extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         addPart = new javax.swing.JPanel();
+        addPartSaveBtn = new javax.swing.JButton();
+        addPartCancelBtn = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        partTypeComboBox = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        addPartPartIDInput = new javax.swing.JTextField();
+        addPartMakeInput = new javax.swing.JTextField();
+        addPartModelInput = new javax.swing.JTextField();
+        addPartPriceInput = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(900, 600));
@@ -467,6 +479,78 @@ public class BuildForm extends javax.swing.JFrame {
         addPart.setMinimumSize(new java.awt.Dimension(900, 600));
         addPart.setPreferredSize(new java.awt.Dimension(900, 600));
         addPart.setLayout(null);
+
+        addPartSaveBtn.setText("Save");
+        addPart.add(addPartSaveBtn);
+        addPartSaveBtn.setBounds(730, 150, 57, 23);
+
+        addPartCancelBtn.setText("Cancel");
+        addPartCancelBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPartCancelBtnActionPerformed(evt);
+            }
+        });
+        addPart.add(addPartCancelBtn);
+        addPartCancelBtn.setBounds(730, 90, 65, 30);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel14.setText("Part type:");
+        addPart.add(jLabel14);
+        jLabel14.setBounds(90, 90, 70, 30);
+
+        partTypeComboBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        partTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Motherboard", "CPU", "GPU", "RAM", "Storage", "PSU", "PCcase", "Accessory", "Cooler" }));
+        addPart.add(partTypeComboBox);
+        partTypeComboBox.setBounds(170, 90, 170, 30);
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel15.setText("Make:");
+        addPart.add(jLabel15);
+        jLabel15.setBounds(110, 130, 60, 30);
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel16.setText("Model:");
+        addPart.add(jLabel16);
+        jLabel16.setBounds(110, 170, 60, 30);
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel17.setText("Price:");
+        addPart.add(jLabel17);
+        jLabel17.setBounds(110, 210, 60, 30);
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel18.setText("Part Id:");
+        addPart.add(jLabel18);
+        jLabel18.setBounds(100, 247, 70, 30);
+
+        addPartPartIDInput.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        addPartPartIDInput.setEnabled(false);
+        addPartPartIDInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPartPartIDInputActionPerformed(evt);
+            }
+        });
+        addPart.add(addPartPartIDInput);
+        addPartPartIDInput.setBounds(170, 250, 260, 30);
+
+        addPartMakeInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPartMakeInputActionPerformed(evt);
+            }
+        });
+        addPart.add(addPartMakeInput);
+        addPartMakeInput.setBounds(170, 130, 260, 30);
+        addPart.add(addPartModelInput);
+        addPartModelInput.setBounds(170, 170, 260, 30);
+
+        addPartPriceInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPartPriceInputActionPerformed(evt);
+            }
+        });
+        addPart.add(addPartPriceInput);
+        addPartPriceInput.setBounds(170, 210, 260, 30);
+
         getContentPane().add(addPart);
         addPart.setBounds(0, 0, 900, 600);
 
@@ -529,6 +613,22 @@ public class BuildForm extends javax.swing.JFrame {
        addPart();
     }//GEN-LAST:event_coolingBtnActionPerformed
 
+    private void addPartCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartCancelBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addPartCancelBtnActionPerformed
+
+    private void addPartMakeInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartMakeInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addPartMakeInputActionPerformed
+
+    private void addPartPriceInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartPriceInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addPartPriceInputActionPerformed
+
+    private void addPartPartIDInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartPartIDInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addPartPartIDInputActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -571,6 +671,12 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JButton addBuildBtn;
     private javax.swing.JPanel addBuildPanel;
     private javax.swing.JPanel addPart;
+    private javax.swing.JButton addPartCancelBtn;
+    private javax.swing.JTextField addPartMakeInput;
+    private javax.swing.JTextField addPartModelInput;
+    private javax.swing.JTextField addPartPartIDInput;
+    private javax.swing.JTextField addPartPriceInput;
+    private javax.swing.JButton addPartSaveBtn;
     private javax.swing.JButton buildCancelBtn;
     private javax.swing.JTextField buildNameFieldB;
     private javax.swing.JLabel buildNameLabelB;
@@ -597,6 +703,11 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -618,6 +729,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel logoB;
     private javax.swing.JLabel logoE;
     private javax.swing.JButton motherboardBtn;
+    private javax.swing.JComboBox<String> partTypeComboBox;
     private javax.swing.JButton processorBtn;
     private javax.swing.JButton ramBtn;
     private javax.swing.JButton supplyBtn;
