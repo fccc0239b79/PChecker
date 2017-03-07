@@ -392,4 +392,69 @@ public class userAdminAccount {
         }
         return tableColums;
     }
+     
+     public void savePart(String partType, ArrayList<String> info,ArrayList<String> partinfo){
+         int partID = 0;
+         Connection con = ServerControl.ConnectDB();
+    
+    try {
+        //SQL query for inserting data into account table
+       String query = "INSERT INTO Part values (?,?,?,?,?)"; 
+          
+       PreparedStatement statement = con.prepareStatement(query);
+       
+       //setting user inputs into sql query
+       statement.setInt(1,0);
+       for(int i = 0; i < 4;i++){
+         statement.setString((2+i), info.get(i));
+       }
+       
+       System.out.println(statement);
+       statement.execute();
+       
+    }
+    catch(SQLException err){
+    }
+    
+    try {
+       String query = ("SELECT PartID FROM Part WHERE  Model = '" + info.get(1) + "' AND Make = '"+ info.get(2) + "'");
+  
+        Statement stmt = (Statement) con.createStatement();    
+        
+        stmt.executeQuery(query);
+                ResultSet rs = stmt.getResultSet();
+            
+            while (rs.next()) {
+                System.out.println(rs.getInt("PartID"));
+                partID = rs.getInt("PartID");
+            }
+        
+     }catch(SQLException err){
+    }
+    
+    try {
+        //SQL query for inserting data into account table
+        String value="";
+        for(int i = 0; i < partinfo.size();i++){
+            value += "?,";
+        }
+        
+       String query = "INSERT INTO "+partType+" values ("+value+"?)"; 
+          
+       PreparedStatement statement = con.prepareStatement(query);
+       
+       //setting user inputs into sql query
+       statement.setInt(1,partID);
+       for(int i = 0; i < partinfo.size();i++){
+         statement.setString((2+i), partinfo.get(i));
+       }
+       
+       //System.out.println(statement);
+       statement.execute();
+       
+    }
+    catch(SQLException err){
+        System.out.println(err);
+    }
+   }
 }

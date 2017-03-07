@@ -10,6 +10,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.util.ArrayList;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 /**
  *
  * @author Pawel
@@ -44,32 +46,45 @@ public class BuildForm extends javax.swing.JFrame {
         addBuildPanel.setVisible(true);
     }
     
+    ArrayList<JLabel> labels = new ArrayList<JLabel>();
+    ArrayList<JTextField> inputbox = new ArrayList<JTextField>();
+
     public void addingNewPart(){
+
         String newPartType = String.valueOf(partTypeComboBox.getSelectedItem());
         
         ArrayList<String> tableColums = currentUser.getTableColName(newPartType);
         System.out.print(newPartType + tableColums);
+        tableColums.remove(0);
         
-        
-        ArrayList<JLabel> labels = new ArrayList<JLabel>();
         
         for(int i = 0; i < labels.size(); i++){
-            labels.remove(i);
             addPart.remove(labels.get(i));
+            addPart.remove(inputbox.get(i));
         }
-         
-           int y = 270;
+        labels.clear();
+        inputbox.clear();
+        
+        
+        int y = 300;
         for (String name : tableColums) {
-           JLabel label100  = new JLabel();
-           label100.setText("");
+   
+           JLabel label100  = new JLabel(name+":", SwingConstants.RIGHT);
            
-            label100 = new JLabel(name+":");
-            
-            label100.setBounds(100, y, 100, 100);
+            label100.setBounds(70, y, 90, 30);
             labels.add(label100);
-
             addPart.add(label100);
-            y += 50;
+            
+            JTextField textField = new JTextField(10);
+            textField.setName(name+"Input");
+            textField.setBounds(170, y, 260, 30);
+            inputbox.add(textField);
+            addPart.add(textField);
+            
+            
+                    System.out.print(textField.getName());
+
+            y += 30;
         }
         addPart.repaint();
     }
@@ -521,8 +536,13 @@ public class BuildForm extends javax.swing.JFrame {
         addPart.setLayout(null);
 
         addPartSaveBtn.setText("Save");
+        addPartSaveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPartSaveBtnActionPerformed(evt);
+            }
+        });
         addPart.add(addPartSaveBtn);
-        addPartSaveBtn.setBounds(730, 150, 75, 29);
+        addPartSaveBtn.setBounds(650, 90, 75, 29);
 
         addPartCancelBtn.setText("Cancel");
         addPartCancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -569,9 +589,10 @@ public class BuildForm extends javax.swing.JFrame {
         jLabel17.setBounds(110, 210, 60, 30);
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel18.setText("Part Id:");
         addPart.add(jLabel18);
-        jLabel18.setBounds(100, 250, 70, 30);
+        jLabel18.setBounds(60, 250, 70, 30);
 
         addPartPartIDInput.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         addPartPartIDInput.setEnabled(false);
@@ -686,6 +707,28 @@ public class BuildForm extends javax.swing.JFrame {
     private void partTypeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTypeComboBoxActionPerformed
                 addingNewPart();
     }//GEN-LAST:event_partTypeComboBoxActionPerformed
+
+    private void addPartSaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartSaveBtnActionPerformed
+    
+        ArrayList<String> info = new ArrayList<String>();
+        String partT = String.valueOf(partTypeComboBox.getSelectedItem());
+        info.add(addPartPriceInput.getText());
+        info.add(addPartModelInput.getText());
+        info.add(addPartMakeInput.getText());
+        info.add(partT);
+        
+        ArrayList<String> infopart = new ArrayList<String>();
+
+        for(int i = 0; i < inputbox.size(); i++){
+            System.out.println(inputbox.get(i).getText());
+            infopart.add(inputbox.get(i).getText());
+        }
+        
+        currentUser.savePart(partT, info,infopart);
+        
+        
+        
+    }//GEN-LAST:event_addPartSaveBtnActionPerformed
 
     /**
      * @param args the command line arguments
