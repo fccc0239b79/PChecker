@@ -43,7 +43,15 @@ public class AdminUserFrame extends javax.swing.JFrame {
             getBuilds();
         }
         
+          
+
+
+//test ADDING PARTS
            
+     build test = new build();
+     ArrayList<String> tableColums = test.getTableColName("CPU");
+     System.out.println(tableColums);
+
     }
    
 
