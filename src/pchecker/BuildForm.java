@@ -5,6 +5,11 @@
  */
 package pchecker;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.util.ArrayList;
+import javax.swing.JLabel;
 /**
  *
  * @author Pawel
@@ -15,12 +20,18 @@ public class BuildForm extends javax.swing.JFrame {
      * Creates new form BuildForm
      */
     build newBuild = new build();
-
+    userAdminAccount currentUser;
 
     public BuildForm() {
         initComponents();
         setLocationRelativeTo(null);
         buildPanel.setVisible(true);
+    }
+    public BuildForm(userAdminAccount user) {
+        initComponents();
+        setLocationRelativeTo(null);
+        addPart.setVisible(true);
+        currentUser = user;
     }
     public BuildForm(userAdminAccount user,String Build) {
         initComponents();
@@ -32,7 +43,36 @@ public class BuildForm extends javax.swing.JFrame {
         buildPanel.setVisible(false);
         addBuildPanel.setVisible(true);
     }
+    
+    public void addingNewPart(){
+        String newPartType = String.valueOf(partTypeComboBox.getSelectedItem());
+        
+        ArrayList<String> tableColums = currentUser.getTableColName(newPartType);
+        System.out.print(newPartType + tableColums);
+        
+        
+        ArrayList<JLabel> labels = new ArrayList<JLabel>();
+        
+        for(int i = 0; i < labels.size(); i++){
+            labels.remove(i);
+            addPart.remove(labels.get(i));
+        }
+         
+           int y = 270;
+        for (String name : tableColums) {
+           JLabel label100  = new JLabel();
+           label100.setText("");
+           
+            label100 = new JLabel(name+":");
+            
+            label100.setBounds(100, y, 100, 100);
+            labels.add(label100);
 
+            addPart.add(label100);
+            y += 50;
+        }
+        addPart.repaint();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -131,11 +171,11 @@ public class BuildForm extends javax.swing.JFrame {
 
         cancelBtnE.setText("Cancel");
         editPanel.add(cancelBtnE);
-        cancelBtnE.setBounds(825, 11, 65, 42);
+        cancelBtnE.setBounds(825, 11, 86, 42);
 
         acceptBtnE.setText("Accept");
         editPanel.add(acceptBtnE);
-        acceptBtnE.setBounds(754, 11, 65, 42);
+        acceptBtnE.setBounds(754, 11, 87, 42);
         editPanel.add(componentsListE);
         componentsListE.setBounds(147, 258, 602, 282);
 
@@ -160,11 +200,11 @@ public class BuildForm extends javax.swing.JFrame {
 
         cancelBtnB.setText("Cancel");
         buildPanel.add(cancelBtnB);
-        cancelBtnB.setBounds(825, 11, 65, 42);
+        cancelBtnB.setBounds(825, 11, 86, 42);
 
         acceptBtnB.setText("Accept");
         buildPanel.add(acceptBtnB);
-        acceptBtnB.setBounds(754, 11, 65, 42);
+        acceptBtnB.setBounds(754, 11, 87, 42);
 
         logoB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         buildPanel.add(logoB);
@@ -191,7 +231,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(motherboardBtn);
-        motherboardBtn.setBounds(250, 340, 119, 62);
+        motherboardBtn.setBounds(250, 340, 132, 62);
 
         processorBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         processorBtn.setText("PROCESSOR");
@@ -347,7 +387,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jComboBox1);
-        jComboBox1.setBounds(440, 290, 220, 20);
+        jComboBox1.setBounds(440, 290, 220, 27);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -355,11 +395,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField1);
-        jTextField1.setBounds(440, 320, 220, 20);
+        jTextField1.setBounds(440, 320, 220, 26);
         createAccount.add(jTextField2);
-        jTextField2.setBounds(440, 350, 220, 20);
+        jTextField2.setBounds(440, 350, 220, 26);
         createAccount.add(jTextField3);
-        jTextField3.setBounds(440, 380, 220, 20);
+        jTextField3.setBounds(440, 380, 220, 26);
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -367,14 +407,14 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField4);
-        jTextField4.setBounds(440, 410, 220, 20);
+        jTextField4.setBounds(440, 410, 220, 26);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("email:");
         createAccount.add(jLabel11);
         jLabel11.setBounds(300, 470, 70, 17);
         createAccount.add(jTextField5);
-        jTextField5.setBounds(440, 440, 220, 20);
+        jTextField5.setBounds(440, 440, 220, 26);
         createAccount.add(jTextField6);
         jTextField6.setBounds(440, 470, 220, 20);
 
@@ -405,7 +445,7 @@ public class BuildForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         viewAccount.add(jScrollPane1);
-        jScrollPane1.setBounds(220, 290, 452, 170);
+        jScrollPane1.setBounds(220, 290, 454, 170);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel12.setText("View Accounts:");
@@ -465,7 +505,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         jButton3.setText("COMPARE BUILDS");
         addBuildPanel.add(jButton3);
-        jButton3.setBounds(770, 430, 119, 70);
+        jButton3.setBounds(770, 430, 153, 70);
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         addBuildPanel.add(jLabel13);
@@ -482,7 +522,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         addPartSaveBtn.setText("Save");
         addPart.add(addPartSaveBtn);
-        addPartSaveBtn.setBounds(730, 150, 57, 23);
+        addPartSaveBtn.setBounds(730, 150, 75, 29);
 
         addPartCancelBtn.setText("Cancel");
         addPartCancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -491,7 +531,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         addPart.add(addPartCancelBtn);
-        addPartCancelBtn.setBounds(730, 90, 65, 30);
+        addPartCancelBtn.setBounds(730, 90, 86, 30);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel14.setText("Part type:");
@@ -499,7 +539,17 @@ public class BuildForm extends javax.swing.JFrame {
         jLabel14.setBounds(90, 90, 70, 30);
 
         partTypeComboBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        partTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Motherboard", "CPU", "GPU", "RAM", "Storage", "PSU", "PCcase", "Accessory", "Cooler" }));
+        partTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Choose-", "Motherboard", "CPU", "GPU", "RAM", "Storage", "PSU", "PCCase", "Accessory", "Cooler" }));
+        partTypeComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                partTypeComboBoxItemStateChanged(evt);
+            }
+        });
+        partTypeComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                partTypeComboBoxActionPerformed(evt);
+            }
+        });
         addPart.add(partTypeComboBox);
         partTypeComboBox.setBounds(170, 90, 170, 30);
 
@@ -521,7 +571,7 @@ public class BuildForm extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel18.setText("Part Id:");
         addPart.add(jLabel18);
-        jLabel18.setBounds(100, 247, 70, 30);
+        jLabel18.setBounds(100, 250, 70, 30);
 
         addPartPartIDInput.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         addPartPartIDInput.setEnabled(false);
@@ -553,6 +603,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         getContentPane().add(addPart);
         addPart.setBounds(0, 0, 900, 600);
+        addPart.setVisible(false);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -628,6 +679,13 @@ public class BuildForm extends javax.swing.JFrame {
     private void addPartPartIDInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartPartIDInputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addPartPartIDInputActionPerformed
+
+    private void partTypeComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_partTypeComboBoxItemStateChanged
+    }//GEN-LAST:event_partTypeComboBoxItemStateChanged
+
+    private void partTypeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTypeComboBoxActionPerformed
+                addingNewPart();
+    }//GEN-LAST:event_partTypeComboBoxActionPerformed
 
     /**
      * @param args the command line arguments

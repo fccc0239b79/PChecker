@@ -46,11 +46,6 @@ public class AdminUserFrame extends javax.swing.JFrame {
           
 
 
-//test ADDING PARTS
-           
-     build test = new build();
-     ArrayList<String> tableColums = test.getTableColName("CPU");
-     System.out.println(tableColums);
 
     }
    
@@ -315,7 +310,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         profileAdminBtn.setBounds(740, 11, 84, 43);
 
         newComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        newComponentAdminBtn.setText("New Component");
+        newComponentAdminBtn.setText("Add New Part");
         newComponentAdminBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newComponentAdminBtnActionPerformed(evt);
@@ -517,7 +512,10 @@ private void enbleEdit(boolean torf){
     }//GEN-LAST:event_createAccountAdminBtnActionPerformed
 
     private void newComponentAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newComponentAdminBtnActionPerformed
-        // TODO add your handling code here:
+        BuildForm frm = new BuildForm(currentUser);
+        this.dispose();
+        frm.setVisible(true);
+        
     }//GEN-LAST:event_newComponentAdminBtnActionPerformed
 
     private void profileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileBtnActionPerformed

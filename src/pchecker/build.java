@@ -84,32 +84,6 @@ public class build {
         return accessoryID;
     }
     
-    public ArrayList<String> getTableColName(String table){
-        ArrayList<String> tableColums = new ArrayList<String>();
-        Connection con = ServerControl.ConnectDB();
-           
-            try {
-                Statement stmt = (Statement) con.createStatement();
-                String query = ("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME ='" + table+"'");
-
-                stmt.executeQuery(query);
-                ResultSet rs = stmt.getResultSet();
-            
-            while (rs.next()) {
-          
-                tableColums.add(rs.getString("COLUMN_NAME"));
-                
-            }
-            
-            con.close();
-           }
-        catch (SQLException err) {
-        System.out.println(err.getMessage());   
-        }
-
-    
-        return tableColums;
-    }
     
     public void savebuild(String username){
     Connection con = ServerControl.ConnectDB();
