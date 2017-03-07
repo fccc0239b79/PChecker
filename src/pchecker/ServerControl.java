@@ -5,51 +5,59 @@
  */
 package pchecker;
 
-import java.sql.DriverManager;
-import java.net.*;
-import java.io.*;
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.Scanner;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.Session;
+import java.sql.SQLException;
 /**
  *
  */
 public class ServerControl {
 
-    /**
-     *
-     * @return
-     */
-    public static Connection ServerControl() {    //This method connects to the database and returns the connection.
-
-        try {
- 
-            String host = "jdbc:mysql://localhost:3306/PChecker";   //Location of mySQL server
-            String userName = "root";    
-            String userPass = "rootroot";
-            Connection DBconnection = DriverManager.getConnection(host, userName, userPass);
-            System.out.println("Connected to database successfully...");
-
-            return DBconnection;
-        } catch (SQLException err) {
-            System.out.println(err.getMessage());   //Prints out SQL error if connection is not established
-            return null;
-        }
-    }
-    
-    /**
-     *
-     * @param DBconnection
-     */
-    public void closeConnection(Connection DBconnection){
-    //end of connection
+        static int lport;
+        static int rport;
+        
+        public static void connect(){
+        
+        String rUser = "up780016";
+        String rPassword = "gregl33";
+        String rHost = "35.187.14.195";
         try{
-        DBconnection.close();
-        }catch(SQLException err){
-        
+            JSch jsch = new JSch();
+            Session session = jsch.getSession(rUser, rHost, 22);
+            lport = 4321;
+            rport = 3306;
+            session.setPassword(rPassword);
+            session.setConfig("StrictHostKeyChecking", "no");
+            System.out.println("Establishing Connection...");
+            session.connect(); 
+            session.setPortForwardingL(lport, "localhost", rport);
+            System.out.println("Connected");
+            
+             }catch(Exception e){
+            System.err.print(e);
+        }
         
         }
-    
+        
+    public static Connection ConnectDB() {    //This method connects to the database and returns the connection.
+       
+          Connection DBconnection = null;
+          String url = "jdbc:mysql://localhost:" + lport + "/PChecker";
+          String dbUser = "root";
+          String dbPasswd = "root";
+          try{
+            Class.forName("com.mysql.jdbc.Driver");
+            DBconnection = DriverManager.getConnection(url, dbUser, dbPasswd);
+            System.out.println("Connected to database successfully...");
+            return DBconnection;
+            }
+          catch (Exception e){
+            e.printStackTrace();
+            return null;
+          }       
     }
+  
 }

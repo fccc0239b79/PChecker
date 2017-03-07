@@ -83,7 +83,7 @@ public class build {
     
     
     public void savebuild(String username){
-    Connection con = ServerControl.ServerControl();
+    Connection con = ServerControl.ConnectDB();
     
     try {
         //SQL query for inserting data into account table
