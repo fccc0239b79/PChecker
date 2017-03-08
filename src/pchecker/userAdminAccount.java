@@ -367,14 +367,17 @@ public class userAdminAccount {
         DOB = " ";
         type= false;
     }
-    
+    ArrayList<String> tableColums = new ArrayList<String>();
+    ArrayList<String> tableDataType= new ArrayList<String>();
      public ArrayList<String> getTableColName(String table){
-        ArrayList<String> tableColums = new ArrayList<String>();
+        tableColums.clear();
+        tableDataType.clear();
+
         Connection con = ServerControl.ConnectDB();
            
             try {
                 Statement stmt = (Statement) con.createStatement();
-                String query = ("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME ='" + table+"'");
+                String query = ("SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME ='" + table+"'");
 
                 stmt.executeQuery(query);
                 ResultSet rs = stmt.getResultSet();
@@ -382,6 +385,8 @@ public class userAdminAccount {
             while (rs.next()) {
           
                 tableColums.add(rs.getString("COLUMN_NAME"));
+                tableDataType.add(rs.getString("DATA_TYPE"));
+
                 
             }
             
@@ -390,9 +395,12 @@ public class userAdminAccount {
         catch (SQLException err) {
         System.out.println(err.getMessage());   
         }
-        return tableColums;
+            return tableColums;
     }
-     
+      public ArrayList<String> getTableData(){
+          return tableDataType;
+      }
+      
      public void savePart(String partType, ArrayList<String> info,ArrayList<String> partinfo){
          int partID = 0;
          Connection con = ServerControl.ConnectDB();
