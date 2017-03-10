@@ -26,7 +26,7 @@ public class LogInForm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         RegistrationPanel.setVisible(false);
         ForgotPasswordPanel.setVisible(false);
-        jPanel2.setVisible(false);
+        newFPP.setVisible(false);
     }
 
     /**
@@ -81,6 +81,7 @@ public class LogInForm extends javax.swing.JFrame {
         cancelBtnFP = new javax.swing.JButton();
         DOBLabel = new javax.swing.JLabel();
         DOBinput = new javax.swing.JTextField();
+        newFPP = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ComPChecker");
@@ -332,6 +333,8 @@ public class LogInForm extends javax.swing.JFrame {
         DOBLabel.setBounds(200, 400, 180, 30);
         ForgotPasswordPanel.add(DOBinput);
         DOBinput.setBounds(390, 400, 180, 30);
+        ForgotPasswordPanel.add(newFPP);
+        newFPP.setBounds(20, 270, 860, 310);
 
         getContentPane().add(ForgotPasswordPanel);
         ForgotPasswordPanel.setBounds(0, 0, 900, 600);
@@ -595,6 +598,7 @@ public class LogInForm extends javax.swing.JFrame {
     private javax.swing.JLabel logo;
     private javax.swing.JTextField mobilNumField;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JPanel newFPP;
     private javax.swing.JPasswordField passField;
     private javax.swing.JLabel passLabel;
     private javax.swing.JTextField surnameField;
