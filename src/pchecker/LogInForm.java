@@ -26,6 +26,7 @@ public class LogInForm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         RegistrationPanel.setVisible(false);
         ForgotPasswordPanel.setVisible(false);
+        jPanel2.setVisible(false);
     }
 
     /**
@@ -78,6 +79,8 @@ public class LogInForm extends javax.swing.JFrame {
         emailFieldFP = new javax.swing.JTextField();
         acceptBtnFP = new javax.swing.JButton();
         cancelBtnFP = new javax.swing.JButton();
+        DOBLabel = new javax.swing.JLabel();
+        DOBinput = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ComPChecker");
@@ -297,16 +300,16 @@ public class LogInForm extends javax.swing.JFrame {
         usernameLabelFP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         usernameLabelFP.setText("Username:");
         ForgotPasswordPanel.add(usernameLabelFP);
-        usernameLabelFP.setBounds(300, 360, 80, 30);
+        usernameLabelFP.setBounds(300, 320, 80, 30);
 
         emailLabelFP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         emailLabelFP.setText("email:");
         ForgotPasswordPanel.add(emailLabelFP);
-        emailLabelFP.setBounds(330, 400, 50, 30);
+        emailLabelFP.setBounds(330, 360, 50, 30);
         ForgotPasswordPanel.add(usernameFieldFP);
-        usernameFieldFP.setBounds(390, 360, 180, 30);
+        usernameFieldFP.setBounds(390, 320, 180, 30);
         ForgotPasswordPanel.add(emailFieldFP);
-        emailFieldFP.setBounds(390, 400, 180, 30);
+        emailFieldFP.setBounds(390, 360, 180, 30);
 
         acceptBtnFP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         acceptBtnFP.setText("Accept");
@@ -322,6 +325,13 @@ public class LogInForm extends javax.swing.JFrame {
         });
         ForgotPasswordPanel.add(cancelBtnFP);
         cancelBtnFP.setBounds(320, 483, 86, 40);
+
+        DOBLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        DOBLabel.setText("Day of Birth(DD/MM/YYYY):");
+        ForgotPasswordPanel.add(DOBLabel);
+        DOBLabel.setBounds(200, 400, 180, 30);
+        ForgotPasswordPanel.add(DOBinput);
+        DOBinput.setBounds(390, 400, 180, 30);
 
         getContentPane().add(ForgotPasswordPanel);
         ForgotPasswordPanel.setBounds(0, 0, 900, 600);
@@ -466,7 +476,7 @@ public class LogInForm extends javax.swing.JFrame {
         LogInPanel.setVisible(true);
         RegistrationPanel.setVisible(false);
         
-       
+       // This code reset input in "Create Account", after Cancel form.
         for (Component c : RegistrationPanel.getComponents())
         {
             if (c instanceof JTextField)
@@ -552,6 +562,8 @@ public class LogInForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DOBField;
+    private javax.swing.JLabel DOBLabel;
+    private javax.swing.JTextField DOBinput;
     private javax.swing.JPanel ForgotPasswordPanel;
     private javax.swing.JPanel LogInPanel;
     private javax.swing.JPasswordField PasswordInput;
