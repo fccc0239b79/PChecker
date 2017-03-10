@@ -313,24 +313,28 @@ public class LogInForm extends javax.swing.JFrame {
 
         jPasswordField1.setText("jPasswordField1");
         newFPP.add(jPasswordField1);
-        jPasswordField1.setBounds(380, 50, 170, 30);
+        jPasswordField1.setBounds(340, 50, 180, 30);
 
         jPasswordField2.setText("jPasswordField2");
         newFPP.add(jPasswordField2);
-        jPasswordField2.setBounds(380, 100, 170, 30);
+        jPasswordField2.setBounds(340, 100, 180, 30);
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("New Password:");
         newFPP.add(jLabel3);
-        jLabel3.setBounds(274, 50, 90, 30);
+        jLabel3.setBounds(230, 50, 110, 30);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Confirm Password:");
         newFPP.add(jLabel4);
-        jLabel4.setBounds(260, 100, 110, 30);
+        jLabel4.setBounds(200, 100, 140, 30);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Accept");
         newFPP.add(jButton1);
-        jButton1.setBounds(490, 210, 90, 40);
+        jButton1.setBounds(460, 220, 90, 40);
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton2.setText("Cancel");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -338,7 +342,7 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         newFPP.add(jButton2);
-        jButton2.setBounds(300, 210, 90, 40);
+        jButton2.setBounds(270, 220, 90, 40);
 
         ForgotPasswordPanel.add(newFPP);
         newFPP.setBounds(30, 240, 840, 300);
@@ -389,7 +393,7 @@ public class LogInForm extends javax.swing.JFrame {
         acceptBtnFP.setBounds(490, 230, 86, 40);
 
         ForgotPasswordPanel.add(oldFPP);
-        oldFPP.setBounds(0, 220, 900, 350);
+        oldFPP.setBounds(0, 230, 900, 350);
 
         getContentPane().add(ForgotPasswordPanel);
         ForgotPasswordPanel.setBounds(0, 0, 900, 600);
@@ -571,7 +575,8 @@ public class LogInForm extends javax.swing.JFrame {
     }//GEN-LAST:event_acceptBtnFPActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        newFPP.setVisible(false);
+        oldFPP.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
    
     private void login() {
