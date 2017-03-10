@@ -117,12 +117,12 @@ public class LogInForm extends javax.swing.JFrame {
         UserNameLabel.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         UserNameLabel.setText("Username:");
         LogInPanel.add(UserNameLabel);
-        UserNameLabel.setBounds(240, 340, 76, 19);
+        UserNameLabel.setBounds(250, 340, 90, 30);
 
         PasswordLabel.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         PasswordLabel.setText("Password:");
         LogInPanel.add(PasswordLabel);
-        PasswordLabel.setBounds(251, 382, 65, 19);
+        PasswordLabel.setBounds(251, 381, 90, 20);
 
         UsernameInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
