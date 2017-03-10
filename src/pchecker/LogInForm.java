@@ -74,6 +74,13 @@ public class LogInForm extends javax.swing.JFrame {
         ForgotPasswordPanel = new javax.swing.JPanel();
         informLabelFP = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        newFPP = new javax.swing.JPanel();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jPasswordField2 = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         oldFPP = new javax.swing.JPanel();
         usernameFieldFP = new javax.swing.JTextField();
         emailFieldFP = new javax.swing.JTextField();
@@ -83,7 +90,6 @@ public class LogInForm extends javax.swing.JFrame {
         usernameLabelFP = new javax.swing.JLabel();
         cancelBtnFP = new javax.swing.JButton();
         acceptBtnFP = new javax.swing.JButton();
-        newFPP = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ComPChecker");
@@ -294,11 +300,48 @@ public class LogInForm extends javax.swing.JFrame {
         informLabelFP.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         informLabelFP.setText("Did you forget password? Do NOT worry, please insert:");
         ForgotPasswordPanel.add(informLabelFP);
-        informLabelFP.setBounds(220, 200, 540, 30);
+        informLabelFP.setBounds(220, 180, 540, 30);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         ForgotPasswordPanel.add(jLabel2);
-        jLabel2.setBounds(150, 50, 602, 119);
+        jLabel2.setBounds(150, 30, 602, 119);
+
+        newFPP.setMaximumSize(new java.awt.Dimension(860, 300));
+        newFPP.setMinimumSize(new java.awt.Dimension(860, 300));
+        newFPP.setPreferredSize(new java.awt.Dimension(860, 300));
+        newFPP.setLayout(null);
+
+        jPasswordField1.setText("jPasswordField1");
+        newFPP.add(jPasswordField1);
+        jPasswordField1.setBounds(380, 50, 170, 30);
+
+        jPasswordField2.setText("jPasswordField2");
+        newFPP.add(jPasswordField2);
+        jPasswordField2.setBounds(380, 100, 170, 30);
+
+        jLabel3.setText("New Password:");
+        newFPP.add(jLabel3);
+        jLabel3.setBounds(274, 50, 90, 30);
+
+        jLabel4.setText("Confirm Password:");
+        newFPP.add(jLabel4);
+        jLabel4.setBounds(260, 100, 110, 30);
+
+        jButton1.setText("Accept");
+        newFPP.add(jButton1);
+        jButton1.setBounds(490, 210, 90, 40);
+
+        jButton2.setText("Cancel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        newFPP.add(jButton2);
+        jButton2.setBounds(300, 210, 90, 40);
+
+        ForgotPasswordPanel.add(newFPP);
+        newFPP.setBounds(30, 240, 840, 300);
 
         oldFPP.setBackground(new java.awt.Color(204, 204, 0));
         oldFPP.setMaximumSize(new java.awt.Dimension(860, 300));
@@ -345,15 +388,8 @@ public class LogInForm extends javax.swing.JFrame {
         oldFPP.add(acceptBtnFP);
         acceptBtnFP.setBounds(490, 230, 86, 40);
 
-        newFPP.setMaximumSize(new java.awt.Dimension(860, 300));
-        newFPP.setMinimumSize(new java.awt.Dimension(860, 300));
-        newFPP.setPreferredSize(new java.awt.Dimension(860, 300));
-        newFPP.setLayout(null);
-        oldFPP.add(newFPP);
-        newFPP.setBounds(0, 0, 860, 300);
-
         ForgotPasswordPanel.add(oldFPP);
-        oldFPP.setBounds(20, 240, 860, 300);
+        oldFPP.setBounds(0, 220, 900, 350);
 
         getContentPane().add(ForgotPasswordPanel);
         ForgotPasswordPanel.setBounds(0, 0, 900, 600);
@@ -533,6 +569,10 @@ public class LogInForm extends javax.swing.JFrame {
         oldFPP.setVisible(false);
         newFPP.setVisible(true);
     }//GEN-LAST:event_acceptBtnFPActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
    
     private void login() {
 
@@ -626,8 +666,14 @@ public class LogInForm extends javax.swing.JFrame {
     private javax.swing.JLabel forgotPswLink;
     private javax.swing.JLabel headingLabel;
     private javax.swing.JLabel informLabelFP;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JButton loginBtn;
     private javax.swing.JLabel logo;
     private javax.swing.JTextField mobilNumField;
