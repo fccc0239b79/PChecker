@@ -285,34 +285,43 @@ public class LogInForm extends javax.swing.JFrame {
         ForgotPasswordPanel.setMinimumSize(new java.awt.Dimension(900, 600));
         ForgotPasswordPanel.setLayout(null);
 
-        informLabelFP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        informLabelFP.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         informLabelFP.setText("Did you forget password? Do NOT worry, please insert:");
         ForgotPasswordPanel.add(informLabelFP);
-        informLabelFP.setBounds(260, 320, 338, 15);
+        informLabelFP.setBounds(220, 230, 540, 30);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         ForgotPasswordPanel.add(jLabel2);
         jLabel2.setBounds(149, 78, 602, 119);
 
+        usernameLabelFP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         usernameLabelFP.setText("Username:");
         ForgotPasswordPanel.add(usernameLabelFP);
-        usernameLabelFP.setBounds(320, 380, 52, 14);
+        usernameLabelFP.setBounds(300, 360, 80, 30);
 
+        emailLabelFP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         emailLabelFP.setText("email:");
         ForgotPasswordPanel.add(emailLabelFP);
-        emailLabelFP.setBounds(340, 420, 28, 14);
+        emailLabelFP.setBounds(330, 400, 50, 30);
         ForgotPasswordPanel.add(usernameFieldFP);
-        usernameFieldFP.setBounds(390, 380, 180, 20);
+        usernameFieldFP.setBounds(390, 360, 180, 30);
         ForgotPasswordPanel.add(emailFieldFP);
-        emailFieldFP.setBounds(390, 410, 180, 20);
+        emailFieldFP.setBounds(390, 400, 180, 30);
 
+        acceptBtnFP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         acceptBtnFP.setText("Accept");
         ForgotPasswordPanel.add(acceptBtnFP);
-        acceptBtnFP.setBounds(510, 500, 86, 23);
+        acceptBtnFP.setBounds(510, 483, 86, 40);
 
+        cancelBtnFP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cancelBtnFP.setText("Cancel");
+        cancelBtnFP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelBtnFPActionPerformed(evt);
+            }
+        });
         ForgotPasswordPanel.add(cancelBtnFP);
-        cancelBtnFP.setBounds(320, 500, 86, 23);
+        cancelBtnFP.setBounds(320, 483, 86, 40);
 
         getContentPane().add(ForgotPasswordPanel);
         ForgotPasswordPanel.setBounds(0, 0, 900, 600);
@@ -472,6 +481,11 @@ public class LogInForm extends javax.swing.JFrame {
        LogInPanel.setVisible(false);
        ForgotPasswordPanel.setVisible(true);
     }//GEN-LAST:event_forgotPswLinkMouseClicked
+
+    private void cancelBtnFPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnFPActionPerformed
+        LogInPanel.setVisible(true);
+        ForgotPasswordPanel.setVisible(false);
+    }//GEN-LAST:event_cancelBtnFPActionPerformed
    
     private void login() {
 
