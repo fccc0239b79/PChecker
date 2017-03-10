@@ -26,6 +26,7 @@ public class LogInForm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         RegistrationPanel.setVisible(false);
         ForgotPasswordPanel.setVisible(false);
+        oldFPP.setVisible(true);
         newFPP.setVisible(false);
     }
 
@@ -73,14 +74,15 @@ public class LogInForm extends javax.swing.JFrame {
         ForgotPasswordPanel = new javax.swing.JPanel();
         informLabelFP = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        usernameLabelFP = new javax.swing.JLabel();
-        emailLabelFP = new javax.swing.JLabel();
+        oldFPP = new javax.swing.JPanel();
         usernameFieldFP = new javax.swing.JTextField();
         emailFieldFP = new javax.swing.JTextField();
-        acceptBtnFP = new javax.swing.JButton();
-        cancelBtnFP = new javax.swing.JButton();
-        DOBLabel = new javax.swing.JLabel();
         DOBinput = new javax.swing.JTextField();
+        DOBLabel = new javax.swing.JLabel();
+        emailLabelFP = new javax.swing.JLabel();
+        usernameLabelFP = new javax.swing.JLabel();
+        cancelBtnFP = new javax.swing.JButton();
+        acceptBtnFP = new javax.swing.JButton();
         newFPP = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -292,30 +294,36 @@ public class LogInForm extends javax.swing.JFrame {
         informLabelFP.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         informLabelFP.setText("Did you forget password? Do NOT worry, please insert:");
         ForgotPasswordPanel.add(informLabelFP);
-        informLabelFP.setBounds(220, 230, 540, 30);
+        informLabelFP.setBounds(220, 200, 540, 30);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         ForgotPasswordPanel.add(jLabel2);
-        jLabel2.setBounds(149, 78, 602, 119);
+        jLabel2.setBounds(150, 50, 602, 119);
 
-        usernameLabelFP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        usernameLabelFP.setText("Username:");
-        ForgotPasswordPanel.add(usernameLabelFP);
-        usernameLabelFP.setBounds(300, 320, 80, 30);
+        oldFPP.setBackground(new java.awt.Color(204, 204, 0));
+        oldFPP.setMaximumSize(new java.awt.Dimension(860, 300));
+        oldFPP.setLayout(null);
+        oldFPP.add(usernameFieldFP);
+        usernameFieldFP.setBounds(370, 60, 180, 30);
+        oldFPP.add(emailFieldFP);
+        emailFieldFP.setBounds(370, 100, 180, 30);
+        oldFPP.add(DOBinput);
+        DOBinput.setBounds(370, 140, 180, 30);
+
+        DOBLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        DOBLabel.setText("Day of Birth(DD/MM/YYYY):");
+        oldFPP.add(DOBLabel);
+        DOBLabel.setBounds(180, 140, 180, 30);
 
         emailLabelFP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         emailLabelFP.setText("email:");
-        ForgotPasswordPanel.add(emailLabelFP);
-        emailLabelFP.setBounds(330, 360, 50, 30);
-        ForgotPasswordPanel.add(usernameFieldFP);
-        usernameFieldFP.setBounds(390, 320, 180, 30);
-        ForgotPasswordPanel.add(emailFieldFP);
-        emailFieldFP.setBounds(390, 360, 180, 30);
+        oldFPP.add(emailLabelFP);
+        emailLabelFP.setBounds(310, 100, 50, 30);
 
-        acceptBtnFP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        acceptBtnFP.setText("Accept");
-        ForgotPasswordPanel.add(acceptBtnFP);
-        acceptBtnFP.setBounds(510, 483, 86, 40);
+        usernameLabelFP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        usernameLabelFP.setText("Username:");
+        oldFPP.add(usernameLabelFP);
+        usernameLabelFP.setBounds(280, 60, 80, 30);
 
         cancelBtnFP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cancelBtnFP.setText("Cancel");
@@ -324,17 +332,28 @@ public class LogInForm extends javax.swing.JFrame {
                 cancelBtnFPActionPerformed(evt);
             }
         });
-        ForgotPasswordPanel.add(cancelBtnFP);
-        cancelBtnFP.setBounds(320, 483, 86, 40);
+        oldFPP.add(cancelBtnFP);
+        cancelBtnFP.setBounds(300, 230, 86, 40);
 
-        DOBLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        DOBLabel.setText("Day of Birth(DD/MM/YYYY):");
-        ForgotPasswordPanel.add(DOBLabel);
-        DOBLabel.setBounds(200, 400, 180, 30);
-        ForgotPasswordPanel.add(DOBinput);
-        DOBinput.setBounds(390, 400, 180, 30);
-        ForgotPasswordPanel.add(newFPP);
-        newFPP.setBounds(20, 270, 860, 310);
+        acceptBtnFP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        acceptBtnFP.setText("Accept");
+        acceptBtnFP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acceptBtnFPActionPerformed(evt);
+            }
+        });
+        oldFPP.add(acceptBtnFP);
+        acceptBtnFP.setBounds(490, 230, 86, 40);
+
+        newFPP.setMaximumSize(new java.awt.Dimension(860, 300));
+        newFPP.setMinimumSize(new java.awt.Dimension(860, 300));
+        newFPP.setPreferredSize(new java.awt.Dimension(860, 300));
+        newFPP.setLayout(null);
+        oldFPP.add(newFPP);
+        newFPP.setBounds(0, 0, 860, 300);
+
+        ForgotPasswordPanel.add(oldFPP);
+        oldFPP.setBounds(20, 240, 860, 300);
 
         getContentPane().add(ForgotPasswordPanel);
         ForgotPasswordPanel.setBounds(0, 0, 900, 600);
@@ -479,8 +498,16 @@ public class LogInForm extends javax.swing.JFrame {
         LogInPanel.setVisible(true);
         RegistrationPanel.setVisible(false);
         
-       // This code reset input in "Create Account", after Cancel form.
-        for (Component c : RegistrationPanel.getComponents())
+        cleanInput(RegistrationPanel);
+    
+    }//GEN-LAST:event_cancelBtnActionPerformed
+
+    /**
+     * This code reset input in "Create Account", after Cancel form.
+     * @param panel 
+     */
+    private void cleanInput(JPanel panel) {
+        for (Component c : panel.getComponents())
         {
             if (c instanceof JTextField)
             {
@@ -488,8 +515,8 @@ public class LogInForm extends javax.swing.JFrame {
                 j.setText("");
             }
         }
-    }//GEN-LAST:event_cancelBtnActionPerformed
-
+    }
+    
     private void forgotPswLinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotPswLinkMouseClicked
        LogInPanel.setVisible(false);
        ForgotPasswordPanel.setVisible(true);
@@ -498,7 +525,14 @@ public class LogInForm extends javax.swing.JFrame {
     private void cancelBtnFPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnFPActionPerformed
         LogInPanel.setVisible(true);
         ForgotPasswordPanel.setVisible(false);
+        
+        cleanInput(oldFPP);
     }//GEN-LAST:event_cancelBtnFPActionPerformed
+
+    private void acceptBtnFPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnFPActionPerformed
+        oldFPP.setVisible(false);
+        newFPP.setVisible(true);
+    }//GEN-LAST:event_acceptBtnFPActionPerformed
    
     private void login() {
 
@@ -599,6 +633,7 @@ public class LogInForm extends javax.swing.JFrame {
     private javax.swing.JTextField mobilNumField;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JPanel newFPP;
+    private javax.swing.JPanel oldFPP;
     private javax.swing.JPasswordField passField;
     private javax.swing.JLabel passLabel;
     private javax.swing.JTextField surnameField;
