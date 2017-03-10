@@ -186,11 +186,11 @@ public class BuildForm extends javax.swing.JFrame {
 
         cancelBtnE.setText("Cancel");
         editPanel.add(cancelBtnE);
-        cancelBtnE.setBounds(825, 11, 65, 42);
+        cancelBtnE.setBounds(820, 10, 65, 42);
 
         acceptBtnE.setText("Accept");
         editPanel.add(acceptBtnE);
-        acceptBtnE.setBounds(754, 11, 65, 42);
+        acceptBtnE.setBounds(740, 10, 65, 42);
         editPanel.add(componentsListE);
         componentsListE.setBounds(147, 258, 602, 282);
 
