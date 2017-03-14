@@ -53,25 +53,25 @@ public class build {
     }
     
     
-    public String setBuildName(){
+    public String getBuildName(){
         return buildName;
     }    
-    public int setMotherboard(){
+    public int getMotherboard(){
         return motherBoardID;
     }
-    public int setCPU(){
+    public int getCPU(){
         return cpuID;
     }
-    public int setRam(){
+    public int getRam(){
         return ramID;
     }
-    public int setStorage(){
+    public int getStorage(){
         return storageID;
     }
-    public int setGpu(){
+    public int getGpu(){
         return gpuID;
     }
-    public int setPSU(){
+    public int getPSU(){
         return psuID;
     }
     public int getCase(){
@@ -108,8 +108,9 @@ public class build {
        statement.setInt(11, coolerID);
        statement.setInt(12, accessoryID);
        statement.setInt(13, systemCompRating);
+            System.out.print(statement);
+
        statement.execute();
-     
     }
     catch(SQLException err){
         System.out.println(err);

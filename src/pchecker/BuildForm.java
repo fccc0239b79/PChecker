@@ -42,18 +42,25 @@ public class BuildForm extends javax.swing.JFrame {
     public BuildForm() {
         initComponents();
         setLocationRelativeTo(null);
-        buildPanel.setVisible(true);
+        
     }
     public BuildForm(userAdminAccount user) {
         initComponents();
         setLocationRelativeTo(null);
-        addPart.setVisible(true);
         currentUser = user;
+        if(currentUser.getType()){
+            addPart.setVisible(true);
+        }else{
+         buildPanel.setVisible(true);
+        }
+        
     }
     public BuildForm(userAdminAccount user,String Build) {
         initComponents();
         setLocationRelativeTo(null);
         editPanel.setVisible(true);
+        currentUser = user;
+        
         
     }
      public void enbleButtons(){
@@ -71,6 +78,7 @@ public class BuildForm extends javax.swing.JFrame {
      DefaultTableModel modelParts = new DefaultTableModel();
 
     public void addPart(String part){
+
         //partsTable.setEnabled(false);
 
         buildPanel.setVisible(false);
@@ -100,24 +108,32 @@ public class BuildForm extends javax.swing.JFrame {
                 switch (part) {
                 
                     case "Motherboard": newBuild.setMotherboard(Integer.parseInt(PartID));
-                                        motherboardBtn.setText("MotherBoard \n"+partModel);
+                                        motherboardBtn.setText("MotherBoard "+partModel);
                                         enbleButtons();
                                         break;
                     case "CPU": newBuild.setCPU(Integer.parseInt(PartID));
+                                processorBtn.setText("Processor "+partModel);
                                 break;
                     case "RAM": newBuild.setRAM(Integer.parseInt(PartID));
+                                ramBtn.setText("RAM "+partModel);
                                 break;
-                    case "GPU": newBuild.setGPU(Integer.parseInt(PartID));  
+                    case "GPU": newBuild.setGPU(Integer.parseInt(PartID)); 
+                                graphicsBtn.setText("Graphics card \n"+partModel);
                                 break;
-                    case "Storage": newBuild.setStorage(Integer.parseInt(PartID));  
+                    case "Storage": newBuild.setStorage(Integer.parseInt(PartID)); 
+                                    hddBtn.setText("HDD \n"+partModel);
                                     break;
                     case "Accessory": newBuild.setAccessory(Integer.parseInt(PartID));
+                                      accessoriesBtn.setText("Accessories \n"+partModel);
                                       break;
-                    case "PSU": newBuild.setPSU(Integer.parseInt(PartID));           
+                    case "PSU": newBuild.setPSU(Integer.parseInt(PartID));    
+                                supplyBtn.setText("Power Supply \n"+partModel);
                                 break;
-                    case "PCCase": newBuild.setPCCase(Integer.parseInt(PartID));   
+                    case "PCCase": newBuild.setPCCase(Integer.parseInt(PartID));  
+                                   caseBtn.setText("Case \n"+partModel);
                                    break;
                     case "Cooler": newBuild.setCooler(Integer.parseInt(PartID));
+                                   coolingBtn.setText("Cooling \n"+partModel);
                                     break;
                   
 
@@ -194,10 +210,10 @@ public class BuildForm extends javax.swing.JFrame {
         buildPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         cancelBtnB = new javax.swing.JButton();
-        acceptBtnB = new javax.swing.JButton();
+        acceptBuildBtn = new javax.swing.JButton();
         logoB = new javax.swing.JLabel();
         buildNameLabelB = new javax.swing.JLabel();
-        buildNameFieldB = new javax.swing.JTextField();
+        buildNametxt = new javax.swing.JTextField();
         motherboardBtn = new javax.swing.JButton();
         processorBtn = new javax.swing.JButton();
         ramBtn = new javax.swing.JButton();
@@ -299,14 +315,14 @@ public class BuildForm extends javax.swing.JFrame {
         buildPanel.add(cancelBtnB);
         cancelBtnB.setBounds(825, 11, 86, 42);
 
-        acceptBtnB.setText("Accept");
-        acceptBtnB.addActionListener(new java.awt.event.ActionListener() {
+        acceptBuildBtn.setText("Accept");
+        acceptBuildBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                acceptBtnBActionPerformed(evt);
+                acceptBuildBtnActionPerformed(evt);
             }
         });
-        buildPanel.add(acceptBtnB);
-        acceptBtnB.setBounds(690, 10, 87, 42);
+        buildPanel.add(acceptBuildBtn);
+        acceptBuildBtn.setBounds(700, 10, 87, 42);
 
         logoB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         buildPanel.add(logoB);
@@ -317,13 +333,13 @@ public class BuildForm extends javax.swing.JFrame {
         buildPanel.add(buildNameLabelB);
         buildNameLabelB.setBounds(263, 288, 115, 36);
 
-        buildNameFieldB.addActionListener(new java.awt.event.ActionListener() {
+        buildNametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buildNameFieldBActionPerformed(evt);
+                buildNametxtActionPerformed(evt);
             }
         });
-        buildPanel.add(buildNameFieldB);
-        buildNameFieldB.setBounds(384, 288, 246, 36);
+        buildPanel.add(buildNametxt);
+        buildNametxt.setBounds(384, 288, 246, 36);
 
         motherboardBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         motherboardBtn.setText("MOTHERBOARD");
@@ -692,13 +708,10 @@ public class BuildForm extends javax.swing.JFrame {
     pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void getTableData() {
-        
-    }
     
-    private void buildNameFieldBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildNameFieldBActionPerformed
+    private void buildNametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildNametxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buildNameFieldBActionPerformed
+    }//GEN-LAST:event_buildNametxtActionPerformed
 
     private void accessoriesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accessoriesBtnActionPerformed
         addPart("Accessory");
@@ -812,15 +825,22 @@ public class BuildForm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_partsTableMouseClicked
 
-    private void acceptBtnBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnBActionPerformed
+    private void acceptBuildBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBuildBtnActionPerformed
        
+        saveB();
         
-        newBuild.setBuildName(buildNameFieldB.getText());
+        
+    }//GEN-LAST:event_acceptBuildBtnActionPerformed
+
+    public void saveB(){
+        newBuild.setBuildName(buildNametxt.getText());
         newBuild.savebuild(currentUser.getUsername());
         
-        
-    }//GEN-LAST:event_acceptBtnBActionPerformed
+        AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
+        this.dispose();
+        frm.setVisible(true);
 
+    }
     /**
      * @param args the command line arguments
      */
@@ -857,8 +877,8 @@ public class BuildForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton acceptBtnB;
     private javax.swing.JButton acceptBtnE;
+    private javax.swing.JButton acceptBuildBtn;
     private javax.swing.JButton accessoriesBtn;
     private javax.swing.JPanel addBuildPanel;
     private javax.swing.JPanel addPart;
@@ -868,8 +888,8 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JTextField addPartPriceInput;
     private javax.swing.JButton addPartSaveBtn;
     private javax.swing.JButton buildCancelBtn;
-    private javax.swing.JTextField buildNameFieldB;
     private javax.swing.JLabel buildNameLabelB;
+    private javax.swing.JTextField buildNametxt;
     private javax.swing.JPanel buildPanel;
     private javax.swing.JButton cancelBtnB;
     private javax.swing.JButton cancelBtnE;

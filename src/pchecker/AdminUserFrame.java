@@ -559,7 +559,7 @@ private void enbleEdit(boolean torf){
 
     private void addBuildBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBuildBtnActionPerformed
         
-        BuildForm frm = new BuildForm();
+        BuildForm frm = new BuildForm(currentUser);
         frm.setVisible(true);
         this.dispose();
         
