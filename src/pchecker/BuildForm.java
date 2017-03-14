@@ -76,10 +76,10 @@ public class BuildForm extends javax.swing.JFrame {
      }
      
      DefaultTableModel modelParts = new DefaultTableModel();
-
+     String choosenPart;
     public void addPart(String part){
 
-        //partsTable.setEnabled(false);
+     
 
         buildPanel.setVisible(false);
         addBuildPanel.setVisible(true);
@@ -88,64 +88,9 @@ public class BuildForm extends javax.swing.JFrame {
         modelParts = currentUser.getparts(part);
         
         partsTable.setModel(modelParts);
+        choosenPart = part;
+       
         
-        //partsTable.disable();             
-        partsTable.addMouseListener(new MouseAdapter() {
-            public void mousePressed(MouseEvent me) {
-
-
-                JTable table = (JTable) me.getSource();
-                Point p = me.getPoint();
-                int row = table.rowAtPoint(p);
-                if (me.getClickCount() == 2 && partsTable.isEnabled()) {
-
-                String PartID = modelParts.getValueAt(row, 0).toString();
-                String partModel = modelParts.getValueAt(row, modelParts.findColumn("Model")).toString();
-                
-                
-
-                   System.out.println(PartID);
-                switch (part) {
-                
-                    case "Motherboard": newBuild.setMotherboard(Integer.parseInt(PartID));
-                                        motherboardBtn.setText("MotherBoard "+partModel);
-                                        enbleButtons();
-                                        break;
-                    case "CPU": newBuild.setCPU(Integer.parseInt(PartID));
-                                processorBtn.setText("Processor "+partModel);
-                                break;
-                    case "RAM": newBuild.setRAM(Integer.parseInt(PartID));
-                                ramBtn.setText("RAM "+partModel);
-                                break;
-                    case "GPU": newBuild.setGPU(Integer.parseInt(PartID)); 
-                                graphicsBtn.setText("Graphics card \n"+partModel);
-                                break;
-                    case "Storage": newBuild.setStorage(Integer.parseInt(PartID)); 
-                                    hddBtn.setText("HDD \n"+partModel);
-                                    break;
-                    case "Accessory": newBuild.setAccessory(Integer.parseInt(PartID));
-                                      accessoriesBtn.setText("Accessories \n"+partModel);
-                                      break;
-                    case "PSU": newBuild.setPSU(Integer.parseInt(PartID));    
-                                supplyBtn.setText("Power Supply \n"+partModel);
-                                break;
-                    case "PCCase": newBuild.setPCCase(Integer.parseInt(PartID));  
-                                   caseBtn.setText("Case \n"+partModel);
-                                   break;
-                    case "Cooler": newBuild.setCooler(Integer.parseInt(PartID));
-                                   coolingBtn.setText("Cooling \n"+partModel);
-                                    break;
-                  
-
-                
-                }
-                buildPanel.setVisible(true);
-                addBuildPanel.setVisible(false);
-                
-                
-                }
-            }
-        });
     }
     
     ArrayList<JLabel> labels = new ArrayList<JLabel>();
@@ -823,6 +768,55 @@ public class BuildForm extends javax.swing.JFrame {
 
     private void partsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partsTableMouseClicked
 
+
+
+                //JTable table = (JTable) me.getSource();
+                //Point p = me.getPoint();
+                int row =  partsTable.getSelectedRow();
+                if (evt.getClickCount() == 2 ) {
+                //partsTable.getSelectedRow()
+                String PartID = modelParts.getValueAt(row, 0).toString();
+                String partModel = modelParts.getValueAt(row, modelParts.findColumn("Model")).toString();
+                
+            
+                switch (choosenPart) {
+                
+                    case "Motherboard": newBuild.setMotherboard(Integer.parseInt(PartID));
+                                        motherboardBtn.setText("MotherBoard "+PartID);
+                                        enbleButtons();
+                                        break;
+                    case "CPU": newBuild.setCPU(Integer.parseInt(PartID));
+                                processorBtn.setText("Processor "+PartID);
+                                break;
+                    case "RAM": newBuild.setRAM(Integer.parseInt(PartID));
+                                ramBtn.setText("RAM "+PartID);
+                                break;
+                    case "GPU": newBuild.setGPU(Integer.parseInt(PartID)); 
+                                graphicsBtn.setText("Graphics card \n"+PartID);
+                                break;
+                    case "Storage": newBuild.setStorage(Integer.parseInt(PartID)); 
+                                    hddBtn.setText("HDD \n"+PartID);
+                                    break;
+                    case "Accessory": newBuild.setAccessory(Integer.parseInt(PartID));
+                                      accessoriesBtn.setText("Accessories \n"+PartID);
+                                      break;
+                    case "PSU": newBuild.setPSU(Integer.parseInt(PartID));    
+                                supplyBtn.setText("Power Supply \n"+PartID);
+                                break;
+                    case "PCCase": newBuild.setPCCase(Integer.parseInt(PartID));  
+                                   caseBtn.setText("Case \n"+PartID);
+                                   break;
+                    case "Cooler": newBuild.setCooler(Integer.parseInt(PartID));
+                                   coolingBtn.setText("Cooling \n"+PartID);
+                                    break;
+                  
+
+                
+                }
+                buildPanel.setVisible(true);
+                addBuildPanel.setVisible(false);
+                } 
+              
     }//GEN-LAST:event_partsTableMouseClicked
 
     private void acceptBuildBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBuildBtnActionPerformed

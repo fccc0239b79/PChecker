@@ -378,14 +378,7 @@ public class userAdminAccount {
 
 
     public static DefaultTableModel getparts(String part){
-        DefaultTableModel modelParts = new DefaultTableModel() {
-
-            @Override
-            public boolean isCellEditable(int row, int column) {
-               //all cells false
-               return false;
-            }
-        };
+        DefaultTableModel modelParts = new DefaultTableModel() ;
         
         Connection con = ServerControl.ConnectDB();
             try {
@@ -416,7 +409,14 @@ public class userAdminAccount {
 
                 con.close();
 
-                 modelParts = new DefaultTableModel(data, columnNames);
+                 modelParts = new DefaultTableModel(data, columnNames){
+
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                   //all cells false
+                   return false;
+                }
+            };
             
            }
         catch (SQLException err) {
