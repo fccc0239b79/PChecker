@@ -356,6 +356,11 @@ public class AdminUserFrame extends javax.swing.JFrame {
 
         viewBuildAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         viewBuildAdminBtn.setText("View Build");
+        viewBuildAdminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewBuildAdminBtnActionPerformed(evt);
+            }
+        });
         mainAdminPanel.add(viewBuildAdminBtn);
         viewBuildAdminBtn.setBounds(540, 470, 160, 80);
 
@@ -522,7 +527,7 @@ private void enbleEdit(boolean torf){
     }//GEN-LAST:event_createAccountAdminBtnActionPerformed
 
     private void newComponentAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newComponentAdminBtnActionPerformed
-        BuildForm frm = new BuildForm(currentUser);
+        BuildForm frm = new BuildForm(currentUser,true);
         this.dispose();
         frm.setVisible(true);
         
@@ -568,7 +573,7 @@ private void enbleEdit(boolean torf){
     }//GEN-LAST:event_addBuildBtnActionPerformed
 
     private void createBuildAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBuildAdminBtnActionPerformed
-        BuildForm frm = new BuildForm();
+        BuildForm frm = new BuildForm(currentUser);
         frm.setVisible(true);
         this.dispose();
         
@@ -585,6 +590,12 @@ private void enbleEdit(boolean torf){
             frm.setVisible(true);
         }
     }//GEN-LAST:event_buildsListMouseClicked
+
+    private void viewBuildAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBuildAdminBtnActionPerformed
+        mainAdminPanel.setVisible(false);
+        mainUserPanel.setVisible(true);
+        getBuilds();
+    }//GEN-LAST:event_viewBuildAdminBtnActionPerformed
 
     /**
      * @param args the command line arguments
