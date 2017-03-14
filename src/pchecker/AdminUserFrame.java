@@ -67,6 +67,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         jScrollBuildList = new javax.swing.JScrollPane();
         buildsList = new javax.swing.JList<>();
         addBuildBtn = new javax.swing.JButton();
+        adminBackBtn = new javax.swing.JButton();
         profilePanel = new javax.swing.JPanel();
         profileLabel = new javax.swing.JLabel();
         backBtnProfile = new javax.swing.JButton();
@@ -161,6 +162,16 @@ public class AdminUserFrame extends javax.swing.JFrame {
         });
         mainUserPanel.add(addBuildBtn);
         addBuildBtn.setBounds(407, 467, 95, 43);
+
+        adminBackBtn.setText("Back");
+        adminBackBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adminBackBtnActionPerformed(evt);
+            }
+        });
+        mainUserPanel.add(adminBackBtn);
+        adminBackBtn.setBounds(30, 530, 75, 29);
+        adminBackBtn.setVisible(false);
 
         getContentPane().add(mainUserPanel);
         mainUserPanel.setBounds(0, 0, 900, 600);
@@ -595,7 +606,13 @@ private void enbleEdit(boolean torf){
         mainAdminPanel.setVisible(false);
         mainUserPanel.setVisible(true);
         getBuilds();
+        adminBackBtn.setVisible(true);
     }//GEN-LAST:event_viewBuildAdminBtnActionPerformed
+
+    private void adminBackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminBackBtnActionPerformed
+        mainAdminPanel.setVisible(true);
+        mainUserPanel.setVisible(false);
+    }//GEN-LAST:event_adminBackBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -636,6 +653,7 @@ private void enbleEdit(boolean torf){
     private javax.swing.JTextField DOBPro;
     private javax.swing.JButton acceptBtnProfile;
     private javax.swing.JButton addBuildBtn;
+    private javax.swing.JButton adminBackBtn;
     private javax.swing.JLabel adminMenuLabel;
     private javax.swing.JButton backBtnProfile;
     private javax.swing.JList<String> buildsList;
