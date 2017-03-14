@@ -8,10 +8,18 @@ package pchecker;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Vector;
+import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Pawel
@@ -41,9 +49,20 @@ public class BuildForm extends javax.swing.JFrame {
         editPanel.setVisible(true);
         
     }
-    public void addPart(){
+    public void addPart(String part){
         buildPanel.setVisible(false);
         addBuildPanel.setVisible(true);
+        
+        
+       
+
+        
+        
+      DefaultTableModel model = currentUser.getparts(part);
+      //System.out.print(model);
+      // currentUser.getparts(part);
+      partsTable.setModel(model);
+
     }
     
     ArrayList<JLabel> labels = new ArrayList<JLabel>();
@@ -148,12 +167,8 @@ public class BuildForm extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         addBuildPanel = new javax.swing.JPanel();
         selectPartTable = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        deleteBuildBtn = new javax.swing.JButton();
-        addBuildBtn = new javax.swing.JButton();
-        editBuildBtn = new javax.swing.JButton();
+        partsTable = new javax.swing.JTable();
         buildCancelBtn = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         addPart = new javax.swing.JPanel();
         addPartSaveBtn = new javax.swing.JButton();
@@ -186,11 +201,11 @@ public class BuildForm extends javax.swing.JFrame {
 
         cancelBtnE.setText("Cancel");
         editPanel.add(cancelBtnE);
-        cancelBtnE.setBounds(820, 10, 65, 42);
+        cancelBtnE.setBounds(820, 10, 86, 42);
 
         acceptBtnE.setText("Accept");
         editPanel.add(acceptBtnE);
-        acceptBtnE.setBounds(740, 10, 65, 42);
+        acceptBtnE.setBounds(740, 10, 87, 42);
         editPanel.add(componentsListE);
         componentsListE.setBounds(147, 258, 602, 282);
 
@@ -215,11 +230,11 @@ public class BuildForm extends javax.swing.JFrame {
 
         cancelBtnB.setText("Cancel");
         buildPanel.add(cancelBtnB);
-        cancelBtnB.setBounds(825, 11, 65, 42);
+        cancelBtnB.setBounds(825, 11, 86, 42);
 
         acceptBtnB.setText("Accept");
         buildPanel.add(acceptBtnB);
-        acceptBtnB.setBounds(754, 11, 65, 42);
+        acceptBtnB.setBounds(754, 11, 87, 42);
 
         logoB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         buildPanel.add(logoB);
@@ -246,7 +261,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(motherboardBtn);
-        motherboardBtn.setBounds(250, 340, 119, 62);
+        motherboardBtn.setBounds(250, 340, 132, 62);
 
         processorBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         processorBtn.setText("PROCESSOR");
@@ -402,7 +417,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jComboBox1);
-        jComboBox1.setBounds(440, 290, 220, 20);
+        jComboBox1.setBounds(440, 290, 220, 27);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -410,11 +425,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField1);
-        jTextField1.setBounds(440, 320, 220, 20);
+        jTextField1.setBounds(440, 320, 220, 26);
         createAccount.add(jTextField2);
-        jTextField2.setBounds(440, 350, 220, 20);
+        jTextField2.setBounds(440, 350, 220, 26);
         createAccount.add(jTextField3);
-        jTextField3.setBounds(440, 380, 220, 20);
+        jTextField3.setBounds(440, 380, 220, 26);
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -422,14 +437,14 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField4);
-        jTextField4.setBounds(440, 410, 220, 20);
+        jTextField4.setBounds(440, 410, 220, 26);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("email:");
         createAccount.add(jLabel11);
         jLabel11.setBounds(300, 470, 70, 17);
         createAccount.add(jTextField5);
-        jTextField5.setBounds(440, 440, 220, 20);
+        jTextField5.setBounds(440, 440, 220, 26);
         createAccount.add(jTextField6);
         jTextField6.setBounds(440, 470, 220, 20);
 
@@ -460,7 +475,7 @@ public class BuildForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         viewAccount.add(jScrollPane1);
-        jScrollPane1.setBounds(220, 290, 452, 170);
+        jScrollPane1.setBounds(220, 290, 454, 170);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel12.setText("View Accounts:");
@@ -481,7 +496,7 @@ public class BuildForm extends javax.swing.JFrame {
         addBuildPanel.setMinimumSize(new java.awt.Dimension(900, 600));
         addBuildPanel.setLayout(null);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        partsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -492,22 +507,10 @@ public class BuildForm extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        selectPartTable.setViewportView(jTable2);
+        selectPartTable.setViewportView(partsTable);
 
         addBuildPanel.add(selectPartTable);
         selectPartTable.setBounds(10, 160, 750, 430);
-
-        deleteBuildBtn.setText("DELETE BUILD");
-        addBuildPanel.add(deleteBuildBtn);
-        deleteBuildBtn.setBounds(770, 340, 120, 70);
-
-        addBuildBtn.setText("ADD BUILD");
-        addBuildPanel.add(addBuildBtn);
-        addBuildBtn.setBounds(770, 160, 120, 70);
-
-        editBuildBtn.setText("EDIT BUILD");
-        addBuildPanel.add(editBuildBtn);
-        editBuildBtn.setBounds(770, 250, 120, 70);
 
         buildCancelBtn.setText("Cancel");
         buildCancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -517,10 +520,6 @@ public class BuildForm extends javax.swing.JFrame {
         });
         addBuildPanel.add(buildCancelBtn);
         buildCancelBtn.setBounds(10, 10, 70, 40);
-
-        jButton3.setText("COMPARE BUILDS");
-        addBuildPanel.add(jButton3);
-        jButton3.setBounds(770, 430, 119, 70);
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         addBuildPanel.add(jLabel13);
@@ -542,7 +541,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         addPart.add(addPartSaveBtn);
-        addPartSaveBtn.setBounds(650, 90, 57, 23);
+        addPartSaveBtn.setBounds(650, 90, 75, 29);
 
         addPartCancelBtn.setText("Cancel");
         addPartCancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -551,7 +550,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         addPart.add(addPartCancelBtn);
-        addPartCancelBtn.setBounds(730, 90, 65, 30);
+        addPartCancelBtn.setBounds(730, 90, 86, 30);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel14.setText("Part type:");
@@ -625,7 +624,7 @@ public class BuildForm extends javax.swing.JFrame {
     }//GEN-LAST:event_buildNameFieldBActionPerformed
 
     private void accessoriesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accessoriesBtnActionPerformed
-        addPart();
+        addPart("Accessory");
     }//GEN-LAST:event_accessoriesBtnActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -645,35 +644,35 @@ public class BuildForm extends javax.swing.JFrame {
     }//GEN-LAST:event_buildCancelBtnActionPerformed
 
     private void motherboardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motherboardBtnActionPerformed
-      addPart();
+        addPart("Motherboard");
     }//GEN-LAST:event_motherboardBtnActionPerformed
 
     private void processorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processorBtnActionPerformed
-       addPart();
+       addPart("CPU");
     }//GEN-LAST:event_processorBtnActionPerformed
 
     private void ramBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ramBtnActionPerformed
-       addPart();
+       addPart("RAM");
     }//GEN-LAST:event_ramBtnActionPerformed
 
     private void hddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hddBtnActionPerformed
-        addPart();
+        addPart("Storage");
     }//GEN-LAST:event_hddBtnActionPerformed
 
     private void graphicsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graphicsBtnActionPerformed
-        addPart();
+        addPart("GPU");
     }//GEN-LAST:event_graphicsBtnActionPerformed
 
     private void caseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caseBtnActionPerformed
-        addPart();
+        addPart("PCCase");
     }//GEN-LAST:event_caseBtnActionPerformed
 
     private void supplyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplyBtnActionPerformed
-       addPart();
+       addPart("PSU");
     }//GEN-LAST:event_supplyBtnActionPerformed
 
     private void coolingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coolingBtnActionPerformed
-       addPart();
+       addPart("Cooler");
     }//GEN-LAST:event_coolingBtnActionPerformed
 
     private void addPartCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartCancelBtnActionPerformed
@@ -767,7 +766,6 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JButton acceptBtnB;
     private javax.swing.JButton acceptBtnE;
     private javax.swing.JButton accessoriesBtn;
-    private javax.swing.JButton addBuildBtn;
     private javax.swing.JPanel addBuildPanel;
     private javax.swing.JPanel addPart;
     private javax.swing.JButton addPartCancelBtn;
@@ -785,15 +783,12 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane componentsListE;
     private javax.swing.JButton coolingBtn;
     private javax.swing.JPanel createAccount;
-    private javax.swing.JButton deleteBuildBtn;
-    private javax.swing.JButton editBuildBtn;
     private javax.swing.JLabel editLabelE;
     private javax.swing.JPanel editPanel;
     private javax.swing.JButton graphicsBtn;
     private javax.swing.JButton hddBtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -815,7 +810,6 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -826,6 +820,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel logoE;
     private javax.swing.JButton motherboardBtn;
     private javax.swing.JComboBox<String> partTypeComboBox;
+    private javax.swing.JTable partsTable;
     private javax.swing.JButton processorBtn;
     private javax.swing.JButton ramBtn;
     private javax.swing.JScrollPane selectPartTable;

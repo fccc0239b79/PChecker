@@ -8,9 +8,12 @@ package pchecker;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -367,8 +370,56 @@ public class userAdminAccount {
         DOB = " ";
         type= false;
     }
+     
     ArrayList<String> tableColums = new ArrayList<String>();
     ArrayList<String> tableDataType= new ArrayList<String>();
+    
+    ArrayList<String> listOfParts= new ArrayList<String>();
+
+
+    public static DefaultTableModel getparts(String part){
+      DefaultTableModel model = new DefaultTableModel();
+
+        Connection con = ServerControl.ConnectDB();
+            try {
+                Statement stmt = (Statement) con.createStatement();
+                String query = ("Select * FROM "+ part +" INNER JOIN Part ON "+part+".ID = Part.PartID;");
+
+                ResultSet rs = stmt.executeQuery(query);
+                ///System.out.print(rs.getString(0));
+                ResultSetMetaData metaData = rs.getMetaData();
+
+                // names of columns
+                Vector<String> columnNames = new Vector<String>();
+                int columnCount = metaData.getColumnCount();
+                for (int column = 1; column <= columnCount; column++) {
+                    columnNames.add(metaData.getColumnName(column));
+                }
+
+                // data of the table
+                Vector<Vector<Object>> data = new Vector<Vector<Object>>();
+                while (rs.next()) {
+                    Vector<Object> vector = new Vector<Object>();
+                    for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++) {
+                        vector.add(rs.getObject(columnIndex));
+                    
+                    }
+                    data.add(vector);
+                }
+
+                con.close();
+
+                 model = new DefaultTableModel(data, columnNames);
+            
+           }
+        catch (SQLException err) {
+        System.out.println(err.getMessage());   
+        }
+        return model;
+   
+    }
+
+    
      public ArrayList<String> getTableColName(String table){
         tableColums.clear();
         tableDataType.clear();
@@ -465,4 +516,5 @@ public class userAdminAccount {
         System.out.println(err);
     }
    }
+     
 }
