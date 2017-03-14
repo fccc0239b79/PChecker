@@ -30,19 +30,19 @@ public class build {
     public void setCPU(int ID){
         this.cpuID = ID;
     }
-    public void setRam(int ID){
+    public void setRAM(int ID){
         this.ramID = ID;
     }
     public void setStorage(int ID){
         this.storageID = ID;
     }
-    public void setGpu(int ID){
+    public void setGPU(int ID){
         this.gpuID = ID;
     }
     public void setPSU(int ID){
         this.psuID = ID;
     }
-    public void setCase(int ID){
+    public void setPCCase(int ID){
         this.caseID = ID;
     }
     public void setCooler(int ID){

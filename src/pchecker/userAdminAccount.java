@@ -378,8 +378,15 @@ public class userAdminAccount {
 
 
     public static DefaultTableModel getparts(String part){
-      DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel modelParts = new DefaultTableModel() {
 
+            @Override
+            public boolean isCellEditable(int row, int column) {
+               //all cells false
+               return false;
+            }
+        };
+        
         Connection con = ServerControl.ConnectDB();
             try {
                 Statement stmt = (Statement) con.createStatement();
@@ -409,13 +416,13 @@ public class userAdminAccount {
 
                 con.close();
 
-                 model = new DefaultTableModel(data, columnNames);
+                 modelParts = new DefaultTableModel(data, columnNames);
             
            }
         catch (SQLException err) {
         System.out.println(err.getMessage());   
         }
-        return model;
+        return modelParts;
    
     }
 

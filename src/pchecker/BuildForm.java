@@ -6,8 +6,12 @@
 package pchecker;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Point;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -16,7 +20,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
@@ -49,20 +56,80 @@ public class BuildForm extends javax.swing.JFrame {
         editPanel.setVisible(true);
         
     }
+     public void enbleButtons(){
+         
+        for (Component c : buildPanel.getComponents())
+        {
+            if (c instanceof JButton)
+            {
+                c.setEnabled(true);
+           
+            }
+     }
+     }
+     
+     DefaultTableModel modelParts = new DefaultTableModel();
+
     public void addPart(String part){
+        //partsTable.setEnabled(false);
+
         buildPanel.setVisible(false);
         addBuildPanel.setVisible(true);
         
-        
-       
 
+        modelParts = currentUser.getparts(part);
         
+        partsTable.setModel(modelParts);
         
-      DefaultTableModel model = currentUser.getparts(part);
-      //System.out.print(model);
-      // currentUser.getparts(part);
-      partsTable.setModel(model);
+        //partsTable.disable();             
+        partsTable.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent me) {
 
+
+                JTable table = (JTable) me.getSource();
+                Point p = me.getPoint();
+                int row = table.rowAtPoint(p);
+                if (me.getClickCount() == 2 && partsTable.isEnabled()) {
+
+                String PartID = modelParts.getValueAt(row, 0).toString();
+                String partModel = modelParts.getValueAt(row, modelParts.findColumn("Model")).toString();
+                
+                
+
+                   System.out.println(PartID);
+                switch (part) {
+                
+                    case "Motherboard": newBuild.setMotherboard(Integer.parseInt(PartID));
+                                        motherboardBtn.setText("MotherBoard \n"+partModel);
+                                        enbleButtons();
+                                        break;
+                    case "CPU": newBuild.setCPU(Integer.parseInt(PartID));
+                                break;
+                    case "RAM": newBuild.setRAM(Integer.parseInt(PartID));
+                                break;
+                    case "GPU": newBuild.setGPU(Integer.parseInt(PartID));  
+                                break;
+                    case "Storage": newBuild.setStorage(Integer.parseInt(PartID));  
+                                    break;
+                    case "Accessory": newBuild.setAccessory(Integer.parseInt(PartID));
+                                      break;
+                    case "PSU": newBuild.setPSU(Integer.parseInt(PartID));           
+                                break;
+                    case "PCCase": newBuild.setPCCase(Integer.parseInt(PartID));   
+                                   break;
+                    case "Cooler": newBuild.setCooler(Integer.parseInt(PartID));
+                                    break;
+                  
+
+                
+                }
+                buildPanel.setVisible(true);
+                addBuildPanel.setVisible(false);
+                
+                
+                }
+            }
+        });
     }
     
     ArrayList<JLabel> labels = new ArrayList<JLabel>();
@@ -166,10 +233,10 @@ public class BuildForm extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         addBuildPanel = new javax.swing.JPanel();
-        selectPartTable = new javax.swing.JScrollPane();
-        partsTable = new javax.swing.JTable();
         buildCancelBtn = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        partsTable = new javax.swing.JTable();
         addPart = new javax.swing.JPanel();
         addPartSaveBtn = new javax.swing.JButton();
         addPartCancelBtn = new javax.swing.JButton();
@@ -233,8 +300,13 @@ public class BuildForm extends javax.swing.JFrame {
         cancelBtnB.setBounds(825, 11, 86, 42);
 
         acceptBtnB.setText("Accept");
+        acceptBtnB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acceptBtnBActionPerformed(evt);
+            }
+        });
         buildPanel.add(acceptBtnB);
-        acceptBtnB.setBounds(754, 11, 87, 42);
+        acceptBtnB.setBounds(690, 10, 87, 42);
 
         logoB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         buildPanel.add(logoB);
@@ -496,22 +568,6 @@ public class BuildForm extends javax.swing.JFrame {
         addBuildPanel.setMinimumSize(new java.awt.Dimension(900, 600));
         addBuildPanel.setLayout(null);
 
-        partsTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        selectPartTable.setViewportView(partsTable);
-
-        addBuildPanel.add(selectPartTable);
-        selectPartTable.setBounds(10, 160, 750, 430);
-
         buildCancelBtn.setText("Cancel");
         buildCancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -525,94 +581,115 @@ public class BuildForm extends javax.swing.JFrame {
         addBuildPanel.add(jLabel13);
         jLabel13.setBounds(160, 10, 620, 150);
 
-        getContentPane().add(addBuildPanel);
-        addBuildPanel.setBounds(0, 0, 900, 600);
-        addBuildPanel.setVisible(false);
+        partsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        addPart.setMaximumSize(new java.awt.Dimension(900, 600));
-        addPart.setMinimumSize(new java.awt.Dimension(900, 600));
-        addPart.setPreferredSize(new java.awt.Dimension(900, 600));
-        addPart.setLayout(null);
+            },
+            new String [] {
 
-        addPartSaveBtn.setText("Save");
-        addPartSaveBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addPartSaveBtnActionPerformed(evt);
             }
-        });
-        addPart.add(addPartSaveBtn);
-        addPartSaveBtn.setBounds(650, 90, 75, 29);
+        )
+        {public boolean isCellEditable(int row, int column){return false;}}
 
-        addPartCancelBtn.setText("Cancel");
-        addPartCancelBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addPartCancelBtnActionPerformed(evt);
-            }
-        });
-        addPart.add(addPartCancelBtn);
-        addPartCancelBtn.setBounds(730, 90, 86, 30);
+    );
+    partsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            partsTableMouseClicked(evt);
+        }
+    });
+    jScrollPane2.setViewportView(partsTable);
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel14.setText("Part type:");
-        addPart.add(jLabel14);
-        jLabel14.setBounds(90, 90, 70, 30);
+    addBuildPanel.add(jScrollPane2);
+    jScrollPane2.setBounds(160, 230, 560, 200);
 
-        partTypeComboBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        partTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Choose-", "Motherboard", "CPU", "GPU", "RAM", "Storage", "PSU", "PCCase", "Accessory", "Cooler" }));
-        partTypeComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                partTypeComboBoxItemStateChanged(evt);
-            }
-        });
-        partTypeComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                partTypeComboBoxActionPerformed(evt);
-            }
-        });
-        addPart.add(partTypeComboBox);
-        partTypeComboBox.setBounds(170, 90, 170, 30);
+    getContentPane().add(addBuildPanel);
+    addBuildPanel.setBounds(0, 0, 900, 600);
+    addBuildPanel.setVisible(false);
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel15.setText("(varchar) Make:");
-        addPart.add(jLabel15);
-        jLabel15.setBounds(0, 130, 160, 30);
+    addPart.setMaximumSize(new java.awt.Dimension(900, 600));
+    addPart.setMinimumSize(new java.awt.Dimension(900, 600));
+    addPart.setPreferredSize(new java.awt.Dimension(900, 600));
+    addPart.setLayout(null);
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel16.setText("(varchar) Model:");
-        addPart.add(jLabel16);
-        jLabel16.setBounds(0, 170, 160, 30);
+    addPartSaveBtn.setText("Save");
+    addPartSaveBtn.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            addPartSaveBtnActionPerformed(evt);
+        }
+    });
+    addPart.add(addPartSaveBtn);
+    addPartSaveBtn.setBounds(650, 90, 75, 29);
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel17.setText("(int) Price:");
-        addPart.add(jLabel17);
-        jLabel17.setBounds(0, 210, 160, 30);
+    addPartCancelBtn.setText("Cancel");
+    addPartCancelBtn.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            addPartCancelBtnActionPerformed(evt);
+        }
+    });
+    addPart.add(addPartCancelBtn);
+    addPartCancelBtn.setBounds(730, 90, 86, 30);
 
-        addPartMakeInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addPartMakeInputActionPerformed(evt);
-            }
-        });
-        addPart.add(addPartMakeInput);
-        addPartMakeInput.setBounds(170, 130, 260, 30);
-        addPart.add(addPartModelInput);
-        addPartModelInput.setBounds(170, 170, 260, 30);
+    jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    jLabel14.setText("Part type:");
+    addPart.add(jLabel14);
+    jLabel14.setBounds(90, 90, 70, 30);
 
-        addPartPriceInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addPartPriceInputActionPerformed(evt);
-            }
-        });
-        addPart.add(addPartPriceInput);
-        addPartPriceInput.setBounds(170, 210, 260, 30);
+    partTypeComboBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    partTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Choose-", "Motherboard", "CPU", "GPU", "RAM", "Storage", "PSU", "PCCase", "Accessory", "Cooler" }));
+    partTypeComboBox.addItemListener(new java.awt.event.ItemListener() {
+        public void itemStateChanged(java.awt.event.ItemEvent evt) {
+            partTypeComboBoxItemStateChanged(evt);
+        }
+    });
+    partTypeComboBox.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            partTypeComboBoxActionPerformed(evt);
+        }
+    });
+    addPart.add(partTypeComboBox);
+    partTypeComboBox.setBounds(170, 90, 170, 30);
 
-        getContentPane().add(addPart);
-        addPart.setBounds(0, 0, 900, 600);
-        addPart.setVisible(false);
+    jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+    jLabel15.setText("(varchar) Make:");
+    addPart.add(jLabel15);
+    jLabel15.setBounds(0, 130, 160, 30);
 
-        pack();
+    jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+    jLabel16.setText("(varchar) Model:");
+    addPart.add(jLabel16);
+    jLabel16.setBounds(0, 170, 160, 30);
+
+    jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+    jLabel17.setText("(int) Price:");
+    addPart.add(jLabel17);
+    jLabel17.setBounds(0, 210, 160, 30);
+
+    addPartMakeInput.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            addPartMakeInputActionPerformed(evt);
+        }
+    });
+    addPart.add(addPartMakeInput);
+    addPartMakeInput.setBounds(170, 130, 260, 30);
+    addPart.add(addPartModelInput);
+    addPartModelInput.setBounds(170, 170, 260, 30);
+
+    addPartPriceInput.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            addPartPriceInputActionPerformed(evt);
+        }
+    });
+    addPart.add(addPartPriceInput);
+    addPartPriceInput.setBounds(170, 210, 260, 30);
+
+    getContentPane().add(addPart);
+    addPart.setBounds(0, 0, 900, 600);
+    addPart.setVisible(false);
+
+    pack();
     }// </editor-fold>//GEN-END:initComponents
 
     public void getTableData() {
@@ -640,7 +717,11 @@ public class BuildForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void buildCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildCancelBtnActionPerformed
-        // TODO add your handling code here:
+        
+        buildPanel.setVisible(true);
+        addBuildPanel.setVisible(false);
+        
+        
     }//GEN-LAST:event_buildCancelBtnActionPerformed
 
     private void motherboardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motherboardBtnActionPerformed
@@ -727,6 +808,19 @@ public class BuildForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_addPartSaveBtnActionPerformed
 
+    private void partsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partsTableMouseClicked
+
+    }//GEN-LAST:event_partsTableMouseClicked
+
+    private void acceptBtnBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnBActionPerformed
+       
+        
+        newBuild.setBuildName(buildNameFieldB.getText());
+        newBuild.savebuild(currentUser.getUsername());
+        
+        
+    }//GEN-LAST:event_acceptBtnBActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -809,6 +903,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
@@ -823,7 +918,6 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JTable partsTable;
     private javax.swing.JButton processorBtn;
     private javax.swing.JButton ramBtn;
-    private javax.swing.JScrollPane selectPartTable;
     private javax.swing.JButton supplyBtn;
     private javax.swing.JPanel viewAccount;
     // End of variables declaration//GEN-END:variables
