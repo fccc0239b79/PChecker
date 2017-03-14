@@ -147,7 +147,7 @@ public class BuildForm extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         addBuildPanel = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        selectPartTable = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         deleteBuildBtn = new javax.swing.JButton();
         addBuildBtn = new javax.swing.JButton();
@@ -492,10 +492,10 @@ public class BuildForm extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        selectPartTable.setViewportView(jTable2);
 
-        addBuildPanel.add(jScrollPane2);
-        jScrollPane2.setBounds(10, 160, 750, 430);
+        addBuildPanel.add(selectPartTable);
+        selectPartTable.setBounds(10, 160, 750, 430);
 
         deleteBuildBtn.setText("DELETE BUILD");
         addBuildPanel.add(deleteBuildBtn);
@@ -616,6 +616,10 @@ public class BuildForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void getTableData() {
+        
+    }
+    
     private void buildNameFieldBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildNameFieldBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buildNameFieldBActionPerformed
@@ -673,7 +677,9 @@ public class BuildForm extends javax.swing.JFrame {
     }//GEN-LAST:event_coolingBtnActionPerformed
 
     private void addPartCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartCancelBtnActionPerformed
-        // TODO add your handling code here:
+        AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
+        this.dispose();
+        frm.setVisible(true);
     }//GEN-LAST:event_addPartCancelBtnActionPerformed
 
     private void addPartMakeInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartMakeInputActionPerformed
@@ -808,7 +814,6 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
@@ -823,6 +828,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> partTypeComboBox;
     private javax.swing.JButton processorBtn;
     private javax.swing.JButton ramBtn;
+    private javax.swing.JScrollPane selectPartTable;
     private javax.swing.JButton supplyBtn;
     private javax.swing.JPanel viewAccount;
     // End of variables declaration//GEN-END:variables
