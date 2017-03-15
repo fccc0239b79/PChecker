@@ -937,6 +937,8 @@ public class BuildForm extends javax.swing.JFrame {
     
     public void setBuildLabel(String value) {
         BuildNameLabel.setText(value);
+        
+        System.out.println(newBuild.getCPU());
     }
     
   
