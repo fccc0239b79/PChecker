@@ -6,6 +6,7 @@
 package pchecker;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -22,6 +23,7 @@ import java.util.Vector;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -84,6 +86,7 @@ public class BuildForm extends javax.swing.JFrame {
      
      DefaultTableModel modelParts = new DefaultTableModel();
      String choosenPart;
+     
     public void addPart(String part){
 
      
@@ -281,7 +284,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(cancelBtnB);
-        cancelBtnB.setBounds(825, 11, 65, 42);
+        cancelBtnB.setBounds(800, 10, 70, 42);
 
         acceptBuildBtn.setText("Accept");
         acceptBuildBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -290,7 +293,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(acceptBuildBtn);
-        acceptBuildBtn.setBounds(700, 10, 65, 42);
+        acceptBuildBtn.setBounds(720, 10, 70, 42);
 
         logoB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         buildPanel.add(logoB);
@@ -317,7 +320,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(motherboardBtn);
-        motherboardBtn.setBounds(250, 340, 119, 62);
+        motherboardBtn.setBounds(260, 342, 119, 60);
 
         processorBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         processorBtn.setText("PROCESSOR");
@@ -411,7 +414,7 @@ public class BuildForm extends javax.swing.JFrame {
         buildPanel.setBounds(0, 0, 900, 600);
         buildPanel.setVisible(false);
 
-        createAccount.setBackground(new java.awt.Color(255, 255, 204));
+        createAccount.setBackground(new java.awt.Color(255, 255, 255));
         createAccount.setMaximumSize(new java.awt.Dimension(900, 600));
         createAccount.setMinimumSize(new java.awt.Dimension(900, 600));
         createAccount.setPreferredSize(new java.awt.Dimension(900, 600));
@@ -508,7 +511,7 @@ public class BuildForm extends javax.swing.JFrame {
         createAccount.setBounds(0, 0, 900, 600);
         createAccount.setVisible(false);
 
-        viewAccount.setBackground(new java.awt.Color(255, 204, 204));
+        viewAccount.setBackground(new java.awt.Color(255, 255, 255));
         viewAccount.setMaximumSize(new java.awt.Dimension(900, 600));
         viewAccount.setMinimumSize(new java.awt.Dimension(900, 600));
         viewAccount.setLayout(null);
@@ -590,6 +593,7 @@ public class BuildForm extends javax.swing.JFrame {
     addBuildPanel.setBounds(0, 0, 900, 600);
     addBuildPanel.setVisible(false);
 
+    addPart.setBackground(new java.awt.Color(255, 255, 255));
     addPart.setMaximumSize(new java.awt.Dimension(900, 600));
     addPart.setMinimumSize(new java.awt.Dimension(900, 600));
     addPart.setPreferredSize(new java.awt.Dimension(900, 600));
@@ -789,6 +793,7 @@ public class BuildForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_addPartSaveBtnActionPerformed
 
+    String PartID;
     private void partsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partsTableMouseClicked
 
 
@@ -798,7 +803,7 @@ public class BuildForm extends javax.swing.JFrame {
                 int row =  partsTable.getSelectedRow();
                 if (evt.getClickCount() == 2 ) {
                 //partsTable.getSelectedRow()
-                String PartID = modelParts.getValueAt(row, 0).toString();
+                PartID = modelParts.getValueAt(row, 0).toString();
                 String partModel = modelParts.getValueAt(row, modelParts.findColumn("Model")).toString();
                 
             
@@ -806,31 +811,40 @@ public class BuildForm extends javax.swing.JFrame {
                 
                     case "Motherboard": newBuild.setMotherboard(Integer.parseInt(PartID));
                                         motherboardBtn.setText("MotherBoard "+PartID);
+                                        motherboardBtn.setBackground(Color.green); // sets color on green after selected part 
                                         enbleButtons();
                                         break;
                     case "CPU": newBuild.setCPU(Integer.parseInt(PartID));
                                 processorBtn.setText("Processor "+PartID);
+                                processorBtn.setBackground(Color.green); // sets color on green after selected part 
                                 break;
                     case "RAM": newBuild.setRAM(Integer.parseInt(PartID));
                                 ramBtn.setText("RAM "+PartID);
+                                ramBtn.setBackground(Color.green); // sets color on green after selected part 
                                 break;
                     case "GPU": newBuild.setGPU(Integer.parseInt(PartID)); 
                                 graphicsBtn.setText("Graphics card \n"+PartID);
+                                graphicsBtn.setBackground(Color.green); // sets color on green after selected part 
                                 break;
                     case "Storage": newBuild.setStorage(Integer.parseInt(PartID)); 
                                     hddBtn.setText("HDD \n"+PartID);
+                                    hddBtn.setBackground(Color.green); // sets color on green after selected part 
                                     break;
                     case "Accessory": newBuild.setAccessory(Integer.parseInt(PartID));
                                       accessoriesBtn.setText("Accessories \n"+PartID);
+                                      accessoriesBtn.setBackground(Color.green); // sets color on green after selected part 
                                       break;
                     case "PSU": newBuild.setPSU(Integer.parseInt(PartID));    
                                 supplyBtn.setText("Power Supply \n"+PartID);
+                                supplyBtn.setBackground(Color.green); // sets color on green after selected part 
                                 break;
                     case "PCCase": newBuild.setPCCase(Integer.parseInt(PartID));  
                                    caseBtn.setText("Case \n"+PartID);
+                                   caseBtn.setBackground(Color.green); // sets color on green after selected part 
                                    break;
                     case "Cooler": newBuild.setCooler(Integer.parseInt(PartID));
                                    coolingBtn.setText("Cooling \n"+PartID);
+                                   coolingBtn.setBackground(Color.green); // sets color on green after selected part 
                                     break;
                   
 
@@ -844,10 +858,26 @@ public class BuildForm extends javax.swing.JFrame {
 
     private void acceptBuildBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBuildBtnActionPerformed
 
-        saveB();
+        saveBuild();
         
     }//GEN-LAST:event_acceptBuildBtnActionPerformed
 
+      public void saveBuild(){
+        if(!buildNametxt.getText().equals("") && (PartID != null)) {
+            newBuild.setBuildName(buildNametxt.getText());
+            newBuild.savebuild(currentUser.getUsername());
+        
+            AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
+        
+            this.dispose();
+            frm.setVisible(true);
+        } else {
+            
+            JOptionPane.showMessageDialog(null, "Please insert build name and have sure that you selected at least one part, ","", JOptionPane.INFORMATION_MESSAGE);
+        }
+      
+    }
+    
     private void cancelBtnEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnEActionPerformed
         AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
         this.dispose();
@@ -867,25 +897,12 @@ public class BuildForm extends javax.swing.JFrame {
         BuildNameLabel.setText(value);
     }
     
-    public void saveB(){
-        newBuild.setBuildName(buildNametxt.getText());
-        newBuild.savebuild(currentUser.getUsername());
-        
-        AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
-        
-        this.dispose();
-        frm.setVisible(true);
-
-    }
+  
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+ 
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
