@@ -159,6 +159,7 @@ public class BuildForm extends javax.swing.JFrame {
         acceptBtnE = new javax.swing.JButton();
         componentsListE = new javax.swing.JScrollPane();
         editLabelE = new javax.swing.JLabel();
+        BuildNameLabel = new javax.swing.JLabel();
         buildPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         cancelBtnB = new javax.swing.JButton();
@@ -235,19 +236,29 @@ public class BuildForm extends javax.swing.JFrame {
         logoE.setBounds(147, 59, 602, 119);
 
         cancelBtnE.setText("Cancel");
+        cancelBtnE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelBtnEActionPerformed(evt);
+            }
+        });
         editPanel.add(cancelBtnE);
-        cancelBtnE.setBounds(820, 10, 86, 42);
+        cancelBtnE.setBounds(820, 10, 65, 42);
 
         acceptBtnE.setText("Accept");
         editPanel.add(acceptBtnE);
-        acceptBtnE.setBounds(740, 10, 87, 42);
+        acceptBtnE.setBounds(740, 10, 65, 42);
         editPanel.add(componentsListE);
-        componentsListE.setBounds(147, 258, 602, 282);
+        componentsListE.setBounds(150, 290, 602, 282);
 
         editLabelE.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         editLabelE.setText("EDIT BUILD:");
         editPanel.add(editLabelE);
         editLabelE.setBounds(342, 196, 229, 44);
+
+        BuildNameLabel.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        BuildNameLabel.setText("Build Name");
+        editPanel.add(BuildNameLabel);
+        BuildNameLabel.setBounds(400, 260, 180, 22);
 
         getContentPane().add(editPanel);
         editPanel.setBounds(0, 0, 900, 600);
@@ -265,7 +276,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         cancelBtnB.setText("Cancel");
         buildPanel.add(cancelBtnB);
-        cancelBtnB.setBounds(825, 11, 86, 42);
+        cancelBtnB.setBounds(825, 11, 65, 42);
 
         acceptBuildBtn.setText("Accept");
         acceptBuildBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -274,7 +285,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(acceptBuildBtn);
-        acceptBuildBtn.setBounds(700, 10, 87, 42);
+        acceptBuildBtn.setBounds(700, 10, 65, 42);
 
         logoB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         buildPanel.add(logoB);
@@ -301,7 +312,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(motherboardBtn);
-        motherboardBtn.setBounds(250, 340, 132, 62);
+        motherboardBtn.setBounds(250, 340, 119, 62);
 
         processorBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         processorBtn.setText("PROCESSOR");
@@ -457,7 +468,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jComboBox1);
-        jComboBox1.setBounds(440, 290, 220, 27);
+        jComboBox1.setBounds(440, 290, 220, 20);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -465,11 +476,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField1);
-        jTextField1.setBounds(440, 320, 220, 26);
+        jTextField1.setBounds(440, 320, 220, 20);
         createAccount.add(jTextField2);
-        jTextField2.setBounds(440, 350, 220, 26);
+        jTextField2.setBounds(440, 350, 220, 20);
         createAccount.add(jTextField3);
-        jTextField3.setBounds(440, 380, 220, 26);
+        jTextField3.setBounds(440, 380, 220, 20);
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -477,14 +488,14 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField4);
-        jTextField4.setBounds(440, 410, 220, 26);
+        jTextField4.setBounds(440, 410, 220, 20);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("email:");
         createAccount.add(jLabel11);
         jLabel11.setBounds(300, 470, 70, 17);
         createAccount.add(jTextField5);
-        jTextField5.setBounds(440, 440, 220, 26);
+        jTextField5.setBounds(440, 440, 220, 20);
         createAccount.add(jTextField6);
         jTextField6.setBounds(440, 470, 220, 20);
 
@@ -515,7 +526,7 @@ public class BuildForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         viewAccount.add(jScrollPane1);
-        jScrollPane1.setBounds(220, 290, 454, 170);
+        jScrollPane1.setBounds(220, 290, 452, 170);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel12.setText("View Accounts:");
@@ -586,7 +597,7 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     addPart.add(addPartSaveBtn);
-    addPartSaveBtn.setBounds(650, 90, 75, 29);
+    addPartSaveBtn.setBounds(650, 90, 57, 23);
 
     addPartCancelBtn.setText("Cancel");
     addPartCancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -595,7 +606,7 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     addPart.add(addPartCancelBtn);
-    addPartCancelBtn.setBounds(730, 90, 86, 30);
+    addPartCancelBtn.setBounds(730, 90, 65, 30);
 
     jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
     jLabel14.setText("Part type:");
@@ -827,12 +838,22 @@ public class BuildForm extends javax.swing.JFrame {
     }//GEN-LAST:event_partsTableMouseClicked
 
     private void acceptBuildBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBuildBtnActionPerformed
-       
+
         saveB();
-        
         
     }//GEN-LAST:event_acceptBuildBtnActionPerformed
 
+    private void cancelBtnEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnEActionPerformed
+        AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
+        this.dispose();
+        frm.setVisible(true);
+        
+    }//GEN-LAST:event_cancelBtnEActionPerformed
+    
+    public void setBuildLabel(String value) {
+        BuildNameLabel.setText(value);
+    }
+    
     public void saveB(){
         newBuild.setBuildName(buildNametxt.getText());
         newBuild.savebuild(currentUser.getUsername());
@@ -879,6 +900,7 @@ public class BuildForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BuildNameLabel;
     private javax.swing.JButton acceptBtnE;
     private javax.swing.JButton acceptBuildBtn;
     private javax.swing.JButton accessoriesBtn;
