@@ -161,6 +161,7 @@ public class BuildForm extends javax.swing.JFrame {
         cancelBtnE = new javax.swing.JButton();
         acceptBtnE = new javax.swing.JButton();
         componentsListE = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         editLabelE = new javax.swing.JLabel();
         BuildNameLabel = new javax.swing.JLabel();
         buildPanel = new javax.swing.JPanel();
@@ -238,7 +239,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         logoE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         editPanel.add(logoE);
-        logoE.setBounds(147, 59, 602, 119);
+        logoE.setBounds(140, 40, 602, 119);
 
         cancelBtnE.setText("Cancel");
         cancelBtnE.addActionListener(new java.awt.event.ActionListener() {
@@ -252,18 +253,44 @@ public class BuildForm extends javax.swing.JFrame {
         acceptBtnE.setText("Accept");
         editPanel.add(acceptBtnE);
         acceptBtnE.setBounds(740, 10, 65, 42);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Component Type", "Component Name"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        componentsListE.setViewportView(jTable2);
+        if (jTable2.getColumnModel().getColumnCount() > 0) {
+            jTable2.getColumnModel().getColumn(0).setPreferredWidth(20);
+            jTable2.getColumnModel().getColumn(1).setPreferredWidth(300);
+        }
+
         editPanel.add(componentsListE);
-        componentsListE.setBounds(150, 290, 602, 282);
+        componentsListE.setBounds(150, 270, 602, 282);
 
         editLabelE.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         editLabelE.setText("EDIT BUILD:");
         editPanel.add(editLabelE);
-        editLabelE.setBounds(342, 196, 229, 44);
+        editLabelE.setBounds(340, 170, 229, 44);
 
         BuildNameLabel.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         BuildNameLabel.setText("Build Name");
         editPanel.add(BuildNameLabel);
-        BuildNameLabel.setBounds(400, 260, 180, 22);
+        BuildNameLabel.setBounds(400, 240, 180, 22);
 
         getContentPane().add(editPanel);
         editPanel.setBounds(0, 0, 900, 600);
@@ -564,11 +591,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         addBuildPanel.add(buildCancelBtn);
-        buildCancelBtn.setBounds(10, 10, 70, 40);
+        buildCancelBtn.setBounds(800, 20, 70, 40);
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         addBuildPanel.add(jLabel13);
-        jLabel13.setBounds(160, 10, 620, 150);
+        jLabel13.setBounds(140, 10, 620, 150);
 
         partsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -589,7 +616,7 @@ public class BuildForm extends javax.swing.JFrame {
     jScrollPane2.setViewportView(partsTable);
 
     addBuildPanel.add(jScrollPane2);
-    jScrollPane2.setBounds(160, 230, 560, 200);
+    jScrollPane2.setBounds(160, 230, 560, 280);
 
     getContentPane().add(addBuildPanel);
     addBuildPanel.setBounds(0, 0, 900, 600);
@@ -800,7 +827,7 @@ public class BuildForm extends javax.swing.JFrame {
         info.add(partT);
         
 
-        
+       
         
         currentUser.savePart(partT, info,infopart);
         
@@ -996,6 +1023,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

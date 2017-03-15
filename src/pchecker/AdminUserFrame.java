@@ -423,7 +423,7 @@ private void enbleEdit(boolean torf){
         ArrayList builds = new ArrayList();
         builds = currentUser.getBuilds();
 
-        System.out.println(builds);
+        
 
         DefaultListModel model = new DefaultListModel();
         //model.clear();
@@ -436,6 +436,7 @@ private void enbleEdit(boolean torf){
         
         buildsList.setModel(model);
         
+       
       }
 
     DefaultListModel globalmodel;
@@ -599,7 +600,7 @@ private void enbleEdit(boolean torf){
         String username = currentUser.getUsername();
         if(!selectedBuild.equals("No Builds")){
             BuildForm frm = new BuildForm(currentUser,selectedBuild); //
-            //System.out.println(selectedBuild);
+            System.out.println(selectedBuild);
             this.dispose();
             frm.setBuildLabel(selectedBuild);
             frm.setVisible(true);
