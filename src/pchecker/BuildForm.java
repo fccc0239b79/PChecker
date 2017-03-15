@@ -242,7 +242,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         editPanel.add(cancelBtnE);
-        cancelBtnE.setBounds(820, 10, 65, 42);
+        cancelBtnE.setBounds(820, 10, 70, 42);
 
         acceptBtnE.setText("Accept");
         editPanel.add(acceptBtnE);
@@ -275,6 +275,11 @@ public class BuildForm extends javax.swing.JFrame {
         jLabel1.setBounds(345, 201, 215, 44);
 
         cancelBtnB.setText("Cancel");
+        cancelBtnB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelBtnBActionPerformed(evt);
+            }
+        });
         buildPanel.add(cancelBtnB);
         cancelBtnB.setBounds(825, 11, 65, 42);
 
@@ -849,6 +854,14 @@ public class BuildForm extends javax.swing.JFrame {
         frm.setVisible(true);
         
     }//GEN-LAST:event_cancelBtnEActionPerformed
+
+    private void cancelBtnBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnBActionPerformed
+       
+        AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
+        this.dispose();
+        frm.setVisible(true);
+        
+    }//GEN-LAST:event_cancelBtnBActionPerformed
     
     public void setBuildLabel(String value) {
         BuildNameLabel.setText(value);

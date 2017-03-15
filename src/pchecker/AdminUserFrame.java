@@ -170,7 +170,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainUserPanel.add(adminBackBtn);
-        adminBackBtn.setBounds(30, 530, 55, 23);
+        adminBackBtn.setBounds(20, 10, 55, 40);
         adminBackBtn.setVisible(false);
 
         getContentPane().add(mainUserPanel);
