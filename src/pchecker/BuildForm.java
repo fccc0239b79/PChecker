@@ -220,6 +220,8 @@ public class BuildForm extends javax.swing.JFrame {
         addPartMakeInput = new javax.swing.JTextField();
         addPartModelInput = new javax.swing.JTextField();
         addPartPriceInput = new javax.swing.JTextField();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
+        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(900, 600));
@@ -600,22 +602,28 @@ public class BuildForm extends javax.swing.JFrame {
     addPart.setLayout(null);
 
     addPartSaveBtn.setText("Save");
+    addPartSaveBtn.setMaximumSize(new java.awt.Dimension(51, 23));
+    addPartSaveBtn.setMinimumSize(new java.awt.Dimension(51, 23));
+    addPartSaveBtn.setPreferredSize(new java.awt.Dimension(51, 23));
     addPartSaveBtn.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             addPartSaveBtnActionPerformed(evt);
         }
     });
     addPart.add(addPartSaveBtn);
-    addPartSaveBtn.setBounds(650, 90, 57, 23);
+    addPartSaveBtn.setBounds(550, 210, 70, 40);
 
     addPartCancelBtn.setText("Cancel");
+    addPartCancelBtn.setMaximumSize(new java.awt.Dimension(51, 23));
+    addPartCancelBtn.setMinimumSize(new java.awt.Dimension(51, 23));
+    addPartCancelBtn.setPreferredSize(new java.awt.Dimension(51, 23));
     addPartCancelBtn.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             addPartCancelBtnActionPerformed(evt);
         }
     });
     addPart.add(addPartCancelBtn);
-    addPartCancelBtn.setBounds(730, 90, 65, 30);
+    addPartCancelBtn.setBounds(690, 210, 70, 40);
 
     jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
     jLabel14.setText("Part type:");
@@ -672,6 +680,13 @@ public class BuildForm extends javax.swing.JFrame {
     });
     addPart.add(addPartPriceInput);
     addPartPriceInput.setBounds(170, 210, 260, 30);
+    addPart.add(filler1);
+    filler1.setBounds(0, 0, 0, 0);
+
+    jLabel18.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+    jLabel18.setText("Add Computer Part");
+    addPart.add(jLabel18);
+    jLabel18.setBounds(490, 70, 370, 70);
 
     getContentPane().add(addPart);
     addPart.setBounds(0, 0, 900, 600);
@@ -953,6 +968,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JPanel createAccount;
     private javax.swing.JLabel editLabelE;
     private javax.swing.JPanel editPanel;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JButton graphicsBtn;
     private javax.swing.JButton hddBtn;
     private javax.swing.JButton jButton1;
@@ -968,6 +984,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
