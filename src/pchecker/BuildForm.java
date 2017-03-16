@@ -218,14 +218,6 @@ public class BuildForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        editPanel = new javax.swing.JPanel();
-        logoE = new javax.swing.JLabel();
-        cancelBtnE = new javax.swing.JButton();
-        acceptBtnE = new javax.swing.JButton();
-        componentsListE = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        editLabelE = new javax.swing.JLabel();
-        BuildNameLabel = new javax.swing.JLabel();
         buildPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         cancelBtnB = new javax.swing.JButton();
@@ -251,6 +243,14 @@ public class BuildForm extends javax.swing.JFrame {
         caseLabelSelectedPart = new javax.swing.JLabel();
         psuLabelSelectedPart = new javax.swing.JLabel();
         coolingLabelSelectedPart = new javax.swing.JLabel();
+        editPanel = new javax.swing.JPanel();
+        logoE = new javax.swing.JLabel();
+        cancelBtnE = new javax.swing.JButton();
+        acceptBtnE = new javax.swing.JButton();
+        componentsListE = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        editLabelE = new javax.swing.JLabel();
+        BuildNameLabel = new javax.swing.JLabel();
         createAccount = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -304,70 +304,6 @@ public class BuildForm extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(900, 600));
         setResizable(false);
         getContentPane().setLayout(null);
-
-        editPanel.setBackground(new java.awt.Color(255, 255, 255));
-        editPanel.setMaximumSize(new java.awt.Dimension(900, 600));
-        editPanel.setMinimumSize(new java.awt.Dimension(900, 600));
-        editPanel.setLayout(null);
-
-        logoE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
-        editPanel.add(logoE);
-        logoE.setBounds(140, 40, 602, 119);
-
-        cancelBtnE.setText("Cancel");
-        cancelBtnE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelBtnEActionPerformed(evt);
-            }
-        });
-        editPanel.add(cancelBtnE);
-        cancelBtnE.setBounds(820, 10, 70, 42);
-
-        acceptBtnE.setText("Accept");
-        editPanel.add(acceptBtnE);
-        acceptBtnE.setBounds(740, 10, 65, 42);
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Component Type", "Component Name"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        componentsListE.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(0).setPreferredWidth(20);
-            jTable2.getColumnModel().getColumn(1).setPreferredWidth(300);
-        }
-
-        editPanel.add(componentsListE);
-        componentsListE.setBounds(150, 270, 602, 282);
-
-        editLabelE.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        editLabelE.setText("EDIT BUILD:");
-        editPanel.add(editLabelE);
-        editLabelE.setBounds(340, 170, 229, 44);
-
-        BuildNameLabel.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
-        BuildNameLabel.setText("Build Name");
-        editPanel.add(BuildNameLabel);
-        BuildNameLabel.setBounds(400, 240, 180, 22);
-
-        getContentPane().add(editPanel);
-        editPanel.setBounds(0, 0, 900, 600);
-        editPanel.setVisible(false);
 
         buildPanel.setBackground(new java.awt.Color(255, 255, 255));
         buildPanel.setMaximumSize(new java.awt.Dimension(900, 600));
@@ -512,9 +448,10 @@ public class BuildForm extends javax.swing.JFrame {
         buildPanel.add(accessoriesBtn);
         accessoriesBtn.setBounds(570, 490, 130, 60);
 
+        accessoriesLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         accessoriesLabelSelectedPart.setText("-");
         buildPanel.add(accessoriesLabelSelectedPart);
-        accessoriesLabelSelectedPart.setBounds(570, 550, 130, 14);
+        accessoriesLabelSelectedPart.setBounds(570, 550, 130, 15);
         accessoriesLabelSelectedPart.setVisible(false);
 
         motherboardLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -568,6 +505,70 @@ public class BuildForm extends javax.swing.JFrame {
         getContentPane().add(buildPanel);
         buildPanel.setBounds(0, 0, 900, 600);
         buildPanel.setVisible(false);
+
+        editPanel.setBackground(new java.awt.Color(255, 255, 255));
+        editPanel.setMaximumSize(new java.awt.Dimension(900, 600));
+        editPanel.setMinimumSize(new java.awt.Dimension(900, 600));
+        editPanel.setLayout(null);
+
+        logoE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
+        editPanel.add(logoE);
+        logoE.setBounds(140, 40, 602, 119);
+
+        cancelBtnE.setText("Cancel");
+        cancelBtnE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelBtnEActionPerformed(evt);
+            }
+        });
+        editPanel.add(cancelBtnE);
+        cancelBtnE.setBounds(820, 10, 70, 42);
+
+        acceptBtnE.setText("Accept");
+        editPanel.add(acceptBtnE);
+        acceptBtnE.setBounds(740, 10, 65, 42);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Component Type", "Component Name"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        componentsListE.setViewportView(jTable2);
+        if (jTable2.getColumnModel().getColumnCount() > 0) {
+            jTable2.getColumnModel().getColumn(0).setPreferredWidth(20);
+            jTable2.getColumnModel().getColumn(1).setPreferredWidth(300);
+        }
+
+        editPanel.add(componentsListE);
+        componentsListE.setBounds(150, 270, 602, 282);
+
+        editLabelE.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        editLabelE.setText("EDIT BUILD:");
+        editPanel.add(editLabelE);
+        editLabelE.setBounds(340, 170, 229, 44);
+
+        BuildNameLabel.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        BuildNameLabel.setText("Build Name");
+        editPanel.add(BuildNameLabel);
+        BuildNameLabel.setBounds(400, 240, 180, 22);
+
+        getContentPane().add(editPanel);
+        editPanel.setBounds(0, 0, 900, 600);
+        editPanel.setVisible(false);
 
         createAccount.setBackground(new java.awt.Color(255, 255, 255));
         createAccount.setMaximumSize(new java.awt.Dimension(900, 600));
