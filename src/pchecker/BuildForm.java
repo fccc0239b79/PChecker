@@ -852,44 +852,44 @@ public class BuildForm extends javax.swing.JFrame {
                 //partsTable.getSelectedRow()
                 PartID = modelParts.getValueAt(row, 0).toString();
                 String partModel = modelParts.getValueAt(row, modelParts.findColumn("Model")).toString();
-                
+                String partMake = modelParts.getValueAt(row, modelParts.findColumn("Make")).toString();
             
                 switch (choosenPart) {
                 
-                    case "Motherboard": newBuild.setMotherboard(Integer.parseInt(PartID));
-                                        motherboardBtn.setText("MotherBoard "+PartID);
+                    case "Motherboard": newBuild.setMotherboard(Integer.parseInt(PartID),partMake+" "+partModel);
+                                        motherboardBtn.setText(newBuild.getPartName(choosenPart));
                                         motherboardBtn.setBackground(Color.green); // sets color on green after selected part 
                                         enbleButtons();
                                         break;
-                    case "CPU": newBuild.setCPU(Integer.parseInt(PartID));
+                    case "CPU": newBuild.setCPU(Integer.parseInt(PartID),partMake+" "+partModel);
                                 processorBtn.setText("Processor "+PartID);
                                 processorBtn.setBackground(Color.green); // sets color on green after selected part 
                                 break;
-                    case "RAM": newBuild.setRAM(Integer.parseInt(PartID));
+                    case "RAM": newBuild.setRAM(Integer.parseInt(PartID),partMake+" "+partModel);
                                 ramBtn.setText("RAM "+PartID);
                                 ramBtn.setBackground(Color.green); // sets color on green after selected part 
                                 break;
-                    case "GPU": newBuild.setGPU(Integer.parseInt(PartID)); 
+                    case "GPU": newBuild.setGPU(Integer.parseInt(PartID),partMake+" "+partModel); 
                                 graphicsBtn.setText("Graphics card \n"+PartID);
                                 graphicsBtn.setBackground(Color.green); // sets color on green after selected part 
                                 break;
-                    case "Storage": newBuild.setStorage(Integer.parseInt(PartID)); 
+                    case "Storage": newBuild.setStorage(Integer.parseInt(PartID),partMake+" "+partModel); 
                                     hddBtn.setText("HDD \n"+PartID);
                                     hddBtn.setBackground(Color.green); // sets color on green after selected part 
                                     break;
-                    case "Accessory": newBuild.setAccessory(Integer.parseInt(PartID));
+                    case "Accessory": newBuild.setAccessory(Integer.parseInt(PartID),partMake+" "+partModel);
                                       accessoriesBtn.setText("Accessories \n"+PartID);
                                       accessoriesBtn.setBackground(Color.green); // sets color on green after selected part 
                                       break;
-                    case "PSU": newBuild.setPSU(Integer.parseInt(PartID));    
+                    case "PSU": newBuild.setPSU(Integer.parseInt(PartID),partMake+" "+partModel);    
                                 supplyBtn.setText("Power Supply \n"+PartID);
                                 supplyBtn.setBackground(Color.green); // sets color on green after selected part 
                                 break;
-                    case "PCCase": newBuild.setPCCase(Integer.parseInt(PartID));  
+                    case "PCCase": newBuild.setPCCase(Integer.parseInt(PartID),partMake+" "+partModel);  
                                    caseBtn.setText("Case \n"+PartID);
                                    caseBtn.setBackground(Color.green); // sets color on green after selected part 
                                    break;
-                    case "Cooler": newBuild.setCooler(Integer.parseInt(PartID));
+                    case "Cooler": newBuild.setCooler(Integer.parseInt(PartID),partMake+" "+partModel);
                                    coolingBtn.setText("Cooling \n"+PartID);
                                    coolingBtn.setBackground(Color.green); // sets color on green after selected part 
                                     break;

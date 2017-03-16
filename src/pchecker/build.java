@@ -19,39 +19,75 @@ import java.util.ArrayList;
  */
 public class build {
     private int motherBoardID, cpuID, ramID, storageID, gpuID, psuID, caseID, coolerID,accessoryID,systemCompRating;
-    private String buildName;
+    private String buildName,motherBoardName, cpuName, ramName, storageName, gpuName, psuName, caseName, coolerName,accessoryName;
     
+    //stworzyc method na kazdy lable 
     public void setBuildName(String name){
         this.buildName = name;
     }    
-    public void setMotherboard(int ID){
+    public void setMotherboard(int ID, String name ){
         this.motherBoardID = ID;
+        this.motherBoardName = name;
     }
-    public void setCPU(int ID){
+    public void setCPU(int ID, String name ){
         this.cpuID = ID;
+        this.cpuName = name;
     }
-    public void setRAM(int ID){
+    public void setRAM(int ID, String name ){
         this.ramID = ID;
+        this.ramName = name;
     }
-    public void setStorage(int ID){
+    public void setStorage(int ID, String name ){
         this.storageID = ID;
+        this.storageName = name;
     }
-    public void setGPU(int ID){
+    public void setGPU(int ID, String name ){
         this.gpuID = ID;
+        this.gpuName  = name;
     }
-    public void setPSU(int ID){
+    public void setPSU(int ID, String name ){
         this.psuID = ID;
+        this.psuName = name;
     }
-    public void setPCCase(int ID){
+    public void setPCCase(int ID, String name ){
         this.caseID = ID;
+        this.caseName = name;
     }
-    public void setCooler(int ID){
+    public void setCooler(int ID, String name ){
         this.coolerID = ID;
+        this.coolerName = name;
     }
-    public void setAccessory(int ID){
+    public void setAccessory(int ID, String name ){
         this.accessoryID = ID;
+        this.accessoryName = name;
     }
     
+    public String getPartName(String partType){
+        String partName = "";
+        switch (partType) {
+                
+                    case "Motherboard": partName = motherBoardName;
+                                        break;
+                    case "CPU": partName = cpuName;
+                                break;
+                    case "RAM":  partName = ramName;
+                                break;
+                    case "GPU": partName = gpuName;
+                                break;
+                    case "Storage": partName = storageName;
+                                    break;
+                    case "Accessory":  partName = accessoryName;
+                                      break;
+                    case "PSU": partName = psuName;
+                                break;
+                    case "PCCase": partName = caseName;
+                                   break;
+                    case "Cooler": partName = coolerName;
+                                    break;
+        }
+        return partName;
+        
+    }
     
     public String getBuildName(){
         return buildName;
