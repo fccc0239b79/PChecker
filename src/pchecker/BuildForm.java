@@ -290,6 +290,7 @@ public class BuildForm extends javax.swing.JFrame {
         addComp = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         compTable = new javax.swing.JTable();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(900, 600));
@@ -530,7 +531,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         acceptBtnE.setText("Accept");
         editPanel.add(acceptBtnE);
-        acceptBtnE.setBounds(740, 10, 65, 42);
+        acceptBtnE.setBounds(740, 10, 87, 42);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -636,7 +637,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jComboBox1);
-        jComboBox1.setBounds(440, 290, 220, 20);
+        jComboBox1.setBounds(440, 290, 220, 27);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -644,11 +645,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField1);
-        jTextField1.setBounds(440, 320, 220, 20);
+        jTextField1.setBounds(440, 320, 220, 26);
         createAccount.add(jTextField2);
-        jTextField2.setBounds(440, 350, 220, 20);
+        jTextField2.setBounds(440, 350, 220, 26);
         createAccount.add(jTextField3);
-        jTextField3.setBounds(440, 380, 220, 20);
+        jTextField3.setBounds(440, 380, 220, 26);
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -656,14 +657,14 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField4);
-        jTextField4.setBounds(440, 410, 220, 20);
+        jTextField4.setBounds(440, 410, 220, 26);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("email:");
         createAccount.add(jLabel11);
         jLabel11.setBounds(300, 470, 70, 17);
         createAccount.add(jTextField5);
-        jTextField5.setBounds(440, 440, 220, 20);
+        jTextField5.setBounds(440, 440, 220, 26);
         createAccount.add(jTextField6);
         jTextField6.setBounds(440, 470, 220, 20);
 
@@ -694,7 +695,7 @@ public class BuildForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         viewAccount.add(jScrollPane1);
-        jScrollPane1.setBounds(220, 290, 452, 170);
+        jScrollPane1.setBounds(220, 290, 454, 170);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel12.setText("View Accounts:");
@@ -874,6 +875,15 @@ public class BuildForm extends javax.swing.JFrame {
 
     addComp.add(jScrollPane3);
     jScrollPane3.setBounds(60, 40, 690, 370);
+
+    jButton3.setText("jButton3");
+    jButton3.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton3ActionPerformed(evt);
+        }
+    });
+    addComp.add(jButton3);
+    jButton3.setBounds(770, 50, 97, 29);
 
     getContentPane().add(addComp);
     addComp.setBounds(0, 0, 900, 600);
@@ -1113,6 +1123,10 @@ public class BuildForm extends javax.swing.JFrame {
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
         newBuild.UpdateBuild("--buildname--", "--username--");
     }//GEN-LAST:event_updateBtnActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
     
     private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         // TODO add your handling code here:
@@ -1198,6 +1212,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel hddLabelSelectedPart;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
