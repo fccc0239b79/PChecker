@@ -135,14 +135,32 @@ public class build {
         while (rs.next()) {
             buildName = name;
             motherBoardID = rs.getInt("Motherboard");
+            motherBoardName = getnames(motherBoardID);
+            
             cpuID = rs.getInt("CPU");
+            cpuName = getnames(cpuID);
+            
             ramID = rs.getInt("RAM");
+            ramName = getnames(ramID);
+            
             storageID = rs.getInt("Storage");
+            storageName = getnames(storageID);
+            
             gpuID = rs.getInt("GPU");
+            gpuName = getnames(gpuID);
+            
             psuID = rs.getInt("PSU");
+            psuName = getnames(psuID);
+            
             caseID = rs.getInt("PCCase");
+            caseName = getnames(caseID);
+            
             coolerID = rs.getInt("Cooler");
+            coolerName = getnames(coolerID);
+            
             accessoryID = rs.getInt("Accessory");
+            accessoryName = getnames(accessoryID);
+            
             systemCompRating = rs.getInt("systemCompRating");
     
         }
@@ -152,7 +170,29 @@ public class build {
     } 
     
     }
-    
+    private String getnames(int id){
+        String name = "";
+        Connection con = ServerControl.ConnectDB();
+
+        try {
+            Statement stmt = (Statement) con.createStatement();
+            //String query = "Select P.PartID,P.PartType,P.Model, P.Make FROM Build AS B JOIN Part AS P ON P.PartID IN(B.Motherboard,B.CPU,B.RAM,B.Storage,B.GPU,B.PSU,B.PCCase,B.Cooler,B.Accessory) where Account = '"+username+"' AND BuildName = '"+buildName+"';";
+
+            String query = "SELECT Make,Model FROM Part where PartID = '"+id+"';";
+
+            stmt.executeQuery(query);
+            ResultSet rs = stmt.getResultSet();
+
+
+            while (rs.next()) {
+                name = rs.getString("Make")+" "+rs.getString("Model");
+            }
+
+        } catch(SQLException err){
+            System.out.println(err);
+        }
+        return name;
+    }
     public void savebuild(String username){
     Connection con = ServerControl.ConnectDB();
     

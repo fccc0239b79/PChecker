@@ -943,7 +943,8 @@ public class BuildForm extends javax.swing.JFrame {
     public void setEditBuild(String value) {
         BuildNameLabel.setText(value);
         newBuild.getBuild(currentUser.getUsername(), value);
-        System.out.println(newBuild.getCPU());
+        System.out.println(newBuild.getCPU()+newBuild.getPartName("CPU"));
+        
         //
     }
     
