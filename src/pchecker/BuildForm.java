@@ -117,6 +117,18 @@ public class BuildForm extends javax.swing.JFrame {
        psuLabelSelectedPart.setText(newBuild.getPSU() + " " + newBuild.getPartName("PSU"));
        ramLabelSelectedPart .setText(newBuild.getRam() + " " + newBuild.getPartName("RAM"));
     }
+    
+    public void resetChoosenPartLabel() {
+       processorLabelSelectedPart.setText("");
+       caseLabelSelectedPart.setText("");
+       coolingLabelSelectedPart.setText("");
+       gpuLabelSelectedPart.setText("");
+       hddLabelSelectedPart.setText("");
+       motherboardLabelSelectedPart.setText("");
+       processorLabelSelectedPart.setText("");
+       psuLabelSelectedPart.setText("");
+       ramLabelSelectedPart .setText("");
+    }
             
             
             
@@ -1034,7 +1046,7 @@ public class BuildForm extends javax.swing.JFrame {
         AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
         this.dispose();
         frm.setVisible(true);
-        
+       // resetChoosenPartLabel();
     }//GEN-LAST:event_cancelBtnBActionPerformed
     
     public void setEditBuild(String value) {
