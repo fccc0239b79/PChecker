@@ -1113,21 +1113,14 @@ public class BuildForm extends javax.swing.JFrame {
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
         
-<<<<<<< Updated upstream
-        newBuild.UpdateBuild(buildNametxt.getText(),currentUser.getUsername());
-        
        
-            AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
-        
-            this.dispose();
-            frm.setVisible(true);
-=======
+
         newBuild.UpdateBuild(currentUser.getUsername());
         AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
         this.dispose();
         frm.setVisible(true);
 
->>>>>>> Stashed changes
+
     }//GEN-LAST:event_updateBtnActionPerformed
     
     private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {                                                  
