@@ -72,6 +72,9 @@ public class BuildForm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         buildPanel.setVisible(true);
         
+        acceptBuildBtn.setVisible(false);
+        updateBtn.setVisible(true);
+        
         buildNameLabelB.setVisible(false);
         buildNametxt.setVisible(false);
         
@@ -233,6 +236,7 @@ public class BuildForm extends javax.swing.JFrame {
         caseLabelSelectedPart = new javax.swing.JLabel();
         psuLabelSelectedPart = new javax.swing.JLabel();
         coolingLabelSelectedPart = new javax.swing.JLabel();
+        updateBtn = new javax.swing.JButton();
         editPanel = new javax.swing.JPanel();
         logoE = new javax.swing.JLabel();
         cancelBtnE = new javax.swing.JButton();
@@ -491,6 +495,16 @@ public class BuildForm extends javax.swing.JFrame {
         buildPanel.add(coolingLabelSelectedPart);
         coolingLabelSelectedPart.setBounds(410, 550, 130, 15);
         coolingLabelSelectedPart.setVisible(false);
+
+        updateBtn.setText("Update");
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBtnActionPerformed(evt);
+            }
+        });
+        buildPanel.add(updateBtn);
+        updateBtn.setBounds(720, 10, 70, 40);
+        updateBtn.setVisible(false);
 
         getContentPane().add(buildPanel);
         buildPanel.setBounds(0, 0, 900, 600);
@@ -1010,6 +1024,7 @@ public class BuildForm extends javax.swing.JFrame {
                                         break;
                     case "CPU": newBuild.setCPU(Integer.parseInt(PartID),partMake+" "+partModel);
                                // processorBtn.setText("Processor "+PartID);
+                                
                                 choosenPartLabel();
                                 processorBtn.setBackground(Color.green); // sets color on green after selected part 
                                 break;
@@ -1094,6 +1109,10 @@ public class BuildForm extends javax.swing.JFrame {
         frm.setVisible(true);
       
     }//GEN-LAST:event_cancelBtnBActionPerformed
+
+    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+        
+    }//GEN-LAST:event_updateBtnActionPerformed
     
     private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         // TODO add your handling code here:
@@ -1222,6 +1241,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JButton ramBtn;
     private javax.swing.JLabel ramLabelSelectedPart;
     private javax.swing.JButton supplyBtn;
+    private javax.swing.JButton updateBtn;
     private javax.swing.JPanel viewAccount;
     // End of variables declaration//GEN-END:variables
 }
