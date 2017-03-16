@@ -1188,6 +1188,8 @@
             </Constraint>
           </Constraints>
         </Component>
+<<<<<<< HEAD
+=======
         <Component class="javax.swing.JButton" name="testbtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="test"/>
@@ -1201,6 +1203,7 @@
             </Constraint>
           </Constraints>
         </Component>
+>>>>>>> origin/master
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="addComp">
@@ -1231,7 +1234,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="60" y="40" width="690" height="370"/>
+              <AbsoluteConstraints x="70" y="140" width="690" height="370"/>
             </Constraint>
           </Constraints>
 
@@ -1251,6 +1254,26 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="SaveCompBtn">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Save"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="600" y="40" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JButton" name="cancelComp">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancel"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="730" y="40" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
