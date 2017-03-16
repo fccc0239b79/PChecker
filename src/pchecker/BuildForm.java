@@ -107,15 +107,15 @@ public class BuildForm extends javax.swing.JFrame {
       //  System.out.println("CPU label: " + newBuild.getPartName("CPU"));
       //  System.out.println("get CPU: " + newBuild.getCPU());
         
-       processorLabelSelectedPart.setText(newBuild.getCPU() + " " + newBuild.getPartName("CPU"));
-       caseLabelSelectedPart.setText(newBuild.getCase() + " " + newBuild.getPartName("PCCase"));
-       coolingLabelSelectedPart.setText(newBuild.getCooler() + " " + newBuild.getPartName("Cooler"));
-       gpuLabelSelectedPart.setText(newBuild.getGpu() + " " + newBuild.getPartName("GPU"));
-       hddLabelSelectedPart.setText(newBuild.getStorage() + " " + newBuild.getPartName("Storage"));
-       motherboardLabelSelectedPart.setText(newBuild.getMotherboard() + " " + newBuild.getPartName("Motherboard"));
-       processorLabelSelectedPart.setText(newBuild.getCPU() + " " + newBuild.getPartName("CPU"));
-       psuLabelSelectedPart.setText(newBuild.getPSU() + " " + newBuild.getPartName("PSU"));
-       ramLabelSelectedPart .setText(newBuild.getRam() + " " + newBuild.getPartName("RAM"));
+       processorLabelSelectedPart.setText(newBuild.getCPU() + " - " + newBuild.getPartName("CPU"));
+       caseLabelSelectedPart.setText(newBuild.getCase() + " - " + newBuild.getPartName("PCCase"));
+       coolingLabelSelectedPart.setText(newBuild.getCooler() + " - " + newBuild.getPartName("Cooler"));
+       gpuLabelSelectedPart.setText(newBuild.getGpu() + " - " + newBuild.getPartName("GPU"));
+       hddLabelSelectedPart.setText(newBuild.getStorage() + " - " + newBuild.getPartName("Storage"));
+       motherboardLabelSelectedPart.setText(newBuild.getMotherboard() + " - " + newBuild.getPartName("Motherboard"));
+       processorLabelSelectedPart.setText(newBuild.getCPU() + " - " + newBuild.getPartName("CPU"));
+       psuLabelSelectedPart.setText(newBuild.getPSU() + " - " + newBuild.getPartName("PSU"));
+       ramLabelSelectedPart .setText(newBuild.getRam() + " - " + newBuild.getPartName("RAM"));
     }
     
     public void resetChoosenPartLabel() {
@@ -522,42 +522,42 @@ public class BuildForm extends javax.swing.JFrame {
         accessoriesLabelSelectedPart.setBounds(570, 550, 130, 14);
         accessoriesLabelSelectedPart.setVisible(false);
 
-        motherboardLabelSelectedPart.setText("-");
+        motherboardLabelSelectedPart.setText("model -  make");
         buildPanel.add(motherboardLabelSelectedPart);
         motherboardLabelSelectedPart.setBounds(250, 370, 130, 14);
         motherboardLabelSelectedPart.setVisible(false);
 
-        processorLabelSelectedPart.setText("-");
+        processorLabelSelectedPart.setText("model -  make");
         buildPanel.add(processorLabelSelectedPart);
         processorLabelSelectedPart.setBounds(410, 370, 130, 14);
         processorLabelSelectedPart.setVisible(false);
 
-        ramLabelSelectedPart.setText("-");
+        ramLabelSelectedPart.setText("model -  make");
         buildPanel.add(ramLabelSelectedPart);
         ramLabelSelectedPart.setBounds(570, 370, 130, 14);
         ramLabelSelectedPart.setVisible(false);
 
-        hddLabelSelectedPart.setText("-");
+        hddLabelSelectedPart.setText("model -  make");
         buildPanel.add(hddLabelSelectedPart);
         hddLabelSelectedPart.setBounds(250, 460, 130, 14);
         hddLabelSelectedPart.setVisible(false);
 
-        gpuLabelSelectedPart.setText("-");
+        gpuLabelSelectedPart.setText("model -  make");
         buildPanel.add(gpuLabelSelectedPart);
         gpuLabelSelectedPart.setBounds(410, 460, 130, 14);
         gpuLabelSelectedPart.setVisible(false);
 
-        caseLabelSelectedPart.setText("-");
+        caseLabelSelectedPart.setText("model -  make");
         buildPanel.add(caseLabelSelectedPart);
         caseLabelSelectedPart.setBounds(570, 460, 130, 14);
         caseLabelSelectedPart.setVisible(false);
 
-        psuLabelSelectedPart.setText("-");
+        psuLabelSelectedPart.setText("model -  make");
         buildPanel.add(psuLabelSelectedPart);
         psuLabelSelectedPart.setBounds(250, 550, 130, 14);
         psuLabelSelectedPart.setVisible(false);
 
-        coolingLabelSelectedPart.setText("-");
+        coolingLabelSelectedPart.setText("model -  make");
         buildPanel.add(coolingLabelSelectedPart);
         coolingLabelSelectedPart.setBounds(410, 550, 130, 14);
         coolingLabelSelectedPart.setVisible(false);
