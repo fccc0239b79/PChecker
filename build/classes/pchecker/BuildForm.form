@@ -415,7 +415,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="accessoriesLabelSelectedPart">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel19"/>
+            <Property name="text" type="java.lang.String" value="-"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="accessoriesLabelSelectedPart.setVisible(false);"/>
@@ -428,7 +428,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="motherboardLabelSelectedPart">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel19"/>
+            <Property name="text" type="java.lang.String" value="-"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="motherboardLabelSelectedPart.setVisible(false);"/>
@@ -441,7 +441,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="processorLabelSelectedPart">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel19"/>
+            <Property name="text" type="java.lang.String" value="-"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="processorLabelSelectedPart.setVisible(false);"/>
@@ -454,7 +454,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="ramLabelSelectedPart">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel19"/>
+            <Property name="text" type="java.lang.String" value="-"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="ramLabelSelectedPart.setVisible(false);"/>
@@ -467,7 +467,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="hddLabelSelectedPart">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel19"/>
+            <Property name="text" type="java.lang.String" value="-"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="hddLabelSelectedPart.setVisible(false);"/>
@@ -480,7 +480,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="gpuLabelSelectedPart">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel19"/>
+            <Property name="text" type="java.lang.String" value="-"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="gpuLabelSelectedPart.setVisible(false);"/>
@@ -493,7 +493,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="caseLabelSelectedPart">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel19"/>
+            <Property name="text" type="java.lang.String" value="-"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="caseLabelSelectedPart.setVisible(false);"/>
@@ -506,7 +506,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="psuLabelSelectedPart">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel19"/>
+            <Property name="text" type="java.lang.String" value="-"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="psuLabelSelectedPart.setVisible(false);"/>
@@ -519,7 +519,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="coolingLabelSelectedPart">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel19"/>
+            <Property name="text" type="java.lang.String" value="-"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="coolingLabelSelectedPart.setVisible(false);"/>
@@ -1167,15 +1167,6 @@
         <Component class="javax.swing.JButton" name="testbtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="test"/>
-            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[51, 23]"/>
-            </Property>
-            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[51, 23]"/>
-            </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[51, 23]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="testbtnActionPerformed"/>
@@ -1194,9 +1185,6 @@
           <Dimension value="[900, 600]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[900, 600]"/>
-        </Property>
-        <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[900, 600]"/>
         </Property>
       </Properties>

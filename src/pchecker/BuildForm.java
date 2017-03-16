@@ -330,7 +330,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         acceptBtnE.setText("Accept");
         editPanel.add(acceptBtnE);
-        acceptBtnE.setBounds(740, 10, 87, 42);
+        acceptBtnE.setBounds(740, 10, 65, 42);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -517,49 +517,49 @@ public class BuildForm extends javax.swing.JFrame {
         buildPanel.add(accessoriesBtn);
         accessoriesBtn.setBounds(570, 490, 130, 60);
 
-        accessoriesLabelSelectedPart.setText("jLabel19");
+        accessoriesLabelSelectedPart.setText("-");
         buildPanel.add(accessoriesLabelSelectedPart);
-        accessoriesLabelSelectedPart.setBounds(570, 550, 130, 16);
+        accessoriesLabelSelectedPart.setBounds(570, 550, 130, 14);
         accessoriesLabelSelectedPart.setVisible(false);
 
-        motherboardLabelSelectedPart.setText("jLabel19");
+        motherboardLabelSelectedPart.setText("-");
         buildPanel.add(motherboardLabelSelectedPart);
-        motherboardLabelSelectedPart.setBounds(250, 370, 130, 16);
+        motherboardLabelSelectedPart.setBounds(250, 370, 130, 14);
         motherboardLabelSelectedPart.setVisible(false);
 
-        processorLabelSelectedPart.setText("jLabel19");
+        processorLabelSelectedPart.setText("-");
         buildPanel.add(processorLabelSelectedPart);
-        processorLabelSelectedPart.setBounds(410, 370, 130, 16);
+        processorLabelSelectedPart.setBounds(410, 370, 130, 14);
         processorLabelSelectedPart.setVisible(false);
 
-        ramLabelSelectedPart.setText("jLabel19");
+        ramLabelSelectedPart.setText("-");
         buildPanel.add(ramLabelSelectedPart);
-        ramLabelSelectedPart.setBounds(570, 370, 130, 16);
+        ramLabelSelectedPart.setBounds(570, 370, 130, 14);
         ramLabelSelectedPart.setVisible(false);
 
-        hddLabelSelectedPart.setText("jLabel19");
+        hddLabelSelectedPart.setText("-");
         buildPanel.add(hddLabelSelectedPart);
-        hddLabelSelectedPart.setBounds(250, 460, 130, 16);
+        hddLabelSelectedPart.setBounds(250, 460, 130, 14);
         hddLabelSelectedPart.setVisible(false);
 
-        gpuLabelSelectedPart.setText("jLabel19");
+        gpuLabelSelectedPart.setText("-");
         buildPanel.add(gpuLabelSelectedPart);
-        gpuLabelSelectedPart.setBounds(410, 460, 130, 16);
+        gpuLabelSelectedPart.setBounds(410, 460, 130, 14);
         gpuLabelSelectedPart.setVisible(false);
 
-        caseLabelSelectedPart.setText("jLabel19");
+        caseLabelSelectedPart.setText("-");
         buildPanel.add(caseLabelSelectedPart);
-        caseLabelSelectedPart.setBounds(570, 460, 130, 16);
+        caseLabelSelectedPart.setBounds(570, 460, 130, 14);
         caseLabelSelectedPart.setVisible(false);
 
-        psuLabelSelectedPart.setText("jLabel19");
+        psuLabelSelectedPart.setText("-");
         buildPanel.add(psuLabelSelectedPart);
-        psuLabelSelectedPart.setBounds(250, 550, 130, 16);
+        psuLabelSelectedPart.setBounds(250, 550, 130, 14);
         psuLabelSelectedPart.setVisible(false);
 
-        coolingLabelSelectedPart.setText("jLabel19");
+        coolingLabelSelectedPart.setText("-");
         buildPanel.add(coolingLabelSelectedPart);
-        coolingLabelSelectedPart.setBounds(410, 550, 130, 16);
+        coolingLabelSelectedPart.setBounds(410, 550, 130, 14);
         coolingLabelSelectedPart.setVisible(false);
 
         getContentPane().add(buildPanel);
@@ -628,7 +628,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jComboBox1);
-        jComboBox1.setBounds(440, 290, 220, 27);
+        jComboBox1.setBounds(440, 290, 220, 20);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -636,11 +636,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField1);
-        jTextField1.setBounds(440, 320, 220, 26);
+        jTextField1.setBounds(440, 320, 220, 20);
         createAccount.add(jTextField2);
-        jTextField2.setBounds(440, 350, 220, 26);
+        jTextField2.setBounds(440, 350, 220, 20);
         createAccount.add(jTextField3);
-        jTextField3.setBounds(440, 380, 220, 26);
+        jTextField3.setBounds(440, 380, 220, 20);
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -648,14 +648,14 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField4);
-        jTextField4.setBounds(440, 410, 220, 26);
+        jTextField4.setBounds(440, 410, 220, 20);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("email:");
         createAccount.add(jLabel11);
         jLabel11.setBounds(300, 470, 70, 17);
         createAccount.add(jTextField5);
-        jTextField5.setBounds(440, 440, 220, 26);
+        jTextField5.setBounds(440, 440, 220, 20);
         createAccount.add(jTextField6);
         jTextField6.setBounds(440, 470, 220, 20);
 
@@ -686,7 +686,7 @@ public class BuildForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         viewAccount.add(jScrollPane1);
-        jScrollPane1.setBounds(220, 290, 454, 170);
+        jScrollPane1.setBounds(220, 290, 452, 170);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel12.setText("View Accounts:");
@@ -843,9 +843,6 @@ public class BuildForm extends javax.swing.JFrame {
     jLabel18.setBounds(490, 70, 370, 70);
 
     testbtn.setText("test");
-    testbtn.setMaximumSize(new java.awt.Dimension(51, 23));
-    testbtn.setMinimumSize(new java.awt.Dimension(51, 23));
-    testbtn.setPreferredSize(new java.awt.Dimension(51, 23));
     testbtn.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             testbtnActionPerformed(evt);
@@ -860,7 +857,6 @@ public class BuildForm extends javax.swing.JFrame {
 
     addComp.setMaximumSize(new java.awt.Dimension(900, 600));
     addComp.setPreferredSize(new java.awt.Dimension(900, 600));
-    addComp.setSize(new java.awt.Dimension(900, 600));
     addComp.setVisible(false);
     addComp.setLayout(null);
 

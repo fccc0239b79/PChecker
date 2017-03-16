@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/Greg/PChecker/src/pchecker/AdminUserFrame.java</file>
-            <file>file:/Users/Greg/PChecker/src/pchecker/build.java</file>
-            <file>file:/Users/Greg/PChecker/src/pchecker/BuildForm.java</file>
-            <file>file:/Users/Greg/PChecker/src/pchecker/ServerControl.java</file>
+            <file>file:/C:/Users/Pawel%20Szymczyk/Documents/GitHub/PChecker/src/pchecker/build.java</file>
+            <file>file:/C:/Users/Pawel%20Szymczyk/Documents/GitHub/PChecker/src/pchecker/AdminUserFrame.java</file>
+            <file>file:/C:/Users/Pawel%20Szymczyk/Documents/GitHub/PChecker/src/pchecker/userAdminAccount.java</file>
+            <file>file:/C:/Users/Pawel%20Szymczyk/Documents/GitHub/PChecker/src/pchecker/BuildForm.java</file>
+            <file>file:/C:/Users/Pawel%20Szymczyk/Documents/GitHub/PChecker/src/pchecker/SettingsControl.java</file>
+            <file>file:/C:/Users/Pawel%20Szymczyk/Documents/GitHub/PChecker/test/pchecker/AdminUserFrameTest.java</file>
+            <file>file:/C:/Users/Pawel%20Szymczyk/Documents/GitHub/PChecker/src/pchecker/ServerControl.java</file>
         </group>
     </open-files>
 </project-private>
