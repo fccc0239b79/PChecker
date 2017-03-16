@@ -449,7 +449,7 @@ public class BuildForm extends javax.swing.JFrame {
         accessoriesBtn.setBounds(570, 490, 130, 60);
 
         accessoriesLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        accessoriesLabelSelectedPart.setText("-");
+        accessoriesLabelSelectedPart.setText("model -  make");
         buildPanel.add(accessoriesLabelSelectedPart);
         accessoriesLabelSelectedPart.setBounds(570, 550, 130, 15);
         accessoriesLabelSelectedPart.setVisible(false);
