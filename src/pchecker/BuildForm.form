@@ -428,6 +428,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="motherboardLabelSelectedPart">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="model -  make"/>
           </Properties>
           <AuxValues>
@@ -441,6 +444,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="processorLabelSelectedPart">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="model -  make"/>
           </Properties>
           <AuxValues>
@@ -454,6 +460,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="ramLabelSelectedPart">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="model -  make"/>
           </Properties>
           <AuxValues>
@@ -467,6 +476,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="hddLabelSelectedPart">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="model -  make"/>
           </Properties>
           <AuxValues>
@@ -480,6 +492,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="gpuLabelSelectedPart">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="model -  make"/>
           </Properties>
           <AuxValues>
@@ -493,6 +508,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="caseLabelSelectedPart">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="model -  make"/>
           </Properties>
           <AuxValues>
@@ -506,6 +524,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="psuLabelSelectedPart">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="model -  make"/>
           </Properties>
           <AuxValues>
@@ -519,6 +540,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="coolingLabelSelectedPart">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="model -  make"/>
           </Properties>
           <AuxValues>

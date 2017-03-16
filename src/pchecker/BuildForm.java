@@ -522,44 +522,52 @@ public class BuildForm extends javax.swing.JFrame {
         accessoriesLabelSelectedPart.setBounds(570, 550, 130, 14);
         accessoriesLabelSelectedPart.setVisible(false);
 
+        motherboardLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         motherboardLabelSelectedPart.setText("model -  make");
         buildPanel.add(motherboardLabelSelectedPart);
-        motherboardLabelSelectedPart.setBounds(250, 370, 130, 14);
+        motherboardLabelSelectedPart.setBounds(250, 370, 130, 15);
         motherboardLabelSelectedPart.setVisible(false);
 
+        processorLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         processorLabelSelectedPart.setText("model -  make");
         buildPanel.add(processorLabelSelectedPart);
-        processorLabelSelectedPart.setBounds(410, 370, 130, 14);
+        processorLabelSelectedPart.setBounds(410, 370, 130, 15);
         processorLabelSelectedPart.setVisible(false);
 
+        ramLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ramLabelSelectedPart.setText("model -  make");
         buildPanel.add(ramLabelSelectedPart);
-        ramLabelSelectedPart.setBounds(570, 370, 130, 14);
+        ramLabelSelectedPart.setBounds(570, 370, 130, 15);
         ramLabelSelectedPart.setVisible(false);
 
+        hddLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         hddLabelSelectedPart.setText("model -  make");
         buildPanel.add(hddLabelSelectedPart);
-        hddLabelSelectedPart.setBounds(250, 460, 130, 14);
+        hddLabelSelectedPart.setBounds(250, 460, 130, 15);
         hddLabelSelectedPart.setVisible(false);
 
+        gpuLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         gpuLabelSelectedPart.setText("model -  make");
         buildPanel.add(gpuLabelSelectedPart);
-        gpuLabelSelectedPart.setBounds(410, 460, 130, 14);
+        gpuLabelSelectedPart.setBounds(410, 460, 130, 15);
         gpuLabelSelectedPart.setVisible(false);
 
+        caseLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         caseLabelSelectedPart.setText("model -  make");
         buildPanel.add(caseLabelSelectedPart);
-        caseLabelSelectedPart.setBounds(570, 460, 130, 14);
+        caseLabelSelectedPart.setBounds(570, 460, 130, 15);
         caseLabelSelectedPart.setVisible(false);
 
+        psuLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         psuLabelSelectedPart.setText("model -  make");
         buildPanel.add(psuLabelSelectedPart);
-        psuLabelSelectedPart.setBounds(250, 550, 130, 14);
+        psuLabelSelectedPart.setBounds(250, 550, 130, 15);
         psuLabelSelectedPart.setVisible(false);
 
+        coolingLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         coolingLabelSelectedPart.setText("model -  make");
         buildPanel.add(coolingLabelSelectedPart);
-        coolingLabelSelectedPart.setBounds(410, 550, 130, 14);
+        coolingLabelSelectedPart.setBounds(410, 550, 130, 15);
         coolingLabelSelectedPart.setVisible(false);
 
         getContentPane().add(buildPanel);
