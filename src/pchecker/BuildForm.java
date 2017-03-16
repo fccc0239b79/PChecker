@@ -107,7 +107,7 @@ public class BuildForm extends javax.swing.JFrame {
       //  System.out.println("CPU label: " + newBuild.getPartName("CPU"));
       //  System.out.println("get CPU: " + newBuild.getCPU());
         
-       processorLabelSelectedPart.setText(newBuild.getCPU() + " - " + newBuild.getPartName("CPU"));
+       accessoriesLabelSelectedPart.setText(newBuild.getAccessory() + " - " + newBuild.getPartName("Accessory"));   
        caseLabelSelectedPart.setText(newBuild.getCase() + " - " + newBuild.getPartName("PCCase"));
        coolingLabelSelectedPart.setText(newBuild.getCooler() + " - " + newBuild.getPartName("Cooler"));
        gpuLabelSelectedPart.setText(newBuild.getGpu() + " - " + newBuild.getPartName("GPU"));
@@ -325,7 +325,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         acceptBtnE.setText("Accept");
         editPanel.add(acceptBtnE);
-        acceptBtnE.setBounds(740, 10, 87, 42);
+        acceptBtnE.setBounds(740, 10, 65, 42);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -514,7 +514,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         accessoriesLabelSelectedPart.setText("-");
         buildPanel.add(accessoriesLabelSelectedPart);
-        accessoriesLabelSelectedPart.setBounds(570, 550, 130, 16);
+        accessoriesLabelSelectedPart.setBounds(570, 550, 130, 14);
         accessoriesLabelSelectedPart.setVisible(false);
 
         motherboardLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -631,7 +631,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jComboBox1);
-        jComboBox1.setBounds(440, 290, 220, 27);
+        jComboBox1.setBounds(440, 290, 220, 20);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -639,11 +639,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField1);
-        jTextField1.setBounds(440, 320, 220, 26);
+        jTextField1.setBounds(440, 320, 220, 20);
         createAccount.add(jTextField2);
-        jTextField2.setBounds(440, 350, 220, 26);
+        jTextField2.setBounds(440, 350, 220, 20);
         createAccount.add(jTextField3);
-        jTextField3.setBounds(440, 380, 220, 26);
+        jTextField3.setBounds(440, 380, 220, 20);
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -651,14 +651,14 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField4);
-        jTextField4.setBounds(440, 410, 220, 26);
+        jTextField4.setBounds(440, 410, 220, 20);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("email:");
         createAccount.add(jLabel11);
         jLabel11.setBounds(300, 470, 70, 17);
         createAccount.add(jTextField5);
-        jTextField5.setBounds(440, 440, 220, 26);
+        jTextField5.setBounds(440, 440, 220, 20);
         createAccount.add(jTextField6);
         jTextField6.setBounds(440, 470, 220, 20);
 
@@ -689,7 +689,7 @@ public class BuildForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         viewAccount.add(jScrollPane1);
-        jScrollPane1.setBounds(220, 290, 454, 170);
+        jScrollPane1.setBounds(220, 290, 452, 170);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel12.setText("View Accounts:");
@@ -1009,40 +1009,52 @@ public class BuildForm extends javax.swing.JFrame {
                 switch (choosenPart) {
                 
                     case "Motherboard": newBuild.setMotherboard(Integer.parseInt(PartID),partMake+" "+partModel);
-                                        motherboardBtn.setText(newBuild.getPartName(choosenPart));
+                                        choosenPartLabel();
+                    //accessoriesLabelSelectedPart.setVisible(true);
+                    //processorLabelSelectedPart.setText(newBuild.getCPU() + " - " + newBuild.getPartName("CPU"));
+                    
+                                       // motherboardBtn.setText(newBuild.getPartName(choosenPart));
                                         motherboardBtn.setBackground(Color.green); // sets color on green after selected part 
                                         enbleButtons();
                                         break;
                     case "CPU": newBuild.setCPU(Integer.parseInt(PartID),partMake+" "+partModel);
-                                processorBtn.setText("Processor "+PartID);
+                               // processorBtn.setText("Processor "+PartID);
+                                choosenPartLabel();
                                 processorBtn.setBackground(Color.green); // sets color on green after selected part 
                                 break;
                     case "RAM": newBuild.setRAM(Integer.parseInt(PartID),partMake+" "+partModel);
-                                ramBtn.setText("RAM "+PartID);
+                               // ramBtn.setText("RAM "+PartID);
+                                choosenPartLabel();
                                 ramBtn.setBackground(Color.green); // sets color on green after selected part 
                                 break;
                     case "GPU": newBuild.setGPU(Integer.parseInt(PartID),partMake+" "+partModel); 
-                                graphicsBtn.setText("Graphics card \n"+PartID);
+                               // graphicsBtn.setText("Graphics card \n"+PartID);
+                                choosenPartLabel();
                                 graphicsBtn.setBackground(Color.green); // sets color on green after selected part 
                                 break;
                     case "Storage": newBuild.setStorage(Integer.parseInt(PartID),partMake+" "+partModel); 
-                                    hddBtn.setText("HDD \n"+PartID);
+                                  //  hddBtn.setText("HDD \n"+PartID);
+                                    choosenPartLabel();
                                     hddBtn.setBackground(Color.green); // sets color on green after selected part 
                                     break;
                     case "Accessory": newBuild.setAccessory(Integer.parseInt(PartID),partMake+" "+partModel);
-                                      accessoriesBtn.setText("Accessories \n"+PartID);
+                                     // accessoriesBtn.setText("Accessories \n"+PartID);
+                                      choosenPartLabel();
                                       accessoriesBtn.setBackground(Color.green); // sets color on green after selected part 
                                       break;
                     case "PSU": newBuild.setPSU(Integer.parseInt(PartID),partMake+" "+partModel);    
-                                supplyBtn.setText("Power Supply \n"+PartID);
+                              //  supplyBtn.setText("Power Supply \n"+PartID);
+                                choosenPartLabel();
                                 supplyBtn.setBackground(Color.green); // sets color on green after selected part 
                                 break;
                     case "PCCase": newBuild.setPCCase(Integer.parseInt(PartID),partMake+" "+partModel);  
-                                   caseBtn.setText("Case \n"+PartID);
+                                 //  caseBtn.setText("Case \n"+PartID);
+                                   choosenPartLabel();
                                    caseBtn.setBackground(Color.green); // sets color on green after selected part 
                                    break;
                     case "Cooler": newBuild.setCooler(Integer.parseInt(PartID),partMake+" "+partModel);
-                                   coolingBtn.setText("Cooling \n"+PartID);
+                                 //  coolingBtn.setText("Cooling \n"+PartID);
+                                   choosenPartLabel();
                                    coolingBtn.setBackground(Color.green); // sets color on green after selected part 
                                     break;
                   
