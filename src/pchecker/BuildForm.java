@@ -25,12 +25,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 /**
  *
  * @author Pawel
@@ -165,7 +163,7 @@ public class BuildForm extends javax.swing.JFrame {
         
     }
     public void makeComp(){
-        
+    
         compTable.setModel(currentUser.getCompT("9"));
         
     }
@@ -332,7 +330,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         acceptBtnE.setText("Accept");
         editPanel.add(acceptBtnE);
-        acceptBtnE.setBounds(740, 10, 65, 42);
+        acceptBtnE.setBounds(740, 10, 87, 42);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -521,47 +519,47 @@ public class BuildForm extends javax.swing.JFrame {
 
         accessoriesLabelSelectedPart.setText("jLabel19");
         buildPanel.add(accessoriesLabelSelectedPart);
-        accessoriesLabelSelectedPart.setBounds(570, 550, 130, 14);
+        accessoriesLabelSelectedPart.setBounds(570, 550, 130, 16);
         accessoriesLabelSelectedPart.setVisible(false);
 
         motherboardLabelSelectedPart.setText("jLabel19");
         buildPanel.add(motherboardLabelSelectedPart);
-        motherboardLabelSelectedPart.setBounds(250, 370, 130, 14);
+        motherboardLabelSelectedPart.setBounds(250, 370, 130, 16);
         motherboardLabelSelectedPart.setVisible(false);
 
         processorLabelSelectedPart.setText("jLabel19");
         buildPanel.add(processorLabelSelectedPart);
-        processorLabelSelectedPart.setBounds(410, 370, 130, 14);
+        processorLabelSelectedPart.setBounds(410, 370, 130, 16);
         processorLabelSelectedPart.setVisible(false);
 
         ramLabelSelectedPart.setText("jLabel19");
         buildPanel.add(ramLabelSelectedPart);
-        ramLabelSelectedPart.setBounds(570, 370, 130, 14);
+        ramLabelSelectedPart.setBounds(570, 370, 130, 16);
         ramLabelSelectedPart.setVisible(false);
 
         hddLabelSelectedPart.setText("jLabel19");
         buildPanel.add(hddLabelSelectedPart);
-        hddLabelSelectedPart.setBounds(250, 460, 130, 14);
+        hddLabelSelectedPart.setBounds(250, 460, 130, 16);
         hddLabelSelectedPart.setVisible(false);
 
         gpuLabelSelectedPart.setText("jLabel19");
         buildPanel.add(gpuLabelSelectedPart);
-        gpuLabelSelectedPart.setBounds(410, 460, 130, 14);
+        gpuLabelSelectedPart.setBounds(410, 460, 130, 16);
         gpuLabelSelectedPart.setVisible(false);
 
         caseLabelSelectedPart.setText("jLabel19");
         buildPanel.add(caseLabelSelectedPart);
-        caseLabelSelectedPart.setBounds(570, 460, 130, 14);
+        caseLabelSelectedPart.setBounds(570, 460, 130, 16);
         caseLabelSelectedPart.setVisible(false);
 
         psuLabelSelectedPart.setText("jLabel19");
         buildPanel.add(psuLabelSelectedPart);
-        psuLabelSelectedPart.setBounds(250, 550, 130, 14);
+        psuLabelSelectedPart.setBounds(250, 550, 130, 16);
         psuLabelSelectedPart.setVisible(false);
 
         coolingLabelSelectedPart.setText("jLabel19");
         buildPanel.add(coolingLabelSelectedPart);
-        coolingLabelSelectedPart.setBounds(410, 550, 130, 14);
+        coolingLabelSelectedPart.setBounds(410, 550, 130, 16);
         coolingLabelSelectedPart.setVisible(false);
 
         getContentPane().add(buildPanel);
@@ -630,7 +628,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jComboBox1);
-        jComboBox1.setBounds(440, 290, 220, 20);
+        jComboBox1.setBounds(440, 290, 220, 27);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -638,11 +636,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField1);
-        jTextField1.setBounds(440, 320, 220, 20);
+        jTextField1.setBounds(440, 320, 220, 26);
         createAccount.add(jTextField2);
-        jTextField2.setBounds(440, 350, 220, 20);
+        jTextField2.setBounds(440, 350, 220, 26);
         createAccount.add(jTextField3);
-        jTextField3.setBounds(440, 380, 220, 20);
+        jTextField3.setBounds(440, 380, 220, 26);
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -650,14 +648,14 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField4);
-        jTextField4.setBounds(440, 410, 220, 20);
+        jTextField4.setBounds(440, 410, 220, 26);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("email:");
         createAccount.add(jLabel11);
         jLabel11.setBounds(300, 470, 70, 17);
         createAccount.add(jTextField5);
-        jTextField5.setBounds(440, 440, 220, 20);
+        jTextField5.setBounds(440, 440, 220, 26);
         createAccount.add(jTextField6);
         jTextField6.setBounds(440, 470, 220, 20);
 
@@ -688,7 +686,7 @@ public class BuildForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         viewAccount.add(jScrollPane1);
-        jScrollPane1.setBounds(220, 290, 452, 170);
+        jScrollPane1.setBounds(220, 290, 454, 170);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel12.setText("View Accounts:");
@@ -1100,16 +1098,16 @@ public class BuildForm extends javax.swing.JFrame {
         frm.setVisible(true);
        // resetChoosenPartLabel();
     }//GEN-LAST:event_cancelBtnBActionPerformed
-
-    private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartModelInputActionPerformed
+    
+    private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         // TODO add your handling code here:
-    }//GEN-LAST:event_addPartModelInputActionPerformed
-
-    private void testbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testbtnActionPerformed
+    }                                                 
+                                                  
+    private void testbtnActionPerformed(java.awt.event.ActionEvent evt) {                                        
         addPart.setVisible(false);
         addComp.setVisible(true);
         makeComp();
-    }//GEN-LAST:event_testbtnActionPerformed
+    }                                       
     
     public void setEditBuild(String value) {
         jLabel1.setText(value);
@@ -1173,22 +1171,15 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JButton cancelBtnB;
     private javax.swing.JButton cancelBtnE;
     private javax.swing.JButton caseBtn;
-<<<<<<< Updated upstream
     private javax.swing.JLabel caseLabelSelectedPart;
-=======
     private javax.swing.JTable compTable;
->>>>>>> Stashed changes
     private javax.swing.JScrollPane componentsListE;
     private javax.swing.JButton coolingBtn;
     private javax.swing.JLabel coolingLabelSelectedPart;
     private javax.swing.JPanel createAccount;
     private javax.swing.JLabel editLabelE;
     private javax.swing.JPanel editPanel;
-<<<<<<< Updated upstream
-    private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel gpuLabelSelectedPart;
-=======
->>>>>>> Stashed changes
     private javax.swing.JButton graphicsBtn;
     private javax.swing.JButton hddBtn;
     private javax.swing.JLabel hddLabelSelectedPart;
