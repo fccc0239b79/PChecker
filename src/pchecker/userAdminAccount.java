@@ -370,12 +370,46 @@ public class userAdminAccount {
         DOB = " ";
         type= false;
     }
+     public DefaultTableModel getCompT(String newPid){
+            Connection con = ServerControl.ConnectDB();
+            
+            String colNames[] = {"ID","Motherboards","IDNew","NewPart","Compatible","CompNo"};
+            Object[][] data = {};
+            DefaultTableModel dtm = new DefaultTableModel(data,colNames){
+                @Override
+                public Class<?> getColumnClass(int column) {
+                    if (column == 4) {
+                        return Boolean.class;
+                    } else {
+                        return String.class;
+                    }
+                }
+            };
+        
+            try {
+                Statement stmt = (Statement) con.createStatement();
+                String query = ("select PartID,Make,Model From Part where PartType = \"Motherboard\";");
+                
+                ResultSet rs = stmt.executeQuery(query);
+                while(rs.next()){
+                   
+                //for(int x = 0; x < rs.getFetchSize(); x++){
+                  dtm.addRow(new Object[]{rs.getInt("PartID"),rs.getString("Make")+" - "+rs.getString("Model"),newPid,"NewPartName",new Boolean(false),"RandomNum"});
+                //}
+                }
+            }catch (SQLException err) {
+                System.out.println(err.getMessage());   
+            }
+        return dtm;
+     }
+            
      
     ArrayList<String> tableColums = new ArrayList<String>();
     ArrayList<String> tableDataType= new ArrayList<String>();
     
     ArrayList<String> listOfParts= new ArrayList<String>();
-
+    
+    
 
     public static DefaultTableModel getparts(String part){
         DefaultTableModel modelParts = new DefaultTableModel() ;
@@ -416,6 +450,7 @@ public class userAdminAccount {
                    //all cells false
                    return false;
                 }
+                
             };
             
            }

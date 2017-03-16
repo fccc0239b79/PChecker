@@ -25,10 +25,12 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 /**
  *
  * @author Pawel
@@ -162,6 +164,12 @@ public class BuildForm extends javax.swing.JFrame {
        
         
     }
+    public void makeComp(){
+        
+        compTable.setModel(currentUser.getCompT("9"));
+        
+    }
+    
     
     ArrayList<JLabel> labels = new ArrayList<JLabel>();
     ArrayList<JTextField> inputbox = new ArrayList<JTextField>();
@@ -290,8 +298,11 @@ public class BuildForm extends javax.swing.JFrame {
         addPartMakeInput = new javax.swing.JTextField();
         addPartModelInput = new javax.swing.JTextField();
         addPartPriceInput = new javax.swing.JTextField();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
         jLabel18 = new javax.swing.JLabel();
+        testbtn = new javax.swing.JButton();
+        addComp = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        compTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(900, 600));
@@ -752,7 +763,7 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     addPart.add(addPartSaveBtn);
-    addPartSaveBtn.setBounds(550, 210, 70, 40);
+    addPartSaveBtn.setBounds(550, 180, 70, 40);
 
     addPartCancelBtn.setText("Cancel");
     addPartCancelBtn.setMaximumSize(new java.awt.Dimension(51, 23));
@@ -811,6 +822,12 @@ public class BuildForm extends javax.swing.JFrame {
     });
     addPart.add(addPartMakeInput);
     addPartMakeInput.setBounds(170, 130, 260, 30);
+
+    addPartModelInput.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            addPartModelInputActionPerformed(evt);
+        }
+    });
     addPart.add(addPartModelInput);
     addPartModelInput.setBounds(170, 170, 260, 30);
 
@@ -821,17 +838,52 @@ public class BuildForm extends javax.swing.JFrame {
     });
     addPart.add(addPartPriceInput);
     addPartPriceInput.setBounds(170, 210, 260, 30);
-    addPart.add(filler1);
-    filler1.setBounds(0, 0, 0, 0);
 
     jLabel18.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
     jLabel18.setText("Add Computer Part");
     addPart.add(jLabel18);
     jLabel18.setBounds(490, 70, 370, 70);
 
+    testbtn.setText("test");
+    testbtn.setMaximumSize(new java.awt.Dimension(51, 23));
+    testbtn.setMinimumSize(new java.awt.Dimension(51, 23));
+    testbtn.setPreferredSize(new java.awt.Dimension(51, 23));
+    testbtn.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            testbtnActionPerformed(evt);
+        }
+    });
+    addPart.add(testbtn);
+    testbtn.setBounds(180, 310, 70, 40);
+
     getContentPane().add(addPart);
     addPart.setBounds(0, 0, 900, 600);
     addPart.setVisible(false);
+
+    addComp.setMaximumSize(new java.awt.Dimension(900, 600));
+    addComp.setPreferredSize(new java.awt.Dimension(900, 600));
+    addComp.setSize(new java.awt.Dimension(900, 600));
+    addComp.setVisible(false);
+    addComp.setLayout(null);
+
+    compTable.setModel(new javax.swing.table.DefaultTableModel(
+        new Object [][] {
+            {null, null, null, null},
+            {null, null, null, null},
+            {null, null, null, null},
+            {null, null, null, null}
+        },
+        new String [] {
+            "Title 1", "Title 2", "Title 3", "Title 4"
+        }
+    ));
+    jScrollPane3.setViewportView(compTable);
+
+    addComp.add(jScrollPane3);
+    jScrollPane3.setBounds(60, 40, 690, 370);
+
+    getContentPane().add(addComp);
+    addComp.setBounds(0, 0, 900, 600);
 
     pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1048,6 +1100,16 @@ public class BuildForm extends javax.swing.JFrame {
         frm.setVisible(true);
        // resetChoosenPartLabel();
     }//GEN-LAST:event_cancelBtnBActionPerformed
+
+    private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartModelInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addPartModelInputActionPerformed
+
+    private void testbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testbtnActionPerformed
+        addPart.setVisible(false);
+        addComp.setVisible(true);
+        makeComp();
+    }//GEN-LAST:event_testbtnActionPerformed
     
     public void setEditBuild(String value) {
         jLabel1.setText(value);
@@ -1097,6 +1159,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JButton accessoriesBtn;
     private javax.swing.JLabel accessoriesLabelSelectedPart;
     private javax.swing.JPanel addBuildPanel;
+    private javax.swing.JPanel addComp;
     private javax.swing.JPanel addPart;
     private javax.swing.JButton addPartCancelBtn;
     private javax.swing.JTextField addPartMakeInput;
@@ -1110,15 +1173,22 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JButton cancelBtnB;
     private javax.swing.JButton cancelBtnE;
     private javax.swing.JButton caseBtn;
+<<<<<<< Updated upstream
     private javax.swing.JLabel caseLabelSelectedPart;
+=======
+    private javax.swing.JTable compTable;
+>>>>>>> Stashed changes
     private javax.swing.JScrollPane componentsListE;
     private javax.swing.JButton coolingBtn;
     private javax.swing.JLabel coolingLabelSelectedPart;
     private javax.swing.JPanel createAccount;
     private javax.swing.JLabel editLabelE;
     private javax.swing.JPanel editPanel;
+<<<<<<< Updated upstream
     private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel gpuLabelSelectedPart;
+=======
+>>>>>>> Stashed changes
     private javax.swing.JButton graphicsBtn;
     private javax.swing.JButton hddBtn;
     private javax.swing.JLabel hddLabelSelectedPart;
@@ -1146,6 +1216,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
@@ -1166,6 +1237,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JButton ramBtn;
     private javax.swing.JLabel ramLabelSelectedPart;
     private javax.swing.JButton supplyBtn;
+    private javax.swing.JButton testbtn;
     private javax.swing.JPanel viewAccount;
     // End of variables declaration//GEN-END:variables
 }

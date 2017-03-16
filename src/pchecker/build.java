@@ -135,31 +135,31 @@ public class build {
         while (rs.next()) {
             buildName = name;
             motherBoardID = rs.getInt("Motherboard");
-            motherBoardName = getnames(motherBoardID);
+            motherBoardName = getnames(con,motherBoardID);
             
             cpuID = rs.getInt("CPU");
-            cpuName = getnames(cpuID);
+            cpuName = getnames(con,cpuID);
             
             ramID = rs.getInt("RAM");
-            ramName = getnames(ramID);
+            ramName = getnames(con,ramID);
             
             storageID = rs.getInt("Storage");
-            storageName = getnames(storageID);
+            storageName = getnames(con,storageID);
             
             gpuID = rs.getInt("GPU");
-            gpuName = getnames(gpuID);
+            gpuName = getnames(con,gpuID);
             
             psuID = rs.getInt("PSU");
-            psuName = getnames(psuID);
+            psuName = getnames(con,psuID);
             
             caseID = rs.getInt("PCCase");
-            caseName = getnames(caseID);
+            caseName = getnames(con,caseID);
             
             coolerID = rs.getInt("Cooler");
-            coolerName = getnames(coolerID);
+            coolerName = getnames(con,coolerID);
             
             accessoryID = rs.getInt("Accessory");
-            accessoryName = getnames(accessoryID);
+            accessoryName = getnames(con,accessoryID);
             
             systemCompRating = rs.getInt("systemCompRating");
     
@@ -170,9 +170,8 @@ public class build {
     } 
     
     }
-    private String getnames(int id){
+    private String getnames(Connection con, int id){
         String name = "";
-        Connection con = ServerControl.ConnectDB();
 
         try {
             Statement stmt = (Statement) con.createStatement();
