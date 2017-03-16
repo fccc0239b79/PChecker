@@ -83,7 +83,39 @@ public class build {
     public int getAccessory(){
         return accessoryID;
     }
+    public void getBuild(String username, String name){
+        Connection con = ServerControl.ConnectDB();
     
+    try {
+        Statement stmt = (Statement) con.createStatement();
+        //String query = "Select P.PartID,P.PartType,P.Model, P.Make FROM Build AS B JOIN Part AS P ON P.PartID IN(B.Motherboard,B.CPU,B.RAM,B.Storage,B.GPU,B.PSU,B.PCCase,B.Cooler,B.Accessory) where Account = '"+username+"' AND BuildName = '"+buildName+"';";
+
+        String query = "SELECT * FROM Build where Account = '"+username+"' AND BuildName = '"+name+"';";
+       
+        stmt.executeQuery(query);
+        ResultSet rs = stmt.getResultSet();
+
+
+        while (rs.next()) {
+            buildName = name;
+            motherBoardID = rs.getInt("Motherboard");
+            cpuID = rs.getInt("CPU");
+            ramID = rs.getInt("RAM");
+            storageID = rs.getInt("Storage");
+            gpuID = rs.getInt("GPU");
+            psuID = rs.getInt("PSU");
+            caseID = rs.getInt("PCCase");
+            coolerID = rs.getInt("Cooler");
+            accessoryID = rs.getInt("Accessory");
+            systemCompRating = rs.getInt("systemCompRating");
+    
+        }
+    
+    } catch(SQLException err){
+        System.out.println(err);
+    } 
+    
+    }
     
     public void savebuild(String username){
     Connection con = ServerControl.ConnectDB();
