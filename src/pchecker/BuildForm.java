@@ -1080,6 +1080,15 @@ public class BuildForm extends javax.swing.JFrame {
     }//GEN-LAST:event_acceptBuildBtnActionPerformed
 
       public void saveBuild(){
+          
+          newBuild.setBuildName(buildNametxt.getText());
+            newBuild.savebuild(currentUser.getUsername());
+        
+            AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
+        
+            this.dispose();
+            frm.setVisible(true);
+          /*
         if(!buildNametxt.getText().equals("") && (PartID != null)) {
             newBuild.setBuildName(buildNametxt.getText());
             newBuild.savebuild(currentUser.getUsername());
@@ -1092,7 +1101,7 @@ public class BuildForm extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(null, "Please insert build name and have sure that you selected at least one part, ","", JOptionPane.INFORMATION_MESSAGE);
         }
-      
+      */
     }
     
     private void cancelBtnEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnEActionPerformed
@@ -1113,6 +1122,7 @@ public class BuildForm extends javax.swing.JFrame {
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
         
         newBuild.UpdateBuild(buildNametxt.getText(),currentUser.getUsername());
+        saveBuild();
     }//GEN-LAST:event_updateBtnActionPerformed
     
     private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {                                                  
