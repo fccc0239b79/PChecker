@@ -223,4 +223,38 @@ public class build {
         System.out.println(err);
     }
     }
+    
+    public void UpdateBuild(String buildn, String user){
+    
+        //connecting to the vm
+    Connection con = ServerControl.ConnectDB();
+    
+    try {
+        //SQL query for inserting data into account table
+       String query = "UPDATE Build SET Motherboard = ?, CPU = ?, RAM= ?, Storage= ?, GPU = ?, PSU = ?, PCCase = ?, Cooler = ?, Accessory = ?, systemCompRating = ?, WHERE userName = ? AND BuildName = ?"; 
+          
+       PreparedStatement statement = con.prepareStatement(query);
+       
+       //setting user inputs into sql query
+       statement.setInt(1, motherBoardID);
+       statement.setInt(2,cpuID);
+       statement.setInt(3,ramID);
+       statement.setInt(4,storageID);
+       statement.setInt(5, gpuID);
+       statement.setInt(6, psuID);
+       statement.setInt(7, caseID);
+       statement.setInt(8, coolerID);
+       statement.setInt(9, accessoryID);
+       statement.setInt(10, systemCompRating);
+       statement.setString(11, user);
+       statement.setString(12, buildn);
+       statement.execute();
+       con.close();
+    }
+    catch(SQLException err){
+        System.out.println(err);
+
+    }
+    
+    }
 }
