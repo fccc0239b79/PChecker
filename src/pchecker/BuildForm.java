@@ -1111,7 +1111,7 @@ public class BuildForm extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelBtnBActionPerformed
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
-        
+        newBuild.UpdateBuild("--buildname--", "--username--");
     }//GEN-LAST:event_updateBtnActionPerformed
     
     private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {                                                  
