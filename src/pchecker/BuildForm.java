@@ -162,11 +162,7 @@ public class BuildForm extends javax.swing.JFrame {
        
         
     }
-    public void makeComp(){
-    
-        compTable.setModel(currentUser.getCompT("9"));
-        
-    }
+   
     
     
     ArrayList<JLabel> labels = new ArrayList<JLabel>();
@@ -297,7 +293,6 @@ public class BuildForm extends javax.swing.JFrame {
         addPartModelInput = new javax.swing.JTextField();
         addPartPriceInput = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        testbtn = new javax.swing.JButton();
         addComp = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         compTable = new javax.swing.JTable();
@@ -330,7 +325,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         acceptBtnE.setText("Accept");
         editPanel.add(acceptBtnE);
-        acceptBtnE.setBounds(740, 10, 65, 42);
+        acceptBtnE.setBounds(740, 10, 87, 42);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -519,7 +514,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         accessoriesLabelSelectedPart.setText("-");
         buildPanel.add(accessoriesLabelSelectedPart);
-        accessoriesLabelSelectedPart.setBounds(570, 550, 130, 14);
+        accessoriesLabelSelectedPart.setBounds(570, 550, 130, 16);
         accessoriesLabelSelectedPart.setVisible(false);
 
         motherboardLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -636,7 +631,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jComboBox1);
-        jComboBox1.setBounds(440, 290, 220, 20);
+        jComboBox1.setBounds(440, 290, 220, 27);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -644,11 +639,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField1);
-        jTextField1.setBounds(440, 320, 220, 20);
+        jTextField1.setBounds(440, 320, 220, 26);
         createAccount.add(jTextField2);
-        jTextField2.setBounds(440, 350, 220, 20);
+        jTextField2.setBounds(440, 350, 220, 26);
         createAccount.add(jTextField3);
-        jTextField3.setBounds(440, 380, 220, 20);
+        jTextField3.setBounds(440, 380, 220, 26);
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -656,14 +651,14 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField4);
-        jTextField4.setBounds(440, 410, 220, 20);
+        jTextField4.setBounds(440, 410, 220, 26);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("email:");
         createAccount.add(jLabel11);
         jLabel11.setBounds(300, 470, 70, 17);
         createAccount.add(jTextField5);
-        jTextField5.setBounds(440, 440, 220, 20);
+        jTextField5.setBounds(440, 440, 220, 26);
         createAccount.add(jTextField6);
         jTextField6.setBounds(440, 470, 220, 20);
 
@@ -694,7 +689,7 @@ public class BuildForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         viewAccount.add(jScrollPane1);
-        jScrollPane1.setBounds(220, 290, 452, 170);
+        jScrollPane1.setBounds(220, 290, 454, 170);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel12.setText("View Accounts:");
@@ -850,15 +845,6 @@ public class BuildForm extends javax.swing.JFrame {
     addPart.add(jLabel18);
     jLabel18.setBounds(490, 70, 370, 70);
 
-    testbtn.setText("test");
-    testbtn.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            testbtnActionPerformed(evt);
-        }
-    });
-    addPart.add(testbtn);
-    testbtn.setBounds(180, 310, 70, 40);
-
     getContentPane().add(addPart);
     addPart.setBounds(0, 0, 900, 600);
     addPart.setVisible(false);
@@ -997,8 +983,11 @@ public class BuildForm extends javax.swing.JFrame {
 
        
         
-        currentUser.savePart(partT, info,infopart);
+        int partID = currentUser.savePart(partT, info,infopart);
+        addPart.setVisible(false);
+        addComp.setVisible(true);
         
+        compTable.setModel(currentUser.getCompT(partID));
         
         
     }//GEN-LAST:event_addPartSaveBtnActionPerformed
@@ -1106,11 +1095,9 @@ public class BuildForm extends javax.swing.JFrame {
     private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         // TODO add your handling code here:
     }                                                 
-                                                  
+                                          
     private void testbtnActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        addPart.setVisible(false);
-        addComp.setVisible(true);
-        makeComp();
+       
     }                                       
     
     public void setEditBuild(String value) {
@@ -1232,7 +1219,6 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JButton ramBtn;
     private javax.swing.JLabel ramLabelSelectedPart;
     private javax.swing.JButton supplyBtn;
-    private javax.swing.JButton testbtn;
     private javax.swing.JPanel viewAccount;
     // End of variables declaration//GEN-END:variables
 }
