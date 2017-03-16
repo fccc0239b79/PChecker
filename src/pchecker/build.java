@@ -224,14 +224,14 @@ public class build {
     }
     }
     
-    public void UpdateBuild(String buildn, String user){
+    public void UpdateBuild(String user){
     
         //connecting to the vm
     Connection con = ServerControl.ConnectDB();
     
     try {
         //SQL query for inserting data into account table
-       String query = "UPDATE Build SET Motherboard = ?, CPU = ?, RAM= ?, Storage= ?, GPU = ?, PSU = ?, PCCase = ?, Cooler = ?, Accessory = ?, systemCompRating = ?, WHERE userName = ? AND BuildName = ?"; 
+       String query = "UPDATE Build SET Motherboard = ?, CPU = ?, RAM= ?, Storage= ?, GPU = ?, PSU = ?, PCCase = ?, Cooler = ?, Accessory = ?, systemCompRating = ? WHERE Account = ? AND BuildName = ?"; 
           
        PreparedStatement statement = con.prepareStatement(query);
        
@@ -247,7 +247,7 @@ public class build {
        statement.setInt(9, accessoryID);
        statement.setInt(10, systemCompRating);
        statement.setString(11, user);
-       statement.setString(12, buildn);
+       statement.setString(12, buildName);
        statement.execute();
        con.close();
     }
