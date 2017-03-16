@@ -63,12 +63,18 @@ public class BuildForm extends javax.swing.JFrame {
         
         
     }
-    public BuildForm(userAdminAccount user,String Build) {
+    public BuildForm(userAdminAccount user,String buildName) {
         initComponents();
         setLocationRelativeTo(null);
         editPanel.setVisible(true);
+        //change edit pannel to build pannel 
+        //hide "new Build"
+        // display build name 
+        //hide build name input field 
+        //enble all button 
+        //input data from newBUild 
         currentUser = user;
-        
+        setEditBuild(buildName);
         
     }
      public void enbleButtons(){
@@ -934,11 +940,11 @@ public class BuildForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_cancelBtnBActionPerformed
     
-    public void setBuildLabel(String value) {
+    public void setEditBuild(String value) {
         BuildNameLabel.setText(value);
         newBuild.getBuild(currentUser.getUsername(), value);
         System.out.println(newBuild.getCPU());
-        
+        //
     }
     
   

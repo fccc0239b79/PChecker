@@ -602,7 +602,7 @@ private void enbleEdit(boolean torf){
             BuildForm frm = new BuildForm(currentUser,selectedBuild); //
             System.out.println(selectedBuild);
             this.dispose();
-            frm.setBuildLabel(selectedBuild);
+            //frm.setBuildLabel(selectedBuild);
             frm.setVisible(true);
         }
     }//GEN-LAST:event_buildsListMouseClicked
