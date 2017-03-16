@@ -370,7 +370,7 @@ public class userAdminAccount {
         DOB = " ";
         type= false;
     }
-     public DefaultTableModel getCompT(int newPid){
+     public DefaultTableModel getCompT(String newPid){
             Connection con = ServerControl.ConnectDB();
             
             String colNames[] = {"ID","Motherboards","IDNew","NewPart","Compatible","CompNo"};
@@ -385,22 +385,16 @@ public class userAdminAccount {
                     }
                 }
             };
-            String newMakeModel = "";
+        
             try {
                 Statement stmt = (Statement) con.createStatement();
-                String query2 = "Select Make,Model From Part where PartID = '"+newPid+"';";
-                ResultSet rs2 = stmt.executeQuery(query2);
-                while(rs2.next()){
-                    newMakeModel = rs2.getString("Make")+" - "+rs2.getString("Model");
-                }
-                
-                
                 String query = ("select PartID,Make,Model From Part where PartType = \"Motherboard\";");
+                
                 ResultSet rs = stmt.executeQuery(query);
                 while(rs.next()){
                    
                 //for(int x = 0; x < rs.getFetchSize(); x++){
-                  dtm.addRow(new Object[]{rs.getInt("PartID"),rs.getString("Make")+" - "+rs.getString("Model"),newPid,newMakeModel,new Boolean(false),"RandomNum"});
+                  dtm.addRow(new Object[]{rs.getInt("PartID"),rs.getString("Make")+" - "+rs.getString("Model"),newPid,"NewPartName",new Boolean(false),"RandomNum"});
                 //}
                 }
             }catch (SQLException err) {
@@ -500,7 +494,7 @@ public class userAdminAccount {
           return tableDataType;
       }
       
-     public int savePart(String partType, ArrayList<String> info,ArrayList<String> partinfo){
+     public void savePart(String partType, ArrayList<String> info,ArrayList<String> partinfo){
          int partID = 0;
          Connection con = ServerControl.ConnectDB();
     
@@ -563,7 +557,6 @@ public class userAdminAccount {
     catch(SQLException err){
         System.out.println(err);
     }
-    return partID;
    }
      
 }

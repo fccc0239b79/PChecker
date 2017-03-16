@@ -162,7 +162,11 @@ public class BuildForm extends javax.swing.JFrame {
        
         
     }
+    public void makeComp(){
     
+        compTable.setModel(currentUser.getCompT("9"));
+        
+    }
     
     
     ArrayList<JLabel> labels = new ArrayList<JLabel>();
@@ -293,11 +297,10 @@ public class BuildForm extends javax.swing.JFrame {
         addPartModelInput = new javax.swing.JTextField();
         addPartPriceInput = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
+        testbtn = new javax.swing.JButton();
         addComp = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         compTable = new javax.swing.JTable();
-        SaveCompBtn = new javax.swing.JButton();
-        cancelComp = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(900, 600));
@@ -847,8 +850,6 @@ public class BuildForm extends javax.swing.JFrame {
     addPart.add(jLabel18);
     jLabel18.setBounds(490, 70, 370, 70);
 
-<<<<<<< HEAD
-=======
     testbtn.setText("test");
     testbtn.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -858,7 +859,6 @@ public class BuildForm extends javax.swing.JFrame {
     addPart.add(testbtn);
     testbtn.setBounds(180, 310, 70, 40);
 
->>>>>>> origin/master
     getContentPane().add(addPart);
     addPart.setBounds(0, 0, 900, 600);
     addPart.setVisible(false);
@@ -882,15 +882,7 @@ public class BuildForm extends javax.swing.JFrame {
     jScrollPane3.setViewportView(compTable);
 
     addComp.add(jScrollPane3);
-    jScrollPane3.setBounds(70, 140, 690, 370);
-
-    SaveCompBtn.setText("Save");
-    addComp.add(SaveCompBtn);
-    SaveCompBtn.setBounds(600, 40, 75, 29);
-
-    cancelComp.setText("Cancel");
-    addComp.add(cancelComp);
-    cancelComp.setBounds(730, 40, 86, 29);
+    jScrollPane3.setBounds(60, 40, 690, 370);
 
     getContentPane().add(addComp);
     addComp.setBounds(0, 0, 900, 600);
@@ -1005,10 +997,8 @@ public class BuildForm extends javax.swing.JFrame {
 
        
         
-        int partId = currentUser.savePart(partT, info,infopart);
-        addPart.setVisible(false);
-        addComp.setVisible(true);
-        compTable.setModel(currentUser.getCompT(partId));
+        currentUser.savePart(partT, info,infopart);
+        
         
         
     }//GEN-LAST:event_addPartSaveBtnActionPerformed
@@ -1117,7 +1107,11 @@ public class BuildForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                                 
                                                   
-                                          
+    private void testbtnActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        addPart.setVisible(false);
+        addComp.setVisible(true);
+        makeComp();
+    }                                       
     
     public void setEditBuild(String value) {
         jLabel1.setText(value);
@@ -1162,7 +1156,6 @@ public class BuildForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BuildNameLabel;
-    private javax.swing.JButton SaveCompBtn;
     private javax.swing.JButton acceptBtnE;
     private javax.swing.JButton acceptBuildBtn;
     private javax.swing.JButton accessoriesBtn;
@@ -1181,7 +1174,6 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JPanel buildPanel;
     private javax.swing.JButton cancelBtnB;
     private javax.swing.JButton cancelBtnE;
-    private javax.swing.JButton cancelComp;
     private javax.swing.JButton caseBtn;
     private javax.swing.JLabel caseLabelSelectedPart;
     private javax.swing.JTable compTable;
@@ -1240,6 +1232,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JButton ramBtn;
     private javax.swing.JLabel ramLabelSelectedPart;
     private javax.swing.JButton supplyBtn;
+    private javax.swing.JButton testbtn;
     private javax.swing.JPanel viewAccount;
     // End of variables declaration//GEN-END:variables
 }
