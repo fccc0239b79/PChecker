@@ -409,7 +409,6 @@ public class userAdminAccount {
                    Result = r.nextInt(High-Low) + Low;
                 //for(int x = 0; x < rs.getFetchSize(); x++){
                 if(rs.getInt("PartID") != (newPid)){
-                   
                   dtm.addRow(new Object[]{rs.getInt("PartID"),rs.getString("Make")+" - "+rs.getString("Model"),newPid,newMakeModel,new Boolean(false),Result});
                 }
                 }
