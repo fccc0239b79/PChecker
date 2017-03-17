@@ -119,6 +119,7 @@ public class build {
     public int getAccessory(){
         return accessoryID;
     }
+    
     public void getBuild(String username, String name){
         Connection con = ServerControl.ConnectDB();
     

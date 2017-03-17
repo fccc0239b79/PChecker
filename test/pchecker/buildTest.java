@@ -175,4 +175,22 @@ public class buildTest {
         assertEquals("mouse", instance.getPartName(partTypeName));
     }
     
+    
+    
+
+            
+            
+@Test
+public void testgetBuild() {
+
+    build instance = new build();
+    instance.getBuild("user","My First Build");
+   
+    
+    String ress = instance.getBuildName();
+    
+    assertEquals("My First Build",ress);
+    
+
+}
 }

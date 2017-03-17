@@ -355,7 +355,6 @@ public class userAdminAccount {
     }
     catch(SQLException err){
         
-    
     }
     
     
@@ -399,7 +398,6 @@ public class userAdminAccount {
                 while(rs2.next()){
                      newMakeModel = rs2.getString("Make")+" - "+rs2.getString("Model");
                 }
-                
                 
                 
                 String query = ("select PartID,Make,Model From Part where PartType = \"Motherboard\";");

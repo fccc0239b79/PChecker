@@ -94,7 +94,7 @@ public void testgetTableColName() {
 
     
 
-    assertEquals(false, result);//checks before reset
+    assertEquals(false, result);
 
     
     
@@ -110,9 +110,45 @@ public void testgetparts() {
     Boolean result = ress<=0;
     
 
-    assertEquals(false,result);//checks before reset
+    assertEquals(false,result);
+    
+    
+}
+@Test
+public void testgetBuilds() {
+
+    userAdminAccount instance = new userAdminAccount();
+    instance.setUsername("user");
+   
+    ArrayList<String> result = instance.getBuilds();
+    
+    String ress = result.get(0);
+    
+    assertEquals(ress,"No Builds");
+    
+
+}
+
+
+
+@Test
+public void testUpdateUser() {
+
+    userAdminAccount instance = new userAdminAccount();
+    instance.LogInService("user", "user");
+    instance.setFname("USER");
+    instance.UpdateUser();
+    
+    instance.reset();
+    instance.LogInService("user", "user");
+    
+    String result = instance.getFname();
+   
+    assertEquals("USER",result);
+    assertEquals("User",instance.getSname());
 
     
-    
+    instance.setFname("User");
+    instance.UpdateUser();
 }
 }
