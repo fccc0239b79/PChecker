@@ -20,6 +20,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -290,6 +292,7 @@ public class BuildForm extends javax.swing.JFrame {
         addComp = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         compTable = new javax.swing.JTable();
+        saveCompBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(900, 600));
@@ -875,6 +878,15 @@ public class BuildForm extends javax.swing.JFrame {
     addComp.add(jScrollPane3);
     jScrollPane3.setBounds(60, 40, 690, 370);
 
+    saveCompBtn.setText("save");
+    saveCompBtn.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            saveCompBtnActionPerformed(evt);
+        }
+    });
+    addComp.add(saveCompBtn);
+    saveCompBtn.setBounds(780, 30, 75, 29);
+
     getContentPane().add(addComp);
     addComp.setBounds(0, 0, 900, 600);
 
@@ -1122,6 +1134,37 @@ public class BuildForm extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_updateBtnActionPerformed
+
+    private void saveCompBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCompBtnActionPerformed
+        Connection con = ServerControl.ConnectDB();
+        
+        try {
+        Statement stmt = (Statement) con.createStatement();
+            
+        for(int i=0;i<compTable.getRowCount();i++){
+
+            String Part1=compTable.getValueAt(i, 0).toString();
+            String Part2=compTable.getValueAt(i, 2).toString();
+            String comp=compTable.getValueAt(i, 4).toString();
+            String NumStri=compTable.getValueAt(i, 5).toString();
+            int num = Integer.parseInt(NumStri);
+        
+
+
+            
+            stmt.executeUpdate("INSERT INTO Compatibility VALUES('"+Part1+"','"+Part2+"',"+comp+","+num+")");
+        }
+            } catch (SQLException err) {
+               System.out.println(err.getMessage());   
+
+            }
+        AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
+        this.dispose();
+        frm.setVisible(true);
+        
+        
+        
+    }//GEN-LAST:event_saveCompBtnActionPerformed
     
     private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         // TODO add your handling code here:
@@ -1249,6 +1292,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel psuLabelSelectedPart;
     private javax.swing.JButton ramBtn;
     private javax.swing.JLabel ramLabelSelectedPart;
+    private javax.swing.JButton saveCompBtn;
     private javax.swing.JButton supplyBtn;
     private javax.swing.JButton updateBtn;
     private javax.swing.JPanel viewAccount;

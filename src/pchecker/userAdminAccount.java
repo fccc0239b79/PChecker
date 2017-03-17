@@ -12,6 +12,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
@@ -400,10 +401,14 @@ public class userAdminAccount {
                 String query = ("select PartID,Make,Model From Part where PartType = \"Motherboard\";");
                 
                 ResultSet rs = stmt.executeQuery(query);
+                Random r = new Random();
+                int Low = 1;
+                int High = 100;
+                int Result = 0;
                 while(rs.next()){
-                   
+                   Result = r.nextInt(High-Low) + Low;
                 //for(int x = 0; x < rs.getFetchSize(); x++){
-                  dtm.addRow(new Object[]{rs.getInt("PartID"),rs.getString("Make")+" - "+rs.getString("Model"),newPid,newMakeModel,new Boolean(false),"RandomNum"});
+                  dtm.addRow(new Object[]{rs.getInt("PartID"),rs.getString("Make")+" - "+rs.getString("Model"),newPid,newMakeModel,new Boolean(false),Result});
                 //}
                 }
             }catch (SQLException err) {
