@@ -1020,6 +1020,10 @@ public class BuildForm extends javax.swing.JFrame {
                 if (evt.getClickCount() == 2 ) {
                 //partsTable.getSelectedRow()
                 PartID = modelParts.getValueAt(row, 0).toString();
+                //perform check 
+                Boolean compatible = newBuild.checkComp(PartID);
+                System.out.print(compatible);
+                
                 String partModel = modelParts.getValueAt(row, modelParts.findColumn("Model")).toString();
                 String partMake = modelParts.getValueAt(row, modelParts.findColumn("Make")).toString();
             

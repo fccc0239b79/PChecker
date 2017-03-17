@@ -257,4 +257,30 @@ public class build {
     }
     
     }
+    
+    
+    public Boolean checkComp(String part){
+        Boolean compatible = false;
+        Connection con = ServerControl.ConnectDB();
+
+        try {
+            Statement stmt = (Statement) con.createStatement();
+            
+            String query = "select * from Compatibility where Part1 = "+ motherBoardID +" AND Part2 = "+part+";";
+
+            stmt.executeQuery(query);
+            ResultSet rs = stmt.getResultSet();
+
+
+            while (rs.next()) {
+                if(rs.getString("Comp").equals("1")){
+                    compatible = true;
+                }
+            }
+
+        } catch(SQLException err){
+            System.out.println(err);
+        }
+        return compatible;
+    }
 }
