@@ -491,10 +491,10 @@ public class userAdminAccount {
                 ResultSet rs = stmt.getResultSet();
             
             while (rs.next()) {
-          
-                tableColums.add(rs.getString("COLUMN_NAME"));
-                tableDataType.add(rs.getString("DATA_TYPE"));
-
+                if(!rs.getString("COLUMN_NAME").equals("ID")){
+                    tableColums.add(rs.getString("COLUMN_NAME"));
+                    tableDataType.add(rs.getString("DATA_TYPE"));
+                }
                 
             }
             
