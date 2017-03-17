@@ -1013,6 +1013,9 @@ public class BuildForm extends javax.swing.JFrame {
     String PartID;
     private void partsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partsTableMouseClicked
 
+                Color color = Color.RED;
+                
+                
 
 
                 //JTable table = (JTable) me.getSource();
@@ -1025,6 +1028,10 @@ public class BuildForm extends javax.swing.JFrame {
                 Boolean compatible = newBuild.checkComp(PartID);
                 System.out.print(compatible);
                 
+                if(compatible) {
+                    color = Color.GREEN;
+                }
+                
                 String partModel = modelParts.getValueAt(row, modelParts.findColumn("Model")).toString();
                 String partMake = modelParts.getValueAt(row, modelParts.findColumn("Make")).toString();
             
@@ -1036,49 +1043,49 @@ public class BuildForm extends javax.swing.JFrame {
                     //processorLabelSelectedPart.setText(newBuild.getCPU() + " - " + newBuild.getPartName("CPU"));
                     
                                        // motherboardBtn.setText(newBuild.getPartName(choosenPart));
-                                        motherboardBtn.setBackground(Color.green); // sets color on green after selected part 
+                                        motherboardBtn.setBackground(Color.GREEN); // sets color on green after selected part 
                                         enbleButtons();
                                         break;
                     case "CPU": newBuild.setCPU(Integer.parseInt(PartID),partMake+" "+partModel);
                                // processorBtn.setText("Processor "+PartID);
                                 
                                 choosenPartLabel();
-                                processorBtn.setBackground(Color.green); // sets color on green after selected part 
+                                processorBtn.setBackground(color); // sets color on green after selected part 
                                 break;
                     case "RAM": newBuild.setRAM(Integer.parseInt(PartID),partMake+" "+partModel);
                                // ramBtn.setText("RAM "+PartID);
                                 choosenPartLabel();
-                                ramBtn.setBackground(Color.green); // sets color on green after selected part 
+                                ramBtn.setBackground(color); // sets color on green after selected part 
                                 break;
                     case "GPU": newBuild.setGPU(Integer.parseInt(PartID),partMake+" "+partModel); 
                                // graphicsBtn.setText("Graphics card \n"+PartID);
                                 choosenPartLabel();
-                                graphicsBtn.setBackground(Color.green); // sets color on green after selected part 
+                                graphicsBtn.setBackground(color); // sets color on green after selected part 
                                 break;
                     case "Storage": newBuild.setStorage(Integer.parseInt(PartID),partMake+" "+partModel); 
                                   //  hddBtn.setText("HDD \n"+PartID);
                                     choosenPartLabel();
-                                    hddBtn.setBackground(Color.green); // sets color on green after selected part 
+                                    hddBtn.setBackground(color); // sets color on green after selected part 
                                     break;
                     case "Accessory": newBuild.setAccessory(Integer.parseInt(PartID),partMake+" "+partModel);
                                      // accessoriesBtn.setText("Accessories \n"+PartID);
                                       choosenPartLabel();
-                                      accessoriesBtn.setBackground(Color.green); // sets color on green after selected part 
+                                      accessoriesBtn.setBackground(color); // sets color on green after selected part 
                                       break;
                     case "PSU": newBuild.setPSU(Integer.parseInt(PartID),partMake+" "+partModel);    
                               //  supplyBtn.setText("Power Supply \n"+PartID);
                                 choosenPartLabel();
-                                supplyBtn.setBackground(Color.green); // sets color on green after selected part 
+                                supplyBtn.setBackground(color); // sets color on green after selected part 
                                 break;
                     case "PCCase": newBuild.setPCCase(Integer.parseInt(PartID),partMake+" "+partModel);  
                                  //  caseBtn.setText("Case \n"+PartID);
                                    choosenPartLabel();
-                                   caseBtn.setBackground(Color.green); // sets color on green after selected part 
+                                   caseBtn.setBackground(color); // sets color on green after selected part 
                                    break;
                     case "Cooler": newBuild.setCooler(Integer.parseInt(PartID),partMake+" "+partModel);
                                  //  coolingBtn.setText("Cooling \n"+PartID);
                                    choosenPartLabel();
-                                   coolingBtn.setBackground(Color.green); // sets color on green after selected part 
+                                   coolingBtn.setBackground(color); // sets color on green after selected part 
                                     break;
                   
 
