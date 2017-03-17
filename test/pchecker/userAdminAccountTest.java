@@ -151,4 +151,88 @@ public void testUpdateUser() {
     instance.setFname("User");
     instance.UpdateUser();
 }
+
+
+@Test
+public void testSetUsername() {
+    String useername = "user";
+    
+    userAdminAccount instance = new userAdminAccount();
+    instance.setUsername(useername);
+    
+    assertEquals("user", instance.getUsername());
+}
+// passed
+
+@Test
+public void testSetPassword() {
+    String password = "password";
+    
+    userAdminAccount instance = new userAdminAccount();
+    instance.setPassword(password);
+    
+   // assertEquals("password", instance.getPassword());
+}
+// not possible to check there is no getPassword()
+
+@Test
+public void testSetFirstName() {
+    String name = "Kevin";
+    
+    userAdminAccount instance = new userAdminAccount();
+    instance.setFname(name);
+    
+    assertEquals("Kevin", instance.getFname());
+}
+
+@Test
+public void testSetSurname() {
+    String surname = "Smith";
+    
+    userAdminAccount instance = new userAdminAccount();
+    instance.setSname(surname);
+    
+    assertEquals("Smith", instance.getSname());
+}
+
+@Test
+public void testSetEmail() {
+    String email = "smmith@yahoo.co.uk";
+    
+    userAdminAccount instance = new userAdminAccount();
+    instance.setEmail(email);
+    
+    assertEquals("smmith@yahoo.co.uk", instance.getEmail());
+}
+
+@Test
+public void testSetMobile() {
+    String mobile = "0123423421";
+    
+    userAdminAccount instance = new userAdminAccount();
+    instance.setMobil(mobile);
+    
+    assertEquals("0123423421", instance.getMobile());
+}
+
+@Test
+public void testSetDOB() {
+    String dob = "12091990";
+    
+    userAdminAccount instance = new userAdminAccount();
+    instance.setDOB(dob);
+    
+    assertEquals("12091990", instance.getDOB());
+}
+
+@Test
+public void testSetType() {
+    Boolean type = true;
+    
+    userAdminAccount instance = new userAdminAccount();
+    instance.setType(type);
+    
+    assertEquals(true, instance.getType());
+}
+
 }
