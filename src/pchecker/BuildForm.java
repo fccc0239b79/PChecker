@@ -323,6 +323,7 @@ public class BuildForm extends javax.swing.JFrame {
         cancelBtnB.setBounds(800, 10, 70, 42);
 
         acceptBuildBtn.setText("Accept");
+        acceptBuildBtn.setEnabled(false);
         acceptBuildBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 acceptBuildBtnActionPerformed(evt);
@@ -343,6 +344,11 @@ public class BuildForm extends javax.swing.JFrame {
         buildNametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buildNametxtActionPerformed(evt);
+            }
+        });
+        buildNametxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                buildNametxtKeyPressed(evt);
             }
         });
         buildPanel.add(buildNametxt);
@@ -896,7 +902,7 @@ public class BuildForm extends javax.swing.JFrame {
 
     
     private void buildNametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildNametxtActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_buildNametxtActionPerformed
 
     private void accessoriesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accessoriesBtnActionPerformed
@@ -1093,16 +1099,34 @@ public class BuildForm extends javax.swing.JFrame {
                 }
                 buildPanel.setVisible(true);
                 addBuildPanel.setVisible(false);
+                saveValidation();
                 } 
               
     }//GEN-LAST:event_partsTableMouseClicked
 
     private void acceptBuildBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBuildBtnActionPerformed
-
+        
         saveBuild();
         
     }//GEN-LAST:event_acceptBuildBtnActionPerformed
 
+    public void saveValidation() {
+        
+       
+        Color color = Color.GREEN;
+        System.out.println(motherboardBtn.getBackground() == color);
+        
+        if(buildNametxt.getText().isEmpty() || motherboardBtn.getBackground()!= color || processorBtn.getBackground() != color || ramBtn.getBackground() != color || hddBtn.getBackground() != color || graphicsBtn.getBackground() != color || caseBtn.getBackground() != color || supplyBtn.getBackground() != color || coolingBtn.getBackground() != color || accessoriesBtn.getBackground() != color) {
+            acceptBuildBtn.setEnabled(false);
+        } else {
+            acceptBuildBtn.setEnabled(true);
+        }
+            
+        
+        
+    }
+        
+    
       public void saveBuild(){
           
         if(!buildNametxt.getText().equals("") && (PartID != null)) {
@@ -1177,6 +1201,10 @@ public class BuildForm extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_saveCompBtnActionPerformed
+
+    private void buildNametxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buildNametxtKeyPressed
+       saveValidation();
+    }//GEN-LAST:event_buildNametxtKeyPressed
     
     private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         // TODO add your handling code here:
