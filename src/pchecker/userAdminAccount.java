@@ -377,7 +377,7 @@ public class userAdminAccount {
          //when adding motherboard all parts need to be displayed 
             Connection con = ServerControl.ConnectDB();
             String newMakeModel = "";
-            String colNames[] = {"ID","Motherboards","IDNew","NewPart","Compatible","CompNo"};
+            String colNames[] = {"ID","OtherParts","IDNew","NewPart","Compatible","CompNo"};
             Object[][] data = {};
             DefaultTableModel dtm = new DefaultTableModel(data,colNames){
                 @Override
@@ -392,15 +392,21 @@ public class userAdminAccount {
         
             try {
                 Statement stmt = (Statement) con.createStatement();
-                String query2 = "select Make,Model From Part where PartID = "+newPid+";";
-                
+                String query2 = "select Make,Model,PartType From Part where PartID = "+newPid+";";
+                String query = ("select PartID,Make,Model From Part where PartType = \"Motherboard\";");
+
                 ResultSet rs2 = stmt.executeQuery(query2);
                 while(rs2.next()){
                      newMakeModel = rs2.getString("Make")+" - "+rs2.getString("Model");
+                
+                if(rs2.getString("PartType").equals("Motherboard")){
+                    query = ("select PartID,Make,Model From Part where PartType <> \"Motherboard\";");
                 }
                 
                 
-                String query = ("select PartID,Make,Model From Part where PartType = \"Motherboard\";");
+                }
+                
+                
                 
                 ResultSet rs = stmt.executeQuery(query);
                 Random r = new Random();
