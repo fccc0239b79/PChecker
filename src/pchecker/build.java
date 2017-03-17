@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public class build {
     private int motherBoardID, cpuID, ramID, storageID, gpuID, psuID, caseID, coolerID,accessoryID,systemCompRating;
-    private String buildName,motherBoardName, cpuName, ramName, storageName, gpuName, psuName, caseName, coolerName,accessoryName;
+    private String buildName = "",motherBoardName = "", cpuName = "", ramName = "", storageName = "", gpuName = "", psuName= "" , caseName = "", coolerName = "",accessoryName = "";
     
     //stworzyc method na kazdy lable 
     public void setBuildName(String name){
