@@ -38,4 +38,21 @@ public class buildTest {
         assertEquals("setBuildName", instance.getBuildName()); // getByuildName is not null
     
     }
+    
+    @Test
+    public void testSetMotherboard() {
+        int id = 1;
+        String name = "Asus";
+        String partTypeName = "Motherboard";
+        
+        build instance = new build();
+        
+        instance.setMotherboard(id, name);
+        assertEquals(1, instance.getMotherboard());
+        
+        instance.setMotherboard(id, name);
+        assertEquals("Asus", instance.getPartName(partTypeName));
+    }
+    
+    
 }
