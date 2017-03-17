@@ -85,6 +85,34 @@ public void testrset() {
     
 
 }
+@Test
+public void testgetTableColName() {
+
+    userAdminAccount instance = new userAdminAccount();
+    ArrayList<String> rs = instance.getTableColName("Part");
+    Boolean result = rs.isEmpty();
 
     
+
+    assertEquals(false, result);//checks before reset
+
+    
+    
+}
+
+
+@Test
+public void testgetparts() {
+
+    userAdminAccount instance = new userAdminAccount();
+    DefaultTableModel rs = instance.getparts("PSU");
+    int ress = rs.findColumn("ID");
+    Boolean result = ress<=0;
+    
+
+    assertEquals(false,result);//checks before reset
+
+    
+    
+}
 }
