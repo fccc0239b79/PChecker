@@ -27,10 +27,15 @@ public class buildTest {
     @Test
     public void testSetBuildName() {
         String name = "setBuildName";
+        String nullName = null;
         build instance = new build();
-        instance.setBuildName(name);
         
+        instance.setBuildName(name);
+        //assertEquals(expected, actual result)
         assertEquals("setBuildName", instance.getBuildName());
-        assertNotEquals(null, instance.getBuildName()); // getByuildName is not null
+        
+        instance.setBuildName(nullName);
+        assertEquals("setBuildName", instance.getBuildName()); // getByuildName is not null
+    
     }
 }
