@@ -122,6 +122,7 @@ public class userAdminAccount {
         //Checks entered username and password against ones stored in database.
         Connection con = ServerControl.ConnectDB();
         String dbUname;
+        boolean loged = false; 
         
         try {
             Statement stmt = (Statement) con.createStatement();
@@ -146,7 +147,7 @@ public class userAdminAccount {
                 boolean dbType = rs.getBoolean("accountType");
                 setType(dbType); //Sets type of user.
                 setUsername(dbUname);
-                    
+                loged = true;
 
             }
             con.close();
@@ -154,7 +155,7 @@ public class userAdminAccount {
             System.out.println(err.getMessage());   //Prints out SQL error 
         }
 
-        return false;
+        return loged;
         
     }
 
@@ -371,7 +372,10 @@ public class userAdminAccount {
         DOB = " ";
         type= false;
     }
+     
+     
      public DefaultTableModel getCompT(int newPid){
+         //when adding motherboard all parts need to be displayed 
             Connection con = ServerControl.ConnectDB();
             String newMakeModel = "";
             String colNames[] = {"ID","Motherboards","IDNew","NewPart","Compatible","CompNo"};
