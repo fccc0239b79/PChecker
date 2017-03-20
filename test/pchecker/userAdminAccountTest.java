@@ -235,4 +235,5 @@ public void testSetType() {
     assertEquals(true, instance.getType());
 }
 
+
 }
