@@ -235,5 +235,119 @@ public void testSetType() {
     assertEquals(true, instance.getType());
 }
 
+@Test 
+public void stressTestLogIn() {
+    
+   for (int i = 0; i < 100; i++) {
+        testLogInService();
+        testcheckPassword();
+        testusernameAvailability();
+       testrset();
+        testgetTableColName(); 
+      // testgetparts();
+       testgetBuilds();
+       testUpdateUser(); 
+        
+        System.out.println(i);
+   }
+
+}
+
+/*
+@Test 
+public void stressTestPassword() {
+    
+   for (int i = 0; i < 100; i++) {
+        
+        testcheckPassword();
+      //  testusernameAvailability();
+      //  testrset();
+      //  testgetTableColName(); 
+       // testgetparts();
+      //  testgetBuilds();
+      //  testUpdateUser(); 
+        
+        System.out.println(i);
+   }
+
+}
+
+@Test 
+public void stressTestUssername() {
+    
+   for (int i = 0; i < 100; i++) {
+        
+       
+        testusernameAvailability();
+      //  testrset();
+      //  testgetTableColName(); 
+       // testgetparts();
+      //  testgetBuilds();
+      //  testUpdateUser(); 
+        
+        System.out.println(i);
+   }
+
+}
+
+@Test 
+public void stressTestColName() {
+    
+   for (int i = 0; i < 100; i++) {
+        
+     
+     
+        testgetTableColName(); 
+       // testgetparts();
+      //  testgetBuilds();
+      //  testUpdateUser(); 
+        
+        System.out.println(i);
+   }
+
+}
+
+
+@Test 
+public void stressTestBuilds() {
+    
+   for (int i = 0; i < 100; i++) {
+        
+     
+     
+         testgetBuilds();
+      //  testUpdateUser(); 
+        
+        System.out.println(i);
+   }
+
+}
+
+
+@Test 
+public void stressTestUser() {
+    
+   for (int i = 0; i < 100; i++) {
+        
+     
+     
+         testUpdateUser(); 
+        
+        System.out.println(i);
+   }
+
+}
+
+*/
+//testcheckPassword()
+///testusernameAvailability()
+//testrset()
+//testgetTableColName() 
+//testgetparts()
+//testgetBuilds()
+//testUpdateUser() 
+ 
+
+
 
 }
