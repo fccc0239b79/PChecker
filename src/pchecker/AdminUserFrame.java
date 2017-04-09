@@ -347,6 +347,11 @@ public class AdminUserFrame extends javax.swing.JFrame {
 
         viewComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         viewComponentAdminBtn.setText("View Components");
+        viewComponentAdminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewComponentAdminBtnActionPerformed(evt);
+            }
+        });
         mainAdminPanel.add(viewComponentAdminBtn);
         viewComponentAdminBtn.setBounds(370, 470, 160, 80);
 
@@ -619,6 +624,14 @@ private void enbleEdit(boolean torf){
         mainAdminPanel.setVisible(true);
         mainUserPanel.setVisible(false);
     }//GEN-LAST:event_adminBackBtnActionPerformed
+
+    private void viewComponentAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewComponentAdminBtnActionPerformed
+       mainAdminPanel.setVisible(false);
+       BuildForm frm = new BuildForm(currentUser,true, true);
+        this.dispose();
+        frm.setVisible(true);
+      //
+    }//GEN-LAST:event_viewComponentAdminBtnActionPerformed
 
     /**
      * @param args the command line arguments

@@ -56,8 +56,7 @@ public class BuildForm extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         currentUser = user;
-
-         buildPanel.setVisible(true);
+        buildPanel.setVisible(true);
         
         
     }
@@ -66,9 +65,16 @@ public class BuildForm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         currentUser = user;
         addPart.setVisible(true);
-        
-        
+        viewPartPanel.setVisible(false);
     }
+    
+    public BuildForm(userAdminAccount user, Boolean TorF, Boolean ViewP){
+        initComponents();
+        setLocationRelativeTo(null);
+        currentUser = user;
+        viewPartPanel.setVisible(true);
+    }
+    
     public BuildForm(userAdminAccount user,String buildName) {
         initComponents();
         setLocationRelativeTo(null);
@@ -80,16 +86,6 @@ public class BuildForm extends javax.swing.JFrame {
         buildNameLabelB.setVisible(false);
         buildNametxt.setVisible(false);
         
-       
-        
-        
-        
-        //change edit pannel to build pannel  ok
-        //hide "new Build"                    ok
-        // display build name                 ok
-        //hide build name input field         ok
-        //enble all button                    ok
-        //input data from newBUild            ok
         currentUser = user;
         setEditBuild(buildName);
         
@@ -294,6 +290,12 @@ public class BuildForm extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         compTable = new javax.swing.JTable();
         saveCompBtn = new javax.swing.JButton();
+        viewPartPanel = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        cancelBtnE1 = new javax.swing.JButton();
+        acceptBtnE1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(900, 600));
@@ -757,7 +759,7 @@ public class BuildForm extends javax.swing.JFrame {
     jScrollPane2.setViewportView(partsTable);
 
     addBuildPanel.add(jScrollPane2);
-    jScrollPane2.setBounds(160, 230, 560, 280);
+    jScrollPane2.setBounds(30, 230, 840, 280);
 
     getContentPane().add(addBuildPanel);
     addBuildPanel.setBounds(0, 0, 900, 600);
@@ -896,6 +898,47 @@ public class BuildForm extends javax.swing.JFrame {
 
     getContentPane().add(addComp);
     addComp.setBounds(0, 0, 900, 600);
+
+    viewPartPanel.setMaximumSize(new java.awt.Dimension(900, 600));
+    viewPartPanel.setMinimumSize(new java.awt.Dimension(900, 600));
+    viewPartPanel.setPreferredSize(new java.awt.Dimension(900, 600));
+    viewPartPanel.setLayout(null);
+
+    jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        new Object [][] {
+            {null, null, null, null},
+            {null, null, null, null},
+            {null, null, null, null},
+            {null, null, null, null}
+        },
+        new String [] {
+            "Title 1", "Title 2", "Title 3", "Title 4"
+        }
+    ));
+    jScrollPane4.setViewportView(jTable3);
+
+    viewPartPanel.add(jScrollPane4);
+    jScrollPane4.setBounds(90, 300, 630, 160);
+
+    jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Choose-", "Motherboard", "CPU", "GPU", "RAM", "Storage", "PSU", "PCCase", "Accessory", "Cooler" }));
+    viewPartPanel.add(jComboBox2);
+    jComboBox2.setBounds(280, 200, 210, 30);
+
+    cancelBtnE1.setText("Cancel");
+    cancelBtnE1.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            cancelBtnE1ActionPerformed(evt);
+        }
+    });
+    viewPartPanel.add(cancelBtnE1);
+    cancelBtnE1.setBounds(820, 10, 70, 42);
+
+    acceptBtnE1.setText("Accept");
+    viewPartPanel.add(acceptBtnE1);
+    acceptBtnE1.setBounds(740, 10, 65, 42);
+
+    getContentPane().add(viewPartPanel);
+    viewPartPanel.setBounds(0, 0, 900, 600);
 
     pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1109,11 +1152,11 @@ public class BuildForm extends javax.swing.JFrame {
         saveBuild();
         
     }//GEN-LAST:event_acceptBuildBtnActionPerformed
-
+    Color color = Color.GREEN;
     public void saveValidation() {
         
        
-        Color color = Color.GREEN;
+        
         System.out.println(motherboardBtn.getBackground() == color);
         
         if(buildNametxt.getText().isEmpty() || motherboardBtn.getBackground()!= color || processorBtn.getBackground() != color || ramBtn.getBackground() != color || hddBtn.getBackground() != color || graphicsBtn.getBackground() != color || caseBtn.getBackground() != color || supplyBtn.getBackground() != color || coolingBtn.getBackground() != color || accessoriesBtn.getBackground() != color) {
@@ -1121,9 +1164,7 @@ public class BuildForm extends javax.swing.JFrame {
         } else {
             acceptBuildBtn.setEnabled(true);
         }
-            
-        
-        
+          
     }
         
     
@@ -1162,12 +1203,14 @@ public class BuildForm extends javax.swing.JFrame {
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
         
        
-
+     if(motherboardBtn.getBackground()== color || processorBtn.getBackground() == color || ramBtn.getBackground() == color || hddBtn.getBackground() == color || graphicsBtn.getBackground() == color || caseBtn.getBackground() == color || supplyBtn.getBackground() == color || coolingBtn.getBackground() == color || accessoriesBtn.getBackground() == color){
         newBuild.UpdateBuild(currentUser.getUsername());
         AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
         this.dispose();
         frm.setVisible(true);
-
+     } else {
+         JOptionPane.showMessageDialog(null, "Please select other component. ","", JOptionPane.INFORMATION_MESSAGE);
+     }
 
     }//GEN-LAST:event_updateBtnActionPerformed
 
@@ -1205,6 +1248,12 @@ public class BuildForm extends javax.swing.JFrame {
     private void buildNametxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buildNametxtKeyPressed
        saveValidation();
     }//GEN-LAST:event_buildNametxtKeyPressed
+
+    private void cancelBtnE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnE1ActionPerformed
+        AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
+        this.dispose();
+        frm.setVisible(true);
+    }//GEN-LAST:event_cancelBtnE1ActionPerformed
     
     private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         // TODO add your handling code here:
@@ -1258,6 +1307,7 @@ public class BuildForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BuildNameLabel;
     private javax.swing.JButton acceptBtnE;
+    private javax.swing.JButton acceptBtnE1;
     private javax.swing.JButton acceptBuildBtn;
     private javax.swing.JButton accessoriesBtn;
     private javax.swing.JLabel accessoriesLabelSelectedPart;
@@ -1275,6 +1325,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JPanel buildPanel;
     private javax.swing.JButton cancelBtnB;
     private javax.swing.JButton cancelBtnE;
+    private javax.swing.JButton cancelBtnE1;
     private javax.swing.JButton caseBtn;
     private javax.swing.JLabel caseLabelSelectedPart;
     private javax.swing.JTable compTable;
@@ -1292,6 +1343,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1313,8 +1365,10 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -1336,5 +1390,6 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JButton supplyBtn;
     private javax.swing.JButton updateBtn;
     private javax.swing.JPanel viewAccount;
+    private javax.swing.JPanel viewPartPanel;
     // End of variables declaration//GEN-END:variables
 }
