@@ -284,6 +284,26 @@ public class build {
         } catch(SQLException err){
             System.out.println(err);
         }
+        if(!compatible){
+            try {
+                Statement stmt = (Statement) con.createStatement();
+
+                String query = "select * from Compatibility where Part1 = "+ part +" AND Part2 = "+motherBoardID+";";
+
+                stmt.executeQuery(query);
+                ResultSet rs = stmt.getResultSet();
+
+
+                while (rs.next()) {
+                    if(rs.getString("Comp").equals("1")){
+                        compatible = true;
+                    }
+                }
+
+            } catch(SQLException err){
+                System.out.println(err);
+            }
+        }
         return compatible;
     }
 }

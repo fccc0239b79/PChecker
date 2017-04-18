@@ -328,25 +328,24 @@ public class BuildForm extends javax.swing.JFrame {
     }
     
     private void saveNewPart(){
-        /*
+        
         ArrayList<String> info = new ArrayList<String>();
         ArrayList<String> infopart = new ArrayList<String>();
 
         String partT = String.valueOf(partTypeComboBox.getSelectedItem());
-        String model =addPartModelInput.getText();
-        String make = addPartMakeInput.getText();
-        String price = addPartPriceInput.getText();
+        //String model =addPartModelInput.getText();
+        //String make = addPartMakeInput.getText();
+        //String price = addPartPriceInput.getText();
         
-        for(int i = 0; i < inputbox.size(); i++){
-           // System.out.println(inputbox.get(i).getText());
-            
+        for(int i = 3; i < inputbox.size(); i++){
+           System.out.println(inputbox.get(i).getText());
             infopart.add(inputbox.get(i).getText());
         }
         
-   
-        info.add(price);
-        info.add(model);
-        info.add(make);
+
+        info.add(inputbox.get(2).getText());
+        info.add(inputbox.get(1).getText());
+        info.add(inputbox.get(0).getText());
         info.add(partT);
         
 
@@ -358,7 +357,7 @@ public class BuildForm extends javax.swing.JFrame {
         
         compTable.setModel(currentUser.getCompT(partID));
         
-    */
+    
     }
     
     /**
@@ -1454,6 +1453,7 @@ public class BuildForm extends javax.swing.JFrame {
 
     private void addPartSaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartSaveBtnActionPerformed
         //addingNewPartValidation();
+        saveNewPart();
     }//GEN-LAST:event_addPartSaveBtnActionPerformed
     
     private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {                                                  
