@@ -4,10 +4,10 @@ USE PChecker;
 
 CREATE TABLE Part(
 PartID INT NOT NULL AUTO_INCREMENT,
-Price NUMERIC(6,2),
-Model VARCHAR(45) NOT NULL,
-Make VARCHAR(45) NOT NULL,
-PartType VARCHAR(30),
+`Price` decimal(6,2) NOT NULL,
+`Model` varchar(30) NOT NULL,
+`Make` varchar(30) NOT NULL,
+`PartType` varchar(30) NOT NULL,
 
 PRIMARY KEY (PartID)
 );
@@ -16,16 +16,16 @@ CREATE TABLE Compatibility(
 Part1 INT NOT NULL,
 Part2 INT NOT NULL,
 Comp BOOLEAN,
-CompNumber NUMERIC(3),
+CompNumber INT(3),
 
 PRIMARY KEY(Part1,Part2)
 );
 
 CREATE TABLE CPU(
 ID INT NOT NULL,
-Speed NUMERIC(4,2),
-Cores INT(2),
-Graphics BOOLEAN,
+`SpeedGHz` decimal(6,2) NOT NULL,
+`Cores` int(4) NOT NULL,
+`Socket` varchar(30) NOT NULL,
 
 PRIMARY KEY (ID),
 FOREIGN KEY(ID) REFERENCES Part(PartID)
@@ -33,20 +33,22 @@ FOREIGN KEY(ID) REFERENCES Part(PartID)
 
 CREATE TABLE Motherboard(
 ID INT NOT NULL,
-Socket VARCHAR(45) NOT NULL,
-Form_Factor VARCHAR(20),
-RAM_Slots INT(1),
-Max_RAM int(3),
-
+`Socket` varchar(30) NOT NULL,
+`Form_Factor` varchar(30) NOT NULL,
+`RAM_Type` varchar(30) NOT NULL,
+`RAM_Slots` int(4) NOT NULL,
+`Max_RAM` int(4) NOT NULL,
+  
 PRIMARY KEY (ID),
 FOREIGN KEY(ID) REFERENCES Part(PartID)
 );
 
 CREATE TABLE RAM(
-ID INT NOT NULL ,
-Speed CHAR(4),
-SizeGB INT(2) NOT NULL,
-Sticks INT(1),
+`ID` INT NOT NULL,
+`Type` varchar(30) NOT NULL,
+`Speed` decimal(6,2) NOT NULL,
+`SizeGB` int(4) NOT NULL,
+`Sticks` int(4) NOT NULL,
 
 
 PRIMARY KEY(ID),
@@ -55,10 +57,9 @@ FOREIGN KEY(ID) REFERENCES Part(PartID)
 
 CREATE TABLE Storage(
 ID INT NOT NULL ,
-Series VARCHAR(45),
-HHD BOOLEAN NOT NULL,
-Speed INT(4),
-CapacityGB INT,
+`Series` varchar(30) DEFAULT NULL,
+  `Speed` int(4) DEFAULT NULL,
+  `CapacityGB` int(4) DEFAULT NULL,
 
 PRIMARY KEY(ID),
 FOREIGN KEY(ID) REFERENCES Part(PartID)
@@ -66,10 +67,10 @@ FOREIGN KEY(ID) REFERENCES Part(PartID)
 
 CREATE TABLE GPU(
 ID INT NOT NULL,
-Series VARCHAR(45),
-Chipset VARCHAR(100),
-Memory INT(2),
-CoreClock NUMERIC(3,2),
+`Series` varchar(30) DEFAULT NULL,
+  `Chipset` varchar(30) DEFAULT NULL,
+  `MemoryGB` int(4) DEFAULT NULL,
+  `Core_ClockGHz` decimal(6,2) NOT NULL,
 
 PRIMARY KEY(ID),
 FOREIGN KEY(ID) REFERENCES Part(PartID)
@@ -77,19 +78,19 @@ FOREIGN KEY(ID) REFERENCES Part(PartID)
 
 CREATE TABLE PSU(
 ID INT NOT NULL,
-Wattage INT,
-Modular BOOLEAN,
-
+  `Wattage` int(4) DEFAULT NULL,
+  `Efficiency` varchar(30) DEFAULT NULL,
+  
 PRIMARY KEY(ID),
 FOREIGN KEY(ID) REFERENCES Part(PartID)
 );
 
 CREATE TABLE PCCase(
 ID INT NOT NULL,
-Height INT(3),
-Width INT(3),
-Depth INT(3),
-Colour VARCHAR(40),
+`Height_cm` decimal(6,2) NOT NULL,
+  `Width_cm` decimal(6,2) NOT NULL,
+  `Depth_cm` decimal(6,2) NOT NULL,
+  `Colour` varchar(30) DEFAULT NULL,
 
 PRIMARY KEY(ID),
 FOREIGN KEY(ID) REFERENCES Part(PartID)
@@ -97,16 +98,18 @@ FOREIGN KEY(ID) REFERENCES Part(PartID)
 
 CREATE TABLE Cooler(
 ID INT NOT NULL,
-MinRPM INT(4),
-MaxRPM INT(4) NOT NULL,
-
+`Socket` varchar(30) NOT NULL,
+  `Min_Fan_RPM` int(4) DEFAULT NULL,
+  `Max_Fan_RPM` int(4) NOT NULL,
+  `Noise_Level_dba` varchar(30) NOT NULL,
+  
 PRIMARY KEY(ID),
 FOREIGN KEY(ID) REFERENCES Part(PartID)
 );
 
 CREATE TABLE Accessory(
 ID INT NOT NULL,
-Description VARCHAR(200),
+Description VARCHAR(30),
 PRIMARY KEY(ID),
 FOREIGN KEY(ID) REFERENCES Part(PartID)
 );
