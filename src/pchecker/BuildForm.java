@@ -7,6 +7,8 @@ package pchecker;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -224,6 +226,7 @@ public class BuildForm extends javax.swing.JFrame {
             JTextField textField = new JTextField(10);
             textField.setName(name+"Input");
             textField.setBounds(170, y, 260, 30);
+            if(name != "Model"){
             textField.getDocument().addDocumentListener(new DocumentListener() {
                     public void changedUpdate(DocumentEvent e) {
                       addingNewPartValidation(name);
@@ -237,6 +240,15 @@ public class BuildForm extends javax.swing.JFrame {
                     }
                     
             });
+            }else{
+                textField.addFocusListener(new FocusListener() {
+                    public void focusGained(FocusEvent e) {
+                    };
+                    public void focusLost(FocusEvent e) {
+                        addingNewPartValidation(name);
+                    };
+                });
+            }
             inputbox.add(textField);
             addPart.add(textField);
             
@@ -259,14 +271,7 @@ public class BuildForm extends javax.swing.JFrame {
     
     
     private void addingNewPartValidation(String name){
-        //decimal (6,2)
-        //varvhar(30)
-        //int(4)
-        //System.out.println(eve);
-       
-
         
-        //for (String name : tableColums) {
 
         Component input = getComponentByName(name+"Input");
         Component label = getComponentByName(name+"Lable");    
@@ -276,7 +281,6 @@ public class BuildForm extends javax.swing.JFrame {
         int length = 0;
         
         Boolean itsAnInt = true;
-        String errorMsg = "";
         switch (labelText){
             case "int":
                 length = 4;
@@ -297,15 +301,25 @@ public class BuildForm extends javax.swing.JFrame {
                 break;
         }
             
-        if(inputText.isEmpty() || inputText.length() > length || !itsAnInt){
-            input.setBackground(Color.RED);
-            
-        }else{
-            input.setBackground(Color.green);
-            
+        
+        
+       
+        if(name == "Model"){
+            if(currentUser.checkDuplicate(inputText,String.valueOf(partTypeComboBox.getSelectedItem()))){
+                input.setBackground(Color.RED);
+            }else{
+                input.setBackground(Color.green);
+            }
+                
         }
         
-       // }
+        if(inputText.isEmpty() || inputText.length() > length || !itsAnInt){
+            input.setBackground(Color.RED);
+        }else{
+            input.setBackground(Color.green);
+        }
+        
+        
         ArrayList<String> greens = new ArrayList<String>();
 
         for (Component c : addPart.getComponents()){
@@ -316,6 +330,10 @@ public class BuildForm extends javax.swing.JFrame {
             }
             
         }
+        
+        
+        
+
         if(greens.size() == tableColums.size()){
            addPartSaveBtn.setEnabled(true);
          }else{
@@ -995,6 +1013,16 @@ public class BuildForm extends javax.swing.JFrame {
     addPart.setMaximumSize(new java.awt.Dimension(900, 600));
     addPart.setMinimumSize(new java.awt.Dimension(900, 600));
     addPart.setPreferredSize(new java.awt.Dimension(900, 600));
+    addPart.addFocusListener(new java.awt.event.FocusAdapter() {
+        public void focusGained(java.awt.event.FocusEvent evt) {
+            addPartFocusGained(evt);
+        }
+    });
+    addPart.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            addPartMouseClicked(evt);
+        }
+    });
     addPart.setLayout(null);
 
     addPartSaveBtn.setText("Save");
@@ -1455,6 +1483,14 @@ public class BuildForm extends javax.swing.JFrame {
         //addingNewPartValidation();
         saveNewPart();
     }//GEN-LAST:event_addPartSaveBtnActionPerformed
+
+    private void addPartFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addPartFocusGained
+        
+    }//GEN-LAST:event_addPartFocusGained
+
+    private void addPartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addPartMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addPartMouseClicked
     
     private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         // TODO add your handling code here:
