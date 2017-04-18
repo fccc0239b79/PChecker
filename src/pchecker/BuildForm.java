@@ -1466,7 +1466,9 @@ public class BuildForm extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelBtnE1ActionPerformed
 
     private void partTypeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTypeComboBoxActionPerformed
-        addingNewPart();
+        if(String.valueOf(partTypeComboBox.getSelectedItem()) != "-Choose-"){
+            addingNewPart();
+        }
     }//GEN-LAST:event_partTypeComboBoxActionPerformed
 
     private void partTypeComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_partTypeComboBoxItemStateChanged
