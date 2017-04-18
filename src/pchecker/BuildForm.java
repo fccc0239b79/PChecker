@@ -11,12 +11,15 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.JTextComponent;
 /**
  *
  * @author Pawel
@@ -154,37 +157,67 @@ public class BuildForm extends javax.swing.JFrame {
     }
    
     
+    private HashMap componentMap;
+    
+    private void createComponentMap() {
+            componentMap = new HashMap<String,Component>();
+            Component[] components = addPart.getComponents();
+            for (int i=0; i < components.length; i++) {
+                    componentMap.put(components[i].getName(), components[i]);
+            }
+    }
+
+    public Component getComponentByName(String name) {
+        if (componentMap.containsKey(name)) {
+                return (Component) componentMap.get(name);
+        }
+        else return null;
+}
     
     ArrayList<JLabel> labels = new ArrayList<JLabel>();
     ArrayList<JTextField> inputbox = new ArrayList<JTextField>();
-
+    ArrayList<String> tableColums = new ArrayList<String>();
     public void addingNewPart(){
+        addPartSaveBtn.setEnabled(true);
 
         String newPartType = String.valueOf(partTypeComboBox.getSelectedItem());
         
-        ArrayList<String> tableColums = currentUser.getTableColName(newPartType);
+        tableColums = currentUser.getTableColName(newPartType);
+        
         ArrayList<String> dataType = currentUser.getTableData();
         
         System.out.print(tableColums+" - "+dataType);
         //tableColums.remove(0);
         
-        
         for(int i = 0; i < labels.size(); i++){
             addPart.remove(labels.get(i));
-            addPart.remove(inputbox.get(i));
+            if(i < labels.size()/2){
+                addPart.remove(inputbox.get(i));
+            }
         }
         labels.clear();
         inputbox.clear();
         
         //creats so many labels and input fields 
-        int y = 250, x = 0;
+        int y = 130, x = 0;
+        
+      
+        
+        
         for (String name : tableColums) {
             //Creation of label feild
-            JLabel label100  = new JLabel("("+dataType.get(x)+") "+name+":", SwingConstants.RIGHT);
+            JLabel label100  = new JLabel(name+": ", SwingConstants.RIGHT);
             label100.setBounds(0, y, 160, 30);
             labels.add(label100);
             addPart.add(label100);
             
+            JLabel label1000  = new JLabel(dataType.get(x), SwingConstants.RIGHT);
+            label1000.setBounds(0, y, 80, 30);
+            label1000.setName(name+"Lable");
+            label1000.setVisible(false);
+            labels.add(label1000);
+            addPart.add(label1000);
+                        
             //Creation of input field
             JTextField textField = new JTextField(10);
             textField.setName(name+"Input");
@@ -195,10 +228,110 @@ public class BuildForm extends javax.swing.JFrame {
             y += 40;
             x++;
         }
+        createComponentMap();
+
         addPart.repaint();
+    }
+    private String getContents(Component comp){
+        
+        if (comp instanceof JTextComponent) {
+              return ((JTextComponent)comp).getText();
+        }else if (comp instanceof JLabel) {
+            return ((JLabel)comp).getText();
+        }
+        return null;
     }
     
     
+    private void addingNewPartValidation(){
+        //decimal (6,2)
+        //varvhar(30)
+        //int(4)
+        
+
+        
+
+        
+        for (String name : tableColums) {
+            
+            
+        Component input = getComponentByName(name+"Input");
+        System.out.println(input.getName());
+
+        Component label = getComponentByName(name+"Lable");    
+        
+        String inputText = getContents(input);
+        String labelText = getContents(label);
+        int length = 0;
+        
+        Boolean itsAnInt = true;
+
+        switch (labelText){
+            case "int":
+                length = 4;
+                 try { 
+                    Integer.parseInt(inputText);
+                 } catch(NumberFormatException e) { 
+                  itsAnInt = false;
+                 }
+                break;
+            case "decimal":
+                length = 9;
+                if(!inputText.matches("\\d+\\.\\d{2}")){
+                  itsAnInt = false;
+                }
+                break;
+            case "varchar":
+                length = 30;
+                break;
+        }
+            
+        if(inputText.isEmpty() || inputText.length() > length || !itsAnInt){
+            input.setBackground(Color.RED);
+            
+        }else{
+            input.setBackground(Color.green);
+            
+
+        }
+        
+        }
+        
+    }
+    
+    private void saveNewPart(){
+        /*
+        ArrayList<String> info = new ArrayList<String>();
+        ArrayList<String> infopart = new ArrayList<String>();
+
+        String partT = String.valueOf(partTypeComboBox.getSelectedItem());
+        String model =addPartModelInput.getText();
+        String make = addPartMakeInput.getText();
+        String price = addPartPriceInput.getText();
+        
+        for(int i = 0; i < inputbox.size(); i++){
+           // System.out.println(inputbox.get(i).getText());
+            
+            infopart.add(inputbox.get(i).getText());
+        }
+        
+   
+        info.add(price);
+        info.add(model);
+        info.add(make);
+        info.add(partT);
+        
+
+       
+        
+        int partID = currentUser.savePart(partT, info,infopart);
+        addPart.setVisible(false);
+        addComp.setVisible(true);
+        
+        compTable.setModel(currentUser.getCompT(partID));
+        
+    */
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -287,12 +420,6 @@ public class BuildForm extends javax.swing.JFrame {
         addPartCancelBtn = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         partTypeComboBox = new javax.swing.JComboBox<>();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        addPartMakeInput = new javax.swing.JTextField();
-        addPartModelInput = new javax.swing.JTextField();
-        addPartPriceInput = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         addComp = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -844,6 +971,7 @@ public class BuildForm extends javax.swing.JFrame {
     addPart.setLayout(null);
 
     addPartSaveBtn.setText("Save");
+    addPartSaveBtn.setEnabled(false);
     addPartSaveBtn.setMaximumSize(new java.awt.Dimension(51, 23));
     addPartSaveBtn.setMinimumSize(new java.awt.Dimension(51, 23));
     addPartSaveBtn.setPreferredSize(new java.awt.Dimension(51, 23));
@@ -886,48 +1014,6 @@ public class BuildForm extends javax.swing.JFrame {
     });
     addPart.add(partTypeComboBox);
     partTypeComboBox.setBounds(170, 90, 170, 30);
-
-    jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-    jLabel15.setText("(varchar) Make:");
-    addPart.add(jLabel15);
-    jLabel15.setBounds(0, 130, 160, 30);
-
-    jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-    jLabel16.setText("(varchar) Model:");
-    addPart.add(jLabel16);
-    jLabel16.setBounds(0, 170, 160, 30);
-
-    jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-    jLabel17.setText("(int) Price:");
-    addPart.add(jLabel17);
-    jLabel17.setBounds(0, 210, 160, 30);
-
-    addPartMakeInput.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            addPartMakeInputActionPerformed(evt);
-        }
-    });
-    addPart.add(addPartMakeInput);
-    addPartMakeInput.setBounds(170, 130, 260, 30);
-
-    addPartModelInput.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            addPartModelInputActionPerformed(evt);
-        }
-    });
-    addPart.add(addPartModelInput);
-    addPartModelInput.setBounds(170, 170, 260, 30);
-
-    addPartPriceInput.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            addPartPriceInputActionPerformed(evt);
-        }
-    });
-    addPart.add(addPartPriceInput);
-    addPartPriceInput.setBounds(170, 210, 260, 30);
 
     jLabel18.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
     jLabel18.setText("Add Computer Part");
@@ -1076,61 +1162,6 @@ public class BuildForm extends javax.swing.JFrame {
     private void coolingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coolingBtnActionPerformed
        addPart("Cooler");
     }//GEN-LAST:event_coolingBtnActionPerformed
-
-    private void addPartCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartCancelBtnActionPerformed
-        AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
-        this.dispose();
-        frm.setVisible(true);
-    }//GEN-LAST:event_addPartCancelBtnActionPerformed
-
-    private void addPartMakeInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartMakeInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addPartMakeInputActionPerformed
-
-    private void addPartPriceInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartPriceInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addPartPriceInputActionPerformed
-
-    private void partTypeComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_partTypeComboBoxItemStateChanged
-    }//GEN-LAST:event_partTypeComboBoxItemStateChanged
-
-    private void partTypeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTypeComboBoxActionPerformed
-                addingNewPart();
-    }//GEN-LAST:event_partTypeComboBoxActionPerformed
-
-    private void addPartSaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartSaveBtnActionPerformed
-    
-        ArrayList<String> info = new ArrayList<String>();
-        ArrayList<String> infopart = new ArrayList<String>();
-
-        String partT = String.valueOf(partTypeComboBox.getSelectedItem());
-        String model =addPartModelInput.getText();
-        String make = addPartMakeInput.getText();
-        String price = addPartPriceInput.getText();
-        
-        for(int i = 0; i < inputbox.size(); i++){
-            System.out.println(inputbox.get(i).getText());
-            
-            infopart.add(inputbox.get(i).getText());
-        }
-        
-   
-        info.add(price);
-        info.add(model);
-        info.add(make);
-        info.add(partT);
-        
-
-       
-        
-        int partID = currentUser.savePart(partT, info,infopart);
-        addPart.setVisible(false);
-        addComp.setVisible(true);
-        
-        compTable.setModel(currentUser.getCompT(partID));
-        
-        
-    }//GEN-LAST:event_addPartSaveBtnActionPerformed
 
     private void runCompatibilityCheck(){
         motherboardBtn.setBackground(Color.GREEN); // sets color on green after selected part 
@@ -1378,6 +1409,24 @@ public class BuildForm extends javax.swing.JFrame {
         this.dispose();
         frm.setVisible(true);
     }//GEN-LAST:event_cancelBtnE1ActionPerformed
+
+    private void partTypeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTypeComboBoxActionPerformed
+        addingNewPart();
+    }//GEN-LAST:event_partTypeComboBoxActionPerformed
+
+    private void partTypeComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_partTypeComboBoxItemStateChanged
+
+    }//GEN-LAST:event_partTypeComboBoxItemStateChanged
+
+    private void addPartCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartCancelBtnActionPerformed
+        AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
+        this.dispose();
+        frm.setVisible(true);
+    }//GEN-LAST:event_addPartCancelBtnActionPerformed
+
+    private void addPartSaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartSaveBtnActionPerformed
+        addingNewPartValidation();
+    }//GEN-LAST:event_addPartSaveBtnActionPerformed
     
     private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         // TODO add your handling code here:
@@ -1440,9 +1489,6 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JPanel addComp;
     private javax.swing.JPanel addPart;
     private javax.swing.JButton addPartCancelBtn;
-    private javax.swing.JTextField addPartMakeInput;
-    private javax.swing.JTextField addPartModelInput;
-    private javax.swing.JTextField addPartPriceInput;
     private javax.swing.JButton addPartSaveBtn;
     private javax.swing.JButton buildCancelBtn;
     private javax.swing.JLabel buildNameLabelB;
@@ -1478,9 +1524,6 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

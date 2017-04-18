@@ -489,6 +489,14 @@ public class userAdminAccount {
         tableColums.clear();
         tableDataType.clear();
 
+        tableColums.add("Make");
+        tableColums.add("Model");
+        tableColums.add("Price");
+        
+        tableDataType.add("varchar");
+        tableDataType.add("varchar");
+        tableDataType.add("decimal");
+
         Connection con = ServerControl.ConnectDB();
            
             try {
