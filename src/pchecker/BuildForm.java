@@ -180,7 +180,7 @@ public class BuildForm extends javax.swing.JFrame {
     ArrayList<JTextField> inputbox = new ArrayList<JTextField>();
     ArrayList<String> tableColums = new ArrayList<String>();
     public void addingNewPart(){
-        addPartSaveBtn.setEnabled(true);
+        addPartSaveBtn.setEnabled(false);
 
         String newPartType = String.valueOf(partTypeComboBox.getSelectedItem());
         
@@ -303,10 +303,27 @@ public class BuildForm extends javax.swing.JFrame {
         }else{
             input.setBackground(Color.green);
             
-
         }
         
        // }
+        ArrayList<String> greens = new ArrayList<String>();
+
+        for (Component c : addPart.getComponents()){
+            if (c instanceof JTextField) {
+                if(c.getBackground() == Color.green){
+                    greens.add("t");
+                }
+            }
+            
+        }
+        if(greens.size() == tableColums.size()){
+           addPartSaveBtn.setEnabled(true);
+         }else{
+           addPartSaveBtn.setEnabled(false);
+        }
+            
+            
+               
         
     }
     
