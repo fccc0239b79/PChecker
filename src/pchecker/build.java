@@ -18,7 +18,9 @@ import java.util.ArrayList;
  * @author Greg
  */
 public class build {
-    private int motherBoardID, cpuID, ramID, storageID, gpuID, psuID, caseID, coolerID,accessoryID,systemCompRating;
+    private int motherBoardID = -1, cpuID = -1, ramID = -1, storageID = -1, gpuID = -1, psuID = -1, 
+                caseID = -1, coolerID = -1,accessoryID = -1,systemCompRating;
+    
     private String buildName = "",motherBoardName = "", cpuName = "", ramName = "", storageName = "", gpuName = "", psuName= "" , caseName = "", coolerName = "",accessoryName = "";
     
     //stworzyc method na kazdy lable 
