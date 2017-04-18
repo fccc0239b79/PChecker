@@ -18,6 +18,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.JTextComponent;
 /**
@@ -222,6 +224,19 @@ public class BuildForm extends javax.swing.JFrame {
             JTextField textField = new JTextField(10);
             textField.setName(name+"Input");
             textField.setBounds(170, y, 260, 30);
+            textField.getDocument().addDocumentListener(new DocumentListener() {
+                    public void changedUpdate(DocumentEvent e) {
+                      addingNewPartValidation(name);
+                    }
+                    public void removeUpdate(DocumentEvent e) {
+                      addingNewPartValidation(name);
+
+                    }
+                    public void insertUpdate(DocumentEvent e) {
+                      addingNewPartValidation(name);
+                    }
+                    
+            });
             inputbox.add(textField);
             addPart.add(textField);
             
@@ -243,21 +258,17 @@ public class BuildForm extends javax.swing.JFrame {
     }
     
     
-    private void addingNewPartValidation(){
+    private void addingNewPartValidation(String name){
         //decimal (6,2)
         //varvhar(30)
         //int(4)
-        
+        //System.out.println(eve);
+       
 
         
+        //for (String name : tableColums) {
 
-        
-        for (String name : tableColums) {
-            
-            
         Component input = getComponentByName(name+"Input");
-        System.out.println(input.getName());
-
         Component label = getComponentByName(name+"Lable");    
         
         String inputText = getContents(input);
@@ -265,7 +276,7 @@ public class BuildForm extends javax.swing.JFrame {
         int length = 0;
         
         Boolean itsAnInt = true;
-
+        String errorMsg = "";
         switch (labelText){
             case "int":
                 length = 4;
@@ -295,7 +306,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         }
         
-        }
+       // }
         
     }
     
@@ -1425,7 +1436,7 @@ public class BuildForm extends javax.swing.JFrame {
     }//GEN-LAST:event_addPartCancelBtnActionPerformed
 
     private void addPartSaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartSaveBtnActionPerformed
-        addingNewPartValidation();
+        //addingNewPartValidation();
     }//GEN-LAST:event_addPartSaveBtnActionPerformed
     
     private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {                                                  
