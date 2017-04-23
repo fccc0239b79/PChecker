@@ -86,16 +86,12 @@ public class AdminUserFrame extends javax.swing.JFrame {
         emailLabel2 = new javax.swing.JLabel();
         mainAdminPanel = new javax.swing.JPanel();
         logoAdmin = new javax.swing.JLabel();
-        createAccountAdminBtn = new javax.swing.JButton();
         editAccountAdminBtn = new javax.swing.JButton();
-        viewAccountAdminBtn = new javax.swing.JButton();
         logOffAdminBtn = new javax.swing.JButton();
         profileAdminBtn = new javax.swing.JButton();
         newComponentAdminBtn = new javax.swing.JButton();
         editComponentAdminBtn = new javax.swing.JButton();
         viewComponentAdminBtn = new javax.swing.JButton();
-        createBuildAdminBtn = new javax.swing.JButton();
-        editBuildAdminBtn = new javax.swing.JButton();
         viewBuildAdminBtn = new javax.swing.JButton();
         adminMenuLabel = new javax.swing.JLabel();
 
@@ -170,7 +166,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainUserPanel.add(adminBackBtn);
-        adminBackBtn.setBounds(20, 10, 75, 40);
+        adminBackBtn.setBounds(20, 10, 55, 40);
         adminBackBtn.setVisible(false);
 
         getContentPane().add(mainUserPanel);
@@ -205,7 +201,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         profilePanel.add(editBtnProfile);
-        editBtnProfile.setBounds(290, 100, 103, 41);
+        editBtnProfile.setBounds(290, 100, 91, 41);
 
         settingsLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         settingsLabel.setText("SETTINGS");
@@ -287,30 +283,15 @@ public class AdminUserFrame extends javax.swing.JFrame {
         mainAdminPanel.add(logoAdmin);
         logoAdmin.setBounds(150, 80, 602, 119);
 
-        createAccountAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        createAccountAdminBtn.setText("Create Account");
-        createAccountAdminBtn.addActionListener(new java.awt.event.ActionListener() {
+        editAccountAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        editAccountAdminBtn.setText("Account Settings");
+        editAccountAdminBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createAccountAdminBtnActionPerformed(evt);
+                editAccountAdminBtnActionPerformed(evt);
             }
         });
-        mainAdminPanel.add(createAccountAdminBtn);
-        createAccountAdminBtn.setBounds(200, 290, 160, 80);
-
-        editAccountAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        editAccountAdminBtn.setText("Edit Account");
         mainAdminPanel.add(editAccountAdminBtn);
         editAccountAdminBtn.setBounds(200, 380, 160, 80);
-
-        viewAccountAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        viewAccountAdminBtn.setText("View Account");
-        viewAccountAdminBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewAccountAdminBtnActionPerformed(evt);
-            }
-        });
-        mainAdminPanel.add(viewAccountAdminBtn);
-        viewAccountAdminBtn.setBounds(200, 470, 160, 80);
 
         logOffAdminBtn.setText("Log Off");
         logOffAdminBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -319,7 +300,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(logOffAdminBtn);
-        logOffAdminBtn.setBounds(809, 11, 91, 43);
+        logOffAdminBtn.setBounds(809, 11, 69, 43);
 
         profileAdminBtn.setText("Profile");
         profileAdminBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -328,7 +309,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(profileAdminBtn);
-        profileAdminBtn.setBounds(740, 11, 84, 43);
+        profileAdminBtn.setBounds(740, 11, 63, 43);
 
         newComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         newComponentAdminBtn.setText("Add New Part");
@@ -355,21 +336,6 @@ public class AdminUserFrame extends javax.swing.JFrame {
         mainAdminPanel.add(viewComponentAdminBtn);
         viewComponentAdminBtn.setBounds(370, 470, 160, 80);
 
-        createBuildAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        createBuildAdminBtn.setText("Create Build");
-        createBuildAdminBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createBuildAdminBtnActionPerformed(evt);
-            }
-        });
-        mainAdminPanel.add(createBuildAdminBtn);
-        createBuildAdminBtn.setBounds(540, 290, 160, 80);
-
-        editBuildAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        editBuildAdminBtn.setText("Edit Build");
-        mainAdminPanel.add(editBuildAdminBtn);
-        editBuildAdminBtn.setBounds(540, 380, 160, 80);
-
         viewBuildAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         viewBuildAdminBtn.setText("View Build");
         viewBuildAdminBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -378,7 +344,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(viewBuildAdminBtn);
-        viewBuildAdminBtn.setBounds(540, 470, 160, 80);
+        viewBuildAdminBtn.setBounds(540, 380, 160, 80);
 
         adminMenuLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         adminMenuLabel.setText("Admin Menu");
@@ -537,14 +503,6 @@ private void enbleEdit(boolean torf){
         loggOff();
     }//GEN-LAST:event_logOffAdminBtnActionPerformed
 
-    private void viewAccountAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAccountAdminBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_viewAccountAdminBtnActionPerformed
-
-    private void createAccountAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountAdminBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_createAccountAdminBtnActionPerformed
-
     private void newComponentAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newComponentAdminBtnActionPerformed
         BuildForm frm = new BuildForm(currentUser,true);
         this.dispose();
@@ -592,13 +550,6 @@ private void enbleEdit(boolean torf){
         
     }//GEN-LAST:event_addBuildBtnActionPerformed
 
-    private void createBuildAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBuildAdminBtnActionPerformed
-        BuildForm frm = new BuildForm(currentUser);
-        frm.setVisible(true);
-        this.dispose();
-        
-    }//GEN-LAST:event_createBuildAdminBtnActionPerformed
-
     private void buildsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buildsListMouseClicked
 
 
@@ -632,6 +583,10 @@ private void enbleEdit(boolean torf){
         frm.setVisible(true);
       //
     }//GEN-LAST:event_viewComponentAdminBtnActionPerformed
+
+    private void editAccountAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAccountAdminBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editAccountAdminBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -676,11 +631,8 @@ private void enbleEdit(boolean torf){
     private javax.swing.JLabel adminMenuLabel;
     private javax.swing.JButton backBtnProfile;
     private javax.swing.JList<String> buildsList;
-    private javax.swing.JButton createAccountAdminBtn;
-    private javax.swing.JButton createBuildAdminBtn;
     private javax.swing.JButton editAccountAdminBtn;
     private javax.swing.JButton editBtnProfile;
-    private javax.swing.JButton editBuildAdminBtn;
     private javax.swing.JButton editComponentAdminBtn;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JLabel emailLabel1;
@@ -705,7 +657,6 @@ private void enbleEdit(boolean torf){
     private javax.swing.JLabel settingsLabel;
     private javax.swing.JTextField snamePro;
     private javax.swing.JLabel surnameLabel;
-    private javax.swing.JButton viewAccountAdminBtn;
     private javax.swing.JButton viewBuildAdminBtn;
     private javax.swing.JButton viewComponentAdminBtn;
     // End of variables declaration//GEN-END:variables
