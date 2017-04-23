@@ -274,7 +274,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         profilePanel.setBounds(0, 0, 910, 600);
         profilePanel.setVisible(false);
 
-        mainAdminPanel.setBackground(new java.awt.Color(204, 255, 204));
+        mainAdminPanel.setBackground(new java.awt.Color(255, 255, 255));
         mainAdminPanel.setMaximumSize(new java.awt.Dimension(900, 600));
         mainAdminPanel.setMinimumSize(new java.awt.Dimension(900, 600));
         mainAdminPanel.setLayout(null);
@@ -346,10 +346,10 @@ public class AdminUserFrame extends javax.swing.JFrame {
         mainAdminPanel.add(viewBuildAdminBtn);
         viewBuildAdminBtn.setBounds(540, 380, 160, 80);
 
-        adminMenuLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        adminMenuLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         adminMenuLabel.setText("Admin Menu");
         mainAdminPanel.add(adminMenuLabel);
-        adminMenuLabel.setBounds(370, 220, 160, 40);
+        adminMenuLabel.setBounds(330, 220, 240, 40);
 
         getContentPane().add(mainAdminPanel);
         mainAdminPanel.setBounds(0, 0, 900, 600);
