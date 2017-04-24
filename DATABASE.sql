@@ -98,7 +98,7 @@ FOREIGN KEY(ID) REFERENCES Part(PartID) ON DELETE CASCADE
 
 CREATE TABLE Cooler(
 ID INT NOT NULL,
-Socket` varchar(30) NOT NULL,
+Socket varchar(30) NOT NULL,
 Min_Fan_RPM int(4) DEFAULT NULL,
 Max_Fan_RPM int(4) NOT NULL,
 Noise_Level_dba varchar(30) NOT NULL,
