@@ -166,7 +166,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainUserPanel.add(adminBackBtn);
-        adminBackBtn.setBounds(20, 10, 55, 40);
+        adminBackBtn.setBounds(20, 10, 75, 40);
         adminBackBtn.setVisible(false);
 
         getContentPane().add(mainUserPanel);
@@ -201,7 +201,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         profilePanel.add(editBtnProfile);
-        editBtnProfile.setBounds(290, 100, 91, 41);
+        editBtnProfile.setBounds(290, 100, 103, 41);
 
         settingsLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         settingsLabel.setText("SETTINGS");
@@ -300,7 +300,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(logOffAdminBtn);
-        logOffAdminBtn.setBounds(809, 11, 69, 43);
+        logOffAdminBtn.setBounds(809, 11, 91, 43);
 
         profileAdminBtn.setText("Profile");
         profileAdminBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -309,7 +309,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(profileAdminBtn);
-        profileAdminBtn.setBounds(740, 11, 63, 43);
+        profileAdminBtn.setBounds(740, 11, 84, 43);
 
         newComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         newComponentAdminBtn.setText("Add New Part");
@@ -504,7 +504,8 @@ private void enbleEdit(boolean torf){
     }//GEN-LAST:event_logOffAdminBtnActionPerformed
 
     private void newComponentAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newComponentAdminBtnActionPerformed
-        BuildForm frm = new BuildForm(currentUser,true);
+        ArrayList<String> INFO = null;
+        BuildForm frm = new BuildForm(currentUser,true,"",INFO);
         this.dispose();
         frm.setVisible(true);
         

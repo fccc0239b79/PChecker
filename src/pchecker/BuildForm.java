@@ -53,12 +53,17 @@ public class BuildForm extends javax.swing.JFrame {
         
         
     }
-    public BuildForm(userAdminAccount user,Boolean TorF) {
+    //adding new part 
+    public BuildForm(userAdminAccount user,Boolean TorF,String partType, ArrayList<String> INFO) {
         initComponents();
         setLocationRelativeTo(null);
         currentUser = user;
         addPart.setVisible(true);
         viewPartPanel.setVisible(false);
+        
+        if(partType!=""){
+            partTypeComboBox.setSelectedItem(partType);
+        }
     }
     
     public BuildForm(userAdminAccount user, Boolean TorF, Boolean ViewP){
@@ -468,14 +473,15 @@ public class BuildForm extends javax.swing.JFrame {
         addPartCancelBtn = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         partTypeComboBox = new javax.swing.JComboBox<>();
-        jLabel18 = new javax.swing.JLabel();
+        addPartTitle = new javax.swing.JLabel();
+        addPartUpdateBtn = new javax.swing.JButton();
         addComp = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         compTable = new javax.swing.JTable();
         saveCompBtn = new javax.swing.JButton();
         viewPartPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        viewAllPartsTable = new javax.swing.JTable();
         partTypeComboBox2 = new javax.swing.JComboBox<>();
         cancelBtnE1 = new javax.swing.JButton();
         acceptBtnE1 = new javax.swing.JButton();
@@ -791,7 +797,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         acceptBtnE.setText("Accept");
         editPanel.add(acceptBtnE);
-        acceptBtnE.setBounds(740, 10, 65, 42);
+        acceptBtnE.setBounds(740, 10, 87, 42);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -897,7 +903,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jComboBox1);
-        jComboBox1.setBounds(440, 290, 220, 20);
+        jComboBox1.setBounds(440, 290, 220, 27);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -905,11 +911,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField1);
-        jTextField1.setBounds(440, 320, 220, 20);
+        jTextField1.setBounds(440, 320, 220, 26);
         createAccount.add(jTextField2);
-        jTextField2.setBounds(440, 350, 220, 20);
+        jTextField2.setBounds(440, 350, 220, 26);
         createAccount.add(jTextField3);
-        jTextField3.setBounds(440, 380, 220, 20);
+        jTextField3.setBounds(440, 380, 220, 26);
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -917,14 +923,14 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField4);
-        jTextField4.setBounds(440, 410, 220, 20);
+        jTextField4.setBounds(440, 410, 220, 26);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("email:");
         createAccount.add(jLabel11);
         jLabel11.setBounds(300, 470, 70, 17);
         createAccount.add(jTextField5);
-        jTextField5.setBounds(440, 440, 220, 20);
+        jTextField5.setBounds(440, 440, 220, 26);
         createAccount.add(jTextField6);
         jTextField6.setBounds(440, 470, 220, 20);
 
@@ -955,7 +961,7 @@ public class BuildForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         viewAccount.add(jScrollPane1);
-        jScrollPane1.setBounds(220, 290, 452, 170);
+        jScrollPane1.setBounds(220, 290, 454, 170);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel12.setText("View Accounts:");
@@ -1041,7 +1047,7 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     addPart.add(addPartSaveBtn);
-    addPartSaveBtn.setBounds(550, 180, 70, 40);
+    addPartSaveBtn.setBounds(470, 180, 70, 40);
 
     addPartCancelBtn.setText("Cancel");
     addPartCancelBtn.setMaximumSize(new java.awt.Dimension(51, 23));
@@ -1075,10 +1081,24 @@ public class BuildForm extends javax.swing.JFrame {
     addPart.add(partTypeComboBox);
     partTypeComboBox.setBounds(170, 90, 170, 30);
 
-    jLabel18.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-    jLabel18.setText("Add Computer Part");
-    addPart.add(jLabel18);
-    jLabel18.setBounds(490, 70, 370, 70);
+    addPartTitle.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+    addPartTitle.setText("Add Computer Part");
+    addPart.add(addPartTitle);
+    addPartTitle.setBounds(490, 70, 370, 70);
+
+    addPartUpdateBtn.setText("Update");
+    addPartUpdateBtn.setEnabled(false);
+    addPartUpdateBtn.setMaximumSize(new java.awt.Dimension(51, 23));
+    addPartUpdateBtn.setMinimumSize(new java.awt.Dimension(51, 23));
+    addPartUpdateBtn.setPreferredSize(new java.awt.Dimension(51, 23));
+    addPartUpdateBtn.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            addPartUpdateBtnActionPerformed(evt);
+        }
+    });
+    addPart.add(addPartUpdateBtn);
+    addPartUpdateBtn.setBounds(550, 180, 70, 40);
+    addPartUpdateBtn.setVisible(false);
 
     getContentPane().add(addPart);
     addPart.setBounds(0, 0, 900, 600);
@@ -1111,7 +1131,7 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     addComp.add(saveCompBtn);
-    saveCompBtn.setBounds(780, 30, 55, 23);
+    saveCompBtn.setBounds(780, 30, 75, 29);
 
     getContentPane().add(addComp);
     addComp.setBounds(0, 0, 900, 600);
@@ -1123,7 +1143,7 @@ public class BuildForm extends javax.swing.JFrame {
     viewPartPanel.setPreferredSize(new java.awt.Dimension(900, 600));
     viewPartPanel.setLayout(null);
 
-    jTable3.setModel(new javax.swing.table.DefaultTableModel(
+    viewAllPartsTable.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
             {},
             {},
@@ -1134,7 +1154,12 @@ public class BuildForm extends javax.swing.JFrame {
 
         }
     ));
-    jScrollPane4.setViewportView(jTable3);
+    viewAllPartsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            viewAllPartsTableMouseClicked(evt);
+        }
+    });
+    jScrollPane4.setViewportView(viewAllPartsTable);
 
     viewPartPanel.add(jScrollPane4);
     jScrollPane4.setBounds(20, 360, 850, 200);
@@ -1159,7 +1184,7 @@ public class BuildForm extends javax.swing.JFrame {
 
     acceptBtnE1.setText("Accept");
     viewPartPanel.add(acceptBtnE1);
-    acceptBtnE1.setBounds(740, 10, 65, 42);
+    acceptBtnE1.setBounds(740, 10, 87, 42);
 
     jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
     jLabel1.setText("jLabel1");
@@ -1527,6 +1552,32 @@ public class BuildForm extends javax.swing.JFrame {
            getSelectedPart();
         } 
     }//GEN-LAST:event_partTypeComboBox2ActionPerformed
+
+    private void viewAllPartsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewAllPartsTableMouseClicked
+
+        //String selected = viewAllPartsTable.getS
+        String partType = String.valueOf(partTypeComboBox2.getSelectedItem());
+        partTypeComboBox.setSelectedItem(partType);
+        
+
+        
+       for(int column = 0; column < viewAllPartsTable.getColumnCount(); column++) {
+            System.out.println(viewAllPartsTable.getValueAt(viewAllPartsTable.getSelectedRow(), column));  
+        }
+       
+        addPartUpdateBtn.setVisible(true);
+        addPartSaveBtn.setVisible(false);
+
+        addPartTitle.setText("Edit (partNAME");
+        
+        viewPartPanel.setVisible(false);
+        addPart.setVisible(true);
+
+    }//GEN-LAST:event_viewAllPartsTableMouseClicked
+
+    private void addPartUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartUpdateBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addPartUpdateBtnActionPerformed
     
     /**
      * getSelectedPart() allows to get a list selected component from jComboBox. Display all available parts from database in table.
@@ -1541,7 +1592,7 @@ public class BuildForm extends javax.swing.JFrame {
         getParts = currentUser.getparts(selectedPartType);
         
         // display data in a table
-        jTable3.setModel(getParts);
+        viewAllPartsTable.setModel(getParts);
     }
     
     private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {                                                  
@@ -1606,6 +1657,8 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JPanel addPart;
     private javax.swing.JButton addPartCancelBtn;
     private javax.swing.JButton addPartSaveBtn;
+    private javax.swing.JLabel addPartTitle;
+    private javax.swing.JButton addPartUpdateBtn;
     private javax.swing.JButton buildCancelBtn;
     private javax.swing.JLabel buildNameLabelB;
     private javax.swing.JTextField buildNametxt;
@@ -1641,7 +1694,6 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1656,7 +1708,6 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -1684,6 +1735,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JButton supplyBtn;
     private javax.swing.JButton updateBtn;
     private javax.swing.JPanel viewAccount;
+    private javax.swing.JTable viewAllPartsTable;
     private javax.swing.JPanel viewPartPanel;
     // End of variables declaration//GEN-END:variables
 }
