@@ -307,7 +307,9 @@ public class BuildForm extends javax.swing.JFrame {
        
         if(name == "Model"){
             if(currentUser.checkDuplicate(inputText,String.valueOf(partTypeComboBox.getSelectedItem()))){
+                
                 input.setBackground(Color.RED);
+                return;
             }else{
                 input.setBackground(Color.green);
             }
