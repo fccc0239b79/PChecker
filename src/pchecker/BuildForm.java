@@ -485,6 +485,7 @@ public class BuildForm extends javax.swing.JFrame {
         addPartTitle = new javax.swing.JLabel();
         addPartUpdateBtn = new javax.swing.JButton();
         partIDLable = new javax.swing.JLabel();
+        deletePart = new javax.swing.JButton();
         addComp = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         compTable = new javax.swing.JTable();
@@ -1107,7 +1108,7 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     addPart.add(addPartUpdateBtn);
-    addPartUpdateBtn.setBounds(550, 180, 70, 40);
+    addPartUpdateBtn.setBounds(550, 130, 70, 40);
     addPartUpdateBtn.setVisible(false);
 
     partIDLable.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -1115,6 +1116,19 @@ public class BuildForm extends javax.swing.JFrame {
     addPart.add(partIDLable);
     partIDLable.setBounds(60, 520, 770, 70);
     partIDLable.setVisible(false);
+
+    deletePart.setText("DELETE");
+    deletePart.setMaximumSize(new java.awt.Dimension(51, 23));
+    deletePart.setMinimumSize(new java.awt.Dimension(51, 23));
+    deletePart.setPreferredSize(new java.awt.Dimension(51, 23));
+    deletePart.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            deletePartActionPerformed(evt);
+        }
+    });
+    addPart.add(deletePart);
+    deletePart.setBounds(550, 180, 70, 40);
+    deletePart.setVisible(false);
 
     getContentPane().add(addPart);
     addPart.setBounds(0, 0, 900, 600);
@@ -1605,6 +1619,7 @@ public class BuildForm extends javax.swing.JFrame {
        partTypeComboBox.setEnabled(false);
        
         addPartUpdateBtn.setVisible(true);
+        deletePart.setVisible(true);
         addPartSaveBtn.setVisible(false);
         
         viewPartPanel.setVisible(false);
@@ -1615,6 +1630,13 @@ public class BuildForm extends javax.swing.JFrame {
     private void addPartUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartUpdateBtnActionPerformed
         saveNewPart(false);
     }//GEN-LAST:event_addPartUpdateBtnActionPerformed
+
+    private void deletePartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePartActionPerformed
+        currentUser.deletePart(partIDLable.getText());
+        AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
+        this.dispose();
+        frm.setVisible(true);
+    }//GEN-LAST:event_deletePartActionPerformed
     
     /**
      * getSelectedPart() allows to get a list selected component from jComboBox. Display all available parts from database in table.
@@ -1712,6 +1734,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel coolingLabelSelectedPart;
     private javax.swing.JLabel cooling_ID;
     private javax.swing.JPanel createAccount;
+    private javax.swing.JButton deletePart;
     private javax.swing.JLabel editLabelE;
     private javax.swing.JPanel editPanel;
     private javax.swing.JLabel gpuLabelSelectedPart;

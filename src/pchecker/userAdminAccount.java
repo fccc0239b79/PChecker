@@ -686,5 +686,24 @@ public class userAdminAccount {
     }
     
     }
+    
+    public void deletePart(String partID){
+            Connection con = ServerControl.ConnectDB();
+
+    try {
+       //SQL query for inserting data into account table
+      String query = "DELETE FROM Part WHERE PartID = "+partID; 
+
+      PreparedStatement statement = con.prepareStatement(query);
+      
+    
+
+     System.out.println(statement);
+      statement.execute();
+
+    }
+    catch(SQLException err){
+    }
+    }
 
     }
