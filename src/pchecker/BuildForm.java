@@ -477,6 +477,8 @@ public class BuildForm extends javax.swing.JFrame {
         partTypeComboBox2 = new javax.swing.JComboBox<>();
         cancelBtnE1 = new javax.swing.JButton();
         acceptBtnE1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(900, 600));
@@ -1113,6 +1115,7 @@ public class BuildForm extends javax.swing.JFrame {
     addComp.setBounds(0, 0, 900, 600);
     addComp.setVisible(false);
 
+    viewPartPanel.setBackground(new java.awt.Color(255, 255, 255));
     viewPartPanel.setMaximumSize(new java.awt.Dimension(900, 600));
     viewPartPanel.setMinimumSize(new java.awt.Dimension(900, 600));
     viewPartPanel.setPreferredSize(new java.awt.Dimension(900, 600));
@@ -1120,19 +1123,19 @@ public class BuildForm extends javax.swing.JFrame {
 
     jTable3.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
-            {null, null, null, null},
-            {null, null, null, null},
-            {null, null, null, null},
-            {null, null, null, null}
+            {},
+            {},
+            {},
+            {}
         },
         new String [] {
-            "Title 1", "Title 2", "Title 3", "Title 4"
+
         }
     ));
     jScrollPane4.setViewportView(jTable3);
 
     viewPartPanel.add(jScrollPane4);
-    jScrollPane4.setBounds(90, 300, 630, 160);
+    jScrollPane4.setBounds(20, 360, 850, 200);
 
     partTypeComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Choose-", "Motherboard", "CPU", "GPU", "RAM", "Storage", "PSU", "PCCase", "Accessory", "Cooler" }));
     partTypeComboBox2.addActionListener(new java.awt.event.ActionListener() {
@@ -1141,7 +1144,7 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     viewPartPanel.add(partTypeComboBox2);
-    partTypeComboBox2.setBounds(280, 200, 210, 30);
+    partTypeComboBox2.setBounds(340, 310, 210, 30);
 
     cancelBtnE1.setText("Cancel");
     cancelBtnE1.addActionListener(new java.awt.event.ActionListener() {
@@ -1155,6 +1158,16 @@ public class BuildForm extends javax.swing.JFrame {
     acceptBtnE1.setText("Accept");
     viewPartPanel.add(acceptBtnE1);
     acceptBtnE1.setBounds(740, 10, 65, 42);
+
+    jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
+    jLabel1.setText("jLabel1");
+    viewPartPanel.add(jLabel1);
+    jLabel1.setBounds(130, 70, 600, 120);
+
+    jLabel15.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+    jLabel15.setText("View Components");
+    viewPartPanel.add(jLabel15);
+    jLabel15.setBounds(280, 210, 340, 40);
 
     getContentPane().add(viewPartPanel);
     viewPartPanel.setBounds(0, 0, 900, 600);
@@ -1505,8 +1518,9 @@ public class BuildForm extends javax.swing.JFrame {
         
         if(String.valueOf(partTypeComboBox2.getSelectedItem()) != "-Choose-"){
            // addingNewPart();
+           
            getSelectedPart();
-        }
+        } 
     }//GEN-LAST:event_partTypeComboBox2ActionPerformed
     
     /**
@@ -1615,11 +1629,13 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
