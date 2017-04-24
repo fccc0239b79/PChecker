@@ -357,7 +357,7 @@ public class BuildForm extends javax.swing.JFrame {
         
     }
     
-    private void saveNewPart(){
+    private void saveNewPart(Boolean TorF){
         
         ArrayList<String> info = new ArrayList<String>();
         ArrayList<String> infopart = new ArrayList<String>();
@@ -380,14 +380,19 @@ public class BuildForm extends javax.swing.JFrame {
         
 
        
-        
+        if(TorF){
         int partID = currentUser.savePart(partT, info,infopart);
         addPart.setVisible(false);
+
         addComp.setVisible(true);
         
         compTable.setModel(currentUser.getCompT(partID));
-        
-    
+        }else{
+            currentUser.updatePart(partT,partIDLable.getText(), info,infopart);
+            AdminUserFrame frm = new AdminUserFrame(currentUser);
+            this.dispose();
+            frm.setVisible(true);
+        }
     }
     
     /**
@@ -479,6 +484,7 @@ public class BuildForm extends javax.swing.JFrame {
         partTypeComboBox = new javax.swing.JComboBox<>();
         addPartTitle = new javax.swing.JLabel();
         addPartUpdateBtn = new javax.swing.JButton();
+        partIDLable = new javax.swing.JLabel();
         addComp = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         compTable = new javax.swing.JTable();
@@ -1088,7 +1094,7 @@ public class BuildForm extends javax.swing.JFrame {
     addPartTitle.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
     addPartTitle.setText("Add Computer Part");
     addPart.add(addPartTitle);
-    addPartTitle.setBounds(490, 70, 370, 70);
+    addPartTitle.setBounds(120, 10, 760, 70);
 
     addPartUpdateBtn.setText("Update");
     addPartUpdateBtn.setEnabled(false);
@@ -1103,6 +1109,12 @@ public class BuildForm extends javax.swing.JFrame {
     addPart.add(addPartUpdateBtn);
     addPartUpdateBtn.setBounds(550, 180, 70, 40);
     addPartUpdateBtn.setVisible(false);
+
+    partIDLable.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+    partIDLable.setText("ID");
+    addPart.add(partIDLable);
+    partIDLable.setBounds(60, 520, 770, 70);
+    partIDLable.setVisible(false);
 
     getContentPane().add(addPart);
     addPart.setBounds(0, 0, 900, 600);
@@ -1536,7 +1548,7 @@ public class BuildForm extends javax.swing.JFrame {
 
     private void addPartSaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartSaveBtnActionPerformed
         //addingNewPartValidation();
-        saveNewPart();
+        saveNewPart(true);
     }//GEN-LAST:event_addPartSaveBtnActionPerformed
 
     private void addPartFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addPartFocusGained
@@ -1567,6 +1579,10 @@ public class BuildForm extends javax.swing.JFrame {
         
        for(int column = 0; column < viewAllPartsTable.getColumnCount(); column++) {
            String value = String.valueOf(viewAllPartsTable.getValueAt(viewAllPartsTable.getSelectedRow(), column)), name = String.valueOf(viewAllPartsTable.getModel().getColumnName(column));
+           if(name.equals("PartID")){
+               partIDLable.setText(value);
+           }
+           
            if(name != "PartType" || name != "PartID"){
             System.out.println(name +" "+value);
              Component input = getComponentByName(name+"Input");
@@ -1597,7 +1613,7 @@ public class BuildForm extends javax.swing.JFrame {
     }//GEN-LAST:event_viewAllPartsTableMouseClicked
 
     private void addPartUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartUpdateBtnActionPerformed
-        // TODO add your handling code here:
+        saveNewPart(false);
     }//GEN-LAST:event_addPartUpdateBtnActionPerformed
     
     /**
@@ -1741,6 +1757,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel motherboardLabelSelectedPart1;
     private javax.swing.JLabel motherboard_ID;
     private javax.swing.JLabel newBuildTitleLable;
+    private javax.swing.JLabel partIDLable;
     private javax.swing.JComboBox<String> partTypeComboBox;
     private javax.swing.JComboBox<String> partTypeComboBox2;
     private javax.swing.JTable partsTable;

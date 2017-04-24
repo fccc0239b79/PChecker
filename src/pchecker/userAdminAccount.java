@@ -529,6 +529,7 @@ public class userAdminAccount {
        
       public boolean checkDuplicate(String model,String partType){
       
+         
         Connection con = ServerControl.ConnectDB();
 
         try { 
@@ -619,6 +620,71 @@ public class userAdminAccount {
        System.out.println(err);
     }
     return partID;
+    }
+
+    
+
+
+
+
+
+
+    public void updatePart(String partType, String partid, ArrayList<String> info,ArrayList<String> partinfo){
+        //int partID = 0;
+        Connection con = ServerControl.ConnectDB();
+
+    try {
+       //SQL query for inserting data into account table
+      String query = "UPDATE Part SET Price = ?, Model = ?, Make = ?, PartType = ?  WHERE PartID = ?"; 
+
+      PreparedStatement statement = con.prepareStatement(query);
+
+      //setting user inputs into sql query
+      
+      for(int i = 0; i < 4;i++){
+        statement.setString((1+i), info.get(i));
+      }
+      
+      statement.setInt((5),Integer.valueOf(partid));
+
+     System.out.println(statement);
+      statement.execute();
+
+    }
+    catch(SQLException err){
+    }
+
+    try {
+        System.out.println(tableColums);
+       //SQL query for inserting data into account table
+       String value="";
+       for(int i = 3; i < tableColums.size();i++){
+           value += tableColums.get(i) + " = ?,";
+       }
+       value = value.substring(0, value.length()-1);
+       
+      String query = "UPDATE "+partType+" SET "+value+" WHERE ID = ?"; 
+
+      PreparedStatement statement = con.prepareStatement(query);
+
+      //setting user inputs into sql query
+      
+      for(int i = 0; i < partinfo.size();i++){
+        statement.setString((1+i), partinfo.get(i));
+      }
+        
+      statement.setInt(partinfo.size()+1,Integer.valueOf(partid));   
+      
+      
+        System.out.println(partinfo+ "-"+statement);
+      
+      statement.execute();
+
+    }
+    catch(SQLException err){
+       System.out.println(err);
+    }
+    
     }
 
     }
