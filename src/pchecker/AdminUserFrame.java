@@ -90,7 +90,6 @@ public class AdminUserFrame extends javax.swing.JFrame {
         logOffAdminBtn = new javax.swing.JButton();
         profileAdminBtn = new javax.swing.JButton();
         newComponentAdminBtn = new javax.swing.JButton();
-        editComponentAdminBtn = new javax.swing.JButton();
         viewComponentAdminBtn = new javax.swing.JButton();
         viewBuildAdminBtn = new javax.swing.JButton();
         adminMenuLabel = new javax.swing.JLabel();
@@ -166,7 +165,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainUserPanel.add(adminBackBtn);
-        adminBackBtn.setBounds(20, 10, 55, 40);
+        adminBackBtn.setBounds(20, 10, 75, 40);
         adminBackBtn.setVisible(false);
 
         getContentPane().add(mainUserPanel);
@@ -201,7 +200,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         profilePanel.add(editBtnProfile);
-        editBtnProfile.setBounds(290, 100, 91, 41);
+        editBtnProfile.setBounds(290, 100, 103, 41);
 
         settingsLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         settingsLabel.setText("SETTINGS");
@@ -300,7 +299,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(logOffAdminBtn);
-        logOffAdminBtn.setBounds(809, 11, 69, 43);
+        logOffAdminBtn.setBounds(809, 11, 91, 43);
 
         profileAdminBtn.setText("Profile");
         profileAdminBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -309,7 +308,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(profileAdminBtn);
-        profileAdminBtn.setBounds(720, 10, 63, 43);
+        profileAdminBtn.setBounds(720, 10, 84, 43);
 
         newComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         newComponentAdminBtn.setText("Add New Part");
@@ -320,11 +319,6 @@ public class AdminUserFrame extends javax.swing.JFrame {
         });
         mainAdminPanel.add(newComponentAdminBtn);
         newComponentAdminBtn.setBounds(370, 290, 160, 80);
-
-        editComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        editComponentAdminBtn.setText("Edit Component");
-        mainAdminPanel.add(editComponentAdminBtn);
-        editComponentAdminBtn.setBounds(370, 380, 160, 80);
 
         viewComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         viewComponentAdminBtn.setText("View Components");
@@ -634,7 +628,6 @@ private void enbleEdit(boolean torf){
     private javax.swing.JList<String> buildsList;
     private javax.swing.JButton editAccountAdminBtn;
     private javax.swing.JButton editBtnProfile;
-    private javax.swing.JButton editComponentAdminBtn;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JLabel emailLabel1;
     private javax.swing.JLabel emailLabel2;

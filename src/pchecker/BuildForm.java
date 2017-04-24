@@ -344,8 +344,12 @@ public class BuildForm extends javax.swing.JFrame {
 
         if(greens.size() == tableColums.size()){
            addPartSaveBtn.setEnabled(true);
+           addPartUpdateBtn.setEnabled(true);
+
          }else{
            addPartSaveBtn.setEnabled(false);
+           addPartUpdateBtn.setEnabled(false);
+
         }
             
             
@@ -1562,13 +1566,30 @@ public class BuildForm extends javax.swing.JFrame {
 
         
        for(int column = 0; column < viewAllPartsTable.getColumnCount(); column++) {
-            System.out.println(viewAllPartsTable.getValueAt(viewAllPartsTable.getSelectedRow(), column));  
+           String value = String.valueOf(viewAllPartsTable.getValueAt(viewAllPartsTable.getSelectedRow(), column)), name = String.valueOf(viewAllPartsTable.getModel().getColumnName(column));
+           if(name != "PartType" || name != "PartID"){
+            System.out.println(name +" "+value);
+             Component input = getComponentByName(name+"Input");
+              if (input instanceof JTextField) {        
+                JTextField mytext = (JTextField) input;
+                mytext.setText(value);
+                
+                if(name.equals("Model")){
+                    mytext.setEnabled(false);
+                    mytext.setBackground(Color.green);
+                    addPartTitle.setText("Edit '"+value+"'");
+
+                }
+               }
+              
+             
         }
+       }
+       
+       partTypeComboBox.setEnabled(false);
        
         addPartUpdateBtn.setVisible(true);
         addPartSaveBtn.setVisible(false);
-
-        addPartTitle.setText("Edit (partNAME");
         
         viewPartPanel.setVisible(false);
         addPart.setVisible(true);
