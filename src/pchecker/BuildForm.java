@@ -182,6 +182,7 @@ public class BuildForm extends javax.swing.JFrame {
     ArrayList<JTextField> inputbox = new ArrayList<JTextField>();
     ArrayList<String> tableColums = new ArrayList<String>();
     public void addingNewPart(){
+        
         addPartSaveBtn.setEnabled(false);
 
         String newPartType = String.valueOf(partTypeComboBox.getSelectedItem());
@@ -473,7 +474,7 @@ public class BuildForm extends javax.swing.JFrame {
         viewPartPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        partTypeComboBox2 = new javax.swing.JComboBox<>();
         cancelBtnE1 = new javax.swing.JButton();
         acceptBtnE1 = new javax.swing.JButton();
 
@@ -786,7 +787,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         acceptBtnE.setText("Accept");
         editPanel.add(acceptBtnE);
-        acceptBtnE.setBounds(740, 10, 87, 42);
+        acceptBtnE.setBounds(740, 10, 65, 42);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -892,7 +893,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jComboBox1);
-        jComboBox1.setBounds(440, 290, 220, 27);
+        jComboBox1.setBounds(440, 290, 220, 20);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -900,11 +901,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField1);
-        jTextField1.setBounds(440, 320, 220, 26);
+        jTextField1.setBounds(440, 320, 220, 20);
         createAccount.add(jTextField2);
-        jTextField2.setBounds(440, 350, 220, 26);
+        jTextField2.setBounds(440, 350, 220, 20);
         createAccount.add(jTextField3);
-        jTextField3.setBounds(440, 380, 220, 26);
+        jTextField3.setBounds(440, 380, 220, 20);
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -912,14 +913,14 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         createAccount.add(jTextField4);
-        jTextField4.setBounds(440, 410, 220, 26);
+        jTextField4.setBounds(440, 410, 220, 20);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("email:");
         createAccount.add(jLabel11);
         jLabel11.setBounds(300, 470, 70, 17);
         createAccount.add(jTextField5);
-        jTextField5.setBounds(440, 440, 220, 26);
+        jTextField5.setBounds(440, 440, 220, 20);
         createAccount.add(jTextField6);
         jTextField6.setBounds(440, 470, 220, 20);
 
@@ -950,7 +951,7 @@ public class BuildForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         viewAccount.add(jScrollPane1);
-        jScrollPane1.setBounds(220, 290, 454, 170);
+        jScrollPane1.setBounds(220, 290, 452, 170);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel12.setText("View Accounts:");
@@ -1106,7 +1107,7 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     addComp.add(saveCompBtn);
-    saveCompBtn.setBounds(780, 30, 75, 29);
+    saveCompBtn.setBounds(780, 30, 55, 23);
 
     getContentPane().add(addComp);
     addComp.setBounds(0, 0, 900, 600);
@@ -1133,9 +1134,14 @@ public class BuildForm extends javax.swing.JFrame {
     viewPartPanel.add(jScrollPane4);
     jScrollPane4.setBounds(90, 300, 630, 160);
 
-    jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Choose-", "Motherboard", "CPU", "GPU", "RAM", "Storage", "PSU", "PCCase", "Accessory", "Cooler" }));
-    viewPartPanel.add(jComboBox2);
-    jComboBox2.setBounds(280, 200, 210, 30);
+    partTypeComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Choose-", "Motherboard", "CPU", "GPU", "RAM", "Storage", "PSU", "PCCase", "Accessory", "Cooler" }));
+    partTypeComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            partTypeComboBox2ActionPerformed(evt);
+        }
+    });
+    viewPartPanel.add(partTypeComboBox2);
+    partTypeComboBox2.setBounds(280, 200, 210, 30);
 
     cancelBtnE1.setText("Cancel");
     cancelBtnE1.addActionListener(new java.awt.event.ActionListener() {
@@ -1148,7 +1154,7 @@ public class BuildForm extends javax.swing.JFrame {
 
     acceptBtnE1.setText("Accept");
     viewPartPanel.add(acceptBtnE1);
-    acceptBtnE1.setBounds(740, 10, 87, 42);
+    acceptBtnE1.setBounds(740, 10, 65, 42);
 
     getContentPane().add(viewPartPanel);
     viewPartPanel.setBounds(0, 0, 900, 600);
@@ -1493,6 +1499,31 @@ public class BuildForm extends javax.swing.JFrame {
     private void addPartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addPartMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_addPartMouseClicked
+
+    
+    private void partTypeComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTypeComboBox2ActionPerformed
+        
+        if(String.valueOf(partTypeComboBox2.getSelectedItem()) != "-Choose-"){
+           // addingNewPart();
+           getSelectedPart();
+        }
+    }//GEN-LAST:event_partTypeComboBox2ActionPerformed
+    
+    /**
+     * getSelectedPart() allows to get a list selected component from jComboBox. Display all available parts from database in table.
+     */
+    public void getSelectedPart(){
+        
+        // get selected value
+        String selectedPartType = String.valueOf(partTypeComboBox2.getSelectedItem());
+        System.out.println(selectedPartType);
+        
+        // go and take all components data from database
+        
+        
+        // display data in a table
+        
+    }
     
     private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         // TODO add your handling code here:
@@ -1584,7 +1615,6 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1619,6 +1649,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel motherboard_ID;
     private javax.swing.JLabel newBuildTitleLable;
     private javax.swing.JComboBox<String> partTypeComboBox;
+    private javax.swing.JComboBox<String> partTypeComboBox2;
     private javax.swing.JTable partsTable;
     private javax.swing.JLabel powersupply_ID;
     private javax.swing.JButton processorBtn;
