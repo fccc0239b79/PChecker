@@ -4,10 +4,10 @@ USE PChecker;
 
 CREATE TABLE Part(
 PartID INT NOT NULL AUTO_INCREMENT,
-`Price` decimal(6,2) NOT NULL,
-`Model` varchar(30) NOT NULL,
-`Make` varchar(30) NOT NULL,
-`PartType` varchar(30) NOT NULL,
+Price decimal(6,2) NOT NULL,
+Model varchar(30) NOT NULL,
+Make varchar(30) NOT NULL,
+PartType varchar(30) NOT NULL,
 
 PRIMARY KEY (PartID)
 );
@@ -23,95 +23,95 @@ PRIMARY KEY(Part1,Part2)
 
 CREATE TABLE CPU(
 ID INT NOT NULL,
-`SpeedGHz` decimal(6,2) NOT NULL,
-`Cores` int(4) NOT NULL,
-`Socket` varchar(30) NOT NULL,
+SpeedGHz decimal(6,2) NOT NULL,
+Cores int(4) NOT NULL,
+Socket varchar(30) NOT NULL,
 
 PRIMARY KEY (ID),
-FOREIGN KEY(ID) REFERENCES Part(PartID)
+FOREIGN KEY(ID) REFERENCES Part(PartID) ON DELETE CASCADE
 );
 
 CREATE TABLE Motherboard(
 ID INT NOT NULL,
-`Socket` varchar(30) NOT NULL,
-`Form_Factor` varchar(30) NOT NULL,
-`RAM_Type` varchar(30) NOT NULL,
-`RAM_Slots` int(4) NOT NULL,
-`Max_RAM` int(4) NOT NULL,
+Socket varchar(30) NOT NULL,
+Form_Factor varchar(30) NOT NULL,
+RAM_Type varchar(30) NOT NULL,
+RAM_Slots int(4) NOT NULL,
+Max_RAM int(4) NOT NULL,
   
 PRIMARY KEY (ID),
-FOREIGN KEY(ID) REFERENCES Part(PartID)
+FOREIGN KEY(ID) REFERENCES Part(PartID) ON DELETE CASCADE
 );
 
 CREATE TABLE RAM(
-`ID` INT NOT NULL,
-`Type` varchar(30) NOT NULL,
-`Speed` decimal(6,2) NOT NULL,
-`SizeGB` int(4) NOT NULL,
-`Sticks` int(4) NOT NULL,
+ID INT NOT NULL,
+Type varchar(30) NOT NULL,
+Speed decimal(6,2) NOT NULL,
+SizeGB int(4) NOT NULL,
+Sticks int(4) NOT NULL,
 
 
 PRIMARY KEY(ID),
-FOREIGN KEY(ID) REFERENCES Part(PartID)
+FOREIGN KEY(ID) REFERENCES Part(PartID) ON DELETE CASCADE
 );
 
 CREATE TABLE Storage(
 ID INT NOT NULL ,
-`Series` varchar(30) DEFAULT NULL,
-  `Speed` int(4) DEFAULT NULL,
-  `CapacityGB` int(4) DEFAULT NULL,
+Series varchar(30) DEFAULT NULL,
+Speed int(4) DEFAULT NULL,
+CapacityGB int(4) DEFAULT NULL,
 
 PRIMARY KEY(ID),
-FOREIGN KEY(ID) REFERENCES Part(PartID)
+FOREIGN KEY(ID) REFERENCES Part(PartID) ON DELETE CASCADE
 );
 
 CREATE TABLE GPU(
 ID INT NOT NULL,
-`Series` varchar(30) DEFAULT NULL,
-  `Chipset` varchar(30) DEFAULT NULL,
-  `MemoryGB` int(4) DEFAULT NULL,
-  `Core_ClockGHz` decimal(6,2) NOT NULL,
+Series varchar(30) DEFAULT NULL,
+Chipset varchar(30) DEFAULT NULL,
+MemoryGB int(4) DEFAULT NULL,
+Core_ClockGHz decimal(6,2) NOT NULL,
 
 PRIMARY KEY(ID),
-FOREIGN KEY(ID) REFERENCES Part(PartID)
+FOREIGN KEY(ID) REFERENCES Part(PartID) ON DELETE CASCADE
 );
 
 CREATE TABLE PSU(
 ID INT NOT NULL,
-  `Wattage` int(4) DEFAULT NULL,
-  `Efficiency` varchar(30) DEFAULT NULL,
+Wattage int(4) DEFAULT NULL,
+Efficiency varchar(30) DEFAULT NULL,
   
 PRIMARY KEY(ID),
-FOREIGN KEY(ID) REFERENCES Part(PartID)
+FOREIGN KEY(ID) REFERENCES Part(PartID) ON DELETE CASCADE
 );
 
 CREATE TABLE PCCase(
 ID INT NOT NULL,
-`Height_cm` decimal(6,2) NOT NULL,
-  `Width_cm` decimal(6,2) NOT NULL,
-  `Depth_cm` decimal(6,2) NOT NULL,
-  `Colour` varchar(30) DEFAULT NULL,
+Height_cm decimal(6,2) NOT NULL,
+Width_cm decimal(6,2) NOT NULL,
+Depth_cm decimal(6,2) NOT NULL,
+Colour varchar(30) DEFAULT NULL,
 
 PRIMARY KEY(ID),
-FOREIGN KEY(ID) REFERENCES Part(PartID)
+FOREIGN KEY(ID) REFERENCES Part(PartID) ON DELETE CASCADE
 );
 
 CREATE TABLE Cooler(
 ID INT NOT NULL,
-`Socket` varchar(30) NOT NULL,
-  `Min_Fan_RPM` int(4) DEFAULT NULL,
-  `Max_Fan_RPM` int(4) NOT NULL,
-  `Noise_Level_dba` varchar(30) NOT NULL,
+Socket` varchar(30) NOT NULL,
+Min_Fan_RPM int(4) DEFAULT NULL,
+Max_Fan_RPM int(4) NOT NULL,
+Noise_Level_dba varchar(30) NOT NULL,
   
 PRIMARY KEY(ID),
-FOREIGN KEY(ID) REFERENCES Part(PartID)
+FOREIGN KEY(ID) REFERENCES Part(PartID) ON DELETE CASCADE
 );
 
 CREATE TABLE Accessory(
 ID INT NOT NULL,
 Description VARCHAR(30),
 PRIMARY KEY(ID),
-FOREIGN KEY(ID) REFERENCES Part(PartID)
+FOREIGN KEY(ID) REFERENCES Part(PartID) ON DELETE CASCADE
 );
 
 CREATE TABLE Account(
@@ -147,13 +147,13 @@ Cooler INT,
 Accessory INT,
 systemCompRating INT,
 PRIMARY KEY (ID,Account),
-FOREIGN KEY (Motherboard) REFERENCES Motherboard(ID),
-FOREIGN KEY (CPU) REFERENCES CPU(ID),
-FOREIGN KEY (RAM) REFERENCES RAM(ID),
-FOREIGN KEY (Storage) REFERENCES Storage(ID),
-FOREIGN KEY (GPU) REFERENCES GPU(ID),
-FOREIGN KEY (PSU) REFERENCES PSU(ID),
-FOREIGN KEY (PCCase) REFERENCES PCCase(ID),
-FOREIGN KEY (Cooler) REFERENCES Cooler(ID),
-FOREIGN KEY (Accessory) REFERENCES Accessory(ID)
+FOREIGN KEY (Motherboard) REFERENCES Motherboard(ID) ON DELETE CASCADE,
+FOREIGN KEY (CPU) REFERENCES CPU(ID) ON DELETE CASCADE,
+FOREIGN KEY (RAM) REFERENCES RAM(ID) ON DELETE CASCADE,
+FOREIGN KEY (Storage) REFERENCES Storage(ID) ON DELETE CASCADE,
+FOREIGN KEY (GPU) REFERENCES GPU(ID) ON DELETE CASCADE,
+FOREIGN KEY (PSU) REFERENCES PSU(ID) ON DELETE CASCADE,
+FOREIGN KEY (PCCase) REFERENCES PCCase(ID) ON DELETE CASCADE,
+FOREIGN KEY (Cooler) REFERENCES Cooler(ID) ON DELETE CASCADE,
+FOREIGN KEY (Accessory) REFERENCES Accessory(ID) ON DELETE CASCADE
 );
