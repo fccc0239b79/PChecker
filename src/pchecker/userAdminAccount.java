@@ -433,7 +433,7 @@ public class userAdminAccount {
     ArrayList<String> listOfParts= new ArrayList<String>();
     
     
-
+    // check ! 
     public static DefaultTableModel getparts(String part){
         DefaultTableModel modelParts = new DefaultTableModel() ;
         
@@ -441,6 +441,7 @@ public class userAdminAccount {
             try {
                 Statement stmt = (Statement) con.createStatement();
                 String query = ("Select * FROM "+ part +" INNER JOIN Part ON "+part+".ID = Part.PartID;");
+               // String query = ("Select * FROM Part");
 
                 ResultSet rs = stmt.executeQuery(query);
                 ///System.out.print(rs.getString(0));
@@ -525,8 +526,7 @@ public class userAdminAccount {
           return tableDataType;
       }
       
-      
-      
+       
       public boolean checkDuplicate(String model,String partType){
       
         Connection con = ServerControl.ConnectDB();

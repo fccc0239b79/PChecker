@@ -1515,14 +1515,14 @@ public class BuildForm extends javax.swing.JFrame {
     public void getSelectedPart(){
         
         // get selected value
-        String selectedPartType = String.valueOf(partTypeComboBox2.getSelectedItem());
-        System.out.println(selectedPartType);
+        String selectedPartType = String.valueOf(partTypeComboBox2.getSelectedItem());        
         
         // go and take all components data from database
-        
+        DefaultTableModel getParts = new DefaultTableModel();
+        getParts = currentUser.getparts(selectedPartType);
         
         // display data in a table
-        
+        jTable3.setModel(getParts);
     }
     
     private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {                                                  
