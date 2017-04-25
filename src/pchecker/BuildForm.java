@@ -981,7 +981,7 @@ public class BuildForm extends javax.swing.JFrame {
     viewPartPanel.add(jScrollPane4);
     jScrollPane4.setBounds(20, 360, 850, 200);
 
-    partTypeComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Choose-", "Motherboard", "CPU", "GPU", "RAM", "Storage", "PSU", "PCCase", "Accessory", "Cooler" }));
+    partTypeComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Choose-","Motherboard", "CPU", "GPU", "RAM", "Storage", "PSU", "PCCase", "Accessory", "Cooler" }));
     partTypeComboBox2.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             partTypeComboBox2ActionPerformed(evt);

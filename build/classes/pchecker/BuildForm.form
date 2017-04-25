@@ -873,19 +873,8 @@
         </Container>
         <Component class="javax.swing.JComboBox" name="partTypeComboBox2">
           <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="10">
-                <StringItem index="0" value="-Choose-"/>
-                <StringItem index="1" value="Motherboard"/>
-                <StringItem index="2" value="CPU"/>
-                <StringItem index="3" value="GPU"/>
-                <StringItem index="4" value="RAM"/>
-                <StringItem index="5" value="Storage"/>
-                <StringItem index="6" value="PSU"/>
-                <StringItem index="7" value="PCCase"/>
-                <StringItem index="8" value="Accessory"/>
-                <StringItem index="9" value="Cooler"/>
-              </StringArray>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;-Choose-&quot;,&quot;Motherboard&quot;, &quot;CPU&quot;, &quot;GPU&quot;, &quot;RAM&quot;, &quot;Storage&quot;, &quot;PSU&quot;, &quot;PCCase&quot;, &quot;Accessory&quot;, &quot;Cooler&quot; })" type="code"/>
             </Property>
           </Properties>
           <Events>
