@@ -184,9 +184,14 @@ public class BuildForm extends javax.swing.JFrame {
 }
     
     ArrayList<JLabel> labels = new ArrayList<JLabel>();
+        ArrayList<JLabel> errLables = new ArrayList<JLabel>();
+
+    
     ArrayList<JTextField> inputbox = new ArrayList<JTextField>();
     ArrayList<String> tableColums = new ArrayList<String>();
-    public void addingNewPart(){
+    
+    
+   public void addingNewPart(){
         
         addPartSaveBtn.setEnabled(false);
 
@@ -203,10 +208,12 @@ public class BuildForm extends javax.swing.JFrame {
             addPart.remove(labels.get(i));
             if(i < labels.size()/2){
                 addPart.remove(inputbox.get(i));
+                addPart.remove(errLables.get(i));
             }
         }
         labels.clear();
         inputbox.clear();
+        errLables.clear();
         
         //creats so many labels and input fields 
         int y = 130, x = 0;
@@ -220,6 +227,15 @@ public class BuildForm extends javax.swing.JFrame {
             label100.setBounds(0, y, 160, 30);
             labels.add(label100);
             addPart.add(label100);
+            
+            JLabel errlbl  = new JLabel("", SwingConstants.LEFT);
+            errlbl.setName(name+"ERR");
+            errlbl.setForeground(Color.RED);
+            //errlbl.setBorder(BorderFactory.createLineBorder(Color.RED));
+            errlbl.setBounds(450, y, 400, 30);
+            errLables.add(errlbl);
+            addPart.add(errlbl);
+            
             
             JLabel label1000  = new JLabel(dataType.get(x), SwingConstants.RIGHT);
             label1000.setBounds(0, y, 80, 30);
@@ -265,6 +281,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         addPart.repaint();
     }
+
     private String getContents(Component comp){
         
         if (comp instanceof JTextComponent) {
@@ -281,10 +298,17 @@ public class BuildForm extends javax.swing.JFrame {
 
         Component input = getComponentByName(name+"Input");
         Component label = getComponentByName(name+"Lable");    
+        Component errlabel = getComponentByName(name+"ERR");    
+        JLabel errL =  ((JLabel)errlabel);
         
         String inputText = getContents(input);
         String labelText = getContents(label);
+        
+        
+        
+        
         int length = 0;
+        String err = "";
         
         Boolean itsAnInt = true;
         switch (labelText){
@@ -294,12 +318,14 @@ public class BuildForm extends javax.swing.JFrame {
                     Integer.parseInt(inputText);
                  } catch(NumberFormatException e) { 
                   itsAnInt = false;
+                  err += "Has to be a number";
                  }
                 break;
             case "decimal":
                 length = 9;
                 if(!inputText.matches("\\d+\\.\\d{2}")){
                   itsAnInt = false;
+                  err += " Price has to be in format 0.00";
                 }
                 break;
             case "varchar":
@@ -312,8 +338,9 @@ public class BuildForm extends javax.swing.JFrame {
        
         if(name == "Model"){
             if(currentUser.checkDuplicate(inputText,String.valueOf(partTypeComboBox.getSelectedItem()))){
-             
+                err += " Model allready used";
                 input.setBackground(Color.RED);
+                errL.setText(err);
                 return;
             }else{
                 input.setBackground(Color.green);
@@ -321,13 +348,38 @@ public class BuildForm extends javax.swing.JFrame {
                 
         }
         
-        if(inputText.isEmpty() || inputText.length() > length || !itsAnInt){
+        if(inputText.isEmpty()){
+            err += " Cant be empty";
+                     errL.setText(err);
+      
+
             input.setBackground(Color.RED);
+            return;
+        }else{
+            input.setBackground(Color.green);
+        }
+        if(inputText.length() > length ){
+           err += " " +name + " too long,  max " + length + " characters";
+         errL.setText(err);
+
+            input.setBackground(Color.RED);
+                        return;
+
+        }else{
+            input.setBackground(Color.green);
+        }
+        if(!itsAnInt){
+            
+            input.setBackground(Color.RED);
+                     errL.setText(err);
+
+                        return;
+
         }else{
             input.setBackground(Color.green);
         }
         
-        
+
         ArrayList<String> greens = new ArrayList<String>();
 
         for (Component c : addPart.getComponents()){
@@ -808,7 +860,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         acceptBtnE.setText("Accept");
         editPanel.add(acceptBtnE);
-        acceptBtnE.setBounds(740, 10, 65, 42);
+        acceptBtnE.setBounds(740, 10, 87, 42);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -942,7 +994,7 @@ public class BuildForm extends javax.swing.JFrame {
 
     acceptBtnE1.setText("Accept");
     viewPartPanel.add(acceptBtnE1);
-    acceptBtnE1.setBounds(740, 10, 65, 42);
+    acceptBtnE1.setBounds(740, 10, 87, 42);
 
     jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
     jLabel1.setText("jLabel1");
@@ -1020,7 +1072,7 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     createAccount.add(jComboBox1);
-    jComboBox1.setBounds(440, 290, 220, 20);
+    jComboBox1.setBounds(440, 290, 220, 27);
 
     jTextField1.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1028,11 +1080,11 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     createAccount.add(jTextField1);
-    jTextField1.setBounds(440, 320, 220, 20);
+    jTextField1.setBounds(440, 320, 220, 26);
     createAccount.add(jTextField2);
-    jTextField2.setBounds(440, 350, 220, 20);
+    jTextField2.setBounds(440, 350, 220, 26);
     createAccount.add(jTextField3);
-    jTextField3.setBounds(440, 380, 220, 20);
+    jTextField3.setBounds(440, 380, 220, 26);
 
     jTextField4.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1040,14 +1092,14 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     createAccount.add(jTextField4);
-    jTextField4.setBounds(440, 410, 220, 20);
+    jTextField4.setBounds(440, 410, 220, 26);
 
     jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
     jLabel11.setText("email:");
     createAccount.add(jLabel11);
     jLabel11.setBounds(300, 470, 70, 17);
     createAccount.add(jTextField5);
-    jTextField5.setBounds(440, 440, 220, 20);
+    jTextField5.setBounds(440, 440, 220, 26);
     createAccount.add(jTextField6);
     jTextField6.setBounds(440, 470, 220, 20);
 
@@ -1078,7 +1130,7 @@ public class BuildForm extends javax.swing.JFrame {
     jScrollPane1.setViewportView(jTable1);
 
     viewAccount.add(jScrollPane1);
-    jScrollPane1.setBounds(220, 290, 452, 170);
+    jScrollPane1.setBounds(220, 290, 454, 170);
 
     jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
     jLabel12.setText("View Accounts:");
@@ -1224,7 +1276,7 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     addComp.add(saveCompBtn);
-    saveCompBtn.setBounds(780, 30, 55, 23);
+    saveCompBtn.setBounds(780, 30, 75, 29);
 
     getContentPane().add(addComp);
     addComp.setBounds(0, 0, 900, 600);
