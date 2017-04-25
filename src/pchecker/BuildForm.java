@@ -1000,6 +1000,11 @@ public class BuildForm extends javax.swing.JFrame {
     cancelBtnE1.setBounds(820, 10, 70, 42);
 
     acceptBtnE1.setText("Accept");
+    acceptBtnE1.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            acceptBtnE1ActionPerformed(evt);
+        }
+    });
     viewPartPanel.add(acceptBtnE1);
     acceptBtnE1.setBounds(740, 10, 87, 42);
 
@@ -1696,6 +1701,10 @@ public class BuildForm extends javax.swing.JFrame {
         this.dispose();
         frm.setVisible(true);
     }//GEN-LAST:event_deletePartActionPerformed
+
+    private void acceptBtnE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnE1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_acceptBtnE1ActionPerformed
     
     /**
      * getSelectedPart() allows to get a list selected component from jComboBox. Display all available parts from database in table.

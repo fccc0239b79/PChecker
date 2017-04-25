@@ -770,14 +770,11 @@ public class userAdminAccount {
          
          try {
             // String query = "UPDATE Account SET accountType = " + name + " WHERE userName = ?";
-            String query = "UPDATE Account SET accountType = ? WHERE userName = ?";
+            String query = "UPDATE Account SET accountType = "+type+" WHERE userName = '"+name+"';";
             
              PreparedStatement statement = con.prepareStatement(query);
              
-             for(int i = 0; i < 10;i++){
-             statement.setBoolean(1+i, type);
-             statement.setString(1+i, name);
-             }
+             
              System.out.println(statement);
              statement.execute();
          } 
