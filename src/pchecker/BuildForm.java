@@ -1173,7 +1173,7 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     addPart.add(addPartSaveBtn);
-    addPartSaveBtn.setBounds(470, 180, 70, 40);
+    addPartSaveBtn.setBounds(660, 490, 70, 40);
 
     addPartCancelBtn.setText("Cancel");
     addPartCancelBtn.setMaximumSize(new java.awt.Dimension(51, 23));
@@ -1185,7 +1185,7 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     addPart.add(addPartCancelBtn);
-    addPartCancelBtn.setBounds(700, 180, 70, 40);
+    addPartCancelBtn.setBounds(740, 490, 70, 40);
 
     jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
     jLabel14.setText("Part type:");
@@ -1223,7 +1223,7 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     addPart.add(addPartUpdateBtn);
-    addPartUpdateBtn.setBounds(550, 130, 70, 40);
+    addPartUpdateBtn.setBounds(660, 490, 70, 40);
     addPartUpdateBtn.setVisible(false);
 
     partIDLable.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -1242,7 +1242,7 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     addPart.add(deletePart);
-    deletePart.setBounds(550, 180, 70, 40);
+    deletePart.setBounds(660, 530, 70, 40);
     deletePart.setVisible(false);
 
     getContentPane().add(addPart);
