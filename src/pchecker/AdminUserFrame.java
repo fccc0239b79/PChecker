@@ -70,6 +70,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         saveAccountTypeBtn = new javax.swing.JButton();
         accountTypeComboBox = new javax.swing.JComboBox<>();
         cancelAccountTypeBtn = new javax.swing.JButton();
+        currentTypelbl = new javax.swing.JLabel();
         mainUserPanel = new javax.swing.JPanel();
         logoMain = new javax.swing.JLabel();
         menuLabel = new javax.swing.JLabel();
@@ -158,6 +159,10 @@ public class AdminUserFrame extends javax.swing.JFrame {
         });
         changeAccountTypePanel.add(cancelAccountTypeBtn);
         cancelAccountTypeBtn.setBounds(800, 20, 80, 40);
+
+        currentTypelbl.setText("jLabel1");
+        changeAccountTypePanel.add(currentTypelbl);
+        currentTypelbl.setBounds(350, 280, 310, 16);
 
         getContentPane().add(changeAccountTypePanel);
         changeAccountTypePanel.setBounds(0, 0, 900, 600);
@@ -731,6 +736,10 @@ private void enbleEdit(boolean torf){
             System.out.println("USER !!!");
             currentUser.updateAccountType(false, accountSettingsLabel1.getText());
         }
+        AdminUserFrame frm = new AdminUserFrame(currentUser);
+        this.dispose();
+        frm.setVisible(true);
+        
     }//GEN-LAST:event_saveAccountTypeBtnActionPerformed
 
     private void accountTypeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountTypeComboBoxActionPerformed
@@ -747,16 +756,24 @@ private void enbleEdit(boolean torf){
     private void accountsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountsTableMouseClicked
         // System.out.println("WKS");
          
-         for(int column = 0; column < accountsTable.getColumnCount(); column++) {
-         accountNameValue = String.valueOf(accountsTable.getValueAt(accountsTable.getSelectedRow(), column)); 
-         String name = String.valueOf(accountsTable.getModel().getColumnName(column));
-            if(name.equals("Account Name")){
+         //for(int column = 0; column < accountsTable.getColumnCount(); column++) {
+         //String name = String.valueOf(accountsTable.getModel().getColumnName(1));
+           // if(name.equals("Account Name")){
+         accountNameValue = String.valueOf(accountsTable.getValueAt(accountsTable.getSelectedRow(), 0)); 
+
                accountSettingsLabel1.setText(accountNameValue);
-           }
+        String TorF = String.valueOf(accountsTable.getValueAt(accountsTable.getSelectedRow(), 1)); 
+        if(TorF.equals("true")){
+            currentTypelbl.setText("Current Account Type: Admin");
+        } else{
+            currentTypelbl.setText("Current Account Type: User");
+        }
+               //currentTypelbl.
+          // }
 
             //accountSettingsLabel1.setText(currentUser.getAccountName());
         // System.out.println(value);
-         }
+        // }
         mainAdminPanel.setVisible(false);
         changeAccountTypePanel.setVisible(true);
         accountPanel.setVisible(false);
@@ -814,6 +831,7 @@ private void enbleEdit(boolean torf){
     private javax.swing.JList<String> buildsList;
     private javax.swing.JButton cancelAccountTypeBtn;
     private javax.swing.JPanel changeAccountTypePanel;
+    private javax.swing.JLabel currentTypelbl;
     private javax.swing.JButton editAccountAdminBtn;
     private javax.swing.JButton editBtnProfile;
     private javax.swing.JLabel emailLabel;
