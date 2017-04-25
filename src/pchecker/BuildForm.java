@@ -325,7 +325,7 @@ public class BuildForm extends javax.swing.JFrame {
                 length = 9;
                 if(!inputText.matches("\\d+\\.\\d{2}")){
                   itsAnInt = false;
-                  err += " Price has to be in format 0.00";
+                  err +=" has to be in format 0.00";
                 }
                 break;
             case "varchar":
@@ -344,6 +344,8 @@ public class BuildForm extends javax.swing.JFrame {
                 return;
             }else{
                 input.setBackground(Color.green);
+                            errL.setText("");
+
             }
                 
         }
@@ -357,9 +359,11 @@ public class BuildForm extends javax.swing.JFrame {
             return;
         }else{
             input.setBackground(Color.green);
+                        errL.setText("");
+
         }
         if(inputText.length() > length ){
-           err += " " +name + " too long,  max " + length + " characters";
+           err += " too long,  max " + length + " characters";
          errL.setText(err);
 
             input.setBackground(Color.RED);
@@ -367,6 +371,8 @@ public class BuildForm extends javax.swing.JFrame {
 
         }else{
             input.setBackground(Color.green);
+                        errL.setText("");
+
         }
         if(!itsAnInt){
             
@@ -377,6 +383,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         }else{
             input.setBackground(Color.green);
+            errL.setText("");
         }
         
 
