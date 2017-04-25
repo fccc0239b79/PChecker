@@ -8,6 +8,7 @@ package pchecker;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -35,11 +36,13 @@ public class AdminUserFrame extends javax.swing.JFrame {
         if(userType){
             this.setTitle("Admin Menu"); 
             mainAdminPanel.setVisible(true);
+            accountPanel.setVisible(false);
             //mainUserPanel.setVisible(false);
 
         }else{
             this.setTitle("User Menu"); 
             mainUserPanel.setVisible(true);
+            accountPanel.setVisible(false);
             getBuilds();
         }
         
@@ -59,6 +62,12 @@ public class AdminUserFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        accountPanel = new javax.swing.JPanel();
+        logoAccount = new javax.swing.JLabel();
+        accountSettingsLabel = new javax.swing.JLabel();
+        accountBackBtn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        accountsTable = new javax.swing.JTable();
         mainUserPanel = new javax.swing.JPanel();
         logoMain = new javax.swing.JLabel();
         menuLabel = new javax.swing.JLabel();
@@ -99,6 +108,46 @@ public class AdminUserFrame extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(900, 600));
         setPreferredSize(new java.awt.Dimension(900, 600));
         getContentPane().setLayout(null);
+
+        accountPanel.setBackground(new java.awt.Color(153, 255, 255));
+        accountPanel.setMaximumSize(new java.awt.Dimension(900, 600));
+        accountPanel.setMinimumSize(new java.awt.Dimension(900, 600));
+        accountPanel.setPreferredSize(new java.awt.Dimension(900, 600));
+        accountPanel.setLayout(null);
+
+        logoAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
+        accountPanel.add(logoAccount);
+        logoAccount.setBounds(150, 80, 602, 119);
+
+        accountSettingsLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        accountSettingsLabel.setText("Account Settings");
+        accountPanel.add(accountSettingsLabel);
+        accountSettingsLabel.setBounds(290, 220, 320, 40);
+
+        accountBackBtn.setText("Back");
+        accountBackBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accountBackBtnActionPerformed(evt);
+            }
+        });
+        accountPanel.add(accountBackBtn);
+        accountBackBtn.setBounds(800, 20, 80, 40);
+
+        accountsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(accountsTable);
+
+        accountPanel.add(jScrollPane1);
+        jScrollPane1.setBounds(230, 310, 452, 240);
+
+        getContentPane().add(accountPanel);
+        accountPanel.setBounds(0, 0, 900, 600);
 
         mainUserPanel.setBackground(new java.awt.Color(255, 255, 255));
         mainUserPanel.setMaximumSize(new java.awt.Dimension(900, 600));
@@ -165,7 +214,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainUserPanel.add(adminBackBtn);
-        adminBackBtn.setBounds(20, 10, 75, 40);
+        adminBackBtn.setBounds(20, 10, 55, 40);
         adminBackBtn.setVisible(false);
 
         getContentPane().add(mainUserPanel);
@@ -200,7 +249,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         profilePanel.add(editBtnProfile);
-        editBtnProfile.setBounds(290, 100, 103, 41);
+        editBtnProfile.setBounds(290, 100, 91, 41);
 
         settingsLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         settingsLabel.setText("SETTINGS");
@@ -299,7 +348,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(logOffAdminBtn);
-        logOffAdminBtn.setBounds(809, 11, 91, 43);
+        logOffAdminBtn.setBounds(809, 11, 69, 43);
 
         profileAdminBtn.setText("Profile");
         profileAdminBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -308,7 +357,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(profileAdminBtn);
-        profileAdminBtn.setBounds(720, 10, 84, 43);
+        profileAdminBtn.setBounds(720, 10, 63, 43);
 
         newComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         newComponentAdminBtn.setText("Add New Part");
@@ -365,6 +414,7 @@ private void getProfile(){
     mainAdminPanel.setVisible(false);
     mainUserPanel.setVisible(false);
     profilePanel.setVisible(true);
+    accountPanel.setVisible(false);
     
     fnamePro.setText(currentUser.getFname());
     snamePro.setText(currentUser.getSname());
@@ -525,11 +575,11 @@ private void enbleEdit(boolean torf){
         if(currentUser.getType()){
             this.setTitle("Admin Menu"); 
             mainAdminPanel.setVisible(true);
-
+            accountPanel.setVisible(false);
         }else{
             this.setTitle("User Menu"); 
             mainUserPanel.setVisible(true);
-
+            accountPanel.setVisible(false);
         }
         
     }//GEN-LAST:event_backBtnProfileActionPerformed
@@ -561,6 +611,7 @@ private void enbleEdit(boolean torf){
 
     private void viewBuildAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBuildAdminBtnActionPerformed
         mainAdminPanel.setVisible(false);
+        accountPanel.setVisible(false);
         mainUserPanel.setVisible(true);
         getBuilds();
         adminBackBtn.setVisible(true);
@@ -569,10 +620,12 @@ private void enbleEdit(boolean torf){
     private void adminBackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminBackBtnActionPerformed
         mainAdminPanel.setVisible(true);
         mainUserPanel.setVisible(false);
+        accountPanel.setVisible(false);
     }//GEN-LAST:event_adminBackBtnActionPerformed
 
     private void viewComponentAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewComponentAdminBtnActionPerformed
        mainAdminPanel.setVisible(false);
+       accountPanel.setVisible(false);
        BuildForm frm = new BuildForm(currentUser,true, true);
         this.dispose();
         frm.setVisible(true);
@@ -580,8 +633,33 @@ private void enbleEdit(boolean torf){
     }//GEN-LAST:event_viewComponentAdminBtnActionPerformed
 
     private void editAccountAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAccountAdminBtnActionPerformed
-        // TODO add your handling code here:
+       
+        mainAdminPanel.setVisible(false);
+        accountPanel.setVisible(true);
+        System.out.println("works");
+        
+        //here
+        // take all data from db
+        DefaultTableModel getAccounts = new DefaultTableModel();
+        getAccounts = currentUser.getAccounts();
+        
+        // display data in a table
+        accountsTable.setModel(getAccounts);
+        /*
+        // go and take all components data from database
+        DefaultTableModel getParts = new DefaultTableModel();
+        getParts = currentUser.getparts(selectedPartType);
+        
+        // display data in a table
+        viewAllPartsTable.setModel(getParts);
+        */
     }//GEN-LAST:event_editAccountAdminBtnActionPerformed
+
+    private void accountBackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountBackBtnActionPerformed
+        mainAdminPanel.setVisible(true);
+        mainUserPanel.setVisible(false);
+        accountPanel.setVisible(false);
+    }//GEN-LAST:event_accountBackBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -621,6 +699,10 @@ private void enbleEdit(boolean torf){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DOBPro;
     private javax.swing.JButton acceptBtnProfile;
+    private javax.swing.JButton accountBackBtn;
+    private javax.swing.JPanel accountPanel;
+    private javax.swing.JLabel accountSettingsLabel;
+    private javax.swing.JTable accountsTable;
     private javax.swing.JButton addBuildBtn;
     private javax.swing.JButton adminBackBtn;
     private javax.swing.JLabel adminMenuLabel;
@@ -634,8 +716,10 @@ private void enbleEdit(boolean torf){
     private javax.swing.JTextField emailPro;
     private javax.swing.JTextField fnamePro;
     private javax.swing.JScrollPane jScrollBuildList;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logOffAdminBtn;
     private javax.swing.JButton logOffBtn;
+    private javax.swing.JLabel logoAccount;
     private javax.swing.JLabel logoAdmin;
     private javax.swing.JLabel logoMain;
     private javax.swing.JPanel mainAdminPanel;
