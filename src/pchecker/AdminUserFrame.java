@@ -37,12 +37,14 @@ public class AdminUserFrame extends javax.swing.JFrame {
             this.setTitle("Admin Menu"); 
             mainAdminPanel.setVisible(true);
             accountPanel.setVisible(false);
+            changeAccountTypePanel.setVisible(false);
             //mainUserPanel.setVisible(false);
 
         }else{
             this.setTitle("User Menu"); 
             mainUserPanel.setVisible(true);
             accountPanel.setVisible(false);
+            changeAccountTypePanel.setVisible(false);
             getBuilds();
         }
         
@@ -62,12 +64,12 @@ public class AdminUserFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        accountPanel = new javax.swing.JPanel();
-        logoAccount = new javax.swing.JLabel();
-        accountSettingsLabel = new javax.swing.JLabel();
-        accountBackBtn = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        accountsTable = new javax.swing.JTable();
+        changeAccountTypePanel = new javax.swing.JPanel();
+        logoAccount1 = new javax.swing.JLabel();
+        accountSettingsLabel1 = new javax.swing.JLabel();
+        saveAccountTypeBtn = new javax.swing.JButton();
+        accountTypeComboBox = new javax.swing.JComboBox<>();
+        cancelAccountTypeBtn = new javax.swing.JButton();
         mainUserPanel = new javax.swing.JPanel();
         logoMain = new javax.swing.JLabel();
         menuLabel = new javax.swing.JLabel();
@@ -77,6 +79,21 @@ public class AdminUserFrame extends javax.swing.JFrame {
         buildsList = new javax.swing.JList<>();
         addBuildBtn = new javax.swing.JButton();
         adminBackBtn = new javax.swing.JButton();
+        accountPanel = new javax.swing.JPanel();
+        logoAccount = new javax.swing.JLabel();
+        accountSettingsLabel = new javax.swing.JLabel();
+        accountBackBtn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        accountsTable = new javax.swing.JTable();
+        mainAdminPanel = new javax.swing.JPanel();
+        logoAdmin = new javax.swing.JLabel();
+        editAccountAdminBtn = new javax.swing.JButton();
+        logOffAdminBtn = new javax.swing.JButton();
+        profileAdminBtn = new javax.swing.JButton();
+        newComponentAdminBtn = new javax.swing.JButton();
+        viewComponentAdminBtn = new javax.swing.JButton();
+        viewBuildAdminBtn = new javax.swing.JButton();
+        adminMenuLabel = new javax.swing.JLabel();
         profilePanel = new javax.swing.JPanel();
         profileLabel = new javax.swing.JLabel();
         backBtnProfile = new javax.swing.JButton();
@@ -93,15 +110,6 @@ public class AdminUserFrame extends javax.swing.JFrame {
         emailLabel = new javax.swing.JLabel();
         emailLabel1 = new javax.swing.JLabel();
         emailLabel2 = new javax.swing.JLabel();
-        mainAdminPanel = new javax.swing.JPanel();
-        logoAdmin = new javax.swing.JLabel();
-        editAccountAdminBtn = new javax.swing.JButton();
-        logOffAdminBtn = new javax.swing.JButton();
-        profileAdminBtn = new javax.swing.JButton();
-        newComponentAdminBtn = new javax.swing.JButton();
-        viewComponentAdminBtn = new javax.swing.JButton();
-        viewBuildAdminBtn = new javax.swing.JButton();
-        adminMenuLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(900, 600));
@@ -109,45 +117,50 @@ public class AdminUserFrame extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(900, 600));
         getContentPane().setLayout(null);
 
-        accountPanel.setBackground(new java.awt.Color(153, 255, 255));
-        accountPanel.setMaximumSize(new java.awt.Dimension(900, 600));
-        accountPanel.setMinimumSize(new java.awt.Dimension(900, 600));
-        accountPanel.setPreferredSize(new java.awt.Dimension(900, 600));
-        accountPanel.setLayout(null);
+        changeAccountTypePanel.setBackground(new java.awt.Color(153, 204, 255));
+        changeAccountTypePanel.setMaximumSize(new java.awt.Dimension(900, 600));
+        changeAccountTypePanel.setMinimumSize(new java.awt.Dimension(900, 600));
+        changeAccountTypePanel.setPreferredSize(new java.awt.Dimension(900, 600));
+        changeAccountTypePanel.setLayout(null);
 
-        logoAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
-        accountPanel.add(logoAccount);
-        logoAccount.setBounds(150, 80, 602, 119);
+        logoAccount1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
+        changeAccountTypePanel.add(logoAccount1);
+        logoAccount1.setBounds(150, 80, 602, 119);
 
-        accountSettingsLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        accountSettingsLabel.setText("Account Settings");
-        accountPanel.add(accountSettingsLabel);
-        accountSettingsLabel.setBounds(290, 220, 320, 40);
+        accountSettingsLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        accountSettingsLabel1.setText("[Account Name]");
+        changeAccountTypePanel.add(accountSettingsLabel1);
+        accountSettingsLabel1.setBounds(340, 230, 300, 40);
 
-        accountBackBtn.setText("Back");
-        accountBackBtn.addActionListener(new java.awt.event.ActionListener() {
+        saveAccountTypeBtn.setText("Save");
+        saveAccountTypeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accountBackBtnActionPerformed(evt);
+                saveAccountTypeBtnActionPerformed(evt);
             }
         });
-        accountPanel.add(accountBackBtn);
-        accountBackBtn.setBounds(800, 20, 80, 40);
+        changeAccountTypePanel.add(saveAccountTypeBtn);
+        saveAccountTypeBtn.setBounds(700, 20, 80, 40);
 
-        accountsTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
+        accountTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select account type-", "Admin", "User" }));
+        accountTypeComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accountTypeComboBoxActionPerformed(evt);
             }
-        ));
-        jScrollPane1.setViewportView(accountsTable);
+        });
+        changeAccountTypePanel.add(accountTypeComboBox);
+        accountTypeComboBox.setBounds(340, 310, 210, 30);
 
-        accountPanel.add(jScrollPane1);
-        jScrollPane1.setBounds(230, 310, 452, 240);
+        cancelAccountTypeBtn.setText("Cancel");
+        cancelAccountTypeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelAccountTypeBtnActionPerformed(evt);
+            }
+        });
+        changeAccountTypePanel.add(cancelAccountTypeBtn);
+        cancelAccountTypeBtn.setBounds(800, 20, 80, 40);
 
-        getContentPane().add(accountPanel);
-        accountPanel.setBounds(0, 0, 900, 600);
+        getContentPane().add(changeAccountTypePanel);
+        changeAccountTypePanel.setBounds(0, 0, 900, 600);
 
         mainUserPanel.setBackground(new java.awt.Color(255, 255, 255));
         mainUserPanel.setMaximumSize(new java.awt.Dimension(900, 600));
@@ -220,6 +233,127 @@ public class AdminUserFrame extends javax.swing.JFrame {
         getContentPane().add(mainUserPanel);
         mainUserPanel.setBounds(0, 0, 900, 600);
         mainUserPanel.setVisible(false);
+
+        accountPanel.setBackground(new java.awt.Color(153, 255, 255));
+        accountPanel.setMaximumSize(new java.awt.Dimension(900, 600));
+        accountPanel.setMinimumSize(new java.awt.Dimension(900, 600));
+        accountPanel.setPreferredSize(new java.awt.Dimension(900, 600));
+        accountPanel.setLayout(null);
+
+        logoAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
+        accountPanel.add(logoAccount);
+        logoAccount.setBounds(150, 80, 602, 119);
+
+        accountSettingsLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        accountSettingsLabel.setText("Account Settings");
+        accountPanel.add(accountSettingsLabel);
+        accountSettingsLabel.setBounds(290, 220, 320, 40);
+
+        accountBackBtn.setText("Back");
+        accountBackBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accountBackBtnActionPerformed(evt);
+            }
+        });
+        accountPanel.add(accountBackBtn);
+        accountBackBtn.setBounds(800, 20, 80, 40);
+
+        accountsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        accountsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                accountsTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(accountsTable);
+
+        accountPanel.add(jScrollPane1);
+        jScrollPane1.setBounds(230, 310, 452, 190);
+
+        getContentPane().add(accountPanel);
+        accountPanel.setBounds(0, 0, 900, 600);
+
+        mainAdminPanel.setBackground(new java.awt.Color(255, 255, 255));
+        mainAdminPanel.setMaximumSize(new java.awt.Dimension(900, 600));
+        mainAdminPanel.setMinimumSize(new java.awt.Dimension(900, 600));
+        mainAdminPanel.setLayout(null);
+
+        logoAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
+        mainAdminPanel.add(logoAdmin);
+        logoAdmin.setBounds(150, 80, 602, 119);
+
+        editAccountAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        editAccountAdminBtn.setText("Account Settings");
+        editAccountAdminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editAccountAdminBtnActionPerformed(evt);
+            }
+        });
+        mainAdminPanel.add(editAccountAdminBtn);
+        editAccountAdminBtn.setBounds(200, 380, 160, 80);
+
+        logOffAdminBtn.setText("Log Off");
+        logOffAdminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logOffAdminBtnActionPerformed(evt);
+            }
+        });
+        mainAdminPanel.add(logOffAdminBtn);
+        logOffAdminBtn.setBounds(809, 11, 69, 43);
+
+        profileAdminBtn.setText("Profile");
+        profileAdminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profileAdminBtnActionPerformed(evt);
+            }
+        });
+        mainAdminPanel.add(profileAdminBtn);
+        profileAdminBtn.setBounds(720, 10, 63, 43);
+
+        newComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        newComponentAdminBtn.setText("Add New Part");
+        newComponentAdminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newComponentAdminBtnActionPerformed(evt);
+            }
+        });
+        mainAdminPanel.add(newComponentAdminBtn);
+        newComponentAdminBtn.setBounds(370, 290, 160, 80);
+
+        viewComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        viewComponentAdminBtn.setText("View Components");
+        viewComponentAdminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewComponentAdminBtnActionPerformed(evt);
+            }
+        });
+        mainAdminPanel.add(viewComponentAdminBtn);
+        viewComponentAdminBtn.setBounds(370, 470, 160, 80);
+
+        viewBuildAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        viewBuildAdminBtn.setText("View Build");
+        viewBuildAdminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewBuildAdminBtnActionPerformed(evt);
+            }
+        });
+        mainAdminPanel.add(viewBuildAdminBtn);
+        viewBuildAdminBtn.setBounds(540, 380, 160, 80);
+
+        adminMenuLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        adminMenuLabel.setText("Admin Menu");
+        mainAdminPanel.add(adminMenuLabel);
+        adminMenuLabel.setBounds(330, 220, 240, 40);
+
+        getContentPane().add(mainAdminPanel);
+        mainAdminPanel.setBounds(0, 0, 900, 600);
+        mainAdminPanel.setVisible(false);
 
         profilePanel.setBackground(new java.awt.Color(255, 255, 255));
         profilePanel.setMaximumSize(new java.awt.Dimension(900, 600));
@@ -322,82 +456,6 @@ public class AdminUserFrame extends javax.swing.JFrame {
         profilePanel.setBounds(0, 0, 910, 600);
         profilePanel.setVisible(false);
 
-        mainAdminPanel.setBackground(new java.awt.Color(255, 255, 255));
-        mainAdminPanel.setMaximumSize(new java.awt.Dimension(900, 600));
-        mainAdminPanel.setMinimumSize(new java.awt.Dimension(900, 600));
-        mainAdminPanel.setLayout(null);
-
-        logoAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
-        mainAdminPanel.add(logoAdmin);
-        logoAdmin.setBounds(150, 80, 602, 119);
-
-        editAccountAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        editAccountAdminBtn.setText("Account Settings");
-        editAccountAdminBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editAccountAdminBtnActionPerformed(evt);
-            }
-        });
-        mainAdminPanel.add(editAccountAdminBtn);
-        editAccountAdminBtn.setBounds(200, 380, 160, 80);
-
-        logOffAdminBtn.setText("Log Off");
-        logOffAdminBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logOffAdminBtnActionPerformed(evt);
-            }
-        });
-        mainAdminPanel.add(logOffAdminBtn);
-        logOffAdminBtn.setBounds(809, 11, 69, 43);
-
-        profileAdminBtn.setText("Profile");
-        profileAdminBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profileAdminBtnActionPerformed(evt);
-            }
-        });
-        mainAdminPanel.add(profileAdminBtn);
-        profileAdminBtn.setBounds(720, 10, 63, 43);
-
-        newComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        newComponentAdminBtn.setText("Add New Part");
-        newComponentAdminBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newComponentAdminBtnActionPerformed(evt);
-            }
-        });
-        mainAdminPanel.add(newComponentAdminBtn);
-        newComponentAdminBtn.setBounds(370, 290, 160, 80);
-
-        viewComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        viewComponentAdminBtn.setText("View Components");
-        viewComponentAdminBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewComponentAdminBtnActionPerformed(evt);
-            }
-        });
-        mainAdminPanel.add(viewComponentAdminBtn);
-        viewComponentAdminBtn.setBounds(370, 470, 160, 80);
-
-        viewBuildAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        viewBuildAdminBtn.setText("View Build");
-        viewBuildAdminBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewBuildAdminBtnActionPerformed(evt);
-            }
-        });
-        mainAdminPanel.add(viewBuildAdminBtn);
-        viewBuildAdminBtn.setBounds(540, 380, 160, 80);
-
-        adminMenuLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        adminMenuLabel.setText("Admin Menu");
-        mainAdminPanel.add(adminMenuLabel);
-        adminMenuLabel.setBounds(330, 220, 240, 40);
-
-        getContentPane().add(mainAdminPanel);
-        mainAdminPanel.setBounds(0, 0, 900, 600);
-        mainAdminPanel.setVisible(false);
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 private void loggOff(){
@@ -415,6 +473,7 @@ private void getProfile(){
     mainUserPanel.setVisible(false);
     profilePanel.setVisible(true);
     accountPanel.setVisible(false);
+    changeAccountTypePanel.setVisible(false);
     
     fnamePro.setText(currentUser.getFname());
     snamePro.setText(currentUser.getSname());
@@ -576,10 +635,12 @@ private void enbleEdit(boolean torf){
             this.setTitle("Admin Menu"); 
             mainAdminPanel.setVisible(true);
             accountPanel.setVisible(false);
+            changeAccountTypePanel.setVisible(false);
         }else{
             this.setTitle("User Menu"); 
             mainUserPanel.setVisible(true);
             accountPanel.setVisible(false);
+            changeAccountTypePanel.setVisible(false);
         }
         
     }//GEN-LAST:event_backBtnProfileActionPerformed
@@ -612,6 +673,7 @@ private void enbleEdit(boolean torf){
     private void viewBuildAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBuildAdminBtnActionPerformed
         mainAdminPanel.setVisible(false);
         accountPanel.setVisible(false);
+        changeAccountTypePanel.setVisible(false);
         mainUserPanel.setVisible(true);
         getBuilds();
         adminBackBtn.setVisible(true);
@@ -621,11 +683,13 @@ private void enbleEdit(boolean torf){
         mainAdminPanel.setVisible(true);
         mainUserPanel.setVisible(false);
         accountPanel.setVisible(false);
+        changeAccountTypePanel.setVisible(false);
     }//GEN-LAST:event_adminBackBtnActionPerformed
 
     private void viewComponentAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewComponentAdminBtnActionPerformed
        mainAdminPanel.setVisible(false);
        accountPanel.setVisible(false);
+       changeAccountTypePanel.setVisible(false);
        BuildForm frm = new BuildForm(currentUser,true, true);
         this.dispose();
         frm.setVisible(true);
@@ -635,31 +699,69 @@ private void enbleEdit(boolean torf){
     private void editAccountAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAccountAdminBtnActionPerformed
        
         mainAdminPanel.setVisible(false);
+        changeAccountTypePanel.setVisible(false);
         accountPanel.setVisible(true);
-        System.out.println("works");
+       // System.out.println("works");
         
-        //here
         // take all data from db
         DefaultTableModel getAccounts = new DefaultTableModel();
         getAccounts = currentUser.getAccounts();
         
         // display data in a table
         accountsTable.setModel(getAccounts);
-        /*
-        // go and take all components data from database
-        DefaultTableModel getParts = new DefaultTableModel();
-        getParts = currentUser.getparts(selectedPartType);
-        
-        // display data in a table
-        viewAllPartsTable.setModel(getParts);
-        */
+       
     }//GEN-LAST:event_editAccountAdminBtnActionPerformed
 
     private void accountBackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountBackBtnActionPerformed
         mainAdminPanel.setVisible(true);
         mainUserPanel.setVisible(false);
         accountPanel.setVisible(false);
+        changeAccountTypePanel.setVisible(false);
     }//GEN-LAST:event_accountBackBtnActionPerformed
+    
+    String accountNameValue;
+    private void saveAccountTypeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAccountTypeBtnActionPerformed
+        // TODO add your handling code here:
+        
+        // !
+        if(accountTypeComboBox.getSelectedItem() == "Admin") {
+            System.out.println("ADMIN !!!");
+            currentUser.updateAccountType(true, accountNameValue);
+        } else {
+            System.out.println("USER !!!");
+            currentUser.updateAccountType(false, accountNameValue);
+        }
+    }//GEN-LAST:event_saveAccountTypeBtnActionPerformed
+
+    private void accountTypeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountTypeComboBoxActionPerformed
+
+    }//GEN-LAST:event_accountTypeComboBoxActionPerformed
+
+    private void cancelAccountTypeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelAccountTypeBtnActionPerformed
+        
+        mainAdminPanel.setVisible(false);
+        changeAccountTypePanel.setVisible(false);
+        accountPanel.setVisible(true);
+    }//GEN-LAST:event_cancelAccountTypeBtnActionPerformed
+
+    private void accountsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountsTableMouseClicked
+        // System.out.println("WKS");
+         
+         for(int column = 0; column < accountsTable.getColumnCount(); column++) {
+         accountNameValue = String.valueOf(accountsTable.getValueAt(accountsTable.getSelectedRow(), column)); 
+         String name = String.valueOf(accountsTable.getModel().getColumnName(column));
+            if(name.equals("Account Name")){
+               accountSettingsLabel1.setText(accountNameValue);
+           }
+
+            //accountSettingsLabel1.setText(currentUser.getAccountName());
+        // System.out.println(value);
+         }
+        mainAdminPanel.setVisible(false);
+        changeAccountTypePanel.setVisible(true);
+        accountPanel.setVisible(false);
+         
+    }//GEN-LAST:event_accountsTableMouseClicked
 
     /**
      * @param args the command line arguments
@@ -702,12 +804,16 @@ private void enbleEdit(boolean torf){
     private javax.swing.JButton accountBackBtn;
     private javax.swing.JPanel accountPanel;
     private javax.swing.JLabel accountSettingsLabel;
+    private javax.swing.JLabel accountSettingsLabel1;
+    private javax.swing.JComboBox<String> accountTypeComboBox;
     private javax.swing.JTable accountsTable;
     private javax.swing.JButton addBuildBtn;
     private javax.swing.JButton adminBackBtn;
     private javax.swing.JLabel adminMenuLabel;
     private javax.swing.JButton backBtnProfile;
     private javax.swing.JList<String> buildsList;
+    private javax.swing.JButton cancelAccountTypeBtn;
+    private javax.swing.JPanel changeAccountTypePanel;
     private javax.swing.JButton editAccountAdminBtn;
     private javax.swing.JButton editBtnProfile;
     private javax.swing.JLabel emailLabel;
@@ -720,6 +826,7 @@ private void enbleEdit(boolean torf){
     private javax.swing.JButton logOffAdminBtn;
     private javax.swing.JButton logOffBtn;
     private javax.swing.JLabel logoAccount;
+    private javax.swing.JLabel logoAccount1;
     private javax.swing.JLabel logoAdmin;
     private javax.swing.JLabel logoMain;
     private javax.swing.JPanel mainAdminPanel;
@@ -732,6 +839,7 @@ private void enbleEdit(boolean torf){
     private javax.swing.JButton profileBtn;
     private javax.swing.JLabel profileLabel;
     private javax.swing.JPanel profilePanel;
+    private javax.swing.JButton saveAccountTypeBtn;
     private javax.swing.JLabel settingsLabel;
     private javax.swing.JTextField snamePro;
     private javax.swing.JLabel surnameLabel;

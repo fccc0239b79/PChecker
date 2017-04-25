@@ -447,6 +447,19 @@ public class BuildForm extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         editLabelE = new javax.swing.JLabel();
         BuildNameLabel = new javax.swing.JLabel();
+        addBuildPanel = new javax.swing.JPanel();
+        buildCancelBtn = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        partsTable = new javax.swing.JTable();
+        viewPartPanel = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        viewAllPartsTable = new javax.swing.JTable();
+        partTypeComboBox2 = new javax.swing.JComboBox<>();
+        cancelBtnE1 = new javax.swing.JButton();
+        acceptBtnE1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         createAccount = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -472,11 +485,6 @@ public class BuildForm extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        addBuildPanel = new javax.swing.JPanel();
-        buildCancelBtn = new javax.swing.JButton();
-        jLabel13 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        partsTable = new javax.swing.JTable();
         addPart = new javax.swing.JPanel();
         addPartSaveBtn = new javax.swing.JButton();
         addPartCancelBtn = new javax.swing.JButton();
@@ -490,14 +498,6 @@ public class BuildForm extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         compTable = new javax.swing.JTable();
         saveCompBtn = new javax.swing.JButton();
-        viewPartPanel = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        viewAllPartsTable = new javax.swing.JTable();
-        partTypeComboBox2 = new javax.swing.JComboBox<>();
-        cancelBtnE1 = new javax.swing.JButton();
-        acceptBtnE1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(900, 600));
@@ -852,142 +852,6 @@ public class BuildForm extends javax.swing.JFrame {
         editPanel.setBounds(0, 0, 900, 600);
         editPanel.setVisible(false);
 
-        createAccount.setBackground(new java.awt.Color(255, 255, 255));
-        createAccount.setMaximumSize(new java.awt.Dimension(900, 600));
-        createAccount.setMinimumSize(new java.awt.Dimension(900, 600));
-        createAccount.setPreferredSize(new java.awt.Dimension(900, 600));
-        createAccount.setLayout(null);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
-        createAccount.add(jLabel2);
-        jLabel2.setBounds(150, 80, 602, 119);
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel3.setText("Create Account:");
-        createAccount.add(jLabel3);
-        jLabel3.setBounds(350, 230, 210, 20);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Account type:");
-        createAccount.add(jLabel4);
-        jLabel4.setBounds(300, 290, 100, 17);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Username:");
-        createAccount.add(jLabel5);
-        jLabel5.setBounds(300, 320, 110, 20);
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("Password:");
-        createAccount.add(jLabel6);
-        jLabel6.setBounds(300, 350, 110, 17);
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("Confirm Password:");
-        createAccount.add(jLabel7);
-        jLabel7.setBounds(300, 380, 130, 17);
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setText("Forename:");
-        createAccount.add(jLabel8);
-        jLabel8.setBounds(300, 410, 120, 17);
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel9.setText("Surname:");
-        createAccount.add(jLabel9);
-        jLabel9.setBounds(300, 440, 90, 17);
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Cancel");
-        createAccount.add(jButton1);
-        jButton1.setBounds(140, 530, 130, 60);
-
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setText("Create Account");
-        createAccount.add(jButton2);
-        jButton2.setBounds(750, 530, 130, 60);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General User", "Admin" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        createAccount.add(jComboBox1);
-        jComboBox1.setBounds(440, 290, 220, 20);
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        createAccount.add(jTextField1);
-        jTextField1.setBounds(440, 320, 220, 20);
-        createAccount.add(jTextField2);
-        jTextField2.setBounds(440, 350, 220, 20);
-        createAccount.add(jTextField3);
-        jTextField3.setBounds(440, 380, 220, 20);
-
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        createAccount.add(jTextField4);
-        jTextField4.setBounds(440, 410, 220, 20);
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel11.setText("email:");
-        createAccount.add(jLabel11);
-        jLabel11.setBounds(300, 470, 70, 17);
-        createAccount.add(jTextField5);
-        jTextField5.setBounds(440, 440, 220, 20);
-        createAccount.add(jTextField6);
-        jTextField6.setBounds(440, 470, 220, 20);
-
-        getContentPane().add(createAccount);
-        createAccount.setBounds(0, 0, 900, 600);
-        createAccount.setVisible(false);
-
-        viewAccount.setBackground(new java.awt.Color(255, 255, 255));
-        viewAccount.setMaximumSize(new java.awt.Dimension(900, 600));
-        viewAccount.setMinimumSize(new java.awt.Dimension(900, 600));
-        viewAccount.setLayout(null);
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
-        viewAccount.add(jLabel10);
-        jLabel10.setBounds(130, 60, 602, 119);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Account Name", "Account Type"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        viewAccount.add(jScrollPane1);
-        jScrollPane1.setBounds(220, 290, 452, 170);
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel12.setText("View Accounts:");
-        viewAccount.add(jLabel12);
-        jLabel12.setBounds(330, 210, 259, 41);
-
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton4.setText("Back");
-        viewAccount.add(jButton4);
-        jButton4.setBounds(50, 500, 130, 60);
-
-        getContentPane().add(viewAccount);
-        viewAccount.setBounds(0, 0, 900, 600);
-        viewAccount.setVisible(false);
-
         addBuildPanel.setBackground(new java.awt.Color(255, 255, 255));
         addBuildPanel.setMaximumSize(new java.awt.Dimension(900, 600));
         addBuildPanel.setMinimumSize(new java.awt.Dimension(900, 600));
@@ -1030,6 +894,205 @@ public class BuildForm extends javax.swing.JFrame {
     getContentPane().add(addBuildPanel);
     addBuildPanel.setBounds(0, 0, 900, 600);
     addBuildPanel.setVisible(false);
+
+    viewPartPanel.setBackground(new java.awt.Color(255, 255, 255));
+    viewPartPanel.setMaximumSize(new java.awt.Dimension(900, 600));
+    viewPartPanel.setMinimumSize(new java.awt.Dimension(900, 600));
+    viewPartPanel.setPreferredSize(new java.awt.Dimension(900, 600));
+    viewPartPanel.setLayout(null);
+
+    viewAllPartsTable.setModel(new javax.swing.table.DefaultTableModel(
+        new Object [][] {
+            {},
+            {},
+            {},
+            {}
+        },
+        new String [] {
+
+        }
+    ));
+    viewAllPartsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            viewAllPartsTableMouseClicked(evt);
+        }
+    });
+    jScrollPane4.setViewportView(viewAllPartsTable);
+
+    viewPartPanel.add(jScrollPane4);
+    jScrollPane4.setBounds(20, 360, 850, 200);
+
+    partTypeComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Choose-", "Motherboard", "CPU", "GPU", "RAM", "Storage", "PSU", "PCCase", "Accessory", "Cooler" }));
+    partTypeComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            partTypeComboBox2ActionPerformed(evt);
+        }
+    });
+    viewPartPanel.add(partTypeComboBox2);
+    partTypeComboBox2.setBounds(340, 310, 210, 30);
+
+    cancelBtnE1.setText("Cancel");
+    cancelBtnE1.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            cancelBtnE1ActionPerformed(evt);
+        }
+    });
+    viewPartPanel.add(cancelBtnE1);
+    cancelBtnE1.setBounds(820, 10, 70, 42);
+
+    acceptBtnE1.setText("Accept");
+    viewPartPanel.add(acceptBtnE1);
+    acceptBtnE1.setBounds(740, 10, 65, 42);
+
+    jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
+    jLabel1.setText("jLabel1");
+    viewPartPanel.add(jLabel1);
+    jLabel1.setBounds(130, 70, 600, 120);
+
+    jLabel15.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+    jLabel15.setText("View Components");
+    viewPartPanel.add(jLabel15);
+    jLabel15.setBounds(280, 210, 340, 40);
+
+    getContentPane().add(viewPartPanel);
+    viewPartPanel.setBounds(0, 0, 900, 600);
+    viewPartPanel.setVisible(false);
+
+    createAccount.setBackground(new java.awt.Color(255, 255, 255));
+    createAccount.setMaximumSize(new java.awt.Dimension(900, 600));
+    createAccount.setMinimumSize(new java.awt.Dimension(900, 600));
+    createAccount.setPreferredSize(new java.awt.Dimension(900, 600));
+    createAccount.setLayout(null);
+
+    jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
+    createAccount.add(jLabel2);
+    jLabel2.setBounds(150, 80, 602, 119);
+
+    jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+    jLabel3.setText("Create Account:");
+    createAccount.add(jLabel3);
+    jLabel3.setBounds(350, 230, 210, 20);
+
+    jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    jLabel4.setText("Account type:");
+    createAccount.add(jLabel4);
+    jLabel4.setBounds(300, 290, 100, 17);
+
+    jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    jLabel5.setText("Username:");
+    createAccount.add(jLabel5);
+    jLabel5.setBounds(300, 320, 110, 20);
+
+    jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    jLabel6.setText("Password:");
+    createAccount.add(jLabel6);
+    jLabel6.setBounds(300, 350, 110, 17);
+
+    jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    jLabel7.setText("Confirm Password:");
+    createAccount.add(jLabel7);
+    jLabel7.setBounds(300, 380, 130, 17);
+
+    jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    jLabel8.setText("Forename:");
+    createAccount.add(jLabel8);
+    jLabel8.setBounds(300, 410, 120, 17);
+
+    jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    jLabel9.setText("Surname:");
+    createAccount.add(jLabel9);
+    jLabel9.setBounds(300, 440, 90, 17);
+
+    jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    jButton1.setText("Cancel");
+    createAccount.add(jButton1);
+    jButton1.setBounds(140, 530, 130, 60);
+
+    jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    jButton2.setText("Create Account");
+    createAccount.add(jButton2);
+    jButton2.setBounds(750, 530, 130, 60);
+
+    jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General User", "Admin" }));
+    jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jComboBox1ActionPerformed(evt);
+        }
+    });
+    createAccount.add(jComboBox1);
+    jComboBox1.setBounds(440, 290, 220, 20);
+
+    jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jTextField1ActionPerformed(evt);
+        }
+    });
+    createAccount.add(jTextField1);
+    jTextField1.setBounds(440, 320, 220, 20);
+    createAccount.add(jTextField2);
+    jTextField2.setBounds(440, 350, 220, 20);
+    createAccount.add(jTextField3);
+    jTextField3.setBounds(440, 380, 220, 20);
+
+    jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jTextField4ActionPerformed(evt);
+        }
+    });
+    createAccount.add(jTextField4);
+    jTextField4.setBounds(440, 410, 220, 20);
+
+    jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    jLabel11.setText("email:");
+    createAccount.add(jLabel11);
+    jLabel11.setBounds(300, 470, 70, 17);
+    createAccount.add(jTextField5);
+    jTextField5.setBounds(440, 440, 220, 20);
+    createAccount.add(jTextField6);
+    jTextField6.setBounds(440, 470, 220, 20);
+
+    getContentPane().add(createAccount);
+    createAccount.setBounds(0, 0, 900, 600);
+    createAccount.setVisible(false);
+
+    viewAccount.setBackground(new java.awt.Color(255, 255, 255));
+    viewAccount.setMaximumSize(new java.awt.Dimension(900, 600));
+    viewAccount.setMinimumSize(new java.awt.Dimension(900, 600));
+    viewAccount.setLayout(null);
+
+    jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
+    viewAccount.add(jLabel10);
+    jLabel10.setBounds(130, 60, 602, 119);
+
+    jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        new Object [][] {
+            {null, null},
+            {null, null},
+            {null, null},
+            {null, null}
+        },
+        new String [] {
+            "Account Name", "Account Type"
+        }
+    ));
+    jScrollPane1.setViewportView(jTable1);
+
+    viewAccount.add(jScrollPane1);
+    jScrollPane1.setBounds(220, 290, 452, 170);
+
+    jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+    jLabel12.setText("View Accounts:");
+    viewAccount.add(jLabel12);
+    jLabel12.setBounds(330, 210, 259, 41);
+
+    jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    jButton4.setText("Back");
+    viewAccount.add(jButton4);
+    jButton4.setBounds(50, 500, 130, 60);
+
+    getContentPane().add(viewAccount);
+    viewAccount.setBounds(0, 0, 900, 600);
+    viewAccount.setVisible(false);
 
     addPart.setBackground(new java.awt.Color(255, 255, 255));
     addPart.setMaximumSize(new java.awt.Dimension(900, 600));
@@ -1166,69 +1229,6 @@ public class BuildForm extends javax.swing.JFrame {
     getContentPane().add(addComp);
     addComp.setBounds(0, 0, 900, 600);
     addComp.setVisible(false);
-
-    viewPartPanel.setBackground(new java.awt.Color(255, 255, 255));
-    viewPartPanel.setMaximumSize(new java.awt.Dimension(900, 600));
-    viewPartPanel.setMinimumSize(new java.awt.Dimension(900, 600));
-    viewPartPanel.setPreferredSize(new java.awt.Dimension(900, 600));
-    viewPartPanel.setLayout(null);
-
-    viewAllPartsTable.setModel(new javax.swing.table.DefaultTableModel(
-        new Object [][] {
-            {},
-            {},
-            {},
-            {}
-        },
-        new String [] {
-
-        }
-    ));
-    viewAllPartsTable.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            viewAllPartsTableMouseClicked(evt);
-        }
-    });
-    jScrollPane4.setViewportView(viewAllPartsTable);
-
-    viewPartPanel.add(jScrollPane4);
-    jScrollPane4.setBounds(20, 360, 850, 200);
-
-    partTypeComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Choose-", "Motherboard", "CPU", "GPU", "RAM", "Storage", "PSU", "PCCase", "Accessory", "Cooler" }));
-    partTypeComboBox2.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            partTypeComboBox2ActionPerformed(evt);
-        }
-    });
-    viewPartPanel.add(partTypeComboBox2);
-    partTypeComboBox2.setBounds(340, 310, 210, 30);
-
-    cancelBtnE1.setText("Cancel");
-    cancelBtnE1.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            cancelBtnE1ActionPerformed(evt);
-        }
-    });
-    viewPartPanel.add(cancelBtnE1);
-    cancelBtnE1.setBounds(820, 10, 70, 42);
-
-    acceptBtnE1.setText("Accept");
-    viewPartPanel.add(acceptBtnE1);
-    acceptBtnE1.setBounds(740, 10, 65, 42);
-
-    jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
-    jLabel1.setText("jLabel1");
-    viewPartPanel.add(jLabel1);
-    jLabel1.setBounds(130, 70, 600, 120);
-
-    jLabel15.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-    jLabel15.setText("View Components");
-    viewPartPanel.add(jLabel15);
-    jLabel15.setBounds(280, 210, 340, 40);
-
-    getContentPane().add(viewPartPanel);
-    viewPartPanel.setBounds(0, 0, 900, 600);
-    viewPartPanel.setVisible(false);
 
     pack();
     }// </editor-fold>//GEN-END:initComponents

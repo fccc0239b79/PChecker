@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class userAdminAccount {
     
-    private String username, password, fName, sName, email, DOB,mobilNum;
+    private String username, password, fName, sName, email, DOB,mobilNum, accountName;
     private boolean type;          //True for admin, false for general. 
 
 
@@ -47,6 +47,10 @@ public class userAdminAccount {
     }
     public String getDOB(){
         return DOB;
+    }
+    
+    public String getAccountName() {
+        return accountName;
     }
     /**
      *
@@ -134,6 +138,7 @@ public class userAdminAccount {
             while (rs.next()) {
 
                 dbUname = rs.getString("userName");
+                accountName = rs.getString("userName");
                 //dbPassword = rs.getString("Password");
                 
                 fName = rs.getString("Fname");
@@ -482,6 +487,11 @@ public class userAdminAccount {
    
     }
     
+    /**
+     *  getAccounts() - method shows all accounts names and accounts types from db and returns to table
+     * @return 
+     */
+    
     public static DefaultTableModel getAccounts () {
         DefaultTableModel modelParts = new DefaultTableModel() ;
         
@@ -492,7 +502,7 @@ public class userAdminAccount {
             
             //System.out.println("HMM");
             String query = ("SELECT userName, accountType FROM Account");
-            
+            //String query = ("SELECT * FROM Account");
             ResultSet rs = stmt.executeQuery(query);
             
             ResultSetMetaData metaData = rs.getMetaData();
@@ -500,8 +510,10 @@ public class userAdminAccount {
                 // names of columns
                 Vector<String> columnNames = new Vector<String>();
                 int columnCount = metaData.getColumnCount();
-                for (int column = 1; column <= columnCount; column++) {
-                    columnNames.add(metaData.getColumnName(column));
+                for (int column = 2; column <= columnCount; column++) {
+                  //  columnNames.add(metaData.getColumnName(column));
+                   columnNames.add("Account Name");
+                   columnNames.add("Account Type");
                 }
 
                 // data of the table
@@ -509,8 +521,12 @@ public class userAdminAccount {
                 while (rs.next()) {
                     Vector<Object> vector = new Vector<Object>();
                     for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++) {
+                        
                         vector.add(rs.getObject(columnIndex));
-                    
+                        
+                        //getAccountName
+                       // System.out.println(vector);
+                       // System.out.println(columnIndex);
                     }
                     data.add(vector);
                 }
@@ -671,14 +687,7 @@ public class userAdminAccount {
     }
     return partID;
     }
-
     
-
-
-
-
-
-
     public void updatePart(String partType, String partid, ArrayList<String> info,ArrayList<String> partinfo){
         //int partID = 0;
         Connection con = ServerControl.ConnectDB();
@@ -755,5 +764,25 @@ public class userAdminAccount {
     catch(SQLException err){
     }
     }
-
+    
+    public void updateAccountType(Boolean type, String name) {
+         Connection con = ServerControl.ConnectDB();
+         
+         try {
+            // String query = "UPDATE Account SET accountType = " + name + " WHERE userName = ?";
+            String query = "UPDATE Account SET accountType = ? WHERE userName = ?";
+            
+             PreparedStatement statement = con.prepareStatement(query);
+             
+             for(int i = 0; i < 10;i++){
+             statement.setBoolean(1+i, type);
+             statement.setString(1+i, name);
+             }
+             System.out.println(statement);
+             statement.execute();
+         } 
+         catch(SQLException err){
+             System.out.println(err);
+        }
+    }
     }
