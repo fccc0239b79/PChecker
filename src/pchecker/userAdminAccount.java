@@ -766,6 +766,8 @@ public class userAdminAccount {
     }
     
     public void updateAccountType(Boolean type, String name) {
+                     System.out.println("UPDATE");
+
          Connection con = ServerControl.ConnectDB();
          
          try {
@@ -775,7 +777,6 @@ public class userAdminAccount {
              PreparedStatement statement = con.prepareStatement(query);
              
              
-             System.out.println(statement);
              statement.execute();
          } 
          catch(SQLException err){

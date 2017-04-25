@@ -729,11 +729,11 @@ private void enbleEdit(boolean torf){
         // TODO add your handling code here:
         
         // !
-        if(accountTypeComboBox.getSelectedItem() == "Admin") {
-            System.out.println("ADMIN !!!");
+        if(accountTypeComboBox.getSelectedItem() == "Admin" && !currentTypelbl.getText().contains("Admin")) {
+            //System.out.println("ADMIN !!!");
             currentUser.updateAccountType(true, accountSettingsLabel1.getText());
-        } else {
-            System.out.println("USER !!!");
+        } else if(accountTypeComboBox.getSelectedItem() == "User" && !currentTypelbl.getText().contains("User")){
+            //System.out.println("USER !!!");
             currentUser.updateAccountType(false, accountSettingsLabel1.getText());
         }
         AdminUserFrame frm = new AdminUserFrame(currentUser);
