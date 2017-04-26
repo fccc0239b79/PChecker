@@ -7,6 +7,7 @@ package pchecker;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.sql.Connection;
@@ -95,15 +96,17 @@ public class BuildForm extends javax.swing.JFrame {
     public BuildForm(userAdminAccount user,String buildName) {
         initComponents();
         setLocationRelativeTo(null);
+        this.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         buildPanel.setVisible(true);
         
         acceptBuildBtn.setVisible(false);
         updateBtn.setVisible(true);
+        deleteBuildBtn.setVisible(true);
         
         buildNameLabelB.setVisible(false);
         newBuildTitleLable.setVisible(false);
         buildNametxt.setText(buildName);//setVisible(false);
-        buildNametxt.enable(false);
+        buildNametxt.setEnabled(false);
         
         currentUser = user;
         setEditBuild(buildName);
@@ -540,6 +543,7 @@ public class BuildForm extends javax.swing.JFrame {
         graphics_Price = new javax.swing.JLabel();
         processor_Price = new javax.swing.JLabel();
         ram_Price = new javax.swing.JLabel();
+        deleteBuildBtn = new javax.swing.JButton();
         compareBuilds = new javax.swing.JPanel();
         logoE = new javax.swing.JLabel();
         cancelBtnCompare = new javax.swing.JButton();
@@ -640,7 +644,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(acceptBuildBtn);
-        acceptBuildBtn.setBounds(620, 10, 70, 42);
+        acceptBuildBtn.setBounds(730, 10, 70, 42);
 
         logoB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         buildPanel.add(logoB);
@@ -825,7 +829,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(updateBtn);
-        updateBtn.setBounds(710, 10, 70, 40);
+        updateBtn.setBounds(730, 10, 70, 40);
         updateBtn.setVisible(false);
 
         motherboardLabelSelectedPart1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -949,6 +953,17 @@ public class BuildForm extends javax.swing.JFrame {
         ram_Price.setName(""); // NOI18N
         buildPanel.add(ram_Price);
         ram_Price.setBounds(570, 330, 130, 15);
+
+        deleteBuildBtn.setText("Delete");
+        deleteBuildBtn.setEnabled(false);
+        deleteBuildBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBuildBtnActionPerformed(evt);
+            }
+        });
+        buildPanel.add(deleteBuildBtn);
+        deleteBuildBtn.setBounds(660, 10, 70, 40);
+        deleteBuildBtn.setVisible(false);
 
         getContentPane().add(buildPanel);
         buildPanel.setBounds(0, 0, 900, 600);
@@ -1476,6 +1491,7 @@ public class BuildForm extends javax.swing.JFrame {
     }//GEN-LAST:event_coolingBtnActionPerformed
 
     private void runCompatibilityCheck(){
+        //this.setCursor(new Cursor(Cursor.WAIT_CURSOR));
         motherboardBtn.setBackground(Color.GREEN); // sets color on green after selected part 
 
         
@@ -1769,6 +1785,7 @@ public class BuildForm extends javax.swing.JFrame {
 
                 // motherboardBtn.setText(newBuild.getPartName(choosenPart));
                 enbleButtons();
+                this.setCursor(new Cursor(Cursor.WAIT_CURSOR));
                 runCompatibilityCheck();
 
                 break;
@@ -1817,6 +1834,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
             buildPanel.setVisible(true);
             addBuildPanel.setVisible(false);
+            this.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             //runCompatibilityCheck();
 
         }
@@ -1860,6 +1878,19 @@ public class BuildForm extends javax.swing.JFrame {
             getPartsToCompare(build, "one");
          }
     }//GEN-LAST:event_buildsOneActionPerformed
+
+    private void deleteBuildBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBuildBtnActionPerformed
+      int answer = JOptionPane.showConfirmDialog(null, "Are You Sure You Want to Delete your Build?", "Delete Build", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+       
+        if (answer == JOptionPane.YES_OPTION) {
+          
+            JOptionPane.showMessageDialog(null, "Build Deleted. You will be returnd to main menu");
+            currentUser.deleteBuild(newBuild.getBuildName());
+            AdminUserFrame frm = new AdminUserFrame(currentUser);
+            this.dispose();
+            frm.setVisible(true);
+        }
+    }//GEN-LAST:event_deleteBuildBtnActionPerformed
     
     public void getPartsToCompare(String buildName, String BuildNum){
        
@@ -2040,6 +2071,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel cooling_ID;
     private javax.swing.JLabel cooling_Price;
     private javax.swing.JPanel createAccount;
+    private javax.swing.JButton deleteBuildBtn;
     private javax.swing.JButton deletePart;
     private javax.swing.JLabel gpuLabelSelectedPart;
     private javax.swing.JButton graphicsBtn;

@@ -5,6 +5,7 @@
  */
 package pchecker;
 
+import java.awt.Cursor;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -703,12 +704,13 @@ private void enbleEdit(boolean torf){
 
 
         String selectedBuild = buildsList.getSelectedValue();
-        String username = currentUser.getUsername();
+        //String username = currentUser.getUsername();
         if(!selectedBuild.equals("No Builds")){
+            this.setCursor(new Cursor(Cursor.WAIT_CURSOR));
             BuildForm frm = new BuildForm(currentUser,selectedBuild); //
             System.out.println(selectedBuild);
             this.dispose();
-            //frm.setBuildLabel(selectedBuild);
+           
             frm.setVisible(true);
         }
     }//GEN-LAST:event_buildsListMouseClicked

@@ -201,6 +201,21 @@ public class userAdminAccount {
            return builds;
     }
     
+    public void deleteBuild(String buildname){
+         Connection con = ServerControl.ConnectDB();
+         
+         try {
+            String query = "DELETE FROM Build WHERE Account = '"+username+"' AND BuildName = '"+buildname+"';";
+            
+             PreparedStatement statement = con.prepareStatement(query);
+             
+ 
+             statement.execute();
+         } 
+         catch(SQLException err){
+             System.out.println(err);
+        }
+    }
     
     public boolean checkPassword(String username, String password){
             // this statement establishes the connection between netbeans and the vm
