@@ -615,6 +615,8 @@ public class BuildForm extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         compTable = new javax.swing.JTable();
         saveCompBtn = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(900, 600));
@@ -1150,7 +1152,7 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     viewPartPanel.add(partTypeComboBox2);
-    partTypeComboBox2.setBounds(340, 310, 210, 30);
+    partTypeComboBox2.setBounds(340, 300, 210, 30);
 
     cancelBtnE1.setBackground(new java.awt.Color(127, 127, 127));
     cancelBtnE1.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
@@ -1183,9 +1185,10 @@ public class BuildForm extends javax.swing.JFrame {
 
     jLabel15.setFont(new java.awt.Font("Kalinga", 1, 36)); // NOI18N
     jLabel15.setForeground(new java.awt.Color(127, 127, 127));
+    jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     jLabel15.setText("View Components");
     viewPartPanel.add(jLabel15);
-    jLabel15.setBounds(280, 230, 340, 40);
+    jLabel15.setBounds(260, 230, 370, 40);
 
     getContentPane().add(viewPartPanel);
     viewPartPanel.setBounds(0, 0, 900, 600);
@@ -1450,6 +1453,7 @@ public class BuildForm extends javax.swing.JFrame {
     addPart.setBounds(0, 0, 900, 600);
     addPart.setVisible(false);
 
+    addComp.setBackground(new java.awt.Color(255, 255, 255));
     addComp.setMaximumSize(new java.awt.Dimension(900, 600));
     addComp.setPreferredSize(new java.awt.Dimension(900, 600));
     addComp.setLayout(null);
@@ -1468,8 +1472,11 @@ public class BuildForm extends javax.swing.JFrame {
     jScrollPane3.setViewportView(compTable);
 
     addComp.add(jScrollPane3);
-    jScrollPane3.setBounds(60, 40, 690, 370);
+    jScrollPane3.setBounds(100, 300, 690, 210);
 
+    saveCompBtn.setBackground(new java.awt.Color(127, 127, 127));
+    saveCompBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+    saveCompBtn.setForeground(new java.awt.Color(255, 255, 255));
     saveCompBtn.setText("save");
     saveCompBtn.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1477,7 +1484,19 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     addComp.add(saveCompBtn);
-    saveCompBtn.setBounds(780, 30, 55, 23);
+    saveCompBtn.setBounds(790, 20, 80, 43);
+
+    jLabel16.setFont(new java.awt.Font("Kalinga", 1, 36)); // NOI18N
+    jLabel16.setForeground(new java.awt.Color(127, 127, 127));
+    jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    jLabel16.setText("Add Component");
+    addComp.add(jLabel16);
+    jLabel16.setBounds(270, 220, 380, 60);
+
+    jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
+    jLabel21.setText("jLabel16");
+    addComp.add(jLabel21);
+    jLabel21.setBounds(160, 50, 600, 110);
 
     getContentPane().add(addComp);
     addComp.setBounds(0, 0, 900, 600);
@@ -2131,11 +2150,13 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
