@@ -108,7 +108,9 @@ public class LogInForm extends javax.swing.JFrame {
         LogInPanel.add(logo);
         logo.setBounds(140, 150, 602, 119);
 
-        loginBtn.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        loginBtn.setBackground(new java.awt.Color(127, 127, 127));
+        loginBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        loginBtn.setForeground(new java.awt.Color(255, 255, 255));
         loginBtn.setText("Login");
         loginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,9 +118,11 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         LogInPanel.add(loginBtn);
-        loginBtn.setBounds(370, 430, 70, 45);
+        loginBtn.setBounds(370, 430, 71, 45);
 
-        exitBtn.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        exitBtn.setBackground(new java.awt.Color(127, 127, 127));
+        exitBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        exitBtn.setForeground(new java.awt.Color(255, 255, 255));
         exitBtn.setText("Exit");
         exitBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,6 +143,7 @@ public class LogInForm extends javax.swing.JFrame {
         PasswordLabel.setBounds(250, 380, 100, 30);
 
         UsernameInput.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        UsernameInput.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
         UsernameInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UsernameInputActionPerformed(evt);
@@ -148,7 +153,7 @@ public class LogInForm extends javax.swing.JFrame {
         UsernameInput.setBounds(350, 340, 210, 30);
 
         forgotPswLink.setFont(new java.awt.Font("Kalinga", 2, 12)); // NOI18N
-        forgotPswLink.setForeground(new java.awt.Color(255, 0, 0));
+        forgotPswLink.setForeground(new java.awt.Color(179, 0, 0));
         forgotPswLink.setText("Forgot Password ?");
         forgotPswLink.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         forgotPswLink.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -160,7 +165,7 @@ public class LogInForm extends javax.swing.JFrame {
         forgotPswLink.setBounds(410, 520, 117, 20);
 
         createAccountLink.setFont(new java.awt.Font("Kalinga", 2, 12)); // NOI18N
-        createAccountLink.setForeground(new java.awt.Color(255, 0, 0));
+        createAccountLink.setForeground(new java.awt.Color(179, 0, 0));
         createAccountLink.setText("Create Account");
         createAccountLink.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         createAccountLink.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -173,6 +178,8 @@ public class LogInForm extends javax.swing.JFrame {
 
         PasswordInput.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         PasswordInput.setToolTipText("");
+        PasswordInput.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
+        PasswordInput.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         PasswordInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PasswordInputActionPerformed(evt);
@@ -190,6 +197,7 @@ public class LogInForm extends javax.swing.JFrame {
         RegistrationPanel.setLayout(null);
 
         titleLabel.setFont(new java.awt.Font("Kalinga", 1, 48)); // NOI18N
+        titleLabel.setForeground(new java.awt.Color(127, 127, 127));
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Welcome !");
         RegistrationPanel.add(titleLabel);
@@ -204,50 +212,56 @@ public class LogInForm extends javax.swing.JFrame {
         userLabel.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         userLabel.setText("Username: ");
         RegistrationPanel.add(userLabel);
-        userLabel.setBounds(330, 240, 90, 30);
+        userLabel.setBounds(280, 240, 90, 30);
 
         passLabel.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         passLabel.setText("Password:");
         RegistrationPanel.add(passLabel);
-        passLabel.setBounds(330, 280, 90, 30);
+        passLabel.setBounds(280, 280, 90, 30);
 
         confirmLabel.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         confirmLabel.setText("Confirm password: ");
         RegistrationPanel.add(confirmLabel);
-        confirmLabel.setBounds(270, 320, 150, 30);
+        confirmLabel.setBounds(220, 320, 150, 30);
 
         nameLabel.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         nameLabel.setText("Forename:");
         RegistrationPanel.add(nameLabel);
-        nameLabel.setBounds(330, 360, 90, 30);
+        nameLabel.setBounds(280, 360, 90, 30);
 
         surnameLabel.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         surnameLabel.setText("Surname:");
         RegistrationPanel.add(surnameLabel);
-        surnameLabel.setBounds(340, 400, 80, 30);
+        surnameLabel.setBounds(290, 400, 80, 30);
 
         emailLabel.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         emailLabel.setText("email:");
         RegistrationPanel.add(emailLabel);
-        emailLabel.setBounds(360, 440, 60, 30);
+        emailLabel.setBounds(310, 440, 60, 30);
 
         usernameField.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        usernameField.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
         RegistrationPanel.add(usernameField);
-        usernameField.setBounds(420, 240, 210, 30);
+        usernameField.setBounds(370, 240, 210, 30);
 
         forenameField.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        forenameField.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
         RegistrationPanel.add(forenameField);
-        forenameField.setBounds(420, 360, 210, 30);
+        forenameField.setBounds(370, 360, 210, 30);
 
         surnameField.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        surnameField.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
         RegistrationPanel.add(surnameField);
-        surnameField.setBounds(420, 400, 210, 30);
+        surnameField.setBounds(370, 400, 210, 30);
 
         emailField.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        emailField.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
         RegistrationPanel.add(emailField);
-        emailField.setBounds(420, 440, 210, 30);
+        emailField.setBounds(370, 440, 210, 30);
 
-        cancelBtn.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        cancelBtn.setBackground(new java.awt.Color(127, 127, 127));
+        cancelBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        cancelBtn.setForeground(new java.awt.Color(255, 255, 255));
         cancelBtn.setText("Cancel");
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -257,7 +271,9 @@ public class LogInForm extends javax.swing.JFrame {
         RegistrationPanel.add(cancelBtn);
         cancelBtn.setBounds(720, 510, 140, 40);
 
-        createBtn.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        createBtn.setBackground(new java.awt.Color(127, 127, 127));
+        createBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        createBtn.setForeground(new java.awt.Color(255, 255, 255));
         createBtn.setText("Create Account");
         createBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -269,45 +285,49 @@ public class LogInForm extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         RegistrationPanel.add(jLabel1);
-        jLabel1.setBounds(140, 10, 602, 104);
+        jLabel1.setBounds(140, 10, 602, 110);
 
         passField.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         passField.setToolTipText("");
+        passField.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
         passField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passFieldActionPerformed(evt);
             }
         });
         RegistrationPanel.add(passField);
-        passField.setBounds(420, 280, 210, 30);
+        passField.setBounds(370, 280, 210, 30);
 
         confirmPassField.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         confirmPassField.setToolTipText("");
+        confirmPassField.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
         confirmPassField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmPassFieldActionPerformed(evt);
             }
         });
         RegistrationPanel.add(confirmPassField);
-        confirmPassField.setBounds(420, 320, 210, 30);
+        confirmPassField.setBounds(370, 320, 210, 30);
 
         emailLabel1.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         emailLabel1.setText("Mobile No.");
         RegistrationPanel.add(emailLabel1);
-        emailLabel1.setBounds(330, 480, 90, 30);
+        emailLabel1.setBounds(280, 480, 90, 30);
 
         mobilNumField.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        mobilNumField.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
         RegistrationPanel.add(mobilNumField);
-        mobilNumField.setBounds(420, 480, 210, 30);
+        mobilNumField.setBounds(370, 480, 210, 30);
 
         emailLabel2.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         emailLabel2.setText("Date of birth (dd/mm/yyyy)");
         RegistrationPanel.add(emailLabel2);
-        emailLabel2.setBounds(220, 520, 200, 30);
+        emailLabel2.setBounds(170, 520, 200, 30);
 
         DOBField.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        DOBField.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
         RegistrationPanel.add(DOBField);
-        DOBField.setBounds(420, 520, 210, 30);
+        DOBField.setBounds(370, 520, 210, 30);
 
         getContentPane().add(RegistrationPanel);
         RegistrationPanel.setBounds(0, 0, 900, 600);
@@ -318,9 +338,10 @@ public class LogInForm extends javax.swing.JFrame {
         ForgotPasswordPanel.setLayout(null);
 
         informLabelFP.setFont(new java.awt.Font("Kalinga", 1, 20)); // NOI18N
+        informLabelFP.setForeground(new java.awt.Color(127, 127, 127));
         informLabelFP.setText("Did you forget password? Do NOT worry, please insert:");
         ForgotPasswordPanel.add(informLabelFP);
-        informLabelFP.setBounds(200, 180, 560, 30);
+        informLabelFP.setBounds(180, 190, 560, 30);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         ForgotPasswordPanel.add(jLabel2);
@@ -334,11 +355,13 @@ public class LogInForm extends javax.swing.JFrame {
 
         jPasswordField1.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
         newFPP.add(jPasswordField1);
         jPasswordField1.setBounds(410, 80, 180, 30);
 
         jPasswordField2.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         jPasswordField2.setText("jPasswordField2");
+        jPasswordField2.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
         newFPP.add(jPasswordField2);
         jPasswordField2.setBounds(410, 130, 180, 30);
 
@@ -352,12 +375,16 @@ public class LogInForm extends javax.swing.JFrame {
         newFPP.add(jLabel4);
         jLabel4.setBounds(260, 130, 150, 30);
 
-        jButton1.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(127, 127, 127));
+        jButton1.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Accept");
         newFPP.add(jButton1);
         jButton1.setBounds(460, 220, 90, 40);
 
-        jButton2.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        jButton2.setBackground(new java.awt.Color(127, 127, 127));
+        jButton2.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Cancel");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -375,19 +402,22 @@ public class LogInForm extends javax.swing.JFrame {
         oldFPP.setLayout(null);
 
         usernameFieldFP.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        usernameFieldFP.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
         oldFPP.add(usernameFieldFP);
         usernameFieldFP.setBounds(440, 70, 180, 30);
 
         emailFieldFP.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        emailFieldFP.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
         oldFPP.add(emailFieldFP);
         emailFieldFP.setBounds(440, 110, 180, 30);
 
         DOBinput.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        DOBinput.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
         oldFPP.add(DOBinput);
         DOBinput.setBounds(440, 150, 180, 30);
 
         DOBLabel.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
-        DOBLabel.setText("Day of Birth(DD/MM/YYYY):");
+        DOBLabel.setText("Day of Birth (DD/MM/YYYY):");
         oldFPP.add(DOBLabel);
         DOBLabel.setBounds(230, 150, 210, 30);
 
@@ -401,7 +431,9 @@ public class LogInForm extends javax.swing.JFrame {
         oldFPP.add(usernameLabelFP);
         usernameLabelFP.setBounds(350, 70, 90, 30);
 
-        cancelBtnFP.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        cancelBtnFP.setBackground(new java.awt.Color(127, 127, 127));
+        cancelBtnFP.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        cancelBtnFP.setForeground(new java.awt.Color(255, 255, 255));
         cancelBtnFP.setText("Cancel");
         cancelBtnFP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -411,7 +443,9 @@ public class LogInForm extends javax.swing.JFrame {
         oldFPP.add(cancelBtnFP);
         cancelBtnFP.setBounds(300, 230, 90, 40);
 
-        acceptBtnFP.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        acceptBtnFP.setBackground(new java.awt.Color(127, 127, 127));
+        acceptBtnFP.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        acceptBtnFP.setForeground(new java.awt.Color(255, 255, 255));
         acceptBtnFP.setText("Accept");
         acceptBtnFP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

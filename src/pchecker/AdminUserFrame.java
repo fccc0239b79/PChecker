@@ -102,7 +102,6 @@ public class AdminUserFrame extends javax.swing.JFrame {
         profileLabel = new javax.swing.JLabel();
         backBtnProfile = new javax.swing.JButton();
         editBtnProfile = new javax.swing.JButton();
-        settingsLabel = new javax.swing.JLabel();
         acceptBtnProfile = new javax.swing.JButton();
         mobilPro = new javax.swing.JTextField();
         fnamePro = new javax.swing.JTextField();
@@ -129,9 +128,10 @@ public class AdminUserFrame extends javax.swing.JFrame {
         changeAccountTypePanel.setPreferredSize(new java.awt.Dimension(900, 600));
         changeAccountTypePanel.setLayout(null);
 
+        logoAccount1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         logoAccount1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         changeAccountTypePanel.add(logoAccount1);
-        logoAccount1.setBounds(150, 80, 602, 119);
+        logoAccount1.setBounds(150, 80, 600, 120);
 
         accountSettingsLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         accountSettingsLabel1.setText("[Account Name]");
@@ -167,7 +167,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
 
         currentTypelbl.setText("jLabel1");
         changeAccountTypePanel.add(currentTypelbl);
-        currentTypelbl.setBounds(350, 280, 310, 16);
+        currentTypelbl.setBounds(350, 280, 310, 14);
 
         deleteDifferentAccount.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         deleteDifferentAccount.setText("Delete Account");
@@ -247,7 +247,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainUserPanel.add(adminBackBtn);
-        adminBackBtn.setBounds(20, 10, 75, 40);
+        adminBackBtn.setBounds(20, 10, 55, 40);
         adminBackBtn.setVisible(false);
 
         compareBuildsBtn.setText("Compare Builds");
@@ -304,7 +304,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(accountsTable);
 
         accountPanel.add(jScrollPane1);
-        jScrollPane1.setBounds(230, 310, 454, 190);
+        jScrollPane1.setBounds(230, 310, 452, 190);
 
         getContentPane().add(accountPanel);
         accountPanel.setBounds(0, 0, 900, 600);
@@ -335,7 +335,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(logOffAdminBtn);
-        logOffAdminBtn.setBounds(809, 11, 91, 43);
+        logOffAdminBtn.setBounds(809, 11, 69, 43);
 
         profileAdminBtn.setText("Profile");
         profileAdminBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -344,7 +344,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(profileAdminBtn);
-        profileAdminBtn.setBounds(720, 10, 84, 43);
+        profileAdminBtn.setBounds(720, 10, 63, 43);
 
         newComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         newComponentAdminBtn.setText("Add New Part");
@@ -413,12 +413,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         profilePanel.add(editBtnProfile);
-        editBtnProfile.setBounds(290, 100, 103, 41);
-
-        settingsLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        settingsLabel.setText("SETTINGS");
-        profilePanel.add(settingsLabel);
-        settingsLabel.setBounds(550, 100, 200, 44);
+        editBtnProfile.setBounds(290, 100, 91, 41);
 
         acceptBtnProfile.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         acceptBtnProfile.setText("Accept");
@@ -945,7 +940,6 @@ private void enbleEdit(boolean torf){
     private javax.swing.JLabel profileLabel;
     private javax.swing.JPanel profilePanel;
     private javax.swing.JButton saveAccountTypeBtn;
-    private javax.swing.JLabel settingsLabel;
     private javax.swing.JTextField snamePro;
     private javax.swing.JLabel surnameLabel;
     private javax.swing.JButton viewBuildAdminBtn;
