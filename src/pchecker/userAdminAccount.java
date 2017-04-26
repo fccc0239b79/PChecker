@@ -262,28 +262,40 @@ public class userAdminAccount {
      * @param newPassword
      * @return
      */
-    /*
-    public void changePassword(String username, String newPassword){
-    Connection con = DatabaseConnection.establishConnection();
-    String user = username;
-    String password = newPassword;
-    try {
     
-       //SQL query - changes password where the username is equal to input, entered by user.
-       String query = ("UPDATE Account SET Password '" + password + "' WHERE Username = '" + username +"' ;  ");
-       PreparedStatement statement = con.prepareStatement(query);
-    
- 
+    public void changePassword(String newPassword){
+        Connection con = ServerControl.ConnectDB();
+        try {
+           //SQL query - changes password where the username is equal to input, entered by user.
+           String query = ("UPDATE Account SET Password = '" + newPassword + "' WHERE Username = '" + username +"';");
+           PreparedStatement statement = con.prepareStatement(query);
+           statement.execute();
+        }
+        catch(SQLException err){ //error message
+
+
+        }
     }
-    catch(SQLException err){ //error message
+    
+    public boolean checkDetails(String DOB, String email){
+        Connection con = ServerControl.ConnectDB();
+
+        try {
+                Statement stmt = (Statement) con.createStatement();
+                String query = ("SELECT Email,DOB FROM Account WHERE  ");
+
+                stmt.executeQuery(query);
+                ResultSet rs = stmt.getResultSet();
+            
+                while (rs.next()) {
+                }
+            }
+            catch(SQLException err){ //error message
+
+
+        }
         
-    
     }
-   
-    // setting the users data entered below
-    }
-    */
-    
    
 
     /**
