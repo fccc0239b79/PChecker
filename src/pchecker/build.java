@@ -20,48 +20,61 @@ import java.util.ArrayList;
 public class build {
     private int motherBoardID = -1, cpuID = -1, ramID = -1, storageID = -1, gpuID = -1, psuID = -1, 
                 caseID = -1, coolerID = -1,accessoryID = -1,systemCompRating;
+    private double totalCost = 0.0,motherBoardPrice = 0.0, cpuPrice = 0.0, ramPrice = 0.0, storagePrice = 0.0, 
+            gpuPrice = 0.0, psuPrice = 0.0 , casePrice = 0.0, coolerPrice = 0.0,accessoryPrice = 0.0;
     
+    ;
     private String buildName = "",motherBoardName = "", cpuName = "", ramName = "", storageName = "", gpuName = "", psuName= "" , caseName = "", coolerName = "",accessoryName = "";
     
     //stworzyc method na kazdy lable 
     public void setBuildName(String name){
         this.buildName = name;
     }    
-    public void setMotherboard(int ID, String name ){
+    public void setMotherboard(int ID, String name ,double price){
         this.motherBoardID = ID;
         this.motherBoardName = name;
+        this.motherBoardPrice = price;
     }
-    public void setCPU(int ID, String name ){
+    public void setCPU(int ID, String name ,double price){
         this.cpuID = ID;
         this.cpuName = name;
+        this.cpuPrice = price;
     }
-    public void setRAM(int ID, String name ){
+    public void setRAM(int ID, String name ,double price){
         this.ramID = ID;
         this.ramName = name;
+        this.ramPrice = price;
+ 
     }
-    public void setStorage(int ID, String name ){
+    public void setStorage(int ID, String name ,double price){
         this.storageID = ID;
         this.storageName = name;
+        this.storagePrice = price;
     }
-    public void setGPU(int ID, String name ){
+    public void setGPU(int ID, String name, double price){
         this.gpuID = ID;
         this.gpuName  = name;
+        this.gpuPrice = price;
     }
-    public void setPSU(int ID, String name ){
+    public void setPSU(int ID, String name, double price){
         this.psuID = ID;
         this.psuName = name;
+        this.psuPrice = price;
     }
-    public void setPCCase(int ID, String name ){
+    public void setPCCase(int ID, String name, double price){
         this.caseID = ID;
         this.caseName = name;
+        this.casePrice = price;
     }
-    public void setCooler(int ID, String name ){
+    public void setCooler(int ID, String name, double price){
         this.coolerID = ID;
         this.coolerName = name;
+        this.coolerPrice = price;
     }
-    public void setAccessory(int ID, String name ){
+    public void setAccessory(int ID, String name, double price){
         this.accessoryID = ID;
         this.accessoryName = name;
+        this.accessoryPrice = price;
     }
     
     public String getPartName(String partType){
@@ -90,6 +103,33 @@ public class build {
         return partName;
         
     }
+    public double getPartPrice(String partType){
+        double partName = 0.0;
+        switch (partType) {
+                
+                    case "Motherboard": partName = motherBoardPrice;
+                                        break;
+                    case "CPU": partName = cpuPrice;
+                                break;
+                    case "RAM":  partName = ramPrice;
+                                break;
+                    case "GPU": partName = gpuPrice;
+                                break;
+                    case "Storage": partName = storagePrice;
+                                    break;
+                    case "Accessory":  partName = accessoryPrice;
+                                      break;
+                    case "PSU": partName = psuPrice;
+                                break;
+                    case "PCCase": partName = casePrice;
+                                   break;
+                    case "Cooler": partName = coolerPrice;
+                                    break;
+        }
+        return partName;
+        
+    }
+    
     
     public String getBuildName(){
         return buildName;
@@ -120,6 +160,13 @@ public class build {
     }
     public int getAccessory(){
         return accessoryID;
+    }
+    
+    public void setBuildCost(double cost){
+        this.totalCost = cost;
+    }
+    public double getBuildCost(){
+        return totalCost;
     }
     
     public void getBuild(String username, String name){
@@ -165,6 +212,7 @@ public class build {
             accessoryName = getnames(con,accessoryID);
             
             systemCompRating = rs.getInt("systemCompRating");
+            totalCost = rs.getDouble("totalBuildCost");
     
         }
     
@@ -200,7 +248,7 @@ public class build {
     
     try {
         //SQL query for inserting data into account table
-       String query = "INSERT INTO Build values (?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+       String query = "INSERT INTO Build values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
           
        PreparedStatement statement = con.prepareStatement(query);
        
@@ -218,6 +266,7 @@ public class build {
        statement.setInt(11, coolerID);
        statement.setInt(12, accessoryID);
        statement.setInt(13, systemCompRating);
+       statement.setDouble(14, totalCost);
             System.out.print(statement);
 
        statement.execute();
@@ -234,7 +283,7 @@ public class build {
     
     try {
         //SQL query for inserting data into account table
-       String query = "UPDATE Build SET Motherboard = ?, CPU = ?, RAM= ?, Storage= ?, GPU = ?, PSU = ?, PCCase = ?, Cooler = ?, Accessory = ?, systemCompRating = ? WHERE Account = ? AND BuildName = ?"; 
+       String query = "UPDATE Build SET Motherboard = ?, CPU = ?, RAM= ?, Storage= ?, GPU = ?, PSU = ?, PCCase = ?, Cooler = ?, Accessory = ?, systemCompRating = ?, totalBuildCost = ? WHERE Account = ? AND BuildName = ?"; 
           
        PreparedStatement statement = con.prepareStatement(query);
        
@@ -251,6 +300,7 @@ public class build {
        statement.setInt(10, systemCompRating);
        statement.setString(11, user);
        statement.setString(12, buildName);
+       statement.setDouble(13, totalCost);
        statement.execute();
        con.close();
     }

@@ -145,7 +145,19 @@ public class BuildForm extends javax.swing.JFrame {
        powersupply_ID.setText(String.valueOf(newBuild.getPSU()));
        ram_ID.setText(String.valueOf(newBuild.getRam()));
        
+       accessories_Price.setText(String.valueOf(newBuild.getPartPrice("Accessory")));   
+        case_Price.setText(String.valueOf(newBuild.getPartPrice("PCCase")));
+        cooling_Price.setText(String.valueOf(newBuild.getPartPrice("Cooler")));
+        graphics_Price.setText(String.valueOf(newBuild.getPartPrice("GPU")));
+        hdd_Price.setText(String.valueOf(newBuild.getPartPrice("Storage")));
+        motherboard_Price.setText(String.valueOf(newBuild.getPartPrice("Motherboard")));
+        processor_Price.setText(String.valueOf(newBuild.getPartPrice("CPU")));
+        powersupply_Price.setText(String.valueOf(newBuild.getPartPrice("PSU")));
+        ram_Price.setText(String.valueOf(newBuild.getPartPrice("RAM")));
        
+       
+       buildTotalCostLbl.setText(String.valueOf(newBuild.getBuildCost()));
+      
     }
     
   
@@ -488,8 +500,8 @@ public class BuildForm extends javax.swing.JFrame {
         logoB = new javax.swing.JLabel();
         buildNameLabelB = new javax.swing.JLabel();
         buildNametxt = new javax.swing.JTextField();
-        motherboardBtn = new javax.swing.JButton();
         processorBtn = new javax.swing.JButton();
+        motherboardBtn = new javax.swing.JButton();
         ramBtn = new javax.swing.JButton();
         graphicsBtn = new javax.swing.JButton();
         hddBtn = new javax.swing.JButton();
@@ -516,6 +528,17 @@ public class BuildForm extends javax.swing.JFrame {
         case_ID = new javax.swing.JLabel();
         powersupply_ID = new javax.swing.JLabel();
         cooling_ID = new javax.swing.JLabel();
+        buildTotalCostLbl = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        motherboard_Price = new javax.swing.JLabel();
+        hdd_Price = new javax.swing.JLabel();
+        powersupply_Price = new javax.swing.JLabel();
+        cooling_Price = new javax.swing.JLabel();
+        accessories_Price = new javax.swing.JLabel();
+        case_Price = new javax.swing.JLabel();
+        graphics_Price = new javax.swing.JLabel();
+        processor_Price = new javax.swing.JLabel();
+        ram_Price = new javax.swing.JLabel();
         compareBuilds = new javax.swing.JPanel();
         logoE = new javax.swing.JLabel();
         cancelBtnCompare = new javax.swing.JButton();
@@ -621,7 +644,7 @@ public class BuildForm extends javax.swing.JFrame {
         buildNameLabelB.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         buildNameLabelB.setText("Build Name:");
         buildPanel.add(buildNameLabelB);
-        buildNameLabelB.setBounds(270, 250, 115, 36);
+        buildNameLabelB.setBounds(270, 230, 115, 36);
 
         buildNametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -634,17 +657,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(buildNametxt);
-        buildNametxt.setBounds(390, 250, 246, 36);
-
-        motherboardBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        motherboardBtn.setText("MOTHERBOARD");
-        motherboardBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                motherboardBtnActionPerformed(evt);
-            }
-        });
-        buildPanel.add(motherboardBtn);
-        motherboardBtn.setBounds(250, 310, 130, 60);
+        buildNametxt.setBounds(390, 230, 246, 36);
 
         processorBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         processorBtn.setText("PROCESSOR");
@@ -655,7 +668,17 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(processorBtn);
-        processorBtn.setBounds(410, 310, 130, 62);
+        processorBtn.setBounds(410, 270, 130, 62);
+
+        motherboardBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        motherboardBtn.setText("MOTHERBOARD");
+        motherboardBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                motherboardBtnActionPerformed(evt);
+            }
+        });
+        buildPanel.add(motherboardBtn);
+        motherboardBtn.setBounds(240, 270, 130, 60);
 
         ramBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ramBtn.setText("RAM");
@@ -666,7 +689,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(ramBtn);
-        ramBtn.setBounds(570, 310, 130, 62);
+        ramBtn.setBounds(570, 270, 130, 62);
 
         graphicsBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         graphicsBtn.setText("GRAPHICS CARD");
@@ -677,7 +700,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(graphicsBtn);
-        graphicsBtn.setBounds(410, 400, 130, 60);
+        graphicsBtn.setBounds(390, 390, 130, 60);
 
         hddBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         hddBtn.setText("HDD");
@@ -688,7 +711,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(hddBtn);
-        hddBtn.setBounds(250, 400, 130, 60);
+        hddBtn.setBounds(230, 390, 130, 60);
 
         caseBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         caseBtn.setText("CASE");
@@ -699,7 +722,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(caseBtn);
-        caseBtn.setBounds(570, 400, 130, 60);
+        caseBtn.setBounds(550, 390, 130, 60);
 
         supplyBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         supplyBtn.setText("POWER SUPPLY");
@@ -710,7 +733,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(supplyBtn);
-        supplyBtn.setBounds(250, 490, 130, 60);
+        supplyBtn.setBounds(250, 500, 130, 60);
 
         coolingBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         coolingBtn.setText("COOLING");
@@ -721,7 +744,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(coolingBtn);
-        coolingBtn.setBounds(410, 490, 130, 60);
+        coolingBtn.setBounds(410, 500, 130, 60);
 
         accessoriesBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         accessoriesBtn.setText("ACCESSORIES");
@@ -732,61 +755,61 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(accessoriesBtn);
-        accessoriesBtn.setBounds(570, 490, 130, 60);
+        accessoriesBtn.setBounds(570, 500, 130, 60);
 
         accessoriesLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         accessoriesLabelSelectedPart.setText("model -  make");
         buildPanel.add(accessoriesLabelSelectedPart);
-        accessoriesLabelSelectedPart.setBounds(570, 550, 130, 15);
+        accessoriesLabelSelectedPart.setBounds(570, 580, 130, 15);
         accessoriesLabelSelectedPart.setVisible(false);
 
         accessories_ID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         accessories_ID.setText("MotherB_ID");
         accessories_ID.setName(""); // NOI18N
         buildPanel.add(accessories_ID);
-        accessories_ID.setBounds(570, 570, 130, 15);
+        accessories_ID.setBounds(570, 600, 130, 15);
         accessories_ID.setVisible(false);
 
         processorLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         processorLabelSelectedPart.setText("model -  make");
         buildPanel.add(processorLabelSelectedPart);
-        processorLabelSelectedPart.setBounds(410, 370, 130, 15);
+        processorLabelSelectedPart.setBounds(410, 350, 130, 15);
         processorLabelSelectedPart.setVisible(false);
 
         ramLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ramLabelSelectedPart.setText("model -  make");
         buildPanel.add(ramLabelSelectedPart);
-        ramLabelSelectedPart.setBounds(570, 370, 130, 15);
+        ramLabelSelectedPart.setBounds(570, 350, 130, 15);
         ramLabelSelectedPart.setVisible(false);
 
         hddLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         hddLabelSelectedPart.setText("model -  make");
         buildPanel.add(hddLabelSelectedPart);
-        hddLabelSelectedPart.setBounds(250, 460, 130, 15);
+        hddLabelSelectedPart.setBounds(250, 470, 130, 15);
         hddLabelSelectedPart.setVisible(false);
 
         gpuLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         gpuLabelSelectedPart.setText("model -  make");
         buildPanel.add(gpuLabelSelectedPart);
-        gpuLabelSelectedPart.setBounds(410, 460, 130, 15);
+        gpuLabelSelectedPart.setBounds(410, 470, 130, 15);
         gpuLabelSelectedPart.setVisible(false);
 
         caseLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         caseLabelSelectedPart.setText("model -  make");
         buildPanel.add(caseLabelSelectedPart);
-        caseLabelSelectedPart.setBounds(570, 460, 130, 15);
+        caseLabelSelectedPart.setBounds(570, 470, 130, 15);
         caseLabelSelectedPart.setVisible(false);
 
         psuLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         psuLabelSelectedPart.setText("model -  make");
         buildPanel.add(psuLabelSelectedPart);
-        psuLabelSelectedPart.setBounds(250, 550, 130, 15);
+        psuLabelSelectedPart.setBounds(250, 580, 130, 15);
         psuLabelSelectedPart.setVisible(false);
 
         coolingLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         coolingLabelSelectedPart.setText("model -  make");
         buildPanel.add(coolingLabelSelectedPart);
-        coolingLabelSelectedPart.setBounds(410, 550, 130, 15);
+        coolingLabelSelectedPart.setBounds(410, 580, 130, 15);
         coolingLabelSelectedPart.setVisible(false);
 
         updateBtn.setText("Update");
@@ -803,64 +826,124 @@ public class BuildForm extends javax.swing.JFrame {
         motherboardLabelSelectedPart1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         motherboardLabelSelectedPart1.setText("model -  make");
         buildPanel.add(motherboardLabelSelectedPart1);
-        motherboardLabelSelectedPart1.setBounds(250, 370, 130, 20);
+        motherboardLabelSelectedPart1.setBounds(250, 350, 130, 20);
         motherboardLabelSelectedPart1.setVisible(false);
 
         motherboard_ID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         motherboard_ID.setText("MotherB_ID");
         motherboard_ID.setName(""); // NOI18N
         buildPanel.add(motherboard_ID);
-        motherboard_ID.setBounds(250, 390, 130, 15);
+        motherboard_ID.setBounds(250, 370, 130, 15);
         motherboard_ID.setVisible(false);
 
         processor_ID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         processor_ID.setText("MotherB_ID");
         processor_ID.setName(""); // NOI18N
         buildPanel.add(processor_ID);
-        processor_ID.setBounds(410, 390, 130, 15);
+        processor_ID.setBounds(410, 370, 130, 15);
         processor_ID.setVisible(false);
 
         ram_ID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ram_ID.setText("MotherB_ID");
         ram_ID.setName(""); // NOI18N
         buildPanel.add(ram_ID);
-        ram_ID.setBounds(570, 390, 130, 15);
+        ram_ID.setBounds(570, 370, 130, 15);
         ram_ID.setVisible(false);
 
         hdd_ID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         hdd_ID.setText("MotherB_ID");
         hdd_ID.setName(""); // NOI18N
         buildPanel.add(hdd_ID);
-        hdd_ID.setBounds(250, 480, 130, 15);
+        hdd_ID.setBounds(250, 490, 130, 15);
         hdd_ID.setVisible(false);
 
         graphics_ID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         graphics_ID.setText("MotherB_ID");
         graphics_ID.setName(""); // NOI18N
         buildPanel.add(graphics_ID);
-        graphics_ID.setBounds(410, 480, 130, 15);
+        graphics_ID.setBounds(410, 490, 130, 15);
         graphics_ID.setVisible(false);
 
         case_ID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         case_ID.setText("MotherB_ID");
         case_ID.setName(""); // NOI18N
         buildPanel.add(case_ID);
-        case_ID.setBounds(570, 480, 130, 15);
+        case_ID.setBounds(570, 490, 130, 15);
         case_ID.setVisible(false);
 
         powersupply_ID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         powersupply_ID.setText("MotherB_ID");
         powersupply_ID.setName(""); // NOI18N
         buildPanel.add(powersupply_ID);
-        powersupply_ID.setBounds(250, 570, 130, 15);
+        powersupply_ID.setBounds(250, 600, 130, 15);
         powersupply_ID.setVisible(false);
 
         cooling_ID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cooling_ID.setText("MotherB_ID");
         cooling_ID.setName(""); // NOI18N
         buildPanel.add(cooling_ID);
-        cooling_ID.setBounds(410, 570, 130, 15);
+        cooling_ID.setBounds(410, 600, 130, 15);
         cooling_ID.setVisible(false);
+        buildPanel.add(buildTotalCostLbl);
+        buildTotalCostLbl.setBounds(730, 390, 140, 0);
+
+        jLabel17.setText("Total Cost");
+        buildPanel.add(jLabel17);
+        jLabel17.setBounds(730, 360, 120, 16);
+
+        motherboard_Price.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        motherboard_Price.setText("MotherB_ID");
+        motherboard_Price.setName(""); // NOI18N
+        buildPanel.add(motherboard_Price);
+        motherboard_Price.setBounds(250, 330, 130, 15);
+
+        hdd_Price.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        hdd_Price.setText("MotherB_ID");
+        hdd_Price.setName(""); // NOI18N
+        buildPanel.add(hdd_Price);
+        hdd_Price.setBounds(250, 450, 130, 15);
+
+        powersupply_Price.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        powersupply_Price.setText("MotherB_ID");
+        powersupply_Price.setName(""); // NOI18N
+        buildPanel.add(powersupply_Price);
+        powersupply_Price.setBounds(250, 560, 130, 15);
+
+        cooling_Price.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cooling_Price.setText("MotherB_ID");
+        cooling_Price.setName(""); // NOI18N
+        buildPanel.add(cooling_Price);
+        cooling_Price.setBounds(410, 560, 130, 15);
+
+        accessories_Price.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        accessories_Price.setText("MotherB_ID");
+        accessories_Price.setName(""); // NOI18N
+        buildPanel.add(accessories_Price);
+        accessories_Price.setBounds(570, 560, 130, 15);
+
+        case_Price.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        case_Price.setText("MotherB_ID");
+        case_Price.setName(""); // NOI18N
+        buildPanel.add(case_Price);
+        case_Price.setBounds(570, 450, 130, 15);
+
+        graphics_Price.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        graphics_Price.setText("MotherB_ID");
+        graphics_Price.setName(""); // NOI18N
+        buildPanel.add(graphics_Price);
+        graphics_Price.setBounds(410, 450, 130, 15);
+
+        processor_Price.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        processor_Price.setText("MotherB_ID");
+        processor_Price.setName(""); // NOI18N
+        buildPanel.add(processor_Price);
+        processor_Price.setBounds(410, 330, 130, 15);
+
+        ram_Price.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ram_Price.setText("MotherB_ID");
+        ram_Price.setName(""); // NOI18N
+        buildPanel.add(ram_Price);
+        ram_Price.setBounds(570, 330, 130, 15);
 
         getContentPane().add(buildPanel);
         buildPanel.setBounds(0, 0, 900, 600);
@@ -1652,7 +1735,7 @@ public class BuildForm extends javax.swing.JFrame {
         int row =  partsTable.getSelectedRow();
         if (evt.getClickCount() == 2 ) {
             PartID = modelParts.getValueAt(row, 0).toString();
-
+            modelParts.getValueAt(row, )
             Color color = checkCompatible(PartID);
 
             String partModel = modelParts.getValueAt(row, modelParts.findColumn("Model")).toString();
@@ -1892,6 +1975,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JButton accessoriesBtn;
     private javax.swing.JLabel accessoriesLabelSelectedPart;
     private javax.swing.JLabel accessories_ID;
+    private javax.swing.JLabel accessories_Price;
     private javax.swing.JPanel addBuildPanel;
     private javax.swing.JPanel addComp;
     private javax.swing.JPanel addPart;
@@ -1903,6 +1987,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel buildNameLabelB;
     private javax.swing.JTextField buildNametxt;
     private javax.swing.JPanel buildPanel;
+    private javax.swing.JLabel buildTotalCostLbl;
     private javax.swing.JComboBox<String> buildsOne;
     private javax.swing.JComboBox<String> buildsTwo;
     private javax.swing.JButton cancelBtnB;
@@ -1911,19 +1996,23 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JButton caseBtn;
     private javax.swing.JLabel caseLabelSelectedPart;
     private javax.swing.JLabel case_ID;
+    private javax.swing.JLabel case_Price;
     private javax.swing.JTable compTable;
     private javax.swing.JPanel compareBuilds;
     private javax.swing.JButton coolingBtn;
     private javax.swing.JLabel coolingLabelSelectedPart;
     private javax.swing.JLabel cooling_ID;
+    private javax.swing.JLabel cooling_Price;
     private javax.swing.JPanel createAccount;
     private javax.swing.JButton deletePart;
     private javax.swing.JLabel gpuLabelSelectedPart;
     private javax.swing.JButton graphicsBtn;
     private javax.swing.JLabel graphics_ID;
+    private javax.swing.JLabel graphics_Price;
     private javax.swing.JButton hddBtn;
     private javax.swing.JLabel hddLabelSelectedPart;
     private javax.swing.JLabel hdd_ID;
+    private javax.swing.JLabel hdd_Price;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
@@ -1935,6 +2024,7 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1965,19 +2055,23 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JButton motherboardBtn;
     private javax.swing.JLabel motherboardLabelSelectedPart1;
     private javax.swing.JLabel motherboard_ID;
+    private javax.swing.JLabel motherboard_Price;
     private javax.swing.JLabel newBuildTitleLable;
     private javax.swing.JLabel partIDLable;
     private javax.swing.JComboBox<String> partTypeComboBox;
     private javax.swing.JComboBox<String> partTypeComboBox2;
     private javax.swing.JTable partsTable;
     private javax.swing.JLabel powersupply_ID;
+    private javax.swing.JLabel powersupply_Price;
     private javax.swing.JButton processorBtn;
     private javax.swing.JLabel processorLabelSelectedPart;
     private javax.swing.JLabel processor_ID;
+    private javax.swing.JLabel processor_Price;
     private javax.swing.JLabel psuLabelSelectedPart;
     private javax.swing.JButton ramBtn;
     private javax.swing.JLabel ramLabelSelectedPart;
     private javax.swing.JLabel ram_ID;
+    private javax.swing.JLabel ram_Price;
     private javax.swing.JButton saveCompBtn;
     private javax.swing.JButton supplyBtn;
     private javax.swing.JButton updateBtn;
