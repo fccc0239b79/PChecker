@@ -667,12 +667,12 @@ public class BuildForm extends javax.swing.JFrame {
 
         logoB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo2.png"))); // NOI18N
         buildPanel.add(logoB);
-        logoB.setBounds(30, 0, 110, 590);
+        logoB.setBounds(10, 0, 110, 590);
 
         buildNameLabelB.setFont(new java.awt.Font("Kalinga", 1, 18)); // NOI18N
         buildNameLabelB.setText("Build Name:");
         buildPanel.add(buildNameLabelB);
-        buildNameLabelB.setBounds(260, 150, 130, 36);
+        buildNameLabelB.setBounds(210, 150, 130, 36);
 
         buildNametxt.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         buildNametxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(179, 0, 0)));
@@ -687,7 +687,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(buildNametxt);
-        buildNametxt.setBounds(390, 150, 246, 36);
+        buildNametxt.setBounds(340, 150, 270, 36);
 
         processorBtn.setBackground(new java.awt.Color(191, 191, 191));
         processorBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
@@ -700,7 +700,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(processorBtn);
-        processorBtn.setBounds(390, 240, 170, 62);
+        processorBtn.setBounds(340, 210, 170, 62);
 
         motherboardBtn.setBackground(new java.awt.Color(191, 191, 191));
         motherboardBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
@@ -712,7 +712,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(motherboardBtn);
-        motherboardBtn.setBounds(200, 240, 170, 60);
+        motherboardBtn.setBounds(150, 210, 170, 60);
 
         ramBtn.setBackground(new java.awt.Color(191, 191, 191));
         ramBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
@@ -725,7 +725,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(ramBtn);
-        ramBtn.setBounds(580, 240, 170, 62);
+        ramBtn.setBounds(530, 210, 170, 62);
 
         graphicsBtn.setBackground(new java.awt.Color(191, 191, 191));
         graphicsBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
@@ -738,7 +738,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(graphicsBtn);
-        graphicsBtn.setBounds(390, 360, 170, 60);
+        graphicsBtn.setBounds(340, 310, 170, 60);
 
         hddBtn.setBackground(new java.awt.Color(191, 191, 191));
         hddBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
@@ -751,7 +751,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(hddBtn);
-        hddBtn.setBounds(200, 360, 170, 60);
+        hddBtn.setBounds(150, 310, 170, 60);
 
         caseBtn.setBackground(new java.awt.Color(191, 191, 191));
         caseBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
@@ -764,7 +764,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(caseBtn);
-        caseBtn.setBounds(580, 360, 170, 60);
+        caseBtn.setBounds(530, 310, 170, 60);
 
         supplyBtn.setBackground(new java.awt.Color(191, 191, 191));
         supplyBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
@@ -777,7 +777,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(supplyBtn);
-        supplyBtn.setBounds(200, 480, 170, 60);
+        supplyBtn.setBounds(150, 410, 170, 60);
 
         coolingBtn.setBackground(new java.awt.Color(191, 191, 191));
         coolingBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
@@ -790,7 +790,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(coolingBtn);
-        coolingBtn.setBounds(390, 480, 170, 60);
+        coolingBtn.setBounds(340, 410, 170, 60);
 
         accessoriesBtn.setBackground(new java.awt.Color(191, 191, 191));
         accessoriesBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
@@ -803,13 +803,13 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(accessoriesBtn);
-        accessoriesBtn.setBounds(580, 480, 170, 60);
+        accessoriesBtn.setBounds(530, 410, 170, 60);
 
         accessoriesLabelSelectedPart.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
         accessoriesLabelSelectedPart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         accessoriesLabelSelectedPart.setText("model -  make");
         buildPanel.add(accessoriesLabelSelectedPart);
-        accessoriesLabelSelectedPart.setBounds(580, 540, 170, 20);
+        accessoriesLabelSelectedPart.setBounds(530, 470, 170, 20);
         accessoriesLabelSelectedPart.setVisible(false);
 
         accessories_ID.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
@@ -817,56 +817,56 @@ public class BuildForm extends javax.swing.JFrame {
         accessories_ID.setText("MotherB_ID");
         accessories_ID.setName(""); // NOI18N
         buildPanel.add(accessories_ID);
-        accessories_ID.setBounds(580, 580, 170, 20);
+        accessories_ID.setBounds(530, 510, 170, 20);
         accessories_ID.setVisible(false);
 
         processorLabelSelectedPart.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
         processorLabelSelectedPart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         processorLabelSelectedPart.setText("model -  make");
         buildPanel.add(processorLabelSelectedPart);
-        processorLabelSelectedPart.setBounds(390, 300, 170, 20);
+        processorLabelSelectedPart.setBounds(340, 270, 170, 20);
         processorLabelSelectedPart.setVisible(false);
 
         ramLabelSelectedPart.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
         ramLabelSelectedPart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ramLabelSelectedPart.setText("model -  make");
         buildPanel.add(ramLabelSelectedPart);
-        ramLabelSelectedPart.setBounds(580, 300, 170, 20);
+        ramLabelSelectedPart.setBounds(530, 270, 170, 20);
         ramLabelSelectedPart.setVisible(false);
 
         hddLabelSelectedPart.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
         hddLabelSelectedPart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hddLabelSelectedPart.setText("model -  make");
         buildPanel.add(hddLabelSelectedPart);
-        hddLabelSelectedPart.setBounds(200, 420, 170, 20);
+        hddLabelSelectedPart.setBounds(150, 370, 170, 20);
         hddLabelSelectedPart.setVisible(false);
 
         gpuLabelSelectedPart.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
         gpuLabelSelectedPart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         gpuLabelSelectedPart.setText("model -  make");
         buildPanel.add(gpuLabelSelectedPart);
-        gpuLabelSelectedPart.setBounds(390, 420, 170, 20);
+        gpuLabelSelectedPart.setBounds(340, 370, 170, 20);
         gpuLabelSelectedPart.setVisible(false);
 
         caseLabelSelectedPart.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
         caseLabelSelectedPart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         caseLabelSelectedPart.setText("model -  make");
         buildPanel.add(caseLabelSelectedPart);
-        caseLabelSelectedPart.setBounds(580, 420, 170, 20);
+        caseLabelSelectedPart.setBounds(530, 370, 170, 20);
         caseLabelSelectedPart.setVisible(false);
 
         psuLabelSelectedPart.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
         psuLabelSelectedPart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         psuLabelSelectedPart.setText("model -  make");
         buildPanel.add(psuLabelSelectedPart);
-        psuLabelSelectedPart.setBounds(200, 540, 170, 20);
+        psuLabelSelectedPart.setBounds(150, 470, 170, 20);
         psuLabelSelectedPart.setVisible(false);
 
         coolingLabelSelectedPart.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
         coolingLabelSelectedPart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         coolingLabelSelectedPart.setText("model -  make");
         buildPanel.add(coolingLabelSelectedPart);
-        coolingLabelSelectedPart.setBounds(390, 540, 170, 20);
+        coolingLabelSelectedPart.setBounds(340, 470, 170, 20);
         coolingLabelSelectedPart.setVisible(false);
 
         updateBtn.setBackground(new java.awt.Color(127, 127, 127));
@@ -887,7 +887,7 @@ public class BuildForm extends javax.swing.JFrame {
         motherboardLabelSelectedPart1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         motherboardLabelSelectedPart1.setText("model -  make");
         buildPanel.add(motherboardLabelSelectedPart1);
-        motherboardLabelSelectedPart1.setBounds(200, 300, 170, 20);
+        motherboardLabelSelectedPart1.setBounds(150, 270, 170, 20);
         motherboardLabelSelectedPart1.setVisible(false);
 
         motherboard_ID.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
@@ -895,7 +895,7 @@ public class BuildForm extends javax.swing.JFrame {
         motherboard_ID.setText("MotherB_ID");
         motherboard_ID.setName(""); // NOI18N
         buildPanel.add(motherboard_ID);
-        motherboard_ID.setBounds(200, 340, 170, 20);
+        motherboard_ID.setBounds(150, 310, 170, 20);
         motherboard_ID.setVisible(false);
 
         processor_ID.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
@@ -903,7 +903,7 @@ public class BuildForm extends javax.swing.JFrame {
         processor_ID.setText("MotherB_ID");
         processor_ID.setName(""); // NOI18N
         buildPanel.add(processor_ID);
-        processor_ID.setBounds(390, 340, 170, 20);
+        processor_ID.setBounds(340, 310, 170, 20);
         processor_ID.setVisible(false);
 
         ram_ID.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
@@ -911,7 +911,7 @@ public class BuildForm extends javax.swing.JFrame {
         ram_ID.setText("MotherB_ID");
         ram_ID.setName(""); // NOI18N
         buildPanel.add(ram_ID);
-        ram_ID.setBounds(580, 340, 170, 20);
+        ram_ID.setBounds(530, 310, 170, 20);
         ram_ID.setVisible(false);
 
         hdd_ID.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
@@ -919,7 +919,7 @@ public class BuildForm extends javax.swing.JFrame {
         hdd_ID.setText("MotherB_ID");
         hdd_ID.setName(""); // NOI18N
         buildPanel.add(hdd_ID);
-        hdd_ID.setBounds(200, 460, 170, 20);
+        hdd_ID.setBounds(150, 410, 170, 20);
         hdd_ID.setVisible(false);
 
         graphics_ID.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
@@ -927,7 +927,7 @@ public class BuildForm extends javax.swing.JFrame {
         graphics_ID.setText("MotherB_ID");
         graphics_ID.setName(""); // NOI18N
         buildPanel.add(graphics_ID);
-        graphics_ID.setBounds(390, 460, 170, 20);
+        graphics_ID.setBounds(340, 410, 170, 20);
         graphics_ID.setVisible(false);
 
         case_ID.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
@@ -935,7 +935,7 @@ public class BuildForm extends javax.swing.JFrame {
         case_ID.setText("MotherB_ID");
         case_ID.setName(""); // NOI18N
         buildPanel.add(case_ID);
-        case_ID.setBounds(580, 460, 170, 20);
+        case_ID.setBounds(530, 410, 170, 20);
         case_ID.setVisible(false);
 
         powersupply_ID.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
@@ -943,7 +943,7 @@ public class BuildForm extends javax.swing.JFrame {
         powersupply_ID.setText("MotherB_ID");
         powersupply_ID.setName(""); // NOI18N
         buildPanel.add(powersupply_ID);
-        powersupply_ID.setBounds(200, 580, 170, 20);
+        powersupply_ID.setBounds(150, 510, 170, 20);
         powersupply_ID.setVisible(false);
 
         cooling_ID.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
@@ -951,77 +951,81 @@ public class BuildForm extends javax.swing.JFrame {
         cooling_ID.setText("MotherB_ID");
         cooling_ID.setName(""); // NOI18N
         buildPanel.add(cooling_ID);
-        cooling_ID.setBounds(390, 580, 170, 20);
+        cooling_ID.setBounds(340, 510, 170, 20);
         cooling_ID.setVisible(false);
-        buildPanel.add(buildTotalCostLbl);
-        buildTotalCostLbl.setBounds(810, 180, 140, 30);
 
-        jLabel17.setText("Total Cost");
+        buildTotalCostLbl.setFont(new java.awt.Font("Kalinga", 1, 18)); // NOI18N
+        buildPanel.add(buildTotalCostLbl);
+        buildTotalCostLbl.setBounds(730, 440, 140, 30);
+
+        jLabel17.setFont(new java.awt.Font("Kalinga", 1, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(179, 0, 0));
+        jLabel17.setText("Total Cost:");
         buildPanel.add(jLabel17);
-        jLabel17.setBounds(750, 190, 120, 14);
+        jLabel17.setBounds(730, 410, 120, 30);
 
         motherboard_Price.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
         motherboard_Price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         motherboard_Price.setText("MotherB_ID");
         motherboard_Price.setName(""); // NOI18N
         buildPanel.add(motherboard_Price);
-        motherboard_Price.setBounds(200, 320, 170, 20);
+        motherboard_Price.setBounds(150, 290, 170, 20);
 
         hdd_Price.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
         hdd_Price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hdd_Price.setText("MotherB_ID");
         hdd_Price.setName(""); // NOI18N
         buildPanel.add(hdd_Price);
-        hdd_Price.setBounds(200, 440, 170, 20);
+        hdd_Price.setBounds(150, 390, 170, 20);
 
         powersupply_Price.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
         powersupply_Price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         powersupply_Price.setText("MotherB_ID");
         powersupply_Price.setName(""); // NOI18N
         buildPanel.add(powersupply_Price);
-        powersupply_Price.setBounds(200, 560, 170, 20);
+        powersupply_Price.setBounds(150, 490, 170, 20);
 
         cooling_Price.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
         cooling_Price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         cooling_Price.setText("MotherB_ID");
         cooling_Price.setName(""); // NOI18N
         buildPanel.add(cooling_Price);
-        cooling_Price.setBounds(390, 560, 170, 20);
+        cooling_Price.setBounds(340, 490, 170, 20);
 
         accessories_Price.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
         accessories_Price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         accessories_Price.setText("MotherB_ID");
         accessories_Price.setName(""); // NOI18N
         buildPanel.add(accessories_Price);
-        accessories_Price.setBounds(580, 560, 170, 20);
+        accessories_Price.setBounds(530, 490, 170, 20);
 
         case_Price.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
         case_Price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         case_Price.setText("MotherB_ID");
         case_Price.setName(""); // NOI18N
         buildPanel.add(case_Price);
-        case_Price.setBounds(580, 440, 170, 20);
+        case_Price.setBounds(530, 390, 170, 20);
 
         graphics_Price.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
         graphics_Price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         graphics_Price.setText("MotherB_ID");
         graphics_Price.setName(""); // NOI18N
         buildPanel.add(graphics_Price);
-        graphics_Price.setBounds(390, 440, 170, 20);
+        graphics_Price.setBounds(340, 390, 170, 20);
 
         processor_Price.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
         processor_Price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         processor_Price.setText("MotherB_ID");
         processor_Price.setName(""); // NOI18N
         buildPanel.add(processor_Price);
-        processor_Price.setBounds(390, 320, 170, 20);
+        processor_Price.setBounds(340, 290, 170, 20);
 
         ram_Price.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
         ram_Price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ram_Price.setText("MotherB_ID");
         ram_Price.setName(""); // NOI18N
         buildPanel.add(ram_Price);
-        ram_Price.setBounds(580, 320, 170, 20);
+        ram_Price.setBounds(530, 290, 170, 20);
 
         deleteBuildBtn.setBackground(new java.awt.Color(191, 191, 191));
         deleteBuildBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
