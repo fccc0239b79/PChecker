@@ -34,47 +34,56 @@ public class build {
         this.motherBoardID = ID;
         this.motherBoardName = name;
         this.motherBoardPrice = price;
+         addPrice();
     }
     public void setCPU(int ID, String name ,double price){
         this.cpuID = ID;
         this.cpuName = name;
         this.cpuPrice = price;
+         addPrice();
     }
     public void setRAM(int ID, String name ,double price){
         this.ramID = ID;
         this.ramName = name;
         this.ramPrice = price;
- 
+  addPrice();
     }
     public void setStorage(int ID, String name ,double price){
         this.storageID = ID;
         this.storageName = name;
         this.storagePrice = price;
+         addPrice();
     }
     public void setGPU(int ID, String name, double price){
         this.gpuID = ID;
         this.gpuName  = name;
-        this.gpuPrice = price;
+        this.gpuPrice = price; 
+        addPrice();
+        
     }
     public void setPSU(int ID, String name, double price){
         this.psuID = ID;
         this.psuName = name;
         this.psuPrice = price;
+         addPrice();
     }
     public void setPCCase(int ID, String name, double price){
         this.caseID = ID;
         this.caseName = name;
         this.casePrice = price;
+       addPrice();
     }
     public void setCooler(int ID, String name, double price){
         this.coolerID = ID;
         this.coolerName = name;
         this.coolerPrice = price;
+         addPrice();
     }
     public void setAccessory(int ID, String name, double price){
         this.accessoryID = ID;
         this.accessoryName = name;
         this.accessoryPrice = price;
+         addPrice();
     }
     
     public String getPartName(String partType){
@@ -129,6 +138,32 @@ public class build {
         return partName;
         
     }
+    public double setPrice(String partType,double price){
+        double partName = 0.0;
+        switch (partType) {
+                
+                    case "Motherboard": motherBoardPrice = price;
+                                        break;
+                    case "CPU": cpuPrice = price;
+                                break;
+                    case "RAM":  ramPrice = price;
+                                break;
+                    case "GPU": gpuPrice = price;
+                                break;
+                    case "Storage": storagePrice = price;
+                                    break;
+                    case "Accessory":  accessoryPrice = price;
+                                      break;
+                    case "PSU": psuPrice = price;
+                                break;
+                    case "PCCase": casePrice = price;
+                                   break;
+                    case "Cooler": coolerPrice = price;
+                                    break;
+        }
+        return partName;
+        
+    }
     
     
     public String getBuildName(){
@@ -168,6 +203,11 @@ public class build {
     public double getBuildCost(){
         return totalCost;
     }
+    
+    private void addPrice(){
+        totalCost = motherBoardPrice+cpuPrice + ramPrice + storagePrice +gpuPrice +psuPrice+casePrice +coolerPrice +accessoryPrice;
+    }
+    
     
     public void getBuild(String username, String name){
         Connection con = ServerControl.ConnectDB();
@@ -212,8 +252,11 @@ public class build {
             accessoryName = getnames(con,accessoryID);
             
             systemCompRating = rs.getInt("systemCompRating");
+            
             totalCost = rs.getDouble("totalBuildCost");
     
+          
+                    
         }
     
     } catch(SQLException err){
@@ -228,7 +271,7 @@ public class build {
             Statement stmt = (Statement) con.createStatement();
             //String query = "Select P.PartID,P.PartType,P.Model, P.Make FROM Build AS B JOIN Part AS P ON P.PartID IN(B.Motherboard,B.CPU,B.RAM,B.Storage,B.GPU,B.PSU,B.PCCase,B.Cooler,B.Accessory) where Account = '"+username+"' AND BuildName = '"+buildName+"';";
 
-            String query = "SELECT Make,Model FROM Part where PartID = '"+id+"';";
+            String query = "SELECT * FROM Part where PartID = '"+id+"';";
 
             stmt.executeQuery(query);
             ResultSet rs = stmt.getResultSet();
@@ -236,6 +279,7 @@ public class build {
 
             while (rs.next()) {
                 name = rs.getString("Make")+" "+rs.getString("Model");
+                setPrice(rs.getString("PartType"),rs.getDouble("Price"));
             }
 
         } catch(SQLException err){
@@ -354,6 +398,8 @@ public class build {
                 System.out.println(err);
             }
         }
+       
         return compatible;
+        
     }
 }

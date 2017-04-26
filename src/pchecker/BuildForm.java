@@ -70,6 +70,7 @@ public class BuildForm extends javax.swing.JFrame {
             buildsTwo.addItem(builds.get(i));
         }
         
+        
     }
     //adding new part 
     public BuildForm(userAdminAccount user,Boolean TorF,String partType, ArrayList<String> INFO) {
@@ -548,6 +549,10 @@ public class BuildForm extends javax.swing.JFrame {
         viewBuildOne = new javax.swing.JTable();
         jScrollPane8 = new javax.swing.JScrollPane();
         viewBuildTwo = new javax.swing.JTable();
+        buildTotalCostCompOne = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        buildTotalCostCompTwo = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
         addBuildPanel = new javax.swing.JPanel();
         buildCancelBtn = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
@@ -885,7 +890,7 @@ public class BuildForm extends javax.swing.JFrame {
         cooling_ID.setBounds(410, 600, 130, 15);
         cooling_ID.setVisible(false);
         buildPanel.add(buildTotalCostLbl);
-        buildTotalCostLbl.setBounds(730, 390, 140, 0);
+        buildTotalCostLbl.setBounds(730, 390, 140, 30);
 
         jLabel17.setText("Total Cost");
         buildPanel.add(jLabel17);
@@ -1026,6 +1031,18 @@ public class BuildForm extends javax.swing.JFrame {
 
     compareBuilds.add(jScrollPane8);
     jScrollPane8.setBounds(490, 260, 300, 200);
+    compareBuilds.add(buildTotalCostCompOne);
+    buildTotalCostCompOne.setBounds(40, 500, 140, 30);
+
+    jLabel18.setText("Total Cost");
+    compareBuilds.add(jLabel18);
+    jLabel18.setBounds(40, 470, 120, 16);
+    compareBuilds.add(buildTotalCostCompTwo);
+    buildTotalCostCompTwo.setBounds(500, 500, 140, 30);
+
+    jLabel19.setText("Total Cost");
+    compareBuilds.add(jLabel19);
+    jLabel19.setBounds(500, 470, 120, 16);
 
     getContentPane().add(compareBuilds);
     compareBuilds.setBounds(0, 0, 900, 600);
@@ -1735,7 +1752,9 @@ public class BuildForm extends javax.swing.JFrame {
         int row =  partsTable.getSelectedRow();
         if (evt.getClickCount() == 2 ) {
             PartID = modelParts.getValueAt(row, 0).toString();
-            modelParts.getValueAt(row, )
+            double price = Double.parseDouble(modelParts.getValueAt(row, partsTable.getColumn("Price").getModelIndex()).toString());
+                    
+                    
             Color color = checkCompatible(PartID);
 
             String partModel = modelParts.getValueAt(row, modelParts.findColumn("Model")).toString();
@@ -1743,7 +1762,7 @@ public class BuildForm extends javax.swing.JFrame {
 
             switch (choosenPart) {
 
-                case "Motherboard": newBuild.setMotherboard(Integer.parseInt(PartID),partMake+" "+partModel);
+                case "Motherboard": newBuild.setMotherboard(Integer.parseInt(PartID),partMake+" "+partModel,price);
                 choosenPartLabel();
                 //accessoriesLabelSelectedPart.setVisible(true);
                 //processorLabelSelectedPart.setText(newBuild.getCPU() + " - " + newBuild.getPartName("CPU"));
@@ -1753,43 +1772,43 @@ public class BuildForm extends javax.swing.JFrame {
                 runCompatibilityCheck();
 
                 break;
-                case "CPU": newBuild.setCPU(Integer.parseInt(PartID),partMake+" "+partModel);
+                case "CPU": newBuild.setCPU(Integer.parseInt(PartID),partMake+" "+partModel,price);
                 // processorBtn.setText("Processor "+PartID);
 
                 choosenPartLabel();
                 processorBtn.setBackground(color); // sets color on green after selected part
                 break;
-                case "RAM": newBuild.setRAM(Integer.parseInt(PartID),partMake+" "+partModel);
+                case "RAM": newBuild.setRAM(Integer.parseInt(PartID),partMake+" "+partModel,price);
                 // ramBtn.setText("RAM "+PartID);
                 choosenPartLabel();
                 ramBtn.setBackground(color); // sets color on green after selected part
                 break;
-                case "GPU": newBuild.setGPU(Integer.parseInt(PartID),partMake+" "+partModel);
+                case "GPU": newBuild.setGPU(Integer.parseInt(PartID),partMake+" "+partModel,price);
                 // graphicsBtn.setText("Graphics card \n"+PartID);
                 choosenPartLabel();
                 graphicsBtn.setBackground(color); // sets color on green after selected part
                 break;
-                case "Storage": newBuild.setStorage(Integer.parseInt(PartID),partMake+" "+partModel);
+                case "Storage": newBuild.setStorage(Integer.parseInt(PartID),partMake+" "+partModel,price);
                 //  hddBtn.setText("HDD \n"+PartID);
                 choosenPartLabel();
                 hddBtn.setBackground(color); // sets color on green after selected part
                 break;
-                case "Accessory": newBuild.setAccessory(Integer.parseInt(PartID),partMake+" "+partModel);
+                case "Accessory": newBuild.setAccessory(Integer.parseInt(PartID),partMake+" "+partModel,price);
                 // accessoriesBtn.setText("Accessories \n"+PartID);
                 choosenPartLabel();
                 accessoriesBtn.setBackground(color); // sets color on green after selected part
                 break;
-                case "PSU": newBuild.setPSU(Integer.parseInt(PartID),partMake+" "+partModel);
+                case "PSU": newBuild.setPSU(Integer.parseInt(PartID),partMake+" "+partModel,price);
                 //  supplyBtn.setText("Power Supply \n"+PartID);
                 choosenPartLabel();
                 supplyBtn.setBackground(color); // sets color on green after selected part
                 break;
-                case "PCCase": newBuild.setPCCase(Integer.parseInt(PartID),partMake+" "+partModel);
+                case "PCCase": newBuild.setPCCase(Integer.parseInt(PartID),partMake+" "+partModel,price);
                 //  caseBtn.setText("Case \n"+PartID);
                 choosenPartLabel();
                 caseBtn.setBackground(color); // sets color on green after selected part
                 break;
-                case "Cooler": newBuild.setCooler(Integer.parseInt(PartID),partMake+" "+partModel);
+                case "Cooler": newBuild.setCooler(Integer.parseInt(PartID),partMake+" "+partModel,price);
                 //  coolingBtn.setText("Cooling \n"+PartID);
                 choosenPartLabel();
                 coolingBtn.setBackground(color); // sets color on green after selected part
@@ -1820,8 +1839,8 @@ public class BuildForm extends javax.swing.JFrame {
 
     private void buildsTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildsTwoActionPerformed
        
-         if(String.valueOf(buildsOne.getSelectedItem()) != "-Choose-"){
-            String build = buildsOne.getSelectedItem().toString();
+         if(String.valueOf(buildsTwo.getSelectedItem()) != "-Choose-"){
+            String build = buildsTwo.getSelectedItem().toString();
             getPartsToCompare(build, "two");
          }
     }//GEN-LAST:event_buildsTwoActionPerformed
@@ -1854,10 +1873,14 @@ public class BuildForm extends javax.swing.JFrame {
         //jTableBuild.disable();
         
         JTable table = null;
+        JLabel lable = null;
         if(BuildNum.equals("one")){
             table = (JTable) viewBuildOne;
+            lable = (JLabel) buildTotalCostCompOne;
         }else{
             table = (JTable) viewBuildTwo;
+            lable = (JLabel) buildTotalCostCompTwo;
+
         }
         
         
@@ -1866,7 +1889,7 @@ public class BuildForm extends javax.swing.JFrame {
                 
         
                        
-        TableColumn col1 = new TableColumn(model.getColumnCount());
+        //TableColumn col1 = new TableColumn(model.getColumnCount());
         for (String temp : columns) { //Adds columns to table.
             colBuild.setHeaderValue(temp);
             table.addColumn(colBuild);
@@ -1893,6 +1916,17 @@ public class BuildForm extends javax.swing.JFrame {
                 
                    
                 }
+                
+                Statement st = (Statement) con.createStatement();
+      
+                st.executeQuery("SELECT totalBuildCost FROM Build WHERE Account = '"+currentUser.getUsername()+"' AND BuildName = '"+buildName+"';");
+                ResultSet result = st.getResultSet();
+    
+                while (result.next()) {
+                 
+                    lable.setText(result.getString("totalBuildCost"));
+                
+                }   
              
         
     }catch (SQLException err) {
@@ -1987,6 +2021,8 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel buildNameLabelB;
     private javax.swing.JTextField buildNametxt;
     private javax.swing.JPanel buildPanel;
+    private javax.swing.JLabel buildTotalCostCompOne;
+    private javax.swing.JLabel buildTotalCostCompTwo;
     private javax.swing.JLabel buildTotalCostLbl;
     private javax.swing.JComboBox<String> buildsOne;
     private javax.swing.JComboBox<String> buildsTwo;
@@ -2025,6 +2061,8 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -2037,13 +2075,9 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTableBuild;
-    private javax.swing.JTable jTableBuild1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

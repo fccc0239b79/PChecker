@@ -49,7 +49,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         }
         
           
-
+        
 
 
     }
@@ -81,7 +81,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         buildsList = new javax.swing.JList<>();
         addBuildBtn = new javax.swing.JButton();
         adminBackBtn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        compareBuildsBtn = new javax.swing.JButton();
         accountPanel = new javax.swing.JPanel();
         logoAccount = new javax.swing.JLabel();
         accountSettingsLabel = new javax.swing.JLabel();
@@ -249,14 +249,15 @@ public class AdminUserFrame extends javax.swing.JFrame {
         adminBackBtn.setBounds(20, 10, 75, 40);
         adminBackBtn.setVisible(false);
 
-        jButton1.setText("Compare Builds");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        compareBuildsBtn.setText("Compare Builds");
+        compareBuildsBtn.setEnabled(false);
+        compareBuildsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                compareBuildsBtnActionPerformed(evt);
             }
         });
-        mainUserPanel.add(jButton1);
-        jButton1.setBounds(450, 470, 140, 40);
+        mainUserPanel.add(compareBuildsBtn);
+        compareBuildsBtn.setBounds(450, 470, 140, 40);
 
         getContentPane().add(mainUserPanel);
         mainUserPanel.setBounds(0, 0, 900, 600);
@@ -548,7 +549,11 @@ private void enbleEdit(boolean torf){
         
         buildsList.setModel(model);
         
-       
+       if(builds.size()>1){
+           compareBuildsBtn.setEnabled(true);
+       }else{
+           compareBuildsBtn.setEnabled(false);
+       }
       }
 
     DefaultListModel globalmodel;
@@ -828,7 +833,7 @@ private void enbleEdit(boolean torf){
         
     }//GEN-LAST:event_deleteDifferentAccountActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void compareBuildsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compareBuildsBtnActionPerformed
         
         
         
@@ -836,7 +841,7 @@ private void enbleEdit(boolean torf){
       BuildForm frm = new BuildForm( currentUser,true);
       this.dispose();
       frm.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_compareBuildsBtnActionPerformed
 
     public void deleteAccount(String username){
         int answer = JOptionPane.showConfirmDialog(null, "Are You Sure You Want to Delete your Account, this will erase all your data like Builds saved?", "Delete Account", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
@@ -908,6 +913,7 @@ private void enbleEdit(boolean torf){
     private javax.swing.JList<String> buildsList;
     private javax.swing.JButton cancelAccountTypeBtn;
     private javax.swing.JPanel changeAccountTypePanel;
+    private javax.swing.JButton compareBuildsBtn;
     private javax.swing.JLabel currentTypelbl;
     private javax.swing.JButton deleteAccount;
     private javax.swing.JButton deleteDifferentAccount;
@@ -918,7 +924,6 @@ private void enbleEdit(boolean torf){
     private javax.swing.JLabel emailLabel2;
     private javax.swing.JTextField emailPro;
     private javax.swing.JTextField fnamePro;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollBuildList;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logOffAdminBtn;
