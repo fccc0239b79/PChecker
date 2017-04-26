@@ -207,7 +207,7 @@ public class LogInForm extends javax.swing.JFrame {
         headingLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headingLabel.setText("Create Account:");
         RegistrationPanel.add(headingLabel);
-        headingLabel.setBounds(390, 210, 160, 22);
+        headingLabel.setBounds(370, 210, 210, 22);
 
         userLabel.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         userLabel.setText("Username: ");
@@ -341,7 +341,7 @@ public class LogInForm extends javax.swing.JFrame {
         informLabelFP.setForeground(new java.awt.Color(127, 127, 127));
         informLabelFP.setText("Did you forget password? Do NOT worry, please insert:");
         ForgotPasswordPanel.add(informLabelFP);
-        informLabelFP.setBounds(180, 190, 560, 30);
+        informLabelFP.setBounds(180, 190, 620, 30);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         ForgotPasswordPanel.add(jLabel2);
