@@ -167,7 +167,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
 
         currentTypelbl.setText("jLabel1");
         changeAccountTypePanel.add(currentTypelbl);
-        currentTypelbl.setBounds(350, 280, 310, 14);
+        currentTypelbl.setBounds(350, 280, 310, 16);
 
         deleteDifferentAccount.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         deleteDifferentAccount.setText("Delete Account");
@@ -247,7 +247,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainUserPanel.add(adminBackBtn);
-        adminBackBtn.setBounds(20, 10, 55, 40);
+        adminBackBtn.setBounds(20, 10, 75, 40);
         adminBackBtn.setVisible(false);
 
         compareBuildsBtn.setText("Compare Builds");
@@ -304,7 +304,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(accountsTable);
 
         accountPanel.add(jScrollPane1);
-        jScrollPane1.setBounds(230, 310, 452, 190);
+        jScrollPane1.setBounds(230, 310, 454, 190);
 
         getContentPane().add(accountPanel);
         accountPanel.setBounds(0, 0, 900, 600);
@@ -335,7 +335,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(logOffAdminBtn);
-        logOffAdminBtn.setBounds(809, 11, 69, 43);
+        logOffAdminBtn.setBounds(809, 11, 91, 43);
 
         profileAdminBtn.setText("Profile");
         profileAdminBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -344,7 +344,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(profileAdminBtn);
-        profileAdminBtn.setBounds(720, 10, 63, 43);
+        profileAdminBtn.setBounds(720, 10, 84, 43);
 
         newComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         newComponentAdminBtn.setText("Add New Part");
@@ -413,7 +413,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         profilePanel.add(editBtnProfile);
-        editBtnProfile.setBounds(290, 100, 91, 41);
+        editBtnProfile.setBounds(290, 100, 103, 41);
 
         acceptBtnProfile.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         acceptBtnProfile.setText("Accept");

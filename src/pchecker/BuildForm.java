@@ -570,31 +570,6 @@ public class BuildForm extends javax.swing.JFrame {
         acceptBtnE1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        createAccount = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        viewAccount = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel12 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
         addPart = new javax.swing.JPanel();
         addPartSaveBtn = new javax.swing.JButton();
         addPartCancelBtn = new javax.swing.JButton();
@@ -898,7 +873,7 @@ public class BuildForm extends javax.swing.JFrame {
 
         jLabel17.setText("Total Cost");
         buildPanel.add(jLabel17);
-        jLabel17.setBounds(730, 360, 120, 14);
+        jLabel17.setBounds(730, 360, 120, 16);
 
         motherboard_Price.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         motherboard_Price.setText("MotherB_ID");
@@ -994,7 +969,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         compareBuilds.add(buildsTwo);
-        buildsTwo.setBounds(550, 220, 170, 20);
+        buildsTwo.setBounds(550, 220, 170, 27);
 
         buildsOne.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Choose -" }));
         buildsOne.addActionListener(new java.awt.event.ActionListener() {
@@ -1003,7 +978,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         compareBuilds.add(buildsOne);
-        buildsOne.setBounds(100, 220, 170, 20);
+        buildsOne.setBounds(100, 220, 170, 27);
 
         viewBuildOne.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1051,13 +1026,13 @@ public class BuildForm extends javax.swing.JFrame {
 
     jLabel18.setText("Total Cost");
     compareBuilds.add(jLabel18);
-    jLabel18.setBounds(40, 470, 120, 14);
+    jLabel18.setBounds(40, 470, 120, 16);
     compareBuilds.add(buildTotalCostCompTwo);
     buildTotalCostCompTwo.setBounds(500, 500, 140, 30);
 
     jLabel19.setText("Total Cost");
     compareBuilds.add(jLabel19);
-    jLabel19.setBounds(500, 470, 120, 14);
+    jLabel19.setBounds(500, 470, 120, 16);
 
     getContentPane().add(compareBuilds);
     compareBuilds.setBounds(0, 0, 900, 600);
@@ -1158,7 +1133,7 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     viewPartPanel.add(acceptBtnE1);
-    acceptBtnE1.setBounds(740, 10, 65, 42);
+    acceptBtnE1.setBounds(740, 10, 87, 42);
 
     jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
     jLabel1.setText("jLabel1");
@@ -1173,142 +1148,6 @@ public class BuildForm extends javax.swing.JFrame {
     getContentPane().add(viewPartPanel);
     viewPartPanel.setBounds(0, 0, 900, 600);
     viewPartPanel.setVisible(false);
-
-    createAccount.setBackground(new java.awt.Color(255, 255, 255));
-    createAccount.setMaximumSize(new java.awt.Dimension(900, 600));
-    createAccount.setMinimumSize(new java.awt.Dimension(900, 600));
-    createAccount.setPreferredSize(new java.awt.Dimension(900, 600));
-    createAccount.setLayout(null);
-
-    jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
-    createAccount.add(jLabel2);
-    jLabel2.setBounds(150, 80, 602, 119);
-
-    jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-    jLabel3.setText("Create Account:");
-    createAccount.add(jLabel3);
-    jLabel3.setBounds(350, 230, 210, 20);
-
-    jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    jLabel4.setText("Account type:");
-    createAccount.add(jLabel4);
-    jLabel4.setBounds(300, 290, 100, 17);
-
-    jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    jLabel5.setText("Username:");
-    createAccount.add(jLabel5);
-    jLabel5.setBounds(300, 320, 110, 20);
-
-    jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    jLabel6.setText("Password:");
-    createAccount.add(jLabel6);
-    jLabel6.setBounds(300, 350, 110, 17);
-
-    jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    jLabel7.setText("Confirm Password:");
-    createAccount.add(jLabel7);
-    jLabel7.setBounds(300, 380, 130, 17);
-
-    jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    jLabel8.setText("Forename:");
-    createAccount.add(jLabel8);
-    jLabel8.setBounds(300, 410, 120, 17);
-
-    jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    jLabel9.setText("Surname:");
-    createAccount.add(jLabel9);
-    jLabel9.setBounds(300, 440, 90, 17);
-
-    jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    jButton1.setText("Cancel");
-    createAccount.add(jButton1);
-    jButton1.setBounds(140, 530, 130, 60);
-
-    jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    jButton2.setText("Create Account");
-    createAccount.add(jButton2);
-    jButton2.setBounds(750, 530, 130, 60);
-
-    jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General User", "Admin" }));
-    jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jComboBox1ActionPerformed(evt);
-        }
-    });
-    createAccount.add(jComboBox1);
-    jComboBox1.setBounds(440, 290, 220, 20);
-
-    jTextField1.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jTextField1ActionPerformed(evt);
-        }
-    });
-    createAccount.add(jTextField1);
-    jTextField1.setBounds(440, 320, 220, 20);
-    createAccount.add(jTextField2);
-    jTextField2.setBounds(440, 350, 220, 20);
-    createAccount.add(jTextField3);
-    jTextField3.setBounds(440, 380, 220, 20);
-
-    jTextField4.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jTextField4ActionPerformed(evt);
-        }
-    });
-    createAccount.add(jTextField4);
-    jTextField4.setBounds(440, 410, 220, 20);
-
-    jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    jLabel11.setText("email:");
-    createAccount.add(jLabel11);
-    jLabel11.setBounds(300, 470, 70, 17);
-    createAccount.add(jTextField5);
-    jTextField5.setBounds(440, 440, 220, 20);
-    createAccount.add(jTextField6);
-    jTextField6.setBounds(440, 470, 220, 20);
-
-    getContentPane().add(createAccount);
-    createAccount.setBounds(0, 0, 900, 600);
-    createAccount.setVisible(false);
-
-    viewAccount.setBackground(new java.awt.Color(255, 255, 255));
-    viewAccount.setMaximumSize(new java.awt.Dimension(900, 600));
-    viewAccount.setMinimumSize(new java.awt.Dimension(900, 600));
-    viewAccount.setLayout(null);
-
-    jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
-    viewAccount.add(jLabel10);
-    jLabel10.setBounds(130, 60, 602, 119);
-
-    jTable1.setModel(new javax.swing.table.DefaultTableModel(
-        new Object [][] {
-            {null, null},
-            {null, null},
-            {null, null},
-            {null, null}
-        },
-        new String [] {
-            "Account Name", "Account Type"
-        }
-    ));
-    jScrollPane1.setViewportView(jTable1);
-
-    viewAccount.add(jScrollPane1);
-    jScrollPane1.setBounds(220, 290, 452, 170);
-
-    jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-    jLabel12.setText("View Accounts:");
-    viewAccount.add(jLabel12);
-    jLabel12.setBounds(330, 210, 259, 41);
-
-    jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    jButton4.setText("Back");
-    viewAccount.add(jButton4);
-    jButton4.setBounds(50, 500, 130, 60);
-
-    getContentPane().add(viewAccount);
-    viewAccount.setBounds(0, 0, 900, 600);
-    viewAccount.setVisible(false);
 
     addPart.setBackground(new java.awt.Color(255, 255, 255));
     addPart.setMaximumSize(new java.awt.Dimension(900, 600));
@@ -1440,7 +1279,7 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     addComp.add(saveCompBtn);
-    saveCompBtn.setBounds(780, 30, 55, 23);
+    saveCompBtn.setBounds(780, 30, 75, 29);
 
     getContentPane().add(addComp);
     addComp.setBounds(0, 0, 900, 600);
@@ -1751,17 +1590,55 @@ public class BuildForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_acceptBtnE1ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    private void cancelBtnCompareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnCompareActionPerformed
+        
+        AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
+        this.dispose();
+        frm.setVisible(true);
+    }//GEN-LAST:event_cancelBtnCompareActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void buildsTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildsTwoActionPerformed
+       
+         if(String.valueOf(buildsTwo.getSelectedItem()) != "-Choose-"){
+            String build = buildsTwo.getSelectedItem().toString();
+            getPartsToCompare(build, "two");
+         }
+    }//GEN-LAST:event_buildsTwoActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    private void viewBuildOneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewBuildOneMouseClicked
+
+    }//GEN-LAST:event_viewBuildOneMouseClicked
+
+    private void viewBuildTwoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewBuildTwoMouseClicked
+
+    }//GEN-LAST:event_viewBuildTwoMouseClicked
+
+    private void buildsOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildsOneActionPerformed
+        
+         if(String.valueOf(buildsOne.getSelectedItem()) != "-Choose-"){
+            String build = buildsOne.getSelectedItem().toString();
+            getPartsToCompare(build, "one");
+         }
+    }//GEN-LAST:event_buildsOneActionPerformed
+
+    private void deleteBuildBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBuildBtnActionPerformed
+      int answer = JOptionPane.showConfirmDialog(null, "Are You Sure You Want to Delete your Build?", "Delete Build", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+       
+        if (answer == JOptionPane.YES_OPTION) {
+          
+            JOptionPane.showMessageDialog(null, "Build Deleted. You will be returnd to main menu");
+            currentUser.deleteBuild(newBuild.getBuildName());
+            AdminUserFrame frm = new AdminUserFrame(currentUser);
+            this.dispose();
+            frm.setVisible(true);
+        }
+    }//GEN-LAST:event_deleteBuildBtnActionPerformed
+
+    private void buildCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildCancelBtnActionPerformed
+
+        buildPanel.setVisible(true);
+        addBuildPanel.setVisible(false);
+    }//GEN-LAST:event_buildCancelBtnActionPerformed
 
     private void partsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partsTableMouseClicked
 
@@ -1769,8 +1646,7 @@ public class BuildForm extends javax.swing.JFrame {
         if (evt.getClickCount() == 2 ) {
             PartID = modelParts.getValueAt(row, 0).toString();
             double price = Double.parseDouble(modelParts.getValueAt(row, partsTable.getColumn("Price").getModelIndex()).toString());
-                    
-                    
+
             Color color = checkCompatible(PartID);
 
             String partModel = modelParts.getValueAt(row, modelParts.findColumn("Model")).toString();
@@ -1838,59 +1714,7 @@ public class BuildForm extends javax.swing.JFrame {
             //runCompatibilityCheck();
 
         }
-
     }//GEN-LAST:event_partsTableMouseClicked
-
-    private void buildCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildCancelBtnActionPerformed
-
-        buildPanel.setVisible(true);
-        addBuildPanel.setVisible(false);
-
-    }//GEN-LAST:event_buildCancelBtnActionPerformed
-
-    private void cancelBtnCompareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnCompareActionPerformed
-        
-        AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
-        this.dispose();
-        frm.setVisible(true);
-    }//GEN-LAST:event_cancelBtnCompareActionPerformed
-
-    private void buildsTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildsTwoActionPerformed
-       
-         if(String.valueOf(buildsTwo.getSelectedItem()) != "-Choose-"){
-            String build = buildsTwo.getSelectedItem().toString();
-            getPartsToCompare(build, "two");
-         }
-    }//GEN-LAST:event_buildsTwoActionPerformed
-
-    private void viewBuildOneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewBuildOneMouseClicked
-
-    }//GEN-LAST:event_viewBuildOneMouseClicked
-
-    private void viewBuildTwoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewBuildTwoMouseClicked
-
-    }//GEN-LAST:event_viewBuildTwoMouseClicked
-
-    private void buildsOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildsOneActionPerformed
-        
-         if(String.valueOf(buildsOne.getSelectedItem()) != "-Choose-"){
-            String build = buildsOne.getSelectedItem().toString();
-            getPartsToCompare(build, "one");
-         }
-    }//GEN-LAST:event_buildsOneActionPerformed
-
-    private void deleteBuildBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBuildBtnActionPerformed
-      int answer = JOptionPane.showConfirmDialog(null, "Are You Sure You Want to Delete your Build?", "Delete Build", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-       
-        if (answer == JOptionPane.YES_OPTION) {
-          
-            JOptionPane.showMessageDialog(null, "Build Deleted. You will be returnd to main menu");
-            currentUser.deleteBuild(newBuild.getBuildName());
-            AdminUserFrame frm = new AdminUserFrame(currentUser);
-            this.dispose();
-            frm.setVisible(true);
-        }
-    }//GEN-LAST:event_deleteBuildBtnActionPerformed
     
     public void getPartsToCompare(String buildName, String BuildNum){
        
@@ -2070,7 +1894,6 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel coolingLabelSelectedPart;
     private javax.swing.JLabel cooling_ID;
     private javax.swing.JLabel cooling_Price;
-    private javax.swing.JPanel createAccount;
     private javax.swing.JButton deleteBuildBtn;
     private javax.swing.JButton deletePart;
     private javax.swing.JLabel gpuLabelSelectedPart;
@@ -2081,41 +1904,18 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel hddLabelSelectedPart;
     private javax.swing.JLabel hdd_ID;
     private javax.swing.JLabel hdd_Price;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel logoB;
     private javax.swing.JLabel logoE;
     private javax.swing.JButton motherboardBtn;
@@ -2141,7 +1941,6 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JButton saveCompBtn;
     private javax.swing.JButton supplyBtn;
     private javax.swing.JButton updateBtn;
-    private javax.swing.JPanel viewAccount;
     private javax.swing.JTable viewAllPartsTable;
     private javax.swing.JTable viewBuildOne;
     private javax.swing.JTable viewBuildTwo;
