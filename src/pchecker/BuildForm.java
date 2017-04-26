@@ -880,7 +880,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(updateBtn);
-        updateBtn.setBounds(590, 20, 90, 43);
+        updateBtn.setBounds(790, 70, 90, 43);
         updateBtn.setVisible(false);
 
         motherboardLabelSelectedPart1.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
@@ -1038,7 +1038,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(deleteBuildBtn);
-        deleteBuildBtn.setBounds(490, 20, 90, 43);
+        deleteBuildBtn.setBounds(690, 70, 90, 43);
         deleteBuildBtn.setVisible(false);
 
         getContentPane().add(buildPanel);
@@ -1129,16 +1129,20 @@ public class BuildForm extends javax.swing.JFrame {
 
     compareBuilds.add(jScrollPane8);
     jScrollPane8.setBounds(490, 330, 360, 200);
+
+    buildTotalCostCompOne.setFont(new java.awt.Font("Kalinga", 0, 18)); // NOI18N
     compareBuilds.add(buildTotalCostCompOne);
-    buildTotalCostCompOne.setBounds(40, 500, 140, 30);
+    buildTotalCostCompOne.setBounds(170, 540, 140, 30);
 
     jLabel18.setFont(new java.awt.Font("Kalinga", 1, 18)); // NOI18N
     jLabel18.setForeground(new java.awt.Color(179, 0, 0));
     jLabel18.setText("Total Cost:");
     compareBuilds.add(jLabel18);
     jLabel18.setBounds(50, 540, 120, 29);
+
+    buildTotalCostCompTwo.setFont(new java.awt.Font("Kalinga", 0, 18)); // NOI18N
     compareBuilds.add(buildTotalCostCompTwo);
-    buildTotalCostCompTwo.setBounds(500, 500, 140, 30);
+    buildTotalCostCompTwo.setBounds(610, 540, 140, 30);
 
     jLabel19.setFont(new java.awt.Font("Kalinga", 1, 18)); // NOI18N
     jLabel19.setForeground(new java.awt.Color(179, 0, 0));
