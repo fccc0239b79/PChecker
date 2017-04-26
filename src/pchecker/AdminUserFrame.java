@@ -318,7 +318,9 @@ public class AdminUserFrame extends javax.swing.JFrame {
         mainAdminPanel.add(logoAdmin);
         logoAdmin.setBounds(150, 80, 602, 119);
 
-        editAccountAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        editAccountAdminBtn.setBackground(new java.awt.Color(204, 204, 204));
+        editAccountAdminBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        editAccountAdminBtn.setForeground(new java.awt.Color(179, 0, 0));
         editAccountAdminBtn.setText("Account Settings");
         editAccountAdminBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -326,8 +328,11 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(editAccountAdminBtn);
-        editAccountAdminBtn.setBounds(200, 380, 160, 80);
+        editAccountAdminBtn.setBounds(210, 380, 160, 80);
 
+        logOffAdminBtn.setBackground(new java.awt.Color(127, 127, 127));
+        logOffAdminBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        logOffAdminBtn.setForeground(new java.awt.Color(255, 255, 255));
         logOffAdminBtn.setText("Log Off");
         logOffAdminBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -335,8 +340,11 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(logOffAdminBtn);
-        logOffAdminBtn.setBounds(809, 11, 69, 43);
+        logOffAdminBtn.setBounds(790, 20, 90, 43);
 
+        profileAdminBtn.setBackground(new java.awt.Color(127, 127, 127));
+        profileAdminBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        profileAdminBtn.setForeground(new java.awt.Color(255, 255, 255));
         profileAdminBtn.setText("Profile");
         profileAdminBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -344,9 +352,11 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(profileAdminBtn);
-        profileAdminBtn.setBounds(720, 10, 63, 43);
+        profileAdminBtn.setBounds(680, 20, 90, 43);
 
-        newComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        newComponentAdminBtn.setBackground(new java.awt.Color(204, 204, 204));
+        newComponentAdminBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        newComponentAdminBtn.setForeground(new java.awt.Color(179, 0, 0));
         newComponentAdminBtn.setText("Add New Part");
         newComponentAdminBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -354,9 +364,11 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(newComponentAdminBtn);
-        newComponentAdminBtn.setBounds(370, 290, 160, 80);
+        newComponentAdminBtn.setBounds(370, 290, 170, 80);
 
-        viewComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        viewComponentAdminBtn.setBackground(new java.awt.Color(204, 204, 204));
+        viewComponentAdminBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        viewComponentAdminBtn.setForeground(new java.awt.Color(179, 0, 0));
         viewComponentAdminBtn.setText("View Components");
         viewComponentAdminBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -364,9 +376,11 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(viewComponentAdminBtn);
-        viewComponentAdminBtn.setBounds(370, 470, 160, 80);
+        viewComponentAdminBtn.setBounds(370, 470, 170, 80);
 
-        viewBuildAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        viewBuildAdminBtn.setBackground(new java.awt.Color(204, 204, 204));
+        viewBuildAdminBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        viewBuildAdminBtn.setForeground(new java.awt.Color(179, 0, 0));
         viewBuildAdminBtn.setText("View Build");
         viewBuildAdminBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -376,7 +390,8 @@ public class AdminUserFrame extends javax.swing.JFrame {
         mainAdminPanel.add(viewBuildAdminBtn);
         viewBuildAdminBtn.setBounds(540, 380, 160, 80);
 
-        adminMenuLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        adminMenuLabel.setFont(new java.awt.Font("Kalinga", 1, 36)); // NOI18N
+        adminMenuLabel.setForeground(new java.awt.Color(127, 127, 127));
         adminMenuLabel.setText("Admin Menu");
         mainAdminPanel.add(adminMenuLabel);
         adminMenuLabel.setBounds(330, 220, 240, 40);
