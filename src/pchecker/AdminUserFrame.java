@@ -71,6 +71,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         accountTypeComboBox = new javax.swing.JComboBox<>();
         cancelAccountTypeBtn = new javax.swing.JButton();
         currentTypelbl = new javax.swing.JLabel();
+        deleteDifferentAccount = new javax.swing.JButton();
         mainUserPanel = new javax.swing.JPanel();
         logoMain = new javax.swing.JLabel();
         menuLabel = new javax.swing.JLabel();
@@ -111,6 +112,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         emailLabel = new javax.swing.JLabel();
         emailLabel1 = new javax.swing.JLabel();
         emailLabel2 = new javax.swing.JLabel();
+        deleteAccount = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(900, 600));
@@ -164,6 +166,19 @@ public class AdminUserFrame extends javax.swing.JFrame {
         currentTypelbl.setText("jLabel1");
         changeAccountTypePanel.add(currentTypelbl);
         currentTypelbl.setBounds(350, 280, 310, 14);
+<<<<<<< Updated upstream
+=======
+
+        deleteDifferentAccount.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        deleteDifferentAccount.setText("Delete Account");
+        deleteDifferentAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteDifferentAccountActionPerformed(evt);
+            }
+        });
+        changeAccountTypePanel.add(deleteDifferentAccount);
+        deleteDifferentAccount.setBounds(340, 350, 210, 41);
+>>>>>>> Stashed changes
 
         getContentPane().add(changeAccountTypePanel);
         changeAccountTypePanel.setBounds(0, 0, 900, 600);
@@ -458,6 +473,16 @@ public class AdminUserFrame extends javax.swing.JFrame {
         profilePanel.add(emailLabel2);
         emailLabel2.setBounds(90, 260, 100, 30);
 
+        deleteAccount.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        deleteAccount.setText("Delete Account");
+        deleteAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteAccountActionPerformed(evt);
+            }
+        });
+        profilePanel.add(deleteAccount);
+        deleteAccount.setBounds(130, 480, 180, 41);
+
         getContentPane().add(profilePanel);
         profilePanel.setBounds(0, 0, 910, 600);
         profilePanel.setVisible(false);
@@ -470,7 +495,7 @@ private void loggOff(){
         LogInForm frm = new LogInForm(); //opens admin user form
         this.setVisible(false);
         frm.setVisible(true);
-        currentUser.reset();
+        //currentUser.reset();
         
 
 }
@@ -781,6 +806,40 @@ private void enbleEdit(boolean torf){
          
     }//GEN-LAST:event_accountsTableMouseClicked
 
+    private void deleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAccountActionPerformed
+       
+        
+        deleteAccount("");
+        
+        
+    }//GEN-LAST:event_deleteAccountActionPerformed
+
+    private void deleteDifferentAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteDifferentAccountActionPerformed
+       
+    deleteAccount(accountSettingsLabel1.getText());
+
+        
+    }//GEN-LAST:event_deleteDifferentAccountActionPerformed
+
+    public void deleteAccount(String username){
+        int answer = JOptionPane.showConfirmDialog(null, "Are You Sure You Want to Delete your Account, this will erase all your data like Builds saved?", "Delete Account", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+       
+        if (answer == JOptionPane.YES_OPTION) {
+          if(!currentUser.getType()){
+            JOptionPane.showMessageDialog(null, "Account Deleted. You will be returnd to log in screen");
+            currentUser.deleteAccount(currentUser.getUsername());
+            LogInForm frm = new LogInForm();
+            this.dispose();
+            frm.setVisible(true);
+          }else{
+            JOptionPane.showMessageDialog(null, "Account Deleted");
+            currentUser.deleteAccount(username);
+            AdminUserFrame frm = new AdminUserFrame(currentUser);
+            this.dispose();
+            frm.setVisible(true);
+          }
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -833,6 +892,8 @@ private void enbleEdit(boolean torf){
     private javax.swing.JButton cancelAccountTypeBtn;
     private javax.swing.JPanel changeAccountTypePanel;
     private javax.swing.JLabel currentTypelbl;
+    private javax.swing.JButton deleteAccount;
+    private javax.swing.JButton deleteDifferentAccount;
     private javax.swing.JButton editAccountAdminBtn;
     private javax.swing.JButton editBtnProfile;
     private javax.swing.JLabel emailLabel;

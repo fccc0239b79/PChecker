@@ -136,6 +136,7 @@ public class userAdminAccount {
             ResultSet rs = stmt.getResultSet();
 
             while (rs.next()) {
+                reset();
 
                 dbUname = rs.getString("userName");
                 accountName = rs.getString("userName");
@@ -367,13 +368,13 @@ public class userAdminAccount {
     
     
      protected void reset(){
-        username = " ";
-        password= " ";
-        fName= " ";
-        sName= " ";
-        email= " ";
-        mobilNum = " ";
-        DOB = " ";
+        username = "";
+        password= "";
+        fName= "";
+        sName= "";
+        email= "";
+        mobilNum = "";
+        DOB = "";
         type= false;
     }
      
@@ -783,4 +784,23 @@ public class userAdminAccount {
              System.out.println(err);
         }
     }
+    
+    public void deleteAccount(String name) {
+
+         Connection con = ServerControl.ConnectDB();
+         
+         try {
+            String query = "DELETE FROM Account WHERE userName = '"+name+"';";
+            
+             PreparedStatement statement = con.prepareStatement(query);
+             
+             
+             statement.execute();
+         } 
+         catch(SQLException err){
+             System.out.println(err);
+        }
+    }
+    
+    
     }
