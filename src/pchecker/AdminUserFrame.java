@@ -65,14 +65,6 @@ public class AdminUserFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        changeAccountTypePanel = new javax.swing.JPanel();
-        logoAccount1 = new javax.swing.JLabel();
-        accountSettingsLabel1 = new javax.swing.JLabel();
-        saveAccountTypeBtn = new javax.swing.JButton();
-        accountTypeComboBox = new javax.swing.JComboBox<>();
-        cancelAccountTypeBtn = new javax.swing.JButton();
-        currentTypelbl = new javax.swing.JLabel();
-        deleteDifferentAccount = new javax.swing.JButton();
         mainAdminPanel = new javax.swing.JPanel();
         logoAdmin = new javax.swing.JLabel();
         editAccountAdminBtn = new javax.swing.JButton();
@@ -92,6 +84,14 @@ public class AdminUserFrame extends javax.swing.JFrame {
         addBuildBtn = new javax.swing.JButton();
         adminBackBtn = new javax.swing.JButton();
         compareBuildsBtn = new javax.swing.JButton();
+        changeAccountTypePanel = new javax.swing.JPanel();
+        logoAccount1 = new javax.swing.JLabel();
+        accountSettingsLabel1 = new javax.swing.JLabel();
+        saveAccountTypeBtn = new javax.swing.JButton();
+        accountTypeComboBox = new javax.swing.JComboBox<>();
+        cancelAccountTypeBtn = new javax.swing.JButton();
+        currentTypelbl = new javax.swing.JLabel();
+        deleteDifferentAccount = new javax.swing.JButton();
         accountPanel = new javax.swing.JPanel();
         logoAccount = new javax.swing.JLabel();
         accountSettingsLabel = new javax.swing.JLabel();
@@ -121,66 +121,6 @@ public class AdminUserFrame extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(900, 600));
         setResizable(false);
         getContentPane().setLayout(null);
-
-        changeAccountTypePanel.setBackground(new java.awt.Color(153, 204, 255));
-        changeAccountTypePanel.setMaximumSize(new java.awt.Dimension(900, 600));
-        changeAccountTypePanel.setMinimumSize(new java.awt.Dimension(900, 600));
-        changeAccountTypePanel.setPreferredSize(new java.awt.Dimension(900, 600));
-        changeAccountTypePanel.setLayout(null);
-
-        logoAccount1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoAccount1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
-        changeAccountTypePanel.add(logoAccount1);
-        logoAccount1.setBounds(150, 80, 600, 120);
-
-        accountSettingsLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        accountSettingsLabel1.setText("[Account Name]");
-        changeAccountTypePanel.add(accountSettingsLabel1);
-        accountSettingsLabel1.setBounds(340, 230, 300, 40);
-
-        saveAccountTypeBtn.setText("Save");
-        saveAccountTypeBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveAccountTypeBtnActionPerformed(evt);
-            }
-        });
-        changeAccountTypePanel.add(saveAccountTypeBtn);
-        saveAccountTypeBtn.setBounds(700, 20, 80, 40);
-
-        accountTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select account type-", "Admin", "User" }));
-        accountTypeComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accountTypeComboBoxActionPerformed(evt);
-            }
-        });
-        changeAccountTypePanel.add(accountTypeComboBox);
-        accountTypeComboBox.setBounds(340, 310, 210, 30);
-
-        cancelAccountTypeBtn.setText("Cancel");
-        cancelAccountTypeBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelAccountTypeBtnActionPerformed(evt);
-            }
-        });
-        changeAccountTypePanel.add(cancelAccountTypeBtn);
-        cancelAccountTypeBtn.setBounds(800, 20, 80, 40);
-
-        currentTypelbl.setText("jLabel1");
-        changeAccountTypePanel.add(currentTypelbl);
-        currentTypelbl.setBounds(350, 280, 310, 14);
-
-        deleteDifferentAccount.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        deleteDifferentAccount.setText("Delete Account");
-        deleteDifferentAccount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteDifferentAccountActionPerformed(evt);
-            }
-        });
-        changeAccountTypePanel.add(deleteDifferentAccount);
-        deleteDifferentAccount.setBounds(340, 350, 210, 41);
-
-        getContentPane().add(changeAccountTypePanel);
-        changeAccountTypePanel.setBounds(0, 0, 900, 600);
 
         mainAdminPanel.setBackground(new java.awt.Color(255, 255, 255));
         mainAdminPanel.setMaximumSize(new java.awt.Dimension(900, 600));
@@ -286,7 +226,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         menuLabel.setForeground(new java.awt.Color(127, 127, 127));
         menuLabel.setText("MENU");
         mainUserPanel.add(menuLabel);
-        menuLabel.setBounds(394, 215, 140, 58);
+        menuLabel.setBounds(390, 210, 140, 58);
 
         profileBtn.setBackground(new java.awt.Color(127, 127, 127));
         profileBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
@@ -339,7 +279,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainUserPanel.add(addBuildBtn);
-        addBuildBtn.setBounds(295, 470, 110, 43);
+        addBuildBtn.setBounds(270, 470, 160, 43);
 
         adminBackBtn.setBackground(new java.awt.Color(127, 127, 127));
         adminBackBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
@@ -354,6 +294,9 @@ public class AdminUserFrame extends javax.swing.JFrame {
         adminBackBtn.setBounds(570, 20, 90, 43);
         adminBackBtn.setVisible(false);
 
+        compareBuildsBtn.setBackground(new java.awt.Color(191, 191, 191));
+        compareBuildsBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        compareBuildsBtn.setForeground(new java.awt.Color(179, 0, 0));
         compareBuildsBtn.setText("Compare Builds");
         compareBuildsBtn.setEnabled(false);
         compareBuildsBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -362,11 +305,85 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainUserPanel.add(compareBuildsBtn);
-        compareBuildsBtn.setBounds(450, 470, 140, 40);
+        compareBuildsBtn.setBounds(470, 470, 160, 40);
 
         getContentPane().add(mainUserPanel);
         mainUserPanel.setBounds(0, 0, 900, 600);
         mainUserPanel.setVisible(false);
+
+        changeAccountTypePanel.setBackground(new java.awt.Color(255, 255, 255));
+        changeAccountTypePanel.setMaximumSize(new java.awt.Dimension(900, 600));
+        changeAccountTypePanel.setMinimumSize(new java.awt.Dimension(900, 600));
+        changeAccountTypePanel.setPreferredSize(new java.awt.Dimension(900, 600));
+        changeAccountTypePanel.setLayout(null);
+
+        logoAccount1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logoAccount1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
+        changeAccountTypePanel.add(logoAccount1);
+        logoAccount1.setBounds(150, 80, 600, 120);
+
+        accountSettingsLabel1.setFont(new java.awt.Font("Kalinga", 1, 36)); // NOI18N
+        accountSettingsLabel1.setForeground(new java.awt.Color(127, 127, 127));
+        accountSettingsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        accountSettingsLabel1.setText("[Account Name]");
+        changeAccountTypePanel.add(accountSettingsLabel1);
+        accountSettingsLabel1.setBounds(170, 260, 580, 40);
+
+        saveAccountTypeBtn.setBackground(new java.awt.Color(127, 127, 127));
+        saveAccountTypeBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        saveAccountTypeBtn.setForeground(new java.awt.Color(255, 255, 255));
+        saveAccountTypeBtn.setText("Save");
+        saveAccountTypeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveAccountTypeBtnActionPerformed(evt);
+            }
+        });
+        changeAccountTypePanel.add(saveAccountTypeBtn);
+        saveAccountTypeBtn.setBounds(680, 20, 90, 43);
+
+        accountTypeComboBox.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        accountTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select account type-", "Admin", "User" }));
+        accountTypeComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accountTypeComboBoxActionPerformed(evt);
+            }
+        });
+        changeAccountTypePanel.add(accountTypeComboBox);
+        accountTypeComboBox.setBounds(350, 390, 210, 30);
+
+        cancelAccountTypeBtn.setBackground(new java.awt.Color(127, 127, 127));
+        cancelAccountTypeBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        cancelAccountTypeBtn.setForeground(new java.awt.Color(255, 255, 255));
+        cancelAccountTypeBtn.setText("Cancel");
+        cancelAccountTypeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelAccountTypeBtnActionPerformed(evt);
+            }
+        });
+        changeAccountTypePanel.add(cancelAccountTypeBtn);
+        cancelAccountTypeBtn.setBounds(790, 20, 90, 43);
+
+        currentTypelbl.setFont(new java.awt.Font("Kalinga", 0, 18)); // NOI18N
+        currentTypelbl.setForeground(new java.awt.Color(179, 0, 0));
+        currentTypelbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        currentTypelbl.setText("jLabel1");
+        changeAccountTypePanel.add(currentTypelbl);
+        currentTypelbl.setBounds(330, 350, 250, 29);
+
+        deleteDifferentAccount.setBackground(new java.awt.Color(191, 191, 191));
+        deleteDifferentAccount.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        deleteDifferentAccount.setForeground(new java.awt.Color(179, 0, 0));
+        deleteDifferentAccount.setText("Delete Account");
+        deleteDifferentAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteDifferentAccountActionPerformed(evt);
+            }
+        });
+        changeAccountTypePanel.add(deleteDifferentAccount);
+        deleteDifferentAccount.setBounds(720, 510, 150, 41);
+
+        getContentPane().add(changeAccountTypePanel);
+        changeAccountTypePanel.setBounds(0, 0, 900, 600);
 
         accountPanel.setBackground(new java.awt.Color(255, 255, 255));
         accountPanel.setMaximumSize(new java.awt.Dimension(900, 600));
@@ -396,7 +413,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         accountPanel.add(accountBackBtn);
         accountBackBtn.setBounds(790, 20, 80, 41);
 
-        accountsTable.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        accountsTable.setFont(new java.awt.Font("Kalinga", 0, 18)); // NOI18N
         accountsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -405,7 +422,6 @@ public class AdminUserFrame extends javax.swing.JFrame {
 
             }
         ));
-        accountsTable.setIntercellSpacing(new java.awt.Dimension(2, 2));
         accountsTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 accountsTableMouseClicked(evt);
