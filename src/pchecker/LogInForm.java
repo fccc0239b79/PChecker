@@ -118,7 +118,7 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         LogInPanel.add(loginBtn);
-        loginBtn.setBounds(361, 430, 80, 45);
+        loginBtn.setBounds(370, 430, 71, 45);
 
         exitBtn.setBackground(new java.awt.Color(127, 127, 127));
         exitBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
@@ -130,7 +130,7 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         LogInPanel.add(exitBtn);
-        exitBtn.setBounds(470, 430, 80, 45);
+        exitBtn.setBounds(470, 430, 70, 45);
 
         UserNameLabel.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         UserNameLabel.setText("Username:");

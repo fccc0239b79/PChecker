@@ -316,11 +316,9 @@ public class AdminUserFrame extends javax.swing.JFrame {
 
         logoAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         mainAdminPanel.add(logoAdmin);
-        logoAdmin.setBounds(150, 70, 602, 119);
+        logoAdmin.setBounds(150, 80, 602, 119);
 
-        editAccountAdminBtn.setBackground(new java.awt.Color(204, 204, 204));
-        editAccountAdminBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
-        editAccountAdminBtn.setForeground(new java.awt.Color(179, 0, 0));
+        editAccountAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         editAccountAdminBtn.setText("Account Settings");
         editAccountAdminBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -330,9 +328,6 @@ public class AdminUserFrame extends javax.swing.JFrame {
         mainAdminPanel.add(editAccountAdminBtn);
         editAccountAdminBtn.setBounds(200, 380, 160, 80);
 
-        logOffAdminBtn.setBackground(new java.awt.Color(127, 127, 127));
-        logOffAdminBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
-        logOffAdminBtn.setForeground(new java.awt.Color(255, 255, 255));
         logOffAdminBtn.setText("Log Off");
         logOffAdminBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -340,11 +335,8 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(logOffAdminBtn);
-        logOffAdminBtn.setBounds(790, 20, 90, 43);
+        logOffAdminBtn.setBounds(809, 11, 69, 43);
 
-        profileAdminBtn.setBackground(new java.awt.Color(127, 127, 127));
-        profileAdminBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
-        profileAdminBtn.setForeground(new java.awt.Color(255, 255, 255));
         profileAdminBtn.setText("Profile");
         profileAdminBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -352,11 +344,9 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(profileAdminBtn);
-        profileAdminBtn.setBounds(680, 20, 90, 43);
+        profileAdminBtn.setBounds(720, 10, 63, 43);
 
-        newComponentAdminBtn.setBackground(new java.awt.Color(204, 204, 204));
-        newComponentAdminBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
-        newComponentAdminBtn.setForeground(new java.awt.Color(179, 0, 0));
+        newComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         newComponentAdminBtn.setText("Add New Part");
         newComponentAdminBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -366,9 +356,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         mainAdminPanel.add(newComponentAdminBtn);
         newComponentAdminBtn.setBounds(370, 290, 160, 80);
 
-        viewComponentAdminBtn.setBackground(new java.awt.Color(204, 204, 204));
-        viewComponentAdminBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
-        viewComponentAdminBtn.setForeground(new java.awt.Color(179, 0, 0));
+        viewComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         viewComponentAdminBtn.setText("View Components");
         viewComponentAdminBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -378,9 +366,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         mainAdminPanel.add(viewComponentAdminBtn);
         viewComponentAdminBtn.setBounds(370, 470, 160, 80);
 
-        viewBuildAdminBtn.setBackground(new java.awt.Color(204, 204, 204));
-        viewBuildAdminBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
-        viewBuildAdminBtn.setForeground(new java.awt.Color(179, 0, 0));
+        viewBuildAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         viewBuildAdminBtn.setText("View Build");
         viewBuildAdminBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -390,8 +376,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         mainAdminPanel.add(viewBuildAdminBtn);
         viewBuildAdminBtn.setBounds(540, 380, 160, 80);
 
-        adminMenuLabel.setFont(new java.awt.Font("Kalinga", 1, 36)); // NOI18N
-        adminMenuLabel.setForeground(new java.awt.Color(127, 127, 127));
+        adminMenuLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         adminMenuLabel.setText("Admin Menu");
         mainAdminPanel.add(adminMenuLabel);
         adminMenuLabel.setBounds(330, 220, 240, 40);
@@ -405,15 +390,12 @@ public class AdminUserFrame extends javax.swing.JFrame {
         profilePanel.setMinimumSize(new java.awt.Dimension(900, 600));
         profilePanel.setLayout(null);
 
-        profileLabel.setFont(new java.awt.Font("Kalinga", 1, 36)); // NOI18N
-        profileLabel.setForeground(new java.awt.Color(127, 127, 127));
+        profileLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         profileLabel.setText("PROFILE");
         profilePanel.add(profileLabel);
-        profileLabel.setBounds(360, 120, 190, 44);
+        profileLabel.setBounds(100, 100, 180, 44);
 
-        backBtnProfile.setBackground(new java.awt.Color(127, 127, 127));
-        backBtnProfile.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
-        backBtnProfile.setForeground(new java.awt.Color(255, 255, 255));
+        backBtnProfile.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         backBtnProfile.setText("Back");
         backBtnProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -423,9 +405,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         profilePanel.add(backBtnProfile);
         backBtnProfile.setBounds(790, 20, 80, 41);
 
-        editBtnProfile.setBackground(new java.awt.Color(127, 127, 127));
-        editBtnProfile.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
-        editBtnProfile.setForeground(new java.awt.Color(255, 255, 255));
+        editBtnProfile.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         editBtnProfile.setText("Edit Profile");
         editBtnProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -433,11 +413,9 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         profilePanel.add(editBtnProfile);
-        editBtnProfile.setBounds(650, 20, 120, 41);
+        editBtnProfile.setBounds(290, 100, 91, 41);
 
-        acceptBtnProfile.setBackground(new java.awt.Color(127, 127, 127));
-        acceptBtnProfile.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
-        acceptBtnProfile.setForeground(new java.awt.Color(255, 255, 255));
+        acceptBtnProfile.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         acceptBtnProfile.setText("Accept");
         acceptBtnProfile.setEnabled(false);
         acceptBtnProfile.addActionListener(new java.awt.event.ActionListener() {
@@ -446,73 +424,60 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         profilePanel.add(acceptBtnProfile);
-        acceptBtnProfile.setBounds(710, 450, 150, 41);
+        acceptBtnProfile.setBounds(150, 400, 90, 41);
 
-        mobilPro.setBackground(new java.awt.Color(240, 240, 240));
-        mobilPro.setFont(new java.awt.Font("Kalinga", 0, 12)); // NOI18N
         mobilPro.setText("jTextField1");
-        mobilPro.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
         mobilPro.setEnabled(false);
         profilePanel.add(mobilPro);
-        mobilPro.setBounds(360, 370, 190, 30);
+        mobilPro.setBounds(200, 340, 150, 30);
 
-        fnamePro.setFont(new java.awt.Font("Kalinga", 0, 12)); // NOI18N
         fnamePro.setText("jTextField1");
-        fnamePro.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
         fnamePro.setDisabledTextColor(new java.awt.Color(102, 102, 102));
         fnamePro.setEnabled(false);
         profilePanel.add(fnamePro);
-        fnamePro.setBounds(360, 210, 190, 30);
+        fnamePro.setBounds(200, 180, 150, 30);
 
-        snamePro.setFont(new java.awt.Font("Kalinga", 0, 12)); // NOI18N
         snamePro.setText("jTextField1");
-        snamePro.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
         snamePro.setEnabled(false);
         profilePanel.add(snamePro);
-        snamePro.setBounds(360, 250, 190, 30);
+        snamePro.setBounds(200, 220, 150, 30);
 
-        DOBPro.setFont(new java.awt.Font("Kalinga", 0, 12)); // NOI18N
         DOBPro.setText("jTextField1");
-        DOBPro.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
         DOBPro.setEnabled(false);
         profilePanel.add(DOBPro);
-        DOBPro.setBounds(360, 290, 190, 30);
+        DOBPro.setBounds(200, 260, 150, 30);
 
-        emailPro.setFont(new java.awt.Font("Kalinga", 0, 12)); // NOI18N
         emailPro.setText("jTextField1");
-        emailPro.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
         emailPro.setEnabled(false);
         profilePanel.add(emailPro);
-        emailPro.setBounds(360, 330, 190, 30);
+        emailPro.setBounds(200, 300, 150, 30);
 
-        nameLabel.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        nameLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         nameLabel.setText("Forename:");
         profilePanel.add(nameLabel);
-        nameLabel.setBounds(260, 210, 90, 30);
+        nameLabel.setBounds(100, 180, 90, 30);
 
-        surnameLabel.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        surnameLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         surnameLabel.setText("Surname:");
         profilePanel.add(surnameLabel);
-        surnameLabel.setBounds(270, 250, 80, 30);
+        surnameLabel.setBounds(110, 220, 80, 30);
 
-        emailLabel.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        emailLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         emailLabel.setText("email:");
         profilePanel.add(emailLabel);
-        emailLabel.setBounds(290, 330, 60, 30);
+        emailLabel.setBounds(130, 300, 60, 30);
 
-        emailLabel1.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
-        emailLabel1.setText("Mobile No.:");
+        emailLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emailLabel1.setText("Mobile No.");
         profilePanel.add(emailLabel1);
-        emailLabel1.setBounds(260, 370, 90, 30);
+        emailLabel1.setBounds(100, 340, 90, 30);
 
-        emailLabel2.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        emailLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         emailLabel2.setText("Date of birth:");
         profilePanel.add(emailLabel2);
-        emailLabel2.setBounds(250, 290, 100, 30);
+        emailLabel2.setBounds(90, 260, 100, 30);
 
-        deleteAccount.setBackground(new java.awt.Color(204, 204, 204));
-        deleteAccount.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
-        deleteAccount.setForeground(new java.awt.Color(179, 0, 0));
+        deleteAccount.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         deleteAccount.setText("Delete Account");
         deleteAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -520,7 +485,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         profilePanel.add(deleteAccount);
-        deleteAccount.setBounds(710, 510, 150, 41);
+        deleteAccount.setBounds(130, 480, 180, 41);
 
         getContentPane().add(profilePanel);
         profilePanel.setBounds(0, 0, 910, 600);
