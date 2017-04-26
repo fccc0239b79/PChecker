@@ -19,6 +19,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -284,6 +285,7 @@ public class BuildForm extends javax.swing.JFrame {
                         
             //Creation of input field
             JTextField textField = new JTextField(10);
+            textField.setBorder(BorderFactory.createLineBorder(Color.decode("#b30000")));
             textField.setName(name+"Input");
             textField.setBounds(240, y, 260, 30);
             if(name != "Model"){
@@ -1117,6 +1119,7 @@ public class BuildForm extends javax.swing.JFrame {
     viewPartPanel.setPreferredSize(new java.awt.Dimension(900, 600));
     viewPartPanel.setLayout(null);
 
+    viewAllPartsTable.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
     viewAllPartsTable.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
             {},
@@ -1138,7 +1141,9 @@ public class BuildForm extends javax.swing.JFrame {
     viewPartPanel.add(jScrollPane4);
     jScrollPane4.setBounds(20, 360, 850, 200);
 
+    partTypeComboBox2.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
     partTypeComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Choose-","Motherboard", "CPU", "GPU", "RAM", "Storage", "PSU", "PCCase", "Accessory", "Cooler" }));
+    partTypeComboBox2.setToolTipText("");
     partTypeComboBox2.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             partTypeComboBox2ActionPerformed(evt);
@@ -1147,6 +1152,9 @@ public class BuildForm extends javax.swing.JFrame {
     viewPartPanel.add(partTypeComboBox2);
     partTypeComboBox2.setBounds(340, 310, 210, 30);
 
+    cancelBtnE1.setBackground(new java.awt.Color(127, 127, 127));
+    cancelBtnE1.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+    cancelBtnE1.setForeground(new java.awt.Color(255, 255, 255));
     cancelBtnE1.setText("Cancel");
     cancelBtnE1.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1154,8 +1162,11 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     viewPartPanel.add(cancelBtnE1);
-    cancelBtnE1.setBounds(820, 10, 70, 42);
+    cancelBtnE1.setBounds(790, 20, 90, 43);
 
+    acceptBtnE1.setBackground(new java.awt.Color(127, 127, 127));
+    acceptBtnE1.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+    acceptBtnE1.setForeground(new java.awt.Color(255, 255, 255));
     acceptBtnE1.setText("Accept");
     acceptBtnE1.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1163,17 +1174,18 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     viewPartPanel.add(acceptBtnE1);
-    acceptBtnE1.setBounds(740, 10, 65, 42);
+    acceptBtnE1.setBounds(680, 20, 90, 43);
 
     jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
     jLabel1.setText("jLabel1");
     viewPartPanel.add(jLabel1);
     jLabel1.setBounds(130, 70, 600, 120);
 
-    jLabel15.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+    jLabel15.setFont(new java.awt.Font("Kalinga", 1, 36)); // NOI18N
+    jLabel15.setForeground(new java.awt.Color(127, 127, 127));
     jLabel15.setText("View Components");
     viewPartPanel.add(jLabel15);
-    jLabel15.setBounds(280, 210, 340, 40);
+    jLabel15.setBounds(280, 230, 340, 40);
 
     getContentPane().add(viewPartPanel);
     viewPartPanel.setBounds(0, 0, 900, 600);
@@ -1390,6 +1402,9 @@ public class BuildForm extends javax.swing.JFrame {
     addPart.add(addPartTitle);
     addPartTitle.setBounds(180, 20, 360, 50);
 
+    addPartUpdateBtn.setBackground(new java.awt.Color(127, 127, 127));
+    addPartUpdateBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+    addPartUpdateBtn.setForeground(new java.awt.Color(255, 255, 255));
     addPartUpdateBtn.setText("Update");
     addPartUpdateBtn.setEnabled(false);
     addPartUpdateBtn.setMaximumSize(new java.awt.Dimension(51, 23));
@@ -1401,7 +1416,7 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     addPart.add(addPartUpdateBtn);
-    addPartUpdateBtn.setBounds(780, 500, 70, 40);
+    addPartUpdateBtn.setBounds(720, 460, 150, 41);
     addPartUpdateBtn.setVisible(false);
 
     partIDLable.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -1410,6 +1425,9 @@ public class BuildForm extends javax.swing.JFrame {
     partIDLable.setBounds(60, 520, 550, 70);
     partIDLable.setVisible(false);
 
+    deletePart.setBackground(new java.awt.Color(191, 191, 191));
+    deletePart.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+    deletePart.setForeground(new java.awt.Color(179, 0, 0));
     deletePart.setText("DELETE");
     deletePart.setMaximumSize(new java.awt.Dimension(51, 23));
     deletePart.setMinimumSize(new java.awt.Dimension(51, 23));
@@ -1420,7 +1438,7 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     addPart.add(deletePart);
-    deletePart.setBounds(780, 540, 70, 40);
+    deletePart.setBounds(720, 510, 150, 41);
     deletePart.setVisible(false);
 
     jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo2.png"))); // NOI18N
