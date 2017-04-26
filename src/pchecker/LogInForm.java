@@ -152,8 +152,9 @@ public class LogInForm extends javax.swing.JFrame {
         LogInPanel.add(UsernameInput);
         UsernameInput.setBounds(350, 340, 210, 30);
 
-        forgotPswLink.setFont(new java.awt.Font("Kalinga", 2, 12)); // NOI18N
+        forgotPswLink.setFont(new java.awt.Font("Kalinga", 2, 13)); // NOI18N
         forgotPswLink.setForeground(new java.awt.Color(179, 0, 0));
+        forgotPswLink.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         forgotPswLink.setText("Forgot Password ?");
         forgotPswLink.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         forgotPswLink.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -162,10 +163,11 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         LogInPanel.add(forgotPswLink);
-        forgotPswLink.setBounds(410, 520, 130, 20);
+        forgotPswLink.setBounds(390, 520, 140, 20);
 
-        createAccountLink.setFont(new java.awt.Font("Kalinga", 2, 12)); // NOI18N
+        createAccountLink.setFont(new java.awt.Font("Kalinga", 2, 13)); // NOI18N
         createAccountLink.setForeground(new java.awt.Color(179, 0, 0));
+        createAccountLink.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         createAccountLink.setText("Create Account");
         createAccountLink.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         createAccountLink.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -174,7 +176,7 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         LogInPanel.add(createAccountLink);
-        createAccountLink.setBounds(410, 500, 110, 20);
+        createAccountLink.setBounds(400, 500, 120, 21);
 
         PasswordInput.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         PasswordInput.setToolTipText("");
