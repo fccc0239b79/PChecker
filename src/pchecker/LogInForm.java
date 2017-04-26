@@ -108,6 +108,7 @@ public class LogInForm extends javax.swing.JFrame {
         LogInPanel.add(logo);
         logo.setBounds(140, 150, 602, 119);
 
+        loginBtn.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         loginBtn.setText("Login");
         loginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,8 +116,9 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         LogInPanel.add(loginBtn);
-        loginBtn.setBounds(377, 421, 70, 45);
+        loginBtn.setBounds(370, 430, 70, 45);
 
+        exitBtn.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         exitBtn.setText("Exit");
         exitBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,17 +126,17 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         LogInPanel.add(exitBtn);
-        exitBtn.setBounds(460, 421, 70, 45);
+        exitBtn.setBounds(470, 430, 70, 45);
 
-        UserNameLabel.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        UserNameLabel.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         UserNameLabel.setText("Username:");
         LogInPanel.add(UserNameLabel);
-        UserNameLabel.setBounds(250, 340, 90, 30);
+        UserNameLabel.setBounds(250, 340, 100, 30);
 
-        PasswordLabel.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        PasswordLabel.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         PasswordLabel.setText("Password:");
         LogInPanel.add(PasswordLabel);
-        PasswordLabel.setBounds(251, 381, 90, 20);
+        PasswordLabel.setBounds(250, 380, 100, 30);
 
         UsernameInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,7 +146,7 @@ public class LogInForm extends javax.swing.JFrame {
         LogInPanel.add(UsernameInput);
         UsernameInput.setBounds(350, 340, 210, 30);
 
-        forgotPswLink.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        forgotPswLink.setFont(new java.awt.Font("Kalinga", 2, 12)); // NOI18N
         forgotPswLink.setForeground(new java.awt.Color(255, 0, 0));
         forgotPswLink.setText("Forgot Password ?");
         forgotPswLink.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -154,9 +156,9 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         LogInPanel.add(forgotPswLink);
-        forgotPswLink.setBounds(413, 516, 117, 15);
+        forgotPswLink.setBounds(410, 520, 117, 20);
 
-        createAccountLink.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        createAccountLink.setFont(new java.awt.Font("Kalinga", 2, 12)); // NOI18N
         createAccountLink.setForeground(new java.awt.Color(255, 0, 0));
         createAccountLink.setText("Create Account");
         createAccountLink.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -166,7 +168,7 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         LogInPanel.add(createAccountLink);
-        createAccountLink.setBounds(413, 495, 100, 15);
+        createAccountLink.setBounds(410, 500, 100, 20);
 
         PasswordInput.setToolTipText("");
         PasswordInput.addActionListener(new java.awt.event.ActionListener() {
@@ -175,10 +177,10 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         LogInPanel.add(PasswordInput);
-        PasswordInput.setBounds(350, 376, 210, 30);
+        PasswordInput.setBounds(350, 380, 210, 30);
 
         getContentPane().add(LogInPanel);
-        LogInPanel.setBounds(0, 0, 900, 610);
+        LogInPanel.setBounds(0, 0, 900, 600);
 
         RegistrationPanel.setBackground(new java.awt.Color(255, 255, 255));
         RegistrationPanel.setMaximumSize(new java.awt.Dimension(900, 600));
