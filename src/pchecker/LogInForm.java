@@ -162,7 +162,7 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         LogInPanel.add(forgotPswLink);
-        forgotPswLink.setBounds(410, 520, 117, 20);
+        forgotPswLink.setBounds(410, 520, 130, 20);
 
         createAccountLink.setFont(new java.awt.Font("Kalinga", 2, 12)); // NOI18N
         createAccountLink.setForeground(new java.awt.Color(179, 0, 0));
@@ -174,7 +174,7 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         LogInPanel.add(createAccountLink);
-        createAccountLink.setBounds(410, 500, 100, 20);
+        createAccountLink.setBounds(410, 500, 110, 20);
 
         PasswordInput.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         PasswordInput.setToolTipText("");
