@@ -81,6 +81,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         buildsList = new javax.swing.JList<>();
         addBuildBtn = new javax.swing.JButton();
         adminBackBtn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         accountPanel = new javax.swing.JPanel();
         logoAccount = new javax.swing.JLabel();
         accountSettingsLabel = new javax.swing.JLabel();
@@ -165,9 +166,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
 
         currentTypelbl.setText("jLabel1");
         changeAccountTypePanel.add(currentTypelbl);
-        currentTypelbl.setBounds(350, 280, 310, 14);
-<<<<<<< Updated upstream
-=======
+        currentTypelbl.setBounds(350, 280, 310, 16);
 
         deleteDifferentAccount.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         deleteDifferentAccount.setText("Delete Account");
@@ -178,7 +177,6 @@ public class AdminUserFrame extends javax.swing.JFrame {
         });
         changeAccountTypePanel.add(deleteDifferentAccount);
         deleteDifferentAccount.setBounds(340, 350, 210, 41);
->>>>>>> Stashed changes
 
         getContentPane().add(changeAccountTypePanel);
         changeAccountTypePanel.setBounds(0, 0, 900, 600);
@@ -239,7 +237,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainUserPanel.add(addBuildBtn);
-        addBuildBtn.setBounds(407, 467, 95, 43);
+        addBuildBtn.setBounds(310, 470, 95, 43);
 
         adminBackBtn.setText("Back");
         adminBackBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -248,8 +246,17 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainUserPanel.add(adminBackBtn);
-        adminBackBtn.setBounds(20, 10, 55, 40);
+        adminBackBtn.setBounds(20, 10, 75, 40);
         adminBackBtn.setVisible(false);
+
+        jButton1.setText("Compare Builds");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        mainUserPanel.add(jButton1);
+        jButton1.setBounds(450, 470, 140, 40);
 
         getContentPane().add(mainUserPanel);
         mainUserPanel.setBounds(0, 0, 900, 600);
@@ -295,7 +302,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(accountsTable);
 
         accountPanel.add(jScrollPane1);
-        jScrollPane1.setBounds(230, 310, 452, 190);
+        jScrollPane1.setBounds(230, 310, 454, 190);
 
         getContentPane().add(accountPanel);
         accountPanel.setBounds(0, 0, 900, 600);
@@ -326,7 +333,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(logOffAdminBtn);
-        logOffAdminBtn.setBounds(809, 11, 69, 43);
+        logOffAdminBtn.setBounds(809, 11, 91, 43);
 
         profileAdminBtn.setText("Profile");
         profileAdminBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -335,7 +342,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         mainAdminPanel.add(profileAdminBtn);
-        profileAdminBtn.setBounds(720, 10, 63, 43);
+        profileAdminBtn.setBounds(720, 10, 84, 43);
 
         newComponentAdminBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         newComponentAdminBtn.setText("Add New Part");
@@ -404,7 +411,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         profilePanel.add(editBtnProfile);
-        editBtnProfile.setBounds(290, 100, 91, 41);
+        editBtnProfile.setBounds(290, 100, 103, 41);
 
         settingsLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         settingsLabel.setText("SETTINGS");
@@ -821,6 +828,16 @@ private void enbleEdit(boolean torf){
         
     }//GEN-LAST:event_deleteDifferentAccountActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        
+        
+        
+      BuildForm frm = new BuildForm( currentUser,true);
+      this.dispose();
+      frm.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public void deleteAccount(String username){
         int answer = JOptionPane.showConfirmDialog(null, "Are You Sure You Want to Delete your Account, this will erase all your data like Builds saved?", "Delete Account", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
        
@@ -901,6 +918,7 @@ private void enbleEdit(boolean torf){
     private javax.swing.JLabel emailLabel2;
     private javax.swing.JTextField emailPro;
     private javax.swing.JTextField fnamePro;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollBuildList;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logOffAdminBtn;
