@@ -138,6 +138,7 @@ public class LogInForm extends javax.swing.JFrame {
         LogInPanel.add(PasswordLabel);
         PasswordLabel.setBounds(250, 380, 100, 30);
 
+        UsernameInput.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         UsernameInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UsernameInputActionPerformed(evt);
@@ -170,6 +171,7 @@ public class LogInForm extends javax.swing.JFrame {
         LogInPanel.add(createAccountLink);
         createAccountLink.setBounds(410, 500, 100, 20);
 
+        PasswordInput.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         PasswordInput.setToolTipText("");
         PasswordInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,55 +189,65 @@ public class LogInForm extends javax.swing.JFrame {
         RegistrationPanel.setMinimumSize(new java.awt.Dimension(900, 600));
         RegistrationPanel.setLayout(null);
 
-        titleLabel.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        titleLabel.setFont(new java.awt.Font("Kalinga", 1, 48)); // NOI18N
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Welcome !");
         RegistrationPanel.add(titleLabel);
-        titleLabel.setBounds(320, 120, 252, 58);
+        titleLabel.setBounds(330, 130, 280, 70);
 
-        headingLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        headingLabel.setFont(new java.awt.Font("Kalinga", 1, 20)); // NOI18N
+        headingLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headingLabel.setText("Create Account:");
         RegistrationPanel.add(headingLabel);
-        headingLabel.setBounds(400, 190, 150, 22);
+        headingLabel.setBounds(390, 210, 160, 22);
 
-        userLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        userLabel.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         userLabel.setText("Username: ");
         RegistrationPanel.add(userLabel);
-        userLabel.setBounds(340, 240, 80, 30);
+        userLabel.setBounds(330, 240, 90, 30);
 
-        passLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        passLabel.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         passLabel.setText("Password:");
         RegistrationPanel.add(passLabel);
-        passLabel.setBounds(340, 280, 80, 30);
+        passLabel.setBounds(330, 280, 90, 30);
 
-        confirmLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        confirmLabel.setText("Confirm password:");
+        confirmLabel.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
+        confirmLabel.setText("Confirm password: ");
         RegistrationPanel.add(confirmLabel);
-        confirmLabel.setBounds(290, 320, 130, 30);
+        confirmLabel.setBounds(270, 320, 150, 30);
 
-        nameLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        nameLabel.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         nameLabel.setText("Forename:");
         RegistrationPanel.add(nameLabel);
-        nameLabel.setBounds(340, 360, 80, 30);
+        nameLabel.setBounds(330, 360, 90, 30);
 
-        surnameLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        surnameLabel.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         surnameLabel.setText("Surname:");
         RegistrationPanel.add(surnameLabel);
         surnameLabel.setBounds(340, 400, 80, 30);
 
-        emailLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emailLabel.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         emailLabel.setText("email:");
         RegistrationPanel.add(emailLabel);
-        emailLabel.setBounds(370, 440, 50, 30);
+        emailLabel.setBounds(360, 440, 60, 30);
+
+        usernameField.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         RegistrationPanel.add(usernameField);
         usernameField.setBounds(420, 240, 210, 30);
+
+        forenameField.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         RegistrationPanel.add(forenameField);
         forenameField.setBounds(420, 360, 210, 30);
+
+        surnameField.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         RegistrationPanel.add(surnameField);
         surnameField.setBounds(420, 400, 210, 30);
+
+        emailField.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         RegistrationPanel.add(emailField);
         emailField.setBounds(420, 440, 210, 30);
 
-        cancelBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cancelBtn.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         cancelBtn.setText("Cancel");
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,9 +255,9 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         RegistrationPanel.add(cancelBtn);
-        cancelBtn.setBounds(730, 510, 130, 40);
+        cancelBtn.setBounds(720, 510, 140, 40);
 
-        createBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        createBtn.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         createBtn.setText("Create Account");
         createBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,12 +265,13 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         RegistrationPanel.add(createBtn);
-        createBtn.setBounds(730, 460, 127, 40);
+        createBtn.setBounds(720, 460, 140, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         RegistrationPanel.add(jLabel1);
         jLabel1.setBounds(140, 10, 602, 104);
 
+        passField.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         passField.setToolTipText("");
         passField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,6 +281,7 @@ public class LogInForm extends javax.swing.JFrame {
         RegistrationPanel.add(passField);
         passField.setBounds(420, 280, 210, 30);
 
+        confirmPassField.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         confirmPassField.setToolTipText("");
         confirmPassField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -277,17 +291,21 @@ public class LogInForm extends javax.swing.JFrame {
         RegistrationPanel.add(confirmPassField);
         confirmPassField.setBounds(420, 320, 210, 30);
 
-        emailLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emailLabel1.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         emailLabel1.setText("Mobile No.");
         RegistrationPanel.add(emailLabel1);
-        emailLabel1.setBounds(340, 480, 80, 30);
+        emailLabel1.setBounds(330, 480, 90, 30);
+
+        mobilNumField.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         RegistrationPanel.add(mobilNumField);
         mobilNumField.setBounds(420, 480, 210, 30);
 
-        emailLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emailLabel2.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         emailLabel2.setText("Date of birth (dd/mm/yyyy)");
         RegistrationPanel.add(emailLabel2);
-        emailLabel2.setBounds(230, 520, 190, 30);
+        emailLabel2.setBounds(220, 520, 200, 30);
+
+        DOBField.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         RegistrationPanel.add(DOBField);
         DOBField.setBounds(420, 520, 210, 30);
 
@@ -299,44 +317,47 @@ public class LogInForm extends javax.swing.JFrame {
         ForgotPasswordPanel.setMinimumSize(new java.awt.Dimension(900, 600));
         ForgotPasswordPanel.setLayout(null);
 
-        informLabelFP.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        informLabelFP.setFont(new java.awt.Font("Kalinga", 1, 20)); // NOI18N
         informLabelFP.setText("Did you forget password? Do NOT worry, please insert:");
         ForgotPasswordPanel.add(informLabelFP);
-        informLabelFP.setBounds(220, 180, 540, 30);
+        informLabelFP.setBounds(200, 180, 560, 30);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
         ForgotPasswordPanel.add(jLabel2);
         jLabel2.setBounds(150, 30, 602, 119);
 
+        newFPP.setBackground(new java.awt.Color(255, 255, 255));
         newFPP.setMaximumSize(new java.awt.Dimension(860, 300));
         newFPP.setMinimumSize(new java.awt.Dimension(860, 300));
         newFPP.setPreferredSize(new java.awt.Dimension(860, 300));
         newFPP.setLayout(null);
 
+        jPasswordField1.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         jPasswordField1.setText("jPasswordField1");
         newFPP.add(jPasswordField1);
-        jPasswordField1.setBounds(340, 50, 180, 30);
+        jPasswordField1.setBounds(410, 80, 180, 30);
 
+        jPasswordField2.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         jPasswordField2.setText("jPasswordField2");
         newFPP.add(jPasswordField2);
-        jPasswordField2.setBounds(340, 100, 180, 30);
+        jPasswordField2.setBounds(410, 130, 180, 30);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         jLabel3.setText("New Password:");
         newFPP.add(jLabel3);
-        jLabel3.setBounds(230, 50, 110, 30);
+        jLabel3.setBounds(280, 80, 130, 30);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         jLabel4.setText("Confirm Password:");
         newFPP.add(jLabel4);
-        jLabel4.setBounds(200, 100, 140, 30);
+        jLabel4.setBounds(260, 130, 150, 30);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         jButton1.setText("Accept");
         newFPP.add(jButton1);
         jButton1.setBounds(460, 220, 90, 40);
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         jButton2.setText("Cancel");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -349,32 +370,38 @@ public class LogInForm extends javax.swing.JFrame {
         ForgotPasswordPanel.add(newFPP);
         newFPP.setBounds(30, 240, 840, 300);
 
-        oldFPP.setBackground(new java.awt.Color(204, 204, 0));
+        oldFPP.setBackground(new java.awt.Color(255, 255, 255));
         oldFPP.setMaximumSize(new java.awt.Dimension(860, 300));
         oldFPP.setLayout(null);
-        oldFPP.add(usernameFieldFP);
-        usernameFieldFP.setBounds(370, 60, 180, 30);
-        oldFPP.add(emailFieldFP);
-        emailFieldFP.setBounds(370, 100, 180, 30);
-        oldFPP.add(DOBinput);
-        DOBinput.setBounds(370, 140, 180, 30);
 
-        DOBLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        usernameFieldFP.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        oldFPP.add(usernameFieldFP);
+        usernameFieldFP.setBounds(440, 70, 180, 30);
+
+        emailFieldFP.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        oldFPP.add(emailFieldFP);
+        emailFieldFP.setBounds(440, 110, 180, 30);
+
+        DOBinput.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        oldFPP.add(DOBinput);
+        DOBinput.setBounds(440, 150, 180, 30);
+
+        DOBLabel.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         DOBLabel.setText("Day of Birth(DD/MM/YYYY):");
         oldFPP.add(DOBLabel);
-        DOBLabel.setBounds(180, 140, 180, 30);
+        DOBLabel.setBounds(230, 150, 210, 30);
 
-        emailLabelFP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emailLabelFP.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         emailLabelFP.setText("email:");
         oldFPP.add(emailLabelFP);
-        emailLabelFP.setBounds(310, 100, 50, 30);
+        emailLabelFP.setBounds(380, 110, 60, 30);
 
-        usernameLabelFP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        usernameLabelFP.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         usernameLabelFP.setText("Username:");
         oldFPP.add(usernameLabelFP);
-        usernameLabelFP.setBounds(280, 60, 80, 30);
+        usernameLabelFP.setBounds(350, 70, 90, 30);
 
-        cancelBtnFP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cancelBtnFP.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         cancelBtnFP.setText("Cancel");
         cancelBtnFP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -382,9 +409,9 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         oldFPP.add(cancelBtnFP);
-        cancelBtnFP.setBounds(300, 230, 86, 40);
+        cancelBtnFP.setBounds(300, 230, 90, 40);
 
-        acceptBtnFP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        acceptBtnFP.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         acceptBtnFP.setText("Accept");
         acceptBtnFP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -392,7 +419,7 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         oldFPP.add(acceptBtnFP);
-        acceptBtnFP.setBounds(490, 230, 86, 40);
+        acceptBtnFP.setBounds(490, 230, 90, 40);
 
         ForgotPasswordPanel.add(oldFPP);
         oldFPP.setBounds(0, 230, 900, 350);
