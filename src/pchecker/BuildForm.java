@@ -563,11 +563,14 @@ public class BuildForm extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         buildTotalCostCompTwo = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
         addBuildPanel = new javax.swing.JPanel();
         buildCancelBtn = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         partsTable = new javax.swing.JTable();
+        jLabel22 = new javax.swing.JLabel();
         viewPartPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         viewAllPartsTable = new javax.swing.JTable();
@@ -631,11 +634,15 @@ public class BuildForm extends javax.swing.JFrame {
         buildPanel.setMinimumSize(new java.awt.Dimension(900, 600));
         buildPanel.setLayout(null);
 
-        newBuildTitleLable.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        newBuildTitleLable.setFont(new java.awt.Font("Kalinga", 1, 36)); // NOI18N
+        newBuildTitleLable.setForeground(new java.awt.Color(127, 127, 127));
         newBuildTitleLable.setText("NEW BUILD");
         buildPanel.add(newBuildTitleLable);
-        newBuildTitleLable.setBounds(350, 170, 215, 44);
+        newBuildTitleLable.setBounds(350, 80, 213, 58);
 
+        cancelBtnB.setBackground(new java.awt.Color(127, 127, 127));
+        cancelBtnB.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        cancelBtnB.setForeground(new java.awt.Color(255, 255, 255));
         cancelBtnB.setText("Cancel");
         cancelBtnB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -643,8 +650,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(cancelBtnB);
-        cancelBtnB.setBounds(800, 10, 70, 42);
+        cancelBtnB.setBounds(790, 20, 90, 43);
 
+        acceptBuildBtn.setBackground(new java.awt.Color(127, 127, 127));
+        acceptBuildBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        acceptBuildBtn.setForeground(new java.awt.Color(255, 255, 255));
         acceptBuildBtn.setText("Accept");
         acceptBuildBtn.setEnabled(false);
         acceptBuildBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -653,17 +663,19 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(acceptBuildBtn);
-        acceptBuildBtn.setBounds(730, 10, 70, 42);
+        acceptBuildBtn.setBounds(690, 20, 90, 43);
 
-        logoB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
+        logoB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo2.png"))); // NOI18N
         buildPanel.add(logoB);
-        logoB.setBounds(140, 50, 602, 119);
+        logoB.setBounds(30, 0, 110, 590);
 
-        buildNameLabelB.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        buildNameLabelB.setFont(new java.awt.Font("Kalinga", 1, 18)); // NOI18N
         buildNameLabelB.setText("Build Name:");
         buildPanel.add(buildNameLabelB);
-        buildNameLabelB.setBounds(270, 230, 115, 36);
+        buildNameLabelB.setBounds(260, 150, 130, 36);
 
+        buildNametxt.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        buildNametxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(179, 0, 0)));
         buildNametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buildNametxtActionPerformed(evt);
@@ -675,9 +687,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(buildNametxt);
-        buildNametxt.setBounds(390, 230, 246, 36);
+        buildNametxt.setBounds(390, 150, 246, 36);
 
-        processorBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        processorBtn.setBackground(new java.awt.Color(191, 191, 191));
+        processorBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        processorBtn.setForeground(new java.awt.Color(179, 0, 0));
         processorBtn.setText("PROCESSOR");
         processorBtn.setEnabled(false);
         processorBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -686,9 +700,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(processorBtn);
-        processorBtn.setBounds(410, 270, 130, 62);
+        processorBtn.setBounds(390, 240, 170, 62);
 
-        motherboardBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        motherboardBtn.setBackground(new java.awt.Color(191, 191, 191));
+        motherboardBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        motherboardBtn.setForeground(new java.awt.Color(179, 0, 0));
         motherboardBtn.setText("MOTHERBOARD");
         motherboardBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -696,9 +712,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(motherboardBtn);
-        motherboardBtn.setBounds(240, 270, 130, 60);
+        motherboardBtn.setBounds(200, 240, 170, 60);
 
-        ramBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ramBtn.setBackground(new java.awt.Color(191, 191, 191));
+        ramBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        ramBtn.setForeground(new java.awt.Color(179, 0, 0));
         ramBtn.setText("RAM");
         ramBtn.setEnabled(false);
         ramBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -707,9 +725,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(ramBtn);
-        ramBtn.setBounds(570, 270, 130, 62);
+        ramBtn.setBounds(580, 240, 170, 62);
 
-        graphicsBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        graphicsBtn.setBackground(new java.awt.Color(191, 191, 191));
+        graphicsBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        graphicsBtn.setForeground(new java.awt.Color(179, 0, 0));
         graphicsBtn.setText("GRAPHICS CARD");
         graphicsBtn.setEnabled(false);
         graphicsBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -718,9 +738,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(graphicsBtn);
-        graphicsBtn.setBounds(390, 390, 130, 60);
+        graphicsBtn.setBounds(390, 360, 170, 60);
 
-        hddBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        hddBtn.setBackground(new java.awt.Color(191, 191, 191));
+        hddBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        hddBtn.setForeground(new java.awt.Color(179, 0, 0));
         hddBtn.setText("HDD");
         hddBtn.setEnabled(false);
         hddBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -729,9 +751,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(hddBtn);
-        hddBtn.setBounds(230, 390, 130, 60);
+        hddBtn.setBounds(200, 360, 170, 60);
 
-        caseBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        caseBtn.setBackground(new java.awt.Color(191, 191, 191));
+        caseBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        caseBtn.setForeground(new java.awt.Color(179, 0, 0));
         caseBtn.setText("CASE");
         caseBtn.setEnabled(false);
         caseBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -740,9 +764,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(caseBtn);
-        caseBtn.setBounds(550, 390, 130, 60);
+        caseBtn.setBounds(580, 360, 170, 60);
 
-        supplyBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        supplyBtn.setBackground(new java.awt.Color(191, 191, 191));
+        supplyBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        supplyBtn.setForeground(new java.awt.Color(179, 0, 0));
         supplyBtn.setText("POWER SUPPLY");
         supplyBtn.setEnabled(false);
         supplyBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -751,9 +777,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(supplyBtn);
-        supplyBtn.setBounds(250, 500, 130, 60);
+        supplyBtn.setBounds(200, 480, 170, 60);
 
-        coolingBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        coolingBtn.setBackground(new java.awt.Color(191, 191, 191));
+        coolingBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        coolingBtn.setForeground(new java.awt.Color(179, 0, 0));
         coolingBtn.setText("COOLING");
         coolingBtn.setEnabled(false);
         coolingBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -762,9 +790,11 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(coolingBtn);
-        coolingBtn.setBounds(410, 500, 130, 60);
+        coolingBtn.setBounds(390, 480, 170, 60);
 
-        accessoriesBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        accessoriesBtn.setBackground(new java.awt.Color(191, 191, 191));
+        accessoriesBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        accessoriesBtn.setForeground(new java.awt.Color(179, 0, 0));
         accessoriesBtn.setText("ACCESSORIES");
         accessoriesBtn.setEnabled(false);
         accessoriesBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -773,63 +803,75 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(accessoriesBtn);
-        accessoriesBtn.setBounds(570, 500, 130, 60);
+        accessoriesBtn.setBounds(580, 480, 170, 60);
 
-        accessoriesLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        accessoriesLabelSelectedPart.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        accessoriesLabelSelectedPart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         accessoriesLabelSelectedPart.setText("model -  make");
         buildPanel.add(accessoriesLabelSelectedPart);
-        accessoriesLabelSelectedPart.setBounds(570, 580, 130, 15);
+        accessoriesLabelSelectedPart.setBounds(580, 540, 170, 20);
         accessoriesLabelSelectedPart.setVisible(false);
 
-        accessories_ID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        accessories_ID.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        accessories_ID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         accessories_ID.setText("MotherB_ID");
         accessories_ID.setName(""); // NOI18N
         buildPanel.add(accessories_ID);
-        accessories_ID.setBounds(570, 600, 130, 15);
+        accessories_ID.setBounds(580, 580, 170, 20);
         accessories_ID.setVisible(false);
 
-        processorLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        processorLabelSelectedPart.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        processorLabelSelectedPart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         processorLabelSelectedPart.setText("model -  make");
         buildPanel.add(processorLabelSelectedPart);
-        processorLabelSelectedPart.setBounds(410, 350, 130, 15);
+        processorLabelSelectedPart.setBounds(390, 300, 170, 20);
         processorLabelSelectedPart.setVisible(false);
 
-        ramLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ramLabelSelectedPart.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        ramLabelSelectedPart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ramLabelSelectedPart.setText("model -  make");
         buildPanel.add(ramLabelSelectedPart);
-        ramLabelSelectedPart.setBounds(570, 350, 130, 15);
+        ramLabelSelectedPart.setBounds(580, 300, 170, 20);
         ramLabelSelectedPart.setVisible(false);
 
-        hddLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        hddLabelSelectedPart.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        hddLabelSelectedPart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hddLabelSelectedPart.setText("model -  make");
         buildPanel.add(hddLabelSelectedPart);
-        hddLabelSelectedPart.setBounds(250, 470, 130, 15);
+        hddLabelSelectedPart.setBounds(200, 420, 170, 20);
         hddLabelSelectedPart.setVisible(false);
 
-        gpuLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        gpuLabelSelectedPart.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        gpuLabelSelectedPart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         gpuLabelSelectedPart.setText("model -  make");
         buildPanel.add(gpuLabelSelectedPart);
-        gpuLabelSelectedPart.setBounds(410, 470, 130, 15);
+        gpuLabelSelectedPart.setBounds(390, 420, 170, 20);
         gpuLabelSelectedPart.setVisible(false);
 
-        caseLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        caseLabelSelectedPart.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        caseLabelSelectedPart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         caseLabelSelectedPart.setText("model -  make");
         buildPanel.add(caseLabelSelectedPart);
-        caseLabelSelectedPart.setBounds(570, 470, 130, 15);
+        caseLabelSelectedPart.setBounds(580, 420, 170, 20);
         caseLabelSelectedPart.setVisible(false);
 
-        psuLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        psuLabelSelectedPart.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        psuLabelSelectedPart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         psuLabelSelectedPart.setText("model -  make");
         buildPanel.add(psuLabelSelectedPart);
-        psuLabelSelectedPart.setBounds(250, 580, 130, 15);
+        psuLabelSelectedPart.setBounds(200, 540, 170, 20);
         psuLabelSelectedPart.setVisible(false);
 
-        coolingLabelSelectedPart.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        coolingLabelSelectedPart.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        coolingLabelSelectedPart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         coolingLabelSelectedPart.setText("model -  make");
         buildPanel.add(coolingLabelSelectedPart);
-        coolingLabelSelectedPart.setBounds(410, 580, 130, 15);
+        coolingLabelSelectedPart.setBounds(390, 540, 170, 20);
         coolingLabelSelectedPart.setVisible(false);
 
+        updateBtn.setBackground(new java.awt.Color(127, 127, 127));
+        updateBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        updateBtn.setForeground(new java.awt.Color(255, 255, 255));
         updateBtn.setText("Update");
         updateBtn.setEnabled(false);
         updateBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -838,131 +880,152 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(updateBtn);
-        updateBtn.setBounds(730, 10, 70, 40);
+        updateBtn.setBounds(590, 20, 90, 43);
         updateBtn.setVisible(false);
 
-        motherboardLabelSelectedPart1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        motherboardLabelSelectedPart1.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        motherboardLabelSelectedPart1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         motherboardLabelSelectedPart1.setText("model -  make");
         buildPanel.add(motherboardLabelSelectedPart1);
-        motherboardLabelSelectedPart1.setBounds(250, 350, 130, 20);
+        motherboardLabelSelectedPart1.setBounds(200, 300, 170, 20);
         motherboardLabelSelectedPart1.setVisible(false);
 
-        motherboard_ID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        motherboard_ID.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        motherboard_ID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         motherboard_ID.setText("MotherB_ID");
         motherboard_ID.setName(""); // NOI18N
         buildPanel.add(motherboard_ID);
-        motherboard_ID.setBounds(250, 370, 130, 15);
+        motherboard_ID.setBounds(200, 340, 170, 20);
         motherboard_ID.setVisible(false);
 
-        processor_ID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        processor_ID.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        processor_ID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         processor_ID.setText("MotherB_ID");
         processor_ID.setName(""); // NOI18N
         buildPanel.add(processor_ID);
-        processor_ID.setBounds(410, 370, 130, 15);
+        processor_ID.setBounds(390, 340, 170, 20);
         processor_ID.setVisible(false);
 
-        ram_ID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ram_ID.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        ram_ID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ram_ID.setText("MotherB_ID");
         ram_ID.setName(""); // NOI18N
         buildPanel.add(ram_ID);
-        ram_ID.setBounds(570, 370, 130, 15);
+        ram_ID.setBounds(580, 340, 170, 20);
         ram_ID.setVisible(false);
 
-        hdd_ID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        hdd_ID.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        hdd_ID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hdd_ID.setText("MotherB_ID");
         hdd_ID.setName(""); // NOI18N
         buildPanel.add(hdd_ID);
-        hdd_ID.setBounds(250, 490, 130, 15);
+        hdd_ID.setBounds(200, 460, 170, 20);
         hdd_ID.setVisible(false);
 
-        graphics_ID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        graphics_ID.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        graphics_ID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         graphics_ID.setText("MotherB_ID");
         graphics_ID.setName(""); // NOI18N
         buildPanel.add(graphics_ID);
-        graphics_ID.setBounds(410, 490, 130, 15);
+        graphics_ID.setBounds(390, 460, 170, 20);
         graphics_ID.setVisible(false);
 
-        case_ID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        case_ID.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        case_ID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         case_ID.setText("MotherB_ID");
         case_ID.setName(""); // NOI18N
         buildPanel.add(case_ID);
-        case_ID.setBounds(570, 490, 130, 15);
+        case_ID.setBounds(580, 460, 170, 20);
         case_ID.setVisible(false);
 
-        powersupply_ID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        powersupply_ID.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        powersupply_ID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         powersupply_ID.setText("MotherB_ID");
         powersupply_ID.setName(""); // NOI18N
         buildPanel.add(powersupply_ID);
-        powersupply_ID.setBounds(250, 600, 130, 15);
+        powersupply_ID.setBounds(200, 580, 170, 20);
         powersupply_ID.setVisible(false);
 
-        cooling_ID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cooling_ID.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        cooling_ID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         cooling_ID.setText("MotherB_ID");
         cooling_ID.setName(""); // NOI18N
         buildPanel.add(cooling_ID);
-        cooling_ID.setBounds(410, 600, 130, 15);
+        cooling_ID.setBounds(390, 580, 170, 20);
         cooling_ID.setVisible(false);
         buildPanel.add(buildTotalCostLbl);
-        buildTotalCostLbl.setBounds(730, 390, 140, 30);
+        buildTotalCostLbl.setBounds(810, 180, 140, 30);
 
         jLabel17.setText("Total Cost");
         buildPanel.add(jLabel17);
-        jLabel17.setBounds(730, 360, 120, 14);
+        jLabel17.setBounds(750, 190, 120, 14);
 
-        motherboard_Price.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        motherboard_Price.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        motherboard_Price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         motherboard_Price.setText("MotherB_ID");
         motherboard_Price.setName(""); // NOI18N
         buildPanel.add(motherboard_Price);
-        motherboard_Price.setBounds(250, 330, 130, 15);
+        motherboard_Price.setBounds(200, 320, 170, 20);
 
-        hdd_Price.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        hdd_Price.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        hdd_Price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hdd_Price.setText("MotherB_ID");
         hdd_Price.setName(""); // NOI18N
         buildPanel.add(hdd_Price);
-        hdd_Price.setBounds(250, 450, 130, 15);
+        hdd_Price.setBounds(200, 440, 170, 20);
 
-        powersupply_Price.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        powersupply_Price.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        powersupply_Price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         powersupply_Price.setText("MotherB_ID");
         powersupply_Price.setName(""); // NOI18N
         buildPanel.add(powersupply_Price);
-        powersupply_Price.setBounds(250, 560, 130, 15);
+        powersupply_Price.setBounds(200, 560, 170, 20);
 
-        cooling_Price.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cooling_Price.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        cooling_Price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         cooling_Price.setText("MotherB_ID");
         cooling_Price.setName(""); // NOI18N
         buildPanel.add(cooling_Price);
-        cooling_Price.setBounds(410, 560, 130, 15);
+        cooling_Price.setBounds(390, 560, 170, 20);
 
-        accessories_Price.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        accessories_Price.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        accessories_Price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         accessories_Price.setText("MotherB_ID");
         accessories_Price.setName(""); // NOI18N
         buildPanel.add(accessories_Price);
-        accessories_Price.setBounds(570, 560, 130, 15);
+        accessories_Price.setBounds(580, 560, 170, 20);
 
-        case_Price.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        case_Price.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        case_Price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         case_Price.setText("MotherB_ID");
         case_Price.setName(""); // NOI18N
         buildPanel.add(case_Price);
-        case_Price.setBounds(570, 450, 130, 15);
+        case_Price.setBounds(580, 440, 170, 20);
 
-        graphics_Price.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        graphics_Price.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        graphics_Price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         graphics_Price.setText("MotherB_ID");
         graphics_Price.setName(""); // NOI18N
         buildPanel.add(graphics_Price);
-        graphics_Price.setBounds(410, 450, 130, 15);
+        graphics_Price.setBounds(390, 440, 170, 20);
 
-        processor_Price.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        processor_Price.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        processor_Price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         processor_Price.setText("MotherB_ID");
         processor_Price.setName(""); // NOI18N
         buildPanel.add(processor_Price);
-        processor_Price.setBounds(410, 330, 130, 15);
+        processor_Price.setBounds(390, 320, 170, 20);
 
-        ram_Price.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ram_Price.setFont(new java.awt.Font("Kalinga", 1, 12)); // NOI18N
+        ram_Price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ram_Price.setText("MotherB_ID");
         ram_Price.setName(""); // NOI18N
         buildPanel.add(ram_Price);
-        ram_Price.setBounds(570, 330, 130, 15);
+        ram_Price.setBounds(580, 320, 170, 20);
 
+        deleteBuildBtn.setBackground(new java.awt.Color(191, 191, 191));
+        deleteBuildBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        deleteBuildBtn.setForeground(new java.awt.Color(179, 0, 0));
         deleteBuildBtn.setText("Delete");
         deleteBuildBtn.setEnabled(false);
         deleteBuildBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -971,7 +1034,7 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         buildPanel.add(deleteBuildBtn);
-        deleteBuildBtn.setBounds(660, 10, 70, 40);
+        deleteBuildBtn.setBounds(490, 20, 90, 43);
         deleteBuildBtn.setVisible(false);
 
         getContentPane().add(buildPanel);
@@ -987,6 +1050,9 @@ public class BuildForm extends javax.swing.JFrame {
         compareBuilds.add(logoE);
         logoE.setBounds(140, 40, 602, 119);
 
+        cancelBtnCompare.setBackground(new java.awt.Color(127, 127, 127));
+        cancelBtnCompare.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        cancelBtnCompare.setForeground(new java.awt.Color(255, 255, 255));
         cancelBtnCompare.setText("Cancel");
         cancelBtnCompare.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -994,8 +1060,9 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         compareBuilds.add(cancelBtnCompare);
-        cancelBtnCompare.setBounds(820, 10, 70, 42);
+        cancelBtnCompare.setBounds(790, 20, 90, 43);
 
+        buildsTwo.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
         buildsTwo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Choose -" }));
         buildsTwo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1003,8 +1070,9 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         compareBuilds.add(buildsTwo);
-        buildsTwo.setBounds(550, 220, 170, 20);
+        buildsTwo.setBounds(590, 290, 170, 29);
 
+        buildsOne.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
         buildsOne.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Choose -" }));
         buildsOne.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1012,8 +1080,9 @@ public class BuildForm extends javax.swing.JFrame {
             }
         });
         compareBuilds.add(buildsOne);
-        buildsOne.setBounds(100, 220, 170, 20);
+        buildsOne.setBounds(150, 290, 170, 30);
 
+        viewBuildOne.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         viewBuildOne.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1033,8 +1102,9 @@ public class BuildForm extends javax.swing.JFrame {
     jScrollPane7.setViewportView(viewBuildOne);
 
     compareBuilds.add(jScrollPane7);
-    jScrollPane7.setBounds(40, 260, 300, 200);
+    jScrollPane7.setBounds(50, 330, 360, 200);
 
+    viewBuildTwo.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
     viewBuildTwo.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
 
@@ -1054,19 +1124,36 @@ public class BuildForm extends javax.swing.JFrame {
     jScrollPane8.setViewportView(viewBuildTwo);
 
     compareBuilds.add(jScrollPane8);
-    jScrollPane8.setBounds(490, 260, 300, 200);
+    jScrollPane8.setBounds(490, 330, 360, 200);
     compareBuilds.add(buildTotalCostCompOne);
     buildTotalCostCompOne.setBounds(40, 500, 140, 30);
 
-    jLabel18.setText("Total Cost");
+    jLabel18.setFont(new java.awt.Font("Kalinga", 1, 18)); // NOI18N
+    jLabel18.setForeground(new java.awt.Color(179, 0, 0));
+    jLabel18.setText("Total Cost:");
     compareBuilds.add(jLabel18);
-    jLabel18.setBounds(40, 470, 120, 14);
+    jLabel18.setBounds(50, 540, 120, 29);
     compareBuilds.add(buildTotalCostCompTwo);
     buildTotalCostCompTwo.setBounds(500, 500, 140, 30);
 
-    jLabel19.setText("Total Cost");
+    jLabel19.setFont(new java.awt.Font("Kalinga", 1, 18)); // NOI18N
+    jLabel19.setForeground(new java.awt.Color(179, 0, 0));
+    jLabel19.setText("Total Cost:");
     compareBuilds.add(jLabel19);
-    jLabel19.setBounds(500, 470, 120, 14);
+    jLabel19.setBounds(490, 540, 120, 29);
+
+    jLabel23.setFont(new java.awt.Font("Kalinga", 1, 18)); // NOI18N
+    jLabel23.setForeground(new java.awt.Color(179, 0, 0));
+    jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    jLabel23.setText("VS.");
+    compareBuilds.add(jLabel23);
+    jLabel23.setBounds(410, 410, 80, 29);
+
+    jLabel24.setFont(new java.awt.Font("Kalinga", 0, 36)); // NOI18N
+    jLabel24.setForeground(new java.awt.Color(127, 127, 127));
+    jLabel24.setText("Compare Builds");
+    compareBuilds.add(jLabel24);
+    jLabel24.setBounds(310, 200, 280, 40);
 
     getContentPane().add(compareBuilds);
     compareBuilds.setBounds(0, 0, 900, 600);
@@ -1077,6 +1164,9 @@ public class BuildForm extends javax.swing.JFrame {
     addBuildPanel.setMinimumSize(new java.awt.Dimension(900, 600));
     addBuildPanel.setLayout(null);
 
+    buildCancelBtn.setBackground(new java.awt.Color(127, 127, 127));
+    buildCancelBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+    buildCancelBtn.setForeground(new java.awt.Color(255, 255, 255));
     buildCancelBtn.setText("Cancel");
     buildCancelBtn.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1084,11 +1174,11 @@ public class BuildForm extends javax.swing.JFrame {
         }
     });
     addBuildPanel.add(buildCancelBtn);
-    buildCancelBtn.setBounds(800, 20, 70, 40);
+    buildCancelBtn.setBounds(790, 20, 90, 43);
 
     jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
     addBuildPanel.add(jLabel13);
-    jLabel13.setBounds(140, 10, 620, 150);
+    jLabel13.setBounds(140, 20, 620, 150);
 
     partsTable.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
@@ -1109,7 +1199,14 @@ public class BuildForm extends javax.swing.JFrame {
     jScrollPane2.setViewportView(partsTable);
 
     addBuildPanel.add(jScrollPane2);
-    jScrollPane2.setBounds(30, 230, 840, 280);
+    jScrollPane2.setBounds(30, 280, 840, 280);
+
+    jLabel22.setFont(new java.awt.Font("Kalinga", 1, 36)); // NOI18N
+    jLabel22.setForeground(new java.awt.Color(127, 127, 127));
+    jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    jLabel22.setText("Add build");
+    addBuildPanel.add(jLabel22);
+    jLabel22.setBounds(260, 210, 380, 50);
 
     getContentPane().add(addBuildPanel);
     addBuildPanel.setBounds(0, 0, 900, 600);
@@ -1821,14 +1918,57 @@ public class BuildForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void cancelBtnCompareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnCompareActionPerformed
+        
+        AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
+        this.dispose();
+        frm.setVisible(true);
+    }//GEN-LAST:event_cancelBtnCompareActionPerformed
+
+    private void buildsTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildsTwoActionPerformed
+       
+         if(String.valueOf(buildsTwo.getSelectedItem()) != "-Choose-"){
+            String build = buildsTwo.getSelectedItem().toString();
+            getPartsToCompare(build, "two");
+         }
+    }//GEN-LAST:event_buildsTwoActionPerformed
+
+    private void viewBuildOneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewBuildOneMouseClicked
+
+    }//GEN-LAST:event_viewBuildOneMouseClicked
+
+    private void viewBuildTwoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewBuildTwoMouseClicked
+
+    }//GEN-LAST:event_viewBuildTwoMouseClicked
+
+    private void buildsOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildsOneActionPerformed
+        
+         if(String.valueOf(buildsOne.getSelectedItem()) != "-Choose-"){
+            String build = buildsOne.getSelectedItem().toString();
+            getPartsToCompare(build, "one");
+         }
+    }//GEN-LAST:event_buildsOneActionPerformed
+
+    private void deleteBuildBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBuildBtnActionPerformed
+      int answer = JOptionPane.showConfirmDialog(null, "Are You Sure You Want to Delete your Build?", "Delete Build", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+       
+        if (answer == JOptionPane.YES_OPTION) {
+          
+            JOptionPane.showMessageDialog(null, "Build Deleted. You will be returnd to main menu");
+            currentUser.deleteBuild(newBuild.getBuildName());
+            AdminUserFrame frm = new AdminUserFrame(currentUser);
+            this.dispose();
+            frm.setVisible(true);
+        }
+    }//GEN-LAST:event_deleteBuildBtnActionPerformed
+
     private void partsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partsTableMouseClicked
 
         int row =  partsTable.getSelectedRow();
         if (evt.getClickCount() == 2 ) {
             PartID = modelParts.getValueAt(row, 0).toString();
             double price = Double.parseDouble(modelParts.getValueAt(row, partsTable.getColumn("Price").getModelIndex()).toString());
-                    
-                    
+
             Color color = checkCompatible(PartID);
 
             String partModel = modelParts.getValueAt(row, modelParts.findColumn("Model")).toString();
@@ -1896,59 +2036,13 @@ public class BuildForm extends javax.swing.JFrame {
             //runCompatibilityCheck();
 
         }
-
     }//GEN-LAST:event_partsTableMouseClicked
 
     private void buildCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildCancelBtnActionPerformed
 
         buildPanel.setVisible(true);
         addBuildPanel.setVisible(false);
-
     }//GEN-LAST:event_buildCancelBtnActionPerformed
-
-    private void cancelBtnCompareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnCompareActionPerformed
-        
-        AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
-        this.dispose();
-        frm.setVisible(true);
-    }//GEN-LAST:event_cancelBtnCompareActionPerformed
-
-    private void buildsTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildsTwoActionPerformed
-       
-         if(String.valueOf(buildsTwo.getSelectedItem()) != "-Choose-"){
-            String build = buildsTwo.getSelectedItem().toString();
-            getPartsToCompare(build, "two");
-         }
-    }//GEN-LAST:event_buildsTwoActionPerformed
-
-    private void viewBuildOneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewBuildOneMouseClicked
-
-    }//GEN-LAST:event_viewBuildOneMouseClicked
-
-    private void viewBuildTwoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewBuildTwoMouseClicked
-
-    }//GEN-LAST:event_viewBuildTwoMouseClicked
-
-    private void buildsOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildsOneActionPerformed
-        
-         if(String.valueOf(buildsOne.getSelectedItem()) != "-Choose-"){
-            String build = buildsOne.getSelectedItem().toString();
-            getPartsToCompare(build, "one");
-         }
-    }//GEN-LAST:event_buildsOneActionPerformed
-
-    private void deleteBuildBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBuildBtnActionPerformed
-      int answer = JOptionPane.showConfirmDialog(null, "Are You Sure You Want to Delete your Build?", "Delete Build", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-       
-        if (answer == JOptionPane.YES_OPTION) {
-          
-            JOptionPane.showMessageDialog(null, "Build Deleted. You will be returnd to main menu");
-            currentUser.deleteBuild(newBuild.getBuildName());
-            AdminUserFrame frm = new AdminUserFrame(currentUser);
-            this.dispose();
-            frm.setVisible(true);
-        }
-    }//GEN-LAST:event_deleteBuildBtnActionPerformed
     
     public void getPartsToCompare(String buildName, String BuildNum){
        
@@ -2157,6 +2251,9 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
