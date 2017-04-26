@@ -264,7 +264,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         mainUserPanel.setBounds(0, 0, 900, 600);
         mainUserPanel.setVisible(false);
 
-        accountPanel.setBackground(new java.awt.Color(153, 255, 255));
+        accountPanel.setBackground(new java.awt.Color(255, 255, 255));
         accountPanel.setMaximumSize(new java.awt.Dimension(900, 600));
         accountPanel.setMinimumSize(new java.awt.Dimension(900, 600));
         accountPanel.setPreferredSize(new java.awt.Dimension(900, 600));
@@ -274,11 +274,15 @@ public class AdminUserFrame extends javax.swing.JFrame {
         accountPanel.add(logoAccount);
         logoAccount.setBounds(150, 80, 602, 119);
 
-        accountSettingsLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        accountSettingsLabel.setFont(new java.awt.Font("Kalinga", 1, 36)); // NOI18N
+        accountSettingsLabel.setForeground(new java.awt.Color(127, 127, 127));
         accountSettingsLabel.setText("Account Settings");
         accountPanel.add(accountSettingsLabel);
-        accountSettingsLabel.setBounds(290, 220, 320, 40);
+        accountSettingsLabel.setBounds(310, 240, 320, 40);
 
+        accountBackBtn.setBackground(new java.awt.Color(127, 127, 127));
+        accountBackBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
+        accountBackBtn.setForeground(new java.awt.Color(255, 255, 255));
         accountBackBtn.setText("Back");
         accountBackBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -286,8 +290,9 @@ public class AdminUserFrame extends javax.swing.JFrame {
             }
         });
         accountPanel.add(accountBackBtn);
-        accountBackBtn.setBounds(800, 20, 80, 40);
+        accountBackBtn.setBounds(790, 20, 80, 41);
 
+        accountsTable.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         accountsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -296,6 +301,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
 
             }
         ));
+        accountsTable.setIntercellSpacing(new java.awt.Dimension(2, 2));
         accountsTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 accountsTableMouseClicked(evt);
