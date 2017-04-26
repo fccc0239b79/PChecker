@@ -884,7 +884,7 @@ public class BuildForm extends javax.swing.JFrame {
         compareBuilds.add(cancelBtnCompare);
         cancelBtnCompare.setBounds(820, 10, 70, 42);
 
-        buildsTwo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        buildsTwo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Choose -" }));
         buildsTwo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buildsTwoActionPerformed(evt);
@@ -893,7 +893,7 @@ public class BuildForm extends javax.swing.JFrame {
         compareBuilds.add(buildsTwo);
         buildsTwo.setBounds(550, 220, 170, 27);
 
-        buildsOne.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        buildsOne.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Choose -" }));
         buildsOne.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buildsOneActionPerformed(evt);
@@ -1736,7 +1736,11 @@ public class BuildForm extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelBtnCompareActionPerformed
 
     private void buildsTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildsTwoActionPerformed
-        // TODO add your handling code here:
+       
+         if(String.valueOf(buildsOne.getSelectedItem()) != "-Choose-"){
+            String build = buildsOne.getSelectedItem().toString();
+            getPartsToCompare(build, "two");
+         }
     }//GEN-LAST:event_buildsTwoActionPerformed
 
     private void viewBuildOneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewBuildOneMouseClicked
@@ -1749,10 +1753,10 @@ public class BuildForm extends javax.swing.JFrame {
 
     private void buildsOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildsOneActionPerformed
         
-        
-        String build = buildsOne.getSelectedItem().toString();
-        
-        getPartsToCompare(build, "one");
+         if(String.valueOf(buildsOne.getSelectedItem()) != "-Choose-"){
+            String build = buildsOne.getSelectedItem().toString();
+            getPartsToCompare(build, "one");
+         }
     }//GEN-LAST:event_buildsOneActionPerformed
     
     public void getPartsToCompare(String buildName, String BuildNum){
@@ -1791,7 +1795,7 @@ public class BuildForm extends javax.swing.JFrame {
         try {
             Statement stmt = (Statement) con.createStatement();
            // String query = ("Select P.PartID, P.Make, P.Model, P.Price, Speed, Cores, Graphics FROM CPU JOIN Part AS P on CPU.ID=P.PartID");
-            String query = "Select P.PartType,P.Model, P.Make FROM Build AS B JOIN Part AS P ON P.PartID IN(B.Motherboard,B.CPU,B.RAM,B.Storage,B.GPU,B.PSU,B.PCCase,B.Cooler,B.Accessory) where Account = '"+currentUser.getUsername()+"' AND name = '"+buildName+"';";
+            String query = "Select P.PartType,P.Model, P.Make FROM Build AS B JOIN Part AS P ON P.PartID IN(B.Motherboard,B.CPU,B.RAM,B.Storage,B.GPU,B.PSU,B.PCCase,B.Cooler,B.Accessory) where Account = '"+currentUser.getUsername()+"' AND BuildName = '"+buildName+"';";
                        // System.out.println(query);
 
 
