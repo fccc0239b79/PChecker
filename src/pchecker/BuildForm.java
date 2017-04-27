@@ -566,6 +566,8 @@ public class BuildForm extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
+        buildTotalCostLbl2 = new javax.swing.JLabel();
+        buildTotalCostLbl3 = new javax.swing.JLabel();
         addBuildPanel = new javax.swing.JPanel();
         buildCancelBtn = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
@@ -1137,19 +1139,20 @@ public class BuildForm extends javax.swing.JFrame {
     compareBuilds.add(jScrollPane8);
     jScrollPane8.setBounds(490, 330, 360, 200);
 
-    buildTotalCostCompOne.setFont(new java.awt.Font("Kalinga", 0, 18)); // NOI18N
+    buildTotalCostCompOne.setFont(new java.awt.Font("Kalinga", 1, 18)); // NOI18N
+    buildTotalCostCompOne.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
     compareBuilds.add(buildTotalCostCompOne);
-    buildTotalCostCompOne.setBounds(170, 540, 140, 30);
+    buildTotalCostCompOne.setBounds(170, 540, 140, 20);
 
     jLabel18.setFont(new java.awt.Font("Kalinga", 1, 18)); // NOI18N
     jLabel18.setForeground(new java.awt.Color(179, 0, 0));
     jLabel18.setText("Total Cost:");
     compareBuilds.add(jLabel18);
-    jLabel18.setBounds(50, 540, 120, 22);
+    jLabel18.setBounds(50, 540, 110, 22);
 
-    buildTotalCostCompTwo.setFont(new java.awt.Font("Kalinga", 0, 18)); // NOI18N
+    buildTotalCostCompTwo.setFont(new java.awt.Font("Kalinga", 1, 18)); // NOI18N
     compareBuilds.add(buildTotalCostCompTwo);
-    buildTotalCostCompTwo.setBounds(610, 540, 140, 30);
+    buildTotalCostCompTwo.setBounds(610, 540, 140, 20);
 
     jLabel19.setFont(new java.awt.Font("Kalinga", 1, 18)); // NOI18N
     jLabel19.setForeground(new java.awt.Color(179, 0, 0));
@@ -1169,6 +1172,18 @@ public class BuildForm extends javax.swing.JFrame {
     jLabel24.setText("Compare Builds");
     compareBuilds.add(jLabel24);
     jLabel24.setBounds(310, 200, 280, 40);
+
+    buildTotalCostLbl2.setFont(new java.awt.Font("Kalinga", 1, 18)); // NOI18N
+    buildTotalCostLbl2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+    buildTotalCostLbl2.setText("£");
+    compareBuilds.add(buildTotalCostLbl2);
+    buildTotalCostLbl2.setBounds(590, 540, 140, 20);
+
+    buildTotalCostLbl3.setFont(new java.awt.Font("Kalinga", 1, 18)); // NOI18N
+    buildTotalCostLbl3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+    buildTotalCostLbl3.setText("£");
+    compareBuilds.add(buildTotalCostLbl3);
+    buildTotalCostLbl3.setBounds(150, 540, 140, 20);
 
     getContentPane().add(compareBuilds);
     compareBuilds.setBounds(0, 0, 900, 600);
@@ -2224,6 +2239,8 @@ public class BuildForm extends javax.swing.JFrame {
     private javax.swing.JLabel buildTotalCostCompTwo;
     private javax.swing.JLabel buildTotalCostLbl;
     private javax.swing.JLabel buildTotalCostLbl1;
+    private javax.swing.JLabel buildTotalCostLbl2;
+    private javax.swing.JLabel buildTotalCostLbl3;
     private javax.swing.JComboBox<String> buildsOne;
     private javax.swing.JComboBox<String> buildsTwo;
     private javax.swing.JButton cancelBtnB;
