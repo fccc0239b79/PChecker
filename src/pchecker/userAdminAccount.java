@@ -470,7 +470,8 @@ public class userAdminAccount {
         Connection con = ServerControl.ConnectDB();
             try {
                 Statement stmt = (Statement) con.createStatement();
-                String query = ("Select * FROM "+ part +" INNER JOIN Part ON "+part+".ID = Part.PartID;");
+                
+                String query = ("Select * FROM Part JOIN "+part+" ON Part.PartID = "+part+".ID;");
                // String query = ("Select * FROM Part");
 
                 ResultSet rs = stmt.executeQuery(query);
