@@ -579,7 +579,6 @@ public class BuildForm extends javax.swing.JFrame {
         viewAllPartsTable = new javax.swing.JTable();
         partTypeComboBox2 = new javax.swing.JComboBox<>();
         cancelBtnE1 = new javax.swing.JButton();
-        acceptBtnE1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         createAccount = new javax.swing.JPanel();
@@ -1293,18 +1292,6 @@ public class BuildForm extends javax.swing.JFrame {
     viewPartPanel.add(cancelBtnE1);
     cancelBtnE1.setBounds(790, 20, 90, 43);
 
-    acceptBtnE1.setBackground(new java.awt.Color(127, 127, 127));
-    acceptBtnE1.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
-    acceptBtnE1.setForeground(new java.awt.Color(255, 255, 255));
-    acceptBtnE1.setText("Accept");
-    acceptBtnE1.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            acceptBtnE1ActionPerformed(evt);
-        }
-    });
-    viewPartPanel.add(acceptBtnE1);
-    acceptBtnE1.setBounds(680, 20, 90, 43);
-
     jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pchecker/logo.png"))); // NOI18N
     jLabel1.setText("jLabel1");
     viewPartPanel.add(jLabel1);
@@ -1932,10 +1919,6 @@ public class BuildForm extends javax.swing.JFrame {
         frm.setVisible(true);
     }//GEN-LAST:event_deletePartActionPerformed
 
-    private void acceptBtnE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnE1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_acceptBtnE1ActionPerformed
-
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
@@ -2218,7 +2201,6 @@ public class BuildForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton acceptBtnE1;
     private javax.swing.JButton acceptBuildBtn;
     private javax.swing.JButton accessoriesBtn;
     private javax.swing.JLabel accessoriesLabelSelectedPart;

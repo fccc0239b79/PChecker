@@ -178,7 +178,7 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         LogInPanel.add(createAccountLink);
-        createAccountLink.setBounds(400, 500, 120, 21);
+        createAccountLink.setBounds(400, 500, 120, 16);
 
         PasswordInput.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         PasswordInput.setToolTipText("");
@@ -326,7 +326,7 @@ public class LogInForm extends javax.swing.JFrame {
         emailLabel2.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         emailLabel2.setText("Date of birth (dd/mm/yyyy)");
         RegistrationPanel.add(emailLabel2);
-        emailLabel2.setBounds(170, 520, 200, 30);
+        emailLabel2.setBounds(150, 520, 220, 30);
 
         DOBField.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         DOBField.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));

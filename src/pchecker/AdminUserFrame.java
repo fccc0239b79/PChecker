@@ -368,7 +368,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         currentTypelbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         currentTypelbl.setText("jLabel1");
         changeAccountTypePanel.add(currentTypelbl);
-        currentTypelbl.setBounds(330, 350, 250, 22);
+        currentTypelbl.setBounds(220, 350, 490, 22);
 
         deleteDifferentAccount.setBackground(new java.awt.Color(191, 191, 191));
         deleteDifferentAccount.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
