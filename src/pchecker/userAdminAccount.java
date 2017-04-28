@@ -26,7 +26,6 @@ public class userAdminAccount {
             listOfParts= new ArrayList<String>();
 
     /**
-     *
      * @return methods that return profile information
      */
     public String getUsername() {
