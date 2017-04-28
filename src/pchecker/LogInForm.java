@@ -178,7 +178,7 @@ public class LogInForm extends javax.swing.JFrame {
             }
         });
         LogInPanel.add(createAccountLink);
-        createAccountLink.setBounds(400, 500, 120, 16);
+        createAccountLink.setBounds(400, 500, 120, 21);
 
         PasswordInput.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         PasswordInput.setToolTipText("");
@@ -478,7 +478,6 @@ public class LogInForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void UsernameInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameInputActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_UsernameInputActionPerformed
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
@@ -490,7 +489,6 @@ public class LogInForm extends javax.swing.JFrame {
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private void PasswordInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordInputActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_PasswordInputActionPerformed
 
     private void createAccountLinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAccountLinkMouseClicked

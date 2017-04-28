@@ -7,32 +7,27 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DecimalFormat;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  * This class creates an object of an build 
  * @author Greg
- * @author Pawel
+ * @author Pawel Szymczyk
  */
 public class build {
+    
     private int motherBoardID = -1, cpuID = -1, ramID = -1, storageID = -1, gpuID = -1, psuID = -1, 
                 caseID = -1, coolerID = -1,accessoryID = -1,systemCompRating;
     private double totalCost = 0.0,motherBoardPrice = 0.0, cpuPrice = 0.0, ramPrice = 0.0, storagePrice = 0.0, 
             gpuPrice = 0.0, psuPrice = 0.0 , casePrice = 0.0, coolerPrice = 0.0,accessoryPrice = 0.0;
     private String buildName = "",motherBoardName = "", cpuName = "", ramName = "", storageName = "", 
             gpuName = "", psuName= "" , caseName = "", coolerName = "",accessoryName = "";
+    
     /*
     * method to add up all prices for a build 
     */
     private void addPrice(){
         totalCost = motherBoardPrice+cpuPrice + ramPrice + storagePrice +gpuPrice +psuPrice+casePrice +coolerPrice +accessoryPrice;
     }
-    
-    
     
     /**
      * This method sets the build name.
@@ -54,6 +49,7 @@ public class build {
         this.motherBoardPrice = price;
         addPrice();
     }
+    
     /**
      * This method sets the CPU details
      * @param ID sets CPU id 
@@ -66,6 +62,7 @@ public class build {
         this.cpuPrice = price;
         addPrice();
     }
+    
     /**
      * This method sets the Ram details
      * @param ID sets ram id 
@@ -78,6 +75,7 @@ public class build {
         this.ramPrice = price;
         addPrice();
     }
+    
     /**
      * This method sets the storage details
      * @param ID sets storage id 
@@ -90,6 +88,7 @@ public class build {
         this.storagePrice = price;
         addPrice();
     }
+    
     /**
      * This method sets the GPU details
      * @param ID sets GPU id 
@@ -101,8 +100,8 @@ public class build {
         this.gpuName  = name;
         this.gpuPrice = price; 
         addPrice();
-        
     }
+    
     /**
      * This method sets the PSU details
      * @param ID sets PSU id 
@@ -115,6 +114,7 @@ public class build {
         this.psuPrice = price;
         addPrice();
     }
+    
     /**
      * This method sets the PC case details
      * @param ID sets PC case id 
@@ -127,6 +127,7 @@ public class build {
         this.casePrice = price;
         addPrice();
     }
+    
     /**
      * This method sets the cooler details
      * @param ID sets cooler id 
@@ -139,6 +140,7 @@ public class build {
         this.coolerPrice = price;
         addPrice();
     }
+    
     /**
      * This method sets the Accessory details
      * @param ID sets Accessory id 
@@ -151,6 +153,7 @@ public class build {
         this.accessoryPrice = price;
         addPrice();
     }
+    
     /**
      * This method sets the total builds cost details
      * @param cost sets build cost
@@ -189,7 +192,6 @@ public class build {
                             break;
         }
         return partName;
-        
     }
     
     /**
@@ -260,8 +262,8 @@ public class build {
                                     break;
         }
         return partName;
-        
     }
+    
     /**
      * This method gets an given parts price
      * @param partType given part
@@ -291,7 +293,6 @@ public class build {
                                     break;
         }
         return partName;
-        
     }
 
   /**
@@ -340,11 +341,9 @@ public class build {
                 totalCost = rs.getDouble("totalBuildCost");
 
             }
-
         } catch(SQLException err){
             System.out.println(err); 
         } 
-
     }
     
     /**
@@ -438,7 +437,6 @@ public class build {
             System.out.println(err);
 
         }
-    
     }
     
     /**
@@ -480,10 +478,7 @@ public class build {
             } catch(SQLException err){
                 System.out.println(err);
             }
-            
         }
-       
         return compatible;
-        
     }
 }

@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
- *
  * @author Grzegorz Lindert
  * @version 1.0
  * @since 07/03/2017
@@ -17,9 +11,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
+
 /**
  *This class creates an connection to the remote database.
- * @author Grzegorz
  */
 public class ServerControl {
 
@@ -51,6 +45,7 @@ public class ServerControl {
                System.out.print(e);
         }
     }
+    
      /**
      * Establishes the connection to database
      * @return connection to database 
@@ -75,5 +70,4 @@ public class ServerControl {
             return null;
           }       
     }
-  
 }

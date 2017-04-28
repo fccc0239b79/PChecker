@@ -226,7 +226,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         menuLabel.setForeground(new java.awt.Color(127, 127, 127));
         menuLabel.setText("MENU");
         mainUserPanel.add(menuLabel);
-        menuLabel.setBounds(390, 210, 140, 43);
+        menuLabel.setBounds(390, 210, 140, 58);
 
         profileBtn.setBackground(new java.awt.Color(127, 127, 127));
         profileBtn.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
@@ -368,7 +368,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         currentTypelbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         currentTypelbl.setText("jLabel1");
         changeAccountTypePanel.add(currentTypelbl);
-        currentTypelbl.setBounds(220, 350, 490, 22);
+        currentTypelbl.setBounds(220, 350, 490, 29);
 
         deleteDifferentAccount.setBackground(new java.awt.Color(191, 191, 191));
         deleteDifferentAccount.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
@@ -430,7 +430,7 @@ public class AdminUserFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(accountsTable);
 
         accountPanel.add(jScrollPane1);
-        jScrollPane1.setBounds(230, 310, 454, 190);
+        jScrollPane1.setBounds(230, 310, 452, 190);
 
         getContentPane().add(accountPanel);
         accountPanel.setBounds(0, 0, 900, 600);

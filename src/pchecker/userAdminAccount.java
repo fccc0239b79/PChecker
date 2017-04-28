@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pchecker;
 
 import java.sql.Connection;
@@ -336,7 +331,6 @@ public class userAdminAccount {
    
     /**
      * saves the users details into database 
-     * 
      */
     public void saveUser(){
         Connection con = ServerControl.ConnectDB();
@@ -362,7 +356,6 @@ public class userAdminAccount {
     }
     
     /**
-     *
      * Updates users details 
      */
     public void UpdateUser(){
@@ -370,9 +363,10 @@ public class userAdminAccount {
         Connection con = ServerControl.ConnectDB();
     
         try {
-            //SQL query for inserting data into account table
+           //SQL query for inserting data into account table
            String query = "UPDATE Account SET Fname = ?, Sname = ?, Email = ?, MobilNum = ?, DOB = ? WHERE userName = ?"; 
            PreparedStatement statement = con.prepareStatement(query);
+           
            //setting user inputs into sql query
            statement.setString(1, fName);
            statement.setString(2, sName);
@@ -380,7 +374,6 @@ public class userAdminAccount {
            statement.setString(4,mobilNum);
            statement.setString(5,DOB);
            statement.setString(6, username);
-           System.out.println(statement);
            statement.execute();
            con.close();
         }
@@ -414,6 +407,7 @@ public class userAdminAccount {
             String newMakeModel = "",colNames[] = {"ID","OtherParts","IDNew","NewPart","Compatible","CompNo"};
             Object[][] data = {};
             DefaultTableModel dtm = new DefaultTableModel(data,colNames){
+                
                 @Override
                 public Class<?> getColumnClass(int column) {
                     if (column == 4) {
@@ -434,6 +428,7 @@ public class userAdminAccount {
                 ResultSet rs2 = stmt.executeQuery(query2);
                 while(rs2.next()){
                     newMakeModel = rs2.getString("Make")+" - "+rs2.getString("Model");
+                    
                     //if new part is a motherboard selects all parts that are not motherboad type
                     if(rs2.getString("PartType").equals("Motherboard")){
                         query = ("select PartID,Make,Model From Part where PartType <> \"Motherboard\";");
@@ -471,6 +466,7 @@ public class userAdminAccount {
                 Statement stmt = (Statement) con.createStatement();
                 
                 String query = ("Select * FROM Part JOIN "+part+" ON Part.PartID = "+part+".ID;");
+                
                 //selects parts from database and creates an table model 
                 ResultSet rs = stmt.executeQuery(query);
                 ResultSetMetaData metaData = rs.getMetaData();
@@ -488,7 +484,6 @@ public class userAdminAccount {
                     Vector<Object> vector = new Vector<Object>();
                     for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++) {
                         vector.add(rs.getObject(columnIndex));
-                    
                     }
                     data.add(vector);
                 }
@@ -496,6 +491,7 @@ public class userAdminAccount {
                 con.close();
 
                 modelParts = new DefaultTableModel(data, columnNames){
+                    
                 @Override
                 //makes cells not editable
                 public boolean isCellEditable(int row, int column) {
@@ -503,7 +499,6 @@ public class userAdminAccount {
                    return false;
                 }
             };
-            
            }
         catch (SQLException err) {
             System.out.println(err.getMessage());   //Prints out SQL error 
@@ -521,6 +516,7 @@ public class userAdminAccount {
         try {
             Statement stmt = (Statement) con.createStatement();
             String query = ("SELECT userName, accountType FROM Account");
+            
             //selects accounts from databse and creates an table model 
             ResultSet rs = stmt.executeQuery(query);
             ResultSetMetaData metaData = rs.getMetaData();
@@ -529,7 +525,6 @@ public class userAdminAccount {
             Vector<String> columnNames = new Vector<String>();
             columnNames.add("Account Name");
             columnNames.add("Account Type");
-
 
             // data of the table
             Vector<Vector<Object>> data = new Vector<Vector<Object>>();
@@ -551,12 +546,10 @@ public class userAdminAccount {
                return false;
             }
             };
-            
         }
         catch (SQLException err) {
             System.out.println(err.getMessage());   //Prints out SQL error 
         }
-        
         return modelParts;
     }
 
@@ -591,9 +584,7 @@ public class userAdminAccount {
                     tableColums.add(rs.getString("COLUMN_NAME"));
                     tableDataType.add(rs.getString("DATA_TYPE"));
                 }
-                
             }
-            
             con.close();
            }
         catch (SQLException err) {
@@ -611,13 +602,12 @@ public class userAdminAccount {
     }
       
    /**
-    * checks for duplicated model name in databse 
+    * checks for duplicated model name in database 
      * @param model entered by user .
      * @param partType of part that need to be added.
-     * @return true if model isent used yet
+     * @return true if model insert used yet
      */
     public boolean checkDuplicate(String model,String partType){
-
 
       Connection con = ServerControl.ConnectDB();
 
@@ -637,11 +627,10 @@ public class userAdminAccount {
               }
            }
           con.close();
-      }catch(SQLException err){
-        System.out.println(err.getMessage());   //Prints out SQL error 
-
-      }      
-    return false;
+        }catch(SQLException err){
+            System.out.println(err.getMessage());   //Prints out SQL error 
+        }      
+        return false;
    }
       
      /**
@@ -654,6 +643,7 @@ public class userAdminAccount {
     public int savePart(String partType, ArrayList<String> info,ArrayList<String> partinfo){
         int partID = 0;
         Connection con = ServerControl.ConnectDB();
+        
         //inserting into first table 'Part'
         try {
            //SQL query for inserting data into account table
@@ -786,6 +776,7 @@ public class userAdminAccount {
 
         }
     }
+    
     /**
      * Method to update users account type  
      * @param type new type of account .
@@ -802,6 +793,7 @@ public class userAdminAccount {
             System.out.println(err.getMessage());   //Prints out SQL error 
        }
     }
+    
     /**
      * Method to delete an user from system 
      * @param name username to be deleted
