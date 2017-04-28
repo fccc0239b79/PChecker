@@ -45,13 +45,14 @@ public class buildTest {
         int id = 1;
         String name = "Asus";
         String partTypeName = "Motherboard";
+        double price = 99.99;
         
         build instance = new build();
         
-        instance.setMotherboard(id, name);
+        instance.setMotherboard(id, name,price);
         assertEquals(1, instance.getMotherboard());
         
-        instance.setMotherboard(id, name);
+        instance.setMotherboard(id, name,price);
         assertEquals("Asus", instance.getPartName(partTypeName));
     }
     
@@ -60,13 +61,15 @@ public class buildTest {
         int id = 1;
         String name = "AMD";
         String partTypeName = "CPU";
+        double price = 99.99;
+
         
         build instance = new build();
         
-        instance.setCPU(id, name);
+        instance.setCPU(id, name,price);
         assertEquals(1, instance.getCPU());
         
-        instance.setCPU(id, name);
+        instance.setCPU(id, name,price);
         assertEquals("AMD", instance.getPartName(partTypeName));
     }
     
@@ -75,13 +78,15 @@ public class buildTest {
         int id = 1;
         String name = "KINGSTON";
         String partTypeName = "RAM";
+                double price = 99.99;
+
         
         build instance = new build();
         
-        instance.setRAM(id, name);
+        instance.setRAM(id, name,price);
         assertEquals(1, instance.getRam());
         
-        instance.setRAM(id, name);
+        instance.setRAM(id, name,price);
         assertEquals("KINGSTON", instance.getPartName(partTypeName));
     }
     
@@ -90,13 +95,15 @@ public class buildTest {
         int id = 1;
         String name = "WD";
         String partTypeName = "Storage";
+                double price = 99.99;
+
         
         build instance = new build();
         
-        instance.setStorage(id, name);
+        instance.setStorage(id, name,price);
         assertEquals(1, instance.getStorage());
         
-        instance.setStorage(id, name);
+        instance.setStorage(id, name,price);
         assertEquals("WD", instance.getPartName(partTypeName));
     }
     
@@ -105,13 +112,14 @@ public class buildTest {
         int id = 1;
         String name = "MSI";
         String partTypeName = "GPU";
-        
+                double price = 99.99;
+
         build instance = new build();
         
-        instance.setGPU(id, name);
+        instance.setGPU(id, name,price);
         assertEquals(1, instance.getGpu());
         
-        instance.setGPU(id, name);
+        instance.setGPU(id, name,price);
         assertEquals("MSI", instance.getPartName(partTypeName));
     }
     
@@ -120,13 +128,14 @@ public class buildTest {
         int id = 1;
         String name = "Corsair";
         String partTypeName = "PSU";
-        
+                double price = 99.99;
+
         build instance = new build();
         
-        instance.setPSU(id, name);
+        instance.setPSU(id, name,price);
         assertEquals(1, instance.getPSU());
         
-        instance.setPSU(id, name);
+        instance.setPSU(id, name,price);
         assertEquals("Corsair", instance.getPartName(partTypeName));
     }
     
@@ -135,13 +144,14 @@ public class buildTest {
         int id = 1;
         String name = "BeQuiet";
         String partTypeName = "PCCase";
-        
+                double price = 99.99;
+
         build instance = new build();
         
-        instance.setPCCase(id, name);
+        instance.setPCCase(id, name,price);
         assertEquals(1, instance.getCase());
         
-        instance.setPCCase(id, name);
+        instance.setPCCase(id, name,price);
         assertEquals("BeQuiet", instance.getPartName(partTypeName));
     }
     
@@ -150,13 +160,14 @@ public class buildTest {
         int id = 1;
         String name = "BeQuiet";
         String partTypeName = "Cooler";
-        
+                double price = 99.99;
+
         build instance = new build();
         
-        instance.setCooler(id, name);
+        instance.setCooler(id, name,price);
         assertEquals(1, instance.getCooler());
         
-        instance.setCooler(id, name);
+        instance.setCooler(id, name,price);
         assertEquals("BeQuiet", instance.getPartName(partTypeName));
     }
     
@@ -165,13 +176,14 @@ public class buildTest {
         int id = 1;
         String name = "mouse";
         String partTypeName = "Accessory";
-        
+                double price = 99.99;
+
         build instance = new build();
         
-        instance.setAccessory(id, name);
+        instance.setAccessory(id, name,price);
         assertEquals(1, instance.getAccessory());
         
-        instance.setAccessory(id, name);
+        instance.setAccessory(id, name,price);
         assertEquals("mouse", instance.getPartName(partTypeName));
     }
     
