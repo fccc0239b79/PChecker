@@ -94,9 +94,9 @@ public class BuildForm extends javax.swing.JFrame {
     /**
      * This BuildForm constructor initialise an account, checking if part type is selected, and adding new part.
      * @param user This is the first parameter user.
-     * @param TorF
+     * @param TorF true or false 
      * @param partType selected part type.
-     * @param INFO  
+     * @param INFO about part  
      */
     public BuildForm(userAdminAccount user,Boolean TorF,String partType, ArrayList<String> INFO) {
         initComponents();
@@ -112,9 +112,9 @@ public class BuildForm extends javax.swing.JFrame {
     
     /**
      * 
-     * @param user
-     * @param TorF
-     * @param ViewP 
+     * @param user user logged in 
+     * @param TorF true or false 
+     * @param ViewP true to view part 
      */
     public BuildForm(userAdminAccount user, Boolean TorF, Boolean ViewP){
         initComponents();
@@ -125,8 +125,8 @@ public class BuildForm extends javax.swing.JFrame {
     
     /**
      * This BuildForm constructor initialise an account and open build Panel.
-     * @param user 
-     * @param buildName 
+     * @param user user logged in 
+     * @param buildName build name to view 
      */
     public BuildForm(userAdminAccount user, String buildName) {
         initComponents();
