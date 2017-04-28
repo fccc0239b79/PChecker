@@ -17,7 +17,7 @@ import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ * This class creates an object of an user 
  * @author Greg 
  * @author Pawel 
  */
@@ -255,15 +255,15 @@ public class userAdminAccount {
     /**
      * Enables user to change password in the GUI and new password is then
      * accepted through connected database. 
-     * @param newPassword
-     * @return
+     * @param newPassword new password for user 
+     * @param user that wants to change password 
      */
     
-    public void changePassword(String newPassword){
+    public void changePassword(String newPassword, String user){
         Connection con = ServerControl.ConnectDB();
         try {
            //SQL query - changes password where the username is equal to input, entered by user.
-           String query = ("UPDATE Account SET Password = '" + newPassword + "' WHERE Username = '" + username +"';");
+           String query = ("UPDATE Account SET Password = '" + newPassword + "' WHERE Username = '" + user +"';");
            PreparedStatement statement = con.prepareStatement(query);
            statement.execute();
         }
@@ -276,19 +276,23 @@ public class userAdminAccount {
      * checks inputed details match with the ones in database 
      * @param DOB  that user inputed at forget password screen.
      * @param email that user inputed at forget password screen.
+     * @param username inputed by user 
      * @return true if date of birth and email math to the ones in database
      */
-    public boolean checkDetails(String DOB, String email){
+    public boolean checkDetails(String username,String DOB, String email){
         Connection con = ServerControl.ConnectDB();
 
         try {
                 Statement stmt = (Statement) con.createStatement();
-                String query = ("SELECT Email,DOB FROM Account WHERE  ");
+                String query = ("SELECT Email,DOB FROM Account WHERE Username = '"+username+"';");
 
                 stmt.executeQuery(query);
                 ResultSet rs = stmt.getResultSet();
             
                 while (rs.next()) {
+                   if(DOB.equals(rs.getString("DOB"))&&email.equals(rs.getString("Email"))) {
+                       return true;
+                   }
                 }
             }
             catch(SQLException err){ //error message
@@ -712,6 +716,7 @@ public class userAdminAccount {
      * updates a given parts details
      * @param partType of the part being added to system .
      * @param info information about the part like model make price .
+     * @param partid parts id to be updated 
      * @param partinfo information about the part it self like its strength etc 
      */
     public void updatePart(String partType, String partid, ArrayList<String> info,ArrayList<String> partinfo){

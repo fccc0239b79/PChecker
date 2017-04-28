@@ -6,15 +6,14 @@
 package pchecker;
 
 import java.awt.Component;
-import java.awt.Container;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.*;
-import java.awt.*;
 
 /**
- *
- * @author Pawel Szymczyk
+ * This form is the start up screen, allows user to log in and register
+ * @author Greg 
+ * @author Pawel 
  */
 public class LogInForm extends javax.swing.JFrame {
 
@@ -75,12 +74,13 @@ public class LogInForm extends javax.swing.JFrame {
         informLabelFP = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         newFPP = new javax.swing.JPanel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        FPNewPass = new javax.swing.JPasswordField();
+        FPconfirmPass = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        informLabelFP1 = new javax.swing.JLabel();
         oldFPP = new javax.swing.JPanel();
         usernameFieldFP = new javax.swing.JTextField();
         emailFieldFP = new javax.swing.JTextField();
@@ -357,17 +357,15 @@ public class LogInForm extends javax.swing.JFrame {
         newFPP.setPreferredSize(new java.awt.Dimension(860, 300));
         newFPP.setLayout(null);
 
-        jPasswordField1.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
-        jPasswordField1.setText("jPasswordField1");
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
-        newFPP.add(jPasswordField1);
-        jPasswordField1.setBounds(410, 80, 180, 30);
+        FPNewPass.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        FPNewPass.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
+        newFPP.add(FPNewPass);
+        FPNewPass.setBounds(410, 80, 180, 30);
 
-        jPasswordField2.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
-        jPasswordField2.setText("jPasswordField2");
-        jPasswordField2.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
-        newFPP.add(jPasswordField2);
-        jPasswordField2.setBounds(410, 130, 180, 30);
+        FPconfirmPass.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+        FPconfirmPass.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(179, 0, 0)));
+        newFPP.add(FPconfirmPass);
+        FPconfirmPass.setBounds(410, 130, 180, 30);
 
         jLabel3.setFont(new java.awt.Font("Kalinga", 0, 15)); // NOI18N
         jLabel3.setText("New Password:");
@@ -383,6 +381,11 @@ public class LogInForm extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Kalinga", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Accept");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         newFPP.add(jButton1);
         jButton1.setBounds(460, 220, 90, 40);
 
@@ -397,6 +400,12 @@ public class LogInForm extends javax.swing.JFrame {
         });
         newFPP.add(jButton2);
         jButton2.setBounds(270, 220, 90, 40);
+
+        informLabelFP1.setFont(new java.awt.Font("Kalinga", 1, 20)); // NOI18N
+        informLabelFP1.setForeground(new java.awt.Color(127, 127, 127));
+        informLabelFP1.setText("Please enter new password and confirm it  ");
+        newFPP.add(informLabelFP1);
+        informLabelFP1.setBounds(210, 10, 520, 30);
 
         ForgotPasswordPanel.add(newFPP);
         newFPP.setBounds(30, 240, 840, 300);
@@ -485,15 +494,9 @@ public class LogInForm extends javax.swing.JFrame {
     }//GEN-LAST:event_PasswordInputActionPerformed
 
     private void createAccountLinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAccountLinkMouseClicked
-        
-        
-            LogInPanel.setVisible(false);
-            RegistrationPanel.setVisible(true);
-            
-        
-                              
-        
-        
+
+    LogInPanel.setVisible(false);
+    RegistrationPanel.setVisible(true);
     }//GEN-LAST:event_createAccountLinkMouseClicked
 
     private void passFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passFieldActionPerformed
@@ -505,7 +508,86 @@ public class LogInForm extends javax.swing.JFrame {
     }//GEN-LAST:event_confirmPassFieldActionPerformed
 
     private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
+        createUser();
+    }//GEN-LAST:event_createBtnActionPerformed
+
+    private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
+        LogInPanel.setVisible(true);
+        RegistrationPanel.setVisible(false);
         
+        cleanInput(RegistrationPanel);
+    
+    }//GEN-LAST:event_cancelBtnActionPerformed
+
+    
+    private void forgotPswLinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotPswLinkMouseClicked
+       LogInPanel.setVisible(false);
+       ForgotPasswordPanel.setVisible(true);
+    }//GEN-LAST:event_forgotPswLinkMouseClicked
+
+    private void cancelBtnFPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnFPActionPerformed
+        LogInPanel.setVisible(true);
+        ForgotPasswordPanel.setVisible(false);
+        cleanInput(oldFPP);
+    }//GEN-LAST:event_cancelBtnFPActionPerformed
+
+    private void acceptBtnFPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnFPActionPerformed
+        
+        
+       chekcdetails();
+       
+    }//GEN-LAST:event_acceptBtnFPActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        newFPP.setVisible(false);
+        oldFPP.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       changePass();
+    }//GEN-LAST:event_jButton1ActionPerformed
+   
+    /**
+     * This code reset input in "Create Account", after Cancel form.
+     * @param panel 
+     */
+    private void cleanInput(JPanel panel) {
+        for (Component c : panel.getComponents())
+        {
+            if (c instanceof JTextField)
+            {
+                JTextField j = (JTextField)c;
+                j.setText("");
+            }
+        }
+    }
+    
+    private void login() {
+
+        String username = UsernameInput.getText();
+        String password = String.valueOf(PasswordInput.getPassword());
+        
+        //create new user account
+        userAdminAccount user = new userAdminAccount();
+          
+
+        boolean successful = user.checkPassword(username, password);
+        if (successful) {
+            
+            user.LogInService(username, password); //asks for username and password
+
+            AdminUserFrame frm = new AdminUserFrame(user); //opens general user form
+            this.setVisible(false);
+            frm.setVisible(true);
+
+          
+        } else { //error message prompted
+            JOptionPane.showMessageDialog(null, "User account can not be found. Please try again or create a new account", "No Account Found", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+    }
+    
+    public void createUser(){
         String username = usernameField.getText();
         String password = String.valueOf(passField.getPassword());
         String passwordConfirm = String.valueOf(confirmPassField.getPassword());
@@ -516,7 +598,6 @@ public class LogInForm extends javax.swing.JFrame {
         String DOB = DOBField.getText();
         
         String mobilNumber = mobilNumField.getText();
-        //Integer mobilNumber = Integer.parseInt(mobilNumField.getText());
         
         int emailValidation = email.indexOf('@');
 
@@ -599,78 +680,51 @@ public class LogInForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please complete all fields!", "Complete All fields", JOptionPane.INFORMATION_MESSAGE);
         }
 
-    }//GEN-LAST:event_createBtnActionPerformed
+    }
+    userAdminAccount userFP = new userAdminAccount();
 
-    private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
-        LogInPanel.setVisible(true);
-        RegistrationPanel.setVisible(false);
-        
-        cleanInput(RegistrationPanel);
-    
-    }//GEN-LAST:event_cancelBtnActionPerformed
+    public void chekcdetails(){
+        String username = usernameFieldFP.getText();
+        String email = emailFieldFP.getText();
+        String DOB = DOBinput.getText();
+        int emailValidation = email.indexOf('@');
+        if(username.isEmpty()|| email.isEmpty()|| DOB.isEmpty() ){
+           JOptionPane.showMessageDialog(null, "Please complete all fields!", "Complete All fields", JOptionPane.INFORMATION_MESSAGE);
+           return;
+        }
+        if (emailValidation >= 0) {
+            if(DOB.length() >= 10 && DOB.length() <= 10){
+                boolean correct = userFP.checkDetails(username,DOB, email);
+                if(correct){
+                    userFP.setUsername(usernameFieldFP.getText());
+                    oldFPP.setVisible(false);
+                    newFPP.setVisible(true);
+                }else{
+                    JOptionPane.showMessageDialog(null, "The entered information doesn’t match our records please try again ", "Incorrect. Please try again", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Invaid Date of Birth", "", JOptionPane.INFORMATION_MESSAGE);
 
-    /**
-     * This code reset input in "Create Account", after Cancel form.
-     * @param panel 
-     */
-    private void cleanInput(JPanel panel) {
-        for (Component c : panel.getComponents())
-        {
-            if (c instanceof JTextField)
-            {
-                JTextField j = (JTextField)c;
-                j.setText("");
             }
+        }else{
+            JOptionPane.showMessageDialog(null, "Email Issue: Please ensure the email field contains an '@'.", "Email Issue", JOptionPane.INFORMATION_MESSAGE);
         }
     }
     
-    private void forgotPswLinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotPswLinkMouseClicked
-       LogInPanel.setVisible(false);
-       ForgotPasswordPanel.setVisible(true);
-    }//GEN-LAST:event_forgotPswLinkMouseClicked
+    public void changePass(){
+         String password = String.valueOf(FPNewPass.getPassword());
+         String passwordConfirm = String.valueOf(FPconfirmPass.getPassword());
+         if(password.equals(passwordConfirm)){
+            userFP.changePassword(password, userFP.getUsername());
+            JOptionPane.showMessageDialog(null, "Password Changed, you will now return to log in screen", "Done", JOptionPane.INFORMATION_MESSAGE);  
 
-    private void cancelBtnFPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnFPActionPerformed
-        LogInPanel.setVisible(true);
-        ForgotPasswordPanel.setVisible(false);
-        
-        cleanInput(oldFPP);
-    }//GEN-LAST:event_cancelBtnFPActionPerformed
-
-    private void acceptBtnFPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnFPActionPerformed
-        oldFPP.setVisible(false);
-        newFPP.setVisible(true);
-    }//GEN-LAST:event_acceptBtnFPActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        newFPP.setVisible(false);
-        oldFPP.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
-   
-    private void login() {
-
-        String username = UsernameInput.getText();
-        String password = String.valueOf(PasswordInput.getPassword());
-        
-//create new user account
-        userAdminAccount user = new userAdminAccount();
-          
-
-        boolean successful = user.checkPassword(username, password);
-        if (successful) {
-            
-            user.LogInService(username, password); //asks for username and password
-
-            AdminUserFrame frm = new AdminUserFrame(user); //opens general user form
-            this.setVisible(false);
+            LogInForm frm = new LogInForm();
+            this.dispose();
             frm.setVisible(true);
-
-          
-        } else { //error message prompted
-            JOptionPane.showMessageDialog(null, "User account can not be found. Please try again or create a new account", "No Account Found", JOptionPane.INFORMATION_MESSAGE);
-        }
-
+         }else{
+            JOptionPane.showMessageDialog(null, "Passwords dont match", "Passwords Error", JOptionPane.INFORMATION_MESSAGE);  
+         }
     }
-    
     
     /**
      * @param args the command line arguments
@@ -713,6 +767,8 @@ public class LogInForm extends javax.swing.JFrame {
     private javax.swing.JTextField DOBField;
     private javax.swing.JLabel DOBLabel;
     private javax.swing.JTextField DOBinput;
+    private javax.swing.JPasswordField FPNewPass;
+    private javax.swing.JPasswordField FPconfirmPass;
     private javax.swing.JPanel ForgotPasswordPanel;
     private javax.swing.JPanel LogInPanel;
     private javax.swing.JPasswordField PasswordInput;
@@ -738,14 +794,13 @@ public class LogInForm extends javax.swing.JFrame {
     private javax.swing.JLabel forgotPswLink;
     private javax.swing.JLabel headingLabel;
     private javax.swing.JLabel informLabelFP;
+    private javax.swing.JLabel informLabelFP1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JButton loginBtn;
     private javax.swing.JLabel logo;
     private javax.swing.JTextField mobilNumField;
