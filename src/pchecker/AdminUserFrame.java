@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pchecker;
 
 import java.awt.Cursor;
@@ -12,12 +7,15 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author Pawel
+ * @author Pawel Szymczyk
+ * @author Greg Lindert
  */
 public class AdminUserFrame extends javax.swing.JFrame {
 
     userAdminAccount currentUser;
+    DefaultListModel globalmodel;
+    String accountNameValue;
+    
     /**
      * Creates new form AdminUserFrame
      */
@@ -25,6 +23,10 @@ public class AdminUserFrame extends javax.swing.JFrame {
         initComponents();
     }
     
+    /**
+     * This AdminUserFrame run user or administer panel.
+     * @param user type of account.
+     */
     public AdminUserFrame(userAdminAccount user) {
         initComponents();
         
@@ -48,14 +50,8 @@ public class AdminUserFrame extends javax.swing.JFrame {
             changeAccountTypePanel.setVisible(false);
             getBuilds();
         }
-        
-          
-        
-
-
     }
    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -562,92 +558,93 @@ public class AdminUserFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-private void loggOff(){
-
     
+    /**
+     * This method allows to switch users. 
+     */
+    private void loggOff(){
         LogInForm frm = new LogInForm(); //opens admin user form
         this.setVisible(false);
         frm.setVisible(true);
-        //currentUser.reset();
-        
-
-}
-private void getProfile(){
-    mainAdminPanel.setVisible(false);
-    mainUserPanel.setVisible(false);
-    profilePanel.setVisible(true);
-    accountPanel.setVisible(false);
-    changeAccountTypePanel.setVisible(false);
+    }   
     
-    fnamePro.setText(currentUser.getFname());
-    snamePro.setText(currentUser.getSname());
-    DOBPro.setText(currentUser.getDOB());
-    emailPro.setText(currentUser.getEmail());
-    mobilPro.setText(currentUser.getMobile());
+    /**
+     * This method allows to get profile.
+     */
+    private void getProfile(){
+        mainAdminPanel.setVisible(false);
+        mainUserPanel.setVisible(false);
+        profilePanel.setVisible(true);
+        accountPanel.setVisible(false);
+        changeAccountTypePanel.setVisible(false);
     
-}
-
-private void enbleEdit(boolean torf){
-    fnamePro.setEnabled(torf);
-    snamePro.setEnabled(torf);
-    DOBPro.setEnabled(torf);
-    emailPro.setEnabled(torf);
-    mobilPro.setEnabled(torf);
-    acceptBtnProfile.setEnabled(torf);
-}
-
+        fnamePro.setText(currentUser.getFname());
+        snamePro.setText(currentUser.getSname());
+        DOBPro.setText(currentUser.getDOB());
+        emailPro.setText(currentUser.getEmail());
+        mobilPro.setText(currentUser.getMobile());
+    }
+    
+    /**
+     * This method allows to edit profile.
+     * @param torf It sets true or false.
+     */
+    private void enbleEdit(boolean torf){
+        fnamePro.setEnabled(torf);
+        snamePro.setEnabled(torf);
+        DOBPro.setEnabled(torf);
+        emailPro.setEnabled(torf);
+        mobilPro.setEnabled(torf);
+        acceptBtnProfile.setEnabled(torf);
+    }
+    
+    /**
+     * This method allows to get builds from model.
+     */
     private void getBuilds(){
         buildsList.removeAll();
         ArrayList builds = new ArrayList();
         builds = currentUser.getBuilds();
 
-        
-
         DefaultListModel model = new DefaultListModel();
-        //model.clear();
-        for (Object str : builds) { 		      
-          // System.out.println(str); 	
-          model.addElement(str);
-          
+        
+        for (Object str : builds) { 	
+            model.addElement(str);
         }
         globalmodel = model;
-        
         buildsList.setModel(model);
         
-       if(builds.size()>1){
+        if(builds.size()>1){
            compareBuildsBtn.setEnabled(true);
-       }else{
+        }else{
            compareBuildsBtn.setEnabled(false);
-       }
+        }
       }
-
-    DefaultListModel globalmodel;
-
+    
+    /**
+     * This method allows user to log off from panel after click on button
+     * @param evt Listening click event on logOff Button.
+     */
     private void logOffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOffBtnActionPerformed
        loggOff();
-        
     }//GEN-LAST:event_logOffBtnActionPerformed
-
+    
+    /**
+     * This method validates and saves profile changes.
+     * @param evt Listening click event on accept Button.
+     */
     private void acceptBtnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnProfileActionPerformed
-        
-        
-
         String name = fnamePro.getText();
         String surname = snamePro.getText();
         String email = emailPro.getText();
         String DOB = DOBPro.getText();
         String mobilNumber = mobilPro.getText();
         
-       
         int emailValidation = email.indexOf('@');
-
-        
         boolean confirm = true;
         
         if( name.isEmpty() || surname.isEmpty() || email.isEmpty()|| DOB.isEmpty() || mobilNumber.isEmpty()){
-          
-        confirm = false;
-        
+            confirm = false;
         }
         
         // validation process, sets lenths and types needed to validate form
@@ -659,83 +656,86 @@ private void enbleEdit(boolean torf){
                     if (name.length() <= 45 ) {
                         if(DOB.length() >= 10 && DOB.length() <= 10){
                             if(mobilNumber.length()>=11 && mobilNumber.length()<=11){
+                                currentUser.setFname(name);
+                                currentUser.setSname(surname);
+                                currentUser.setEmail(email);
+                                currentUser.setDOB(DOB);     
+                                currentUser.setMobil(mobilNumber); 
+                                currentUser.UpdateUser();
                             
-                               
-                            currentUser.setFname(name);
-                            currentUser.setSname(surname);
-                            currentUser.setEmail(email);
-                            currentUser.setDOB(DOB);     
-                            currentUser.setMobil(mobilNumber); 
+                                enbleEdit(false);
                             
-                            currentUser.UpdateUser();
-                            
-                            enbleEdit(false);
-                            
-                            //if valid the account is created in database 
-                            JOptionPane.showMessageDialog(null, "Account Updated.", "Account Updated", JOptionPane.INFORMATION_MESSAGE);
-                           
-
-                        
+                                //if valid the account is created in database 
+                                JOptionPane.showMessageDialog(null, "Account Updated.", "Account Updated", JOptionPane.INFORMATION_MESSAGE);
                             } else {
                         JOptionPane.showMessageDialog(null, "Invaid Mobile Number .", "", JOptionPane.INFORMATION_MESSAGE);
-
                     }
                     } else {
                         JOptionPane.showMessageDialog(null, "Invaid Date of Birth", "", JOptionPane.INFORMATION_MESSAGE);
-
                     }
-
                     } else {
                         JOptionPane.showMessageDialog(null, "Name too long.", "", JOptionPane.INFORMATION_MESSAGE);
-
                     }
-
                 } else {
-
                     JOptionPane.showMessageDialog(null, "Surname too long.", "", JOptionPane.INFORMATION_MESSAGE);
-
                 }
-
             } else {
                 JOptionPane.showMessageDialog(null, "Email Issue: Please ensure the email field contains an '@'.", "Email Issue", JOptionPane.INFORMATION_MESSAGE);
-
             }
-
         } else {
-
             JOptionPane.showMessageDialog(null, "Please complete all fields!", "Complete All fields", JOptionPane.INFORMATION_MESSAGE);
         }
-                                       
-
-    
     }//GEN-LAST:event_acceptBtnProfileActionPerformed
 
+    /**
+     * This method log off administer from its panel.
+     * @param evt Listening click event on logOff Button.
+     */
     private void logOffAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOffAdminBtnActionPerformed
         loggOff();
     }//GEN-LAST:event_logOffAdminBtnActionPerformed
 
+    /**
+     * This method opens add new part panel.
+     * @param evt Listening click event on Add New Part Button.
+     */
     private void newComponentAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newComponentAdminBtnActionPerformed
         ArrayList<String> INFO = null;
         BuildForm frm = new BuildForm(currentUser,true,"",INFO);
         this.dispose();
         frm.setVisible(true);
-        
     }//GEN-LAST:event_newComponentAdminBtnActionPerformed
-
+    
+    /**
+     * This method opens profile panel for user.
+     * @param evt Listening click event on Profile Button.
+     */
     private void profileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileBtnActionPerformed
        getProfile();
     }//GEN-LAST:event_profileBtnActionPerformed
 
+    /**
+     * This method opens profile panel for administer.
+     * @param evt Listening click event on Profile Button.
+     */
     private void profileAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileAdminBtnActionPerformed
         getProfile();
     }//GEN-LAST:event_profileAdminBtnActionPerformed
-
+    
+    /**
+     * This method allows to edit profile details.
+     * After click edit button.
+     * @param evt Listening click event on Edit Button.
+     */
     private void editBtnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnProfileActionPerformed
-
-    enbleEdit(true);
-       
+     enbleEdit(true);
     }//GEN-LAST:event_editBtnProfileActionPerformed
 
+    /**
+     * This method close profile panel.
+     * After click Back Button.
+     * @param evt Listening click event on Back Button.
+     */
     private void backBtnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnProfileActionPerformed
         profilePanel.setVisible(false);
 
@@ -750,35 +750,37 @@ private void enbleEdit(boolean torf){
             accountPanel.setVisible(false);
             changeAccountTypePanel.setVisible(false);
         }
-        
     }//GEN-LAST:event_backBtnProfileActionPerformed
 
+    /**
+     * This method creates new buildForm for the user.
+     * @param evt Listening click event on Add build Button.
+     */
     private void addBuildBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBuildBtnActionPerformed
-        
         BuildForm frm = new BuildForm(currentUser);
         frm.setVisible(true);
         this.dispose();
-        
-        
-        
-        
     }//GEN-LAST:event_addBuildBtnActionPerformed
 
+    /**
+     * This method allows to select build from build list.
+     * @param evt Listening click event on part from list..
+     */
     private void buildsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buildsListMouseClicked
-
-
         String selectedBuild = buildsList.getSelectedValue();
-        //String username = currentUser.getUsername();
         if(!selectedBuild.equals("No Builds")){
             this.setCursor(new Cursor(Cursor.WAIT_CURSOR));
-            BuildForm frm = new BuildForm(currentUser,selectedBuild); //
-            System.out.println(selectedBuild);
+            BuildForm frm = new BuildForm(currentUser,selectedBuild); 
             this.dispose();
            
             frm.setVisible(true);
         }
     }//GEN-LAST:event_buildsListMouseClicked
 
+    /**
+     * This method allows to view Build details in Administer Panel.
+     * @param evt Listening click event on View Build Button.
+     */
     private void viewBuildAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBuildAdminBtnActionPerformed
         mainAdminPanel.setVisible(false);
         accountPanel.setVisible(false);
@@ -788,6 +790,10 @@ private void enbleEdit(boolean torf){
         adminBackBtn.setVisible(true);
     }//GEN-LAST:event_viewBuildAdminBtnActionPerformed
 
+    /**
+     * This method allows to go back to administer menu.
+     * @param evt Listening click event on Back Button.
+     */
     private void adminBackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminBackBtnActionPerformed
         mainAdminPanel.setVisible(true);
         mainUserPanel.setVisible(false);
@@ -795,22 +801,28 @@ private void enbleEdit(boolean torf){
         changeAccountTypePanel.setVisible(false);
     }//GEN-LAST:event_adminBackBtnActionPerformed
 
+    /**
+     * This method allows to change panel to view Components panel.
+     * @param evt Listening click event on View Components Button.
+     */
     private void viewComponentAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewComponentAdminBtnActionPerformed
        mainAdminPanel.setVisible(false);
        accountPanel.setVisible(false);
        changeAccountTypePanel.setVisible(false);
        BuildForm frm = new BuildForm(currentUser,true, true);
-        this.dispose();
-        frm.setVisible(true);
-      //
+       this.dispose();
+       
+       frm.setVisible(true);
     }//GEN-LAST:event_viewComponentAdminBtnActionPerformed
 
+    /**
+     * This method allows to open edit accounts panel.
+     * @param evt Listening click event on Account Settings Button.
+     */
     private void editAccountAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAccountAdminBtnActionPerformed
-       
         mainAdminPanel.setVisible(false);
         changeAccountTypePanel.setVisible(false);
         accountPanel.setVisible(true);
-       // System.out.println("works");
         
         // take all data from db
         DefaultTableModel getAccounts = new DefaultTableModel();
@@ -818,9 +830,12 @@ private void enbleEdit(boolean torf){
         
         // display data in a table
         accountsTable.setModel(getAccounts);
-       
     }//GEN-LAST:event_editAccountAdminBtnActionPerformed
 
+    /**
+     * This method allows to go back from edit account panel.
+     * @param evt Listening click event on Back Button.
+     */
     private void accountBackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountBackBtnActionPerformed
         mainAdminPanel.setVisible(true);
         mainUserPanel.setVisible(false);
@@ -828,87 +843,95 @@ private void enbleEdit(boolean torf){
         changeAccountTypePanel.setVisible(false);
     }//GEN-LAST:event_accountBackBtnActionPerformed
     
-    String accountNameValue;
+    
+    /**
+     * This method allows to save new selected account type.
+     * @param evt Listening click event on Save Button.
+     */
     private void saveAccountTypeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAccountTypeBtnActionPerformed
-        // TODO add your handling code here:
-        
-        // !
+       
         if(accountTypeComboBox.getSelectedItem() == "Admin" && !currentTypelbl.getText().contains("Admin")) {
-            //System.out.println("ADMIN !!!");
             currentUser.updateAccountType(true, accountSettingsLabel1.getText());
         } else if(accountTypeComboBox.getSelectedItem() == "User" && !currentTypelbl.getText().contains("User")){
-            //System.out.println("USER !!!");
             currentUser.updateAccountType(false, accountSettingsLabel1.getText());
         }
+        
         AdminUserFrame frm = new AdminUserFrame(currentUser);
         this.dispose();
         frm.setVisible(true);
         
     }//GEN-LAST:event_saveAccountTypeBtnActionPerformed
 
+    /**
+     * This method is empty.
+     * @param evt 
+     */
     private void accountTypeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountTypeComboBoxActionPerformed
 
     }//GEN-LAST:event_accountTypeComboBoxActionPerformed
-
+    
+    /**
+     * This method makes account panel visible.
+     * @param evt Listening click event on Cancel Button.
+     */
     private void cancelAccountTypeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelAccountTypeBtnActionPerformed
-        
         mainAdminPanel.setVisible(false);
         changeAccountTypePanel.setVisible(false);
         accountPanel.setVisible(true);
     }//GEN-LAST:event_cancelAccountTypeBtnActionPerformed
 
+    /**
+     * This method allows to display account types in the table.
+     * @param evt Listening click event on table element.
+     */
     private void accountsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountsTableMouseClicked
-        // System.out.println("WKS");
-         
-         //for(int column = 0; column < accountsTable.getColumnCount(); column++) {
-         //String name = String.valueOf(accountsTable.getModel().getColumnName(1));
-           // if(name.equals("Account Name")){
-         accountNameValue = String.valueOf(accountsTable.getValueAt(accountsTable.getSelectedRow(), 0)); 
-
-               accountSettingsLabel1.setText(accountNameValue);
+        accountNameValue = String.valueOf(accountsTable.getValueAt(accountsTable.getSelectedRow(), 0)); 
+        accountSettingsLabel1.setText(accountNameValue);
+        
         String TorF = String.valueOf(accountsTable.getValueAt(accountsTable.getSelectedRow(), 1)); 
+        
         if(TorF.equals("true")){
             currentTypelbl.setText("Current Account Type: Admin");
         } else{
             currentTypelbl.setText("Current Account Type: User");
         }
-               //currentTypelbl.
-          // }
-
-            //accountSettingsLabel1.setText(currentUser.getAccountName());
-        // System.out.println(value);
-        // }
+           
         mainAdminPanel.setVisible(false);
         changeAccountTypePanel.setVisible(true);
         accountPanel.setVisible(false);
          
     }//GEN-LAST:event_accountsTableMouseClicked
 
+    /**
+     * This method allows to delete account from table.
+     * @param evt Listening click event on Delete Button.
+     */
     private void deleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAccountActionPerformed
-       
-        
         deleteAccount("");
-        
-        
     }//GEN-LAST:event_deleteAccountActionPerformed
 
+    /**
+     * This method allows to delete other account.
+     * @param evt Listening click event on Delete Button.
+     */
     private void deleteDifferentAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteDifferentAccountActionPerformed
-       
-    deleteAccount(accountSettingsLabel1.getText());
-
-        
+        deleteAccount(accountSettingsLabel1.getText());
     }//GEN-LAST:event_deleteDifferentAccountActionPerformed
 
+    /**
+     * This method allows to create new Build form to compare builds.
+     * @param evt 
+     */
     private void compareBuildsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compareBuildsBtnActionPerformed
-        
-        
-        
-        
-      BuildForm frm = new BuildForm( currentUser,true);
-      this.dispose();
-      frm.setVisible(true);
+        BuildForm frm = new BuildForm( currentUser,true);
+        this.dispose();
+        frm.setVisible(true);
     }//GEN-LAST:event_compareBuildsBtnActionPerformed
 
+    /**
+     * This method allows to delete account from database.
+     * @param username delete account with username.
+     */
     public void deleteAccount(String username){
         int answer = JOptionPane.showConfirmDialog(null, "Are You Sure You Want to Delete your Account, this will erase all your data like Builds saved?", "Delete Account", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
        
@@ -928,6 +951,7 @@ private void enbleEdit(boolean torf){
           }
         }
     }
+    
     /**
      * @param args the command line arguments
      */

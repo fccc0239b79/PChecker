@@ -457,15 +457,16 @@ public class BuildForm extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * This method save new part into arrayList.
+     * @param TorF it sets true or false.
+     */
     private void saveNewPart(Boolean TorF){
         
         ArrayList<String> info = new ArrayList<String>();
         ArrayList<String> infopart = new ArrayList<String>();
 
         String partT = String.valueOf(partTypeComboBox.getSelectedItem());
-        //String model =addPartModelInput.getText();
-        //String make = addPartMakeInput.getText();
-        //String price = addPartPriceInput.getText();
         
         for(int i = 3; i < inputbox.size(); i++){
             infopart.add(inputbox.get(i).getText());
@@ -477,10 +478,10 @@ public class BuildForm extends javax.swing.JFrame {
         info.add(partT);
         
         if(TorF){
-        int partID = currentUser.savePart(partT, info,infopart);
-        addPart.setVisible(false);
-        addComp.setVisible(true);
-        compTable.setModel(currentUser.getCompT(partID));
+            int partID = currentUser.savePart(partT, info,infopart);
+            addPart.setVisible(false);
+            addComp.setVisible(true);
+            compTable.setModel(currentUser.getCompT(partID));
         }else{
             currentUser.updatePart(partT,partIDLable.getText(), info,infopart);
             AdminUserFrame frm = new AdminUserFrame(currentUser);
@@ -2230,7 +2231,8 @@ public class BuildForm extends javax.swing.JFrame {
     }
     
     /**
-     * This method allows to get a list selected component from jComboBox. Display all available parts from database in table.
+     * This method allows to get a list selected component from jComboBox.
+     * Display all available parts from database in table.
      */
     public void getSelectedPart(){
         
@@ -2246,24 +2248,16 @@ public class BuildForm extends javax.swing.JFrame {
         
     }
     
-    private void addPartModelInputActionPerformed(java.awt.event.ActionEvent evt) {                                                  
-        // TODO add your handling code here:
-    }                                                 
-                                          
-    private void testbtnActionPerformed(java.awt.event.ActionEvent evt) {                                        
-       
-    }                                       
-    
+    /**
+     * This method allows to set edit build.
+     * @param value string value.
+     */
     public void setEditBuild(String value) {
         newBuildTitleLable.setText(value);
         newBuild.getBuild(currentUser.getUsername(), value);
         enbleButtons();
-   
-        
-        //
     }
     
-  
     /**
      * @param args the command line arguments
      */
