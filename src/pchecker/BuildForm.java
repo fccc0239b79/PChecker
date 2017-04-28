@@ -27,52 +27,77 @@ import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.text.JTextComponent;
+
 /**
- *
- * @author Pawel
+ * Build Form Class used to control adding/updating/deleting components and builds .
+ * @author Pawel Szymczyk  
+ * @author Greg Lindert
  */
 public class BuildForm extends javax.swing.JFrame {
 
+    Color color = Color.GREEN;
+    DefaultTableModel modelParts = new DefaultTableModel();
+    String choosenPart;
+    String PartID;
+    
+    ArrayList<JLabel> labels = new ArrayList<JLabel>();
+    ArrayList<JLabel> errLables = new ArrayList<JLabel>();
+    ArrayList<JTextField> inputbox = new ArrayList<JTextField>();
+    ArrayList<String> tableColums = new ArrayList<String>();
+    
+    private HashMap componentMap;
+    
     /**
-     * Creates new form BuildForm
+     * Creates new form BuildForm.
      */
     build newBuild = new build();
     userAdminAccount currentUser;
     
-    
-
+    /**
+     * This is empty constructor.
+     */
     public BuildForm() {
         initComponents();
         setLocationRelativeTo(null);
-        
-        
-        
     }
+    
+    /**
+     * This BuildForm constructor initialise a user account.
+     * @param user Parameter user to BuildForm constructor.
+     */
     public BuildForm(userAdminAccount user) {
         initComponents();
         setLocationRelativeTo(null);
         currentUser = user;
         buildPanel.setVisible(true);
-        
-        
     }
+    
+    /**
+     * This BuildForm constructor initialise a administrator account.
+     * @param user This is the first parameter user.
+     * @param view This is the second parameter view. 
+     */
     public BuildForm(userAdminAccount user, Boolean view) {
         initComponents();
         setLocationRelativeTo(null);
         currentUser = user;
         compareBuilds.setVisible(true);
        
-        
-          ArrayList<String> builds = currentUser.getBuilds();
+        ArrayList<String> builds = currentUser.getBuilds();
         
         for(int i = 0; i < builds.size(); i++){
             buildsOne.addItem(builds.get(i));
             buildsTwo.addItem(builds.get(i));
         }
-        
-        
     }
-    //adding new part 
+    
+    /**
+     * This BuildForm constructor initialise an account, checking if part type is selected, and adding new part.
+     * @param user This is the first parameter user.
+     * @param TorF
+     * @param partType selected part type.
+     * @param INFO  
+     */
     public BuildForm(userAdminAccount user,Boolean TorF,String partType, ArrayList<String> INFO) {
         initComponents();
         setLocationRelativeTo(null);
@@ -85,6 +110,12 @@ public class BuildForm extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * 
+     * @param user
+     * @param TorF
+     * @param ViewP 
+     */
     public BuildForm(userAdminAccount user, Boolean TorF, Boolean ViewP){
         initComponents();
         setLocationRelativeTo(null);
@@ -92,7 +123,12 @@ public class BuildForm extends javax.swing.JFrame {
         viewPartPanel.setVisible(true);
     }
     
-    public BuildForm(userAdminAccount user,String buildName) {
+    /**
+     * This BuildForm constructor initialise an account and open build Panel.
+     * @param user 
+     * @param buildName 
+     */
+    public BuildForm(userAdminAccount user, String buildName) {
         initComponents();
         setLocationRelativeTo(null);
         this.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
@@ -114,8 +150,12 @@ public class BuildForm extends javax.swing.JFrame {
         runCompatibilityCheck();
     }
     
+    /**
+     * Method choosenPartLabel is dynamically sets new labels in addPart Panel.
+     */
     public void choosenPartLabel() {
-         // BUILD PANEL PART LABELS 
+        
+        // BUILD PANEL PART LABELS 
         accessoriesLabelSelectedPart.setVisible(true);
         caseLabelSelectedPart.setVisible(true);
         coolingLabelSelectedPart.setVisible(true);
@@ -126,29 +166,27 @@ public class BuildForm extends javax.swing.JFrame {
         psuLabelSelectedPart.setVisible(true);
         ramLabelSelectedPart.setVisible(true);
      
-        
-       accessoriesLabelSelectedPart.setText(newBuild.getPartName("Accessory"));   
-       caseLabelSelectedPart.setText( newBuild.getPartName("PCCase"));
-       coolingLabelSelectedPart.setText(newBuild.getPartName("Cooler"));
-       gpuLabelSelectedPart.setText( newBuild.getPartName("GPU"));
-       hddLabelSelectedPart.setText( newBuild.getPartName("Storage"));
-       motherboardLabelSelectedPart1.setText(newBuild.getPartName("Motherboard"));
-       processorLabelSelectedPart.setText( newBuild.getPartName("CPU"));
-       psuLabelSelectedPart.setText( newBuild.getPartName("PSU"));
-       ramLabelSelectedPart.setText( newBuild.getPartName("RAM"));
+        accessoriesLabelSelectedPart.setText(newBuild.getPartName("Accessory"));   
+        caseLabelSelectedPart.setText( newBuild.getPartName("PCCase"));
+        coolingLabelSelectedPart.setText(newBuild.getPartName("Cooler"));
+        gpuLabelSelectedPart.setText( newBuild.getPartName("GPU"));
+        hddLabelSelectedPart.setText( newBuild.getPartName("Storage"));
+        motherboardLabelSelectedPart1.setText(newBuild.getPartName("Motherboard"));
+        processorLabelSelectedPart.setText( newBuild.getPartName("CPU"));
+        psuLabelSelectedPart.setText( newBuild.getPartName("PSU"));
+        ramLabelSelectedPart.setText( newBuild.getPartName("RAM"));
        
-
-       accessories_ID.setText(String.valueOf(newBuild.getAccessory()));
-       case_ID.setText(String.valueOf(newBuild.getCase()));
-       cooling_ID.setText(String.valueOf(newBuild.getCooler()));
-       graphics_ID.setText(String.valueOf(newBuild.getGpu()));
-       hdd_ID.setText(String.valueOf(newBuild.getStorage()));
-       motherboard_ID.setText(String.valueOf(newBuild.getMotherboard()));
-       processor_ID.setText(String.valueOf(newBuild.getCPU()));
-       powersupply_ID.setText(String.valueOf(newBuild.getPSU()));
-       ram_ID.setText(String.valueOf(newBuild.getRam()));
+        accessories_ID.setText(String.valueOf(newBuild.getAccessory()));
+        case_ID.setText(String.valueOf(newBuild.getCase()));
+        cooling_ID.setText(String.valueOf(newBuild.getCooler()));
+        graphics_ID.setText(String.valueOf(newBuild.getGpu()));
+        hdd_ID.setText(String.valueOf(newBuild.getStorage()));
+        motherboard_ID.setText(String.valueOf(newBuild.getMotherboard()));
+        processor_ID.setText(String.valueOf(newBuild.getCPU()));
+        powersupply_ID.setText(String.valueOf(newBuild.getPSU()));
+        ram_ID.setText(String.valueOf(newBuild.getRam()));
        
-       accessories_Price.setText(String.valueOf(newBuild.getPartPrice("Accessory")));   
+        accessories_Price.setText(String.valueOf(newBuild.getPartPrice("Accessory")));   
         case_Price.setText(String.valueOf(newBuild.getPartPrice("PCCase")));
         cooling_Price.setText(String.valueOf(newBuild.getPartPrice("Cooler")));
         graphics_Price.setText(String.valueOf(newBuild.getPartPrice("GPU")));
@@ -157,17 +195,14 @@ public class BuildForm extends javax.swing.JFrame {
         processor_Price.setText(String.valueOf(newBuild.getPartPrice("CPU")));
         powersupply_Price.setText(String.valueOf(newBuild.getPartPrice("PSU")));
         ram_Price.setText(String.valueOf(newBuild.getPartPrice("RAM")));
-       
-       
-       buildTotalCostLbl.setText(String.valueOf(newBuild.getBuildCost()));
-      
+ 
+        buildTotalCostLbl.setText(String.valueOf(newBuild.getBuildCost()));  
     }
     
-  
-            
-            
-            
-     public void enbleButtons(){
+    /**
+     * This method is enable locked buttons to use.
+     */
+    public void enbleButtons(){
          
         for (Component c : buildPanel.getComponents())
         {
@@ -179,28 +214,24 @@ public class BuildForm extends javax.swing.JFrame {
         }
      }
      
-     DefaultTableModel modelParts = new DefaultTableModel();
-     String choosenPart;
-     
+    /**
+     * This method is adding part into table.
+     * @param part part name.
+     */
     public void addPart(String part){
-
-     
 
         buildPanel.setVisible(false);
         addBuildPanel.setVisible(true);
         
-
         modelParts = currentUser.getparts(part);
         
         partsTable.setModel(modelParts);
         choosenPart = part;
-       
-        
     }
    
-    
-    private HashMap componentMap;
-    
+    /**
+     * This method is creating component map using hashing method.
+     */
     private void createComponentMap() {
             componentMap = new HashMap<String,Component>();
             Component[] components = addPart.getComponents();
@@ -208,34 +239,29 @@ public class BuildForm extends javax.swing.JFrame {
                     componentMap.put(components[i].getName(), components[i]);
             }
     }
-
+    
+    /**
+     * This method get component name from hashed map.
+     * @param name component name.
+     * @return component.
+     */
     public Component getComponentByName(String name) {
         if (componentMap.containsKey(name)) {
                 return (Component) componentMap.get(name);
         }
         else return null;
-}
+    }
     
-    ArrayList<JLabel> labels = new ArrayList<JLabel>();
-        ArrayList<JLabel> errLables = new ArrayList<JLabel>();
-
-    
-    ArrayList<JTextField> inputbox = new ArrayList<JTextField>();
-    ArrayList<String> tableColums = new ArrayList<String>();
-    
-    
-   public void addingNewPart(){
+    /**
+     * This method is adding new part to table.
+     */
+    public void addingNewPart(){
         
         addPartSaveBtn.setEnabled(false);
-
         String newPartType = String.valueOf(partTypeComboBox.getSelectedItem());
-        
         tableColums = currentUser.getTableColName(newPartType);
         
         ArrayList<String> dataType = currentUser.getTableData();
-        
-        System.out.print(tableColums+" - "+dataType);
-        //tableColums.remove(0);
         
         for(int i = 0; i < labels.size(); i++){
             addPart.remove(labels.get(i));
@@ -250,9 +276,6 @@ public class BuildForm extends javax.swing.JFrame {
         
         //creats so many labels and input fields 
         int y = 180, x = 0;
-        
-      
-        
         
         for (String name : tableColums) {
             //Creation of label feild
@@ -270,7 +293,6 @@ public class BuildForm extends javax.swing.JFrame {
             errLables.add(errlbl);
             addPart.add(errlbl);
             
-            
             JLabel label1000  = new JLabel(dataType.get(x), SwingConstants.RIGHT);
             label1000.setBounds(0, y, 80, 30);
             label1000.setName(name+"Lable");
@@ -284,7 +306,7 @@ public class BuildForm extends javax.swing.JFrame {
             textField.setName(name+"Input");
             textField.setBounds(240, y, 260, 30);
             if(name != "Model"){
-            textField.getDocument().addDocumentListener(new DocumentListener() {
+                textField.getDocument().addDocumentListener(new DocumentListener() {
                     public void changedUpdate(DocumentEvent e) {
                       addingNewPartValidation(name);
                     }
@@ -295,8 +317,7 @@ public class BuildForm extends javax.swing.JFrame {
                     public void insertUpdate(DocumentEvent e) {
                       addingNewPartValidation(name);
                     }
-                    
-            });
+                });
             }else{
                 textField.addFocusListener(new FocusListener() {
                     public void focusGained(FocusEvent e) {
@@ -316,7 +337,12 @@ public class BuildForm extends javax.swing.JFrame {
 
         addPart.repaint();
     }
-
+    
+    /**
+     * This method get contents from text input.
+     * @param comp  component type
+     * @return component type name
+     */
     private String getContents(Component comp){
         
         if (comp instanceof JTextComponent) {
@@ -327,10 +353,12 @@ public class BuildForm extends javax.swing.JFrame {
         return null;
     }
     
-    
+    /**
+     * This method is validate new components with components in table.
+     * @param name part name.
+     */
     private void addingNewPartValidation(String name){
         
-
         Component input = getComponentByName(name+"Input");
         Component label = getComponentByName(name+"Lable");    
         Component errlabel = getComponentByName(name+"ERR");    
@@ -338,9 +366,6 @@ public class BuildForm extends javax.swing.JFrame {
         
         String inputText = getContents(input);
         String labelText = getContents(label);
-        
-        
-        
         
         int length = 0;
         String err = "";
@@ -350,7 +375,7 @@ public class BuildForm extends javax.swing.JFrame {
             case "int":
                 length = 4;
                  try { 
-                    Integer.parseInt(inputText);
+                   Integer.parseInt(inputText);
                  } catch(NumberFormatException e) { 
                   itsAnInt = false;
                   err += "Has to be a number";
@@ -367,10 +392,7 @@ public class BuildForm extends javax.swing.JFrame {
                 length = 30;
                 break;
         }
-            
         
-        
-       
         if(name == "Model"){
             if(currentUser.checkDuplicate(inputText,String.valueOf(partTypeComboBox.getSelectedItem()))){
                 err += " Model allready used";
@@ -380,48 +402,40 @@ public class BuildForm extends javax.swing.JFrame {
             }else{
                 input.setBackground(Color.green);
                             errL.setText("");
-
             }
-                
         }
         
         if(inputText.isEmpty()){
             err += " Cant be empty";
                      errL.setText(err);
       
-
             input.setBackground(Color.RED);
             return;
         }else{
             input.setBackground(Color.green);
                         errL.setText("");
-
         }
         if(inputText.length() > length ){
            err += " too long,  max " + length + " characters";
          errL.setText(err);
 
             input.setBackground(Color.RED);
-                        return;
+            return;
 
         }else{
             input.setBackground(Color.green);
                         errL.setText("");
-
         }
         if(!itsAnInt){
             
             input.setBackground(Color.RED);
-                     errL.setText(err);
-
-                        return;
-
+                    errL.setText(err);
+                    return;
         }else{
             input.setBackground(Color.green);
             errL.setText("");
         }
         
-
         ArrayList<String> greens = new ArrayList<String>();
 
         for (Component c : addPart.getComponents()){
@@ -433,9 +447,6 @@ public class BuildForm extends javax.swing.JFrame {
             
         }
         
-        
-        
-
         if(greens.size() == tableColums.size()){
            addPartSaveBtn.setEnabled(true);
            addPartUpdateBtn.setEnabled(true);
@@ -443,12 +454,7 @@ public class BuildForm extends javax.swing.JFrame {
          }else{
            addPartSaveBtn.setEnabled(false);
            addPartUpdateBtn.setEnabled(false);
-
         }
-            
-            
-               
-        
     }
     
     private void saveNewPart(Boolean TorF){
@@ -462,24 +468,18 @@ public class BuildForm extends javax.swing.JFrame {
         //String price = addPartPriceInput.getText();
         
         for(int i = 3; i < inputbox.size(); i++){
-           System.out.println(inputbox.get(i).getText());
             infopart.add(inputbox.get(i).getText());
         }
         
-
         info.add(inputbox.get(2).getText());
         info.add(inputbox.get(1).getText());
         info.add(inputbox.get(0).getText());
         info.add(partT);
         
-
-       
         if(TorF){
         int partID = currentUser.savePart(partT, info,infopart);
         addPart.setVisible(false);
-
         addComp.setVisible(true);
-        
         compTable.setModel(currentUser.getCompT(partID));
         }else{
             currentUser.updatePart(partT,partIDLable.getText(), info,infopart);
@@ -1614,101 +1614,143 @@ public class BuildForm extends javax.swing.JFrame {
     pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    /**
+     * This is empty method.
+     * This method is generate action on the build name input.
+     * @param evt Listening click event on buildName Input.
+     */
     private void buildNametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildNametxtActionPerformed
-        
+
     }//GEN-LAST:event_buildNametxtActionPerformed
 
+    /**
+     * This method adds Accessory to list parts.
+     * @param evt Listening click event on accessories Button.
+     */
     private void accessoriesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accessoriesBtnActionPerformed
         addPart("Accessory");
     }//GEN-LAST:event_accessoriesBtnActionPerformed
 
+    /**
+     * This method adds Motherboard to list parts.
+     * @param evt Listening click event on motherboard Button.
+     */
     private void motherboardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motherboardBtnActionPerformed
         addPart("Motherboard");
     }//GEN-LAST:event_motherboardBtnActionPerformed
-
+    
+    /**
+     * This method adds PCU to list parts.
+     * @param evt Listening click event on processor Button.
+     */
     private void processorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processorBtnActionPerformed
        addPart("CPU");
     }//GEN-LAST:event_processorBtnActionPerformed
-
+    
+    /**
+     * This method adds RAM to list parts.
+     * @param evt Listening click event on ram Button.
+     */
     private void ramBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ramBtnActionPerformed
        addPart("RAM");
     }//GEN-LAST:event_ramBtnActionPerformed
-
+    
+    /**
+     * This method adds HDD to list parts.
+     * @param evt Listening click event on hdd Button.
+     */
     private void hddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hddBtnActionPerformed
         addPart("Storage");
     }//GEN-LAST:event_hddBtnActionPerformed
-
+    
+    /**
+     * This method adds GPU to list parts.
+     * @param evt Listening click event on graphics card Button.
+     */
     private void graphicsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graphicsBtnActionPerformed
         addPart("GPU");
     }//GEN-LAST:event_graphicsBtnActionPerformed
-
+    
+    /**
+     * This method adds case to list parts.
+     * @param evt Listening click event on case Button.
+     */
     private void caseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caseBtnActionPerformed
         addPart("PCCase");
     }//GEN-LAST:event_caseBtnActionPerformed
-
+    
+    /**
+     * This method adds Power Supply to list parts.
+     * @param evt Listening click event on powerSupply Button.
+     */
     private void supplyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplyBtnActionPerformed
        addPart("PSU");
     }//GEN-LAST:event_supplyBtnActionPerformed
 
+    /**
+     * This method adds Cooling to list parts.
+     * @param evt Listening click event on cooling Button.
+     */
     private void coolingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coolingBtnActionPerformed
        addPart("Cooler");
     }//GEN-LAST:event_coolingBtnActionPerformed
 
-
-    
+    /**
+     * This method is checking compatibility between parts in build Panel.
+     */
     private void runCompatibilityCheck(){
-        //this.setCursor(new Cursor(Cursor.WAIT_CURSOR));
         motherboardBtn.setBackground(Color.GREEN); // sets color on green after selected part 
 
-        
         if(Integer.parseInt(processor_ID.getText()) >= 0){
             Color color = checkCompatible(processor_ID.getText());
             processorBtn.setBackground(color); // sets color on green after selected part 
         }
 
-        
-       if(Integer.parseInt(accessories_ID.getText()) >= 0){
+        if(Integer.parseInt(accessories_ID.getText()) >= 0){
            Color color = checkCompatible(accessories_ID.getText());
            accessoriesBtn.setBackground(color); // sets color on green after selected part 
-       }
+        }
        
-       if(Integer.parseInt(case_ID.getText()) >= 0){
+        if(Integer.parseInt(case_ID.getText()) >= 0){
            Color color = checkCompatible(case_ID.getText());
            caseBtn.setBackground(color); // sets color on green after selected part 
-       }
+        }
        
-       if(Integer.parseInt(cooling_ID.getText()) >= 0){
+        if(Integer.parseInt(cooling_ID.getText()) >= 0){
            Color color = checkCompatible(cooling_ID.getText());
            coolingBtn.setBackground(color); // sets color on green after selected part 
-       }
+        }
        
-       if(Integer.parseInt(graphics_ID.getText()) >= 0){
+        if(Integer.parseInt(graphics_ID.getText()) >= 0){
            Color color = checkCompatible(graphics_ID.getText());
            graphicsBtn.setBackground(color); // sets color on green after selected part 
-       }
+        }
        
-       if(Integer.parseInt(hdd_ID.getText()) >= 0){
+        if(Integer.parseInt(hdd_ID.getText()) >= 0){
            Color color = checkCompatible(hdd_ID.getText());
            hddBtn.setBackground(color); // sets color on green after selected part 
-       }
+        }
        
-       if(Integer.parseInt(powersupply_ID.getText()) >= 0){
+        if(Integer.parseInt(powersupply_ID.getText()) >= 0){
            Color color = checkCompatible(powersupply_ID.getText());
            supplyBtn.setBackground(color); // sets color on green after selected part 
-       }
+        }
        
-       if(Integer.parseInt(ram_ID.getText()) >= 0){
+        if(Integer.parseInt(ram_ID.getText()) >= 0){
            Color color = checkCompatible(ram_ID.getText());
            ramBtn.setBackground(color); // sets color on green after selected part 
-       }
+        }
         saveValidation();
     }
     
+    /**
+     * This method set red color if it is not compatible parts to eachother or green if they are.
+     * @param ID component id.
+     * @return color.
+     */
     private Color checkCompatible(String ID){
         Color color = Color.RED;
         Boolean compatible = newBuild.checkComp(ID);
-        System.out.print(compatible);
 
         if(compatible) {
             color = Color.GREEN;
@@ -1716,18 +1758,18 @@ public class BuildForm extends javax.swing.JFrame {
         return color;
     }
     
-    String PartID;
+    /**
+     * This method accept new build made by a user or admin.
+     * @param evt Listening click event on accept Button.
+     */
     private void acceptBuildBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBuildBtnActionPerformed
-        
-        saveBuild();
-        
+        saveBuild();  
     }//GEN-LAST:event_acceptBuildBtnActionPerformed
-    Color color = Color.GREEN;
+    
+    /**
+     * This method is save validation and enables update button.
+     */
     public void saveValidation() {
-        
-       
-        
-        System.out.println(motherboardBtn.getBackground() == color);
         
         if(buildNametxt.getText().isEmpty() || motherboardBtn.getBackground()!= color || processorBtn.getBackground() != color || ramBtn.getBackground() != color || hddBtn.getBackground() != color || graphicsBtn.getBackground() != color || caseBtn.getBackground() != color || supplyBtn.getBackground() != color || coolingBtn.getBackground() != color || accessoriesBtn.getBackground() != color) {
             acceptBuildBtn.setEnabled(false);
@@ -1738,9 +1780,11 @@ public class BuildForm extends javax.swing.JFrame {
         }
           
     }
-        
     
-      public void saveBuild(){
+    /**
+     * This method saves new build made by user or admin.
+     */
+    public void saveBuild(){
           
         if(!buildNametxt.getText().equals("") && (PartID != null)) {
             newBuild.setBuildName(buildNametxt.getText());
@@ -1751,24 +1795,27 @@ public class BuildForm extends javax.swing.JFrame {
             this.dispose();
             frm.setVisible(true);
         } else {
-            
             JOptionPane.showMessageDialog(null, "Please insert build name and have sure that you selected at least one part, ","", JOptionPane.INFORMATION_MESSAGE);
         }
       
     }
     
+    /**
+     * This method closes user panel.
+     * @param evt Listening click event on cancel Button.
+     */
     private void cancelBtnBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnBActionPerformed
-       
         AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
         this.dispose();
         frm.setVisible(true);
-      
     }//GEN-LAST:event_cancelBtnBActionPerformed
-
+    
+    /**
+     * This method allows to update a Build Form
+     * @param evt Listening click event on update Button.
+     */
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
-        
-       
-     if(motherboardBtn.getBackground()== color || processorBtn.getBackground() == color || ramBtn.getBackground() == color || hddBtn.getBackground() == color || graphicsBtn.getBackground() == color || caseBtn.getBackground() == color || supplyBtn.getBackground() == color || coolingBtn.getBackground() == color || accessoriesBtn.getBackground() == color){
+    if(motherboardBtn.getBackground()== color || processorBtn.getBackground() == color || ramBtn.getBackground() == color || hddBtn.getBackground() == color || graphicsBtn.getBackground() == color || caseBtn.getBackground() == color || supplyBtn.getBackground() == color || coolingBtn.getBackground() == color || accessoriesBtn.getBackground() == color){
         newBuild.UpdateBuild(currentUser.getUsername());
         AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
         this.dispose();
@@ -1776,9 +1823,12 @@ public class BuildForm extends javax.swing.JFrame {
      } else {
          JOptionPane.showMessageDialog(null, "Please select other component. ","", JOptionPane.INFORMATION_MESSAGE);
      }
-
     }//GEN-LAST:event_updateBtnActionPerformed
-
+    
+    /**
+     * This method saves new component to database.
+     * @param evt Listening click event on save Button.
+     */
     private void saveCompBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCompBtnActionPerformed
         Connection con = ServerControl.ConnectDB();
         
@@ -1793,90 +1843,115 @@ public class BuildForm extends javax.swing.JFrame {
             String NumStri=compTable.getValueAt(i, 5).toString();
             int num = Integer.parseInt(NumStri);
         
-
-
-            
             stmt.executeUpdate("INSERT INTO Compatibility VALUES('"+Part1+"','"+Part2+"',"+comp+","+num+")");
         }
             } catch (SQLException err) {
                System.out.println(err.getMessage());   
-
             }
+        
         AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
         this.dispose();
         frm.setVisible(true);
-        
-        
-        
     }//GEN-LAST:event_saveCompBtnActionPerformed
-
+    
+    /**
+     * This method saves validation of build after click.
+     * @param evt Listening click event on buildName Button.
+     */
     private void buildNametxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buildNametxtKeyPressed
        saveValidation();
     }//GEN-LAST:event_buildNametxtKeyPressed
-
+    
+    /**
+     * This method closes user panel.
+     * @param evt Listening click event on cancel Button.
+     */
     private void cancelBtnE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnE1ActionPerformed
         AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
         this.dispose();
         frm.setVisible(true);
     }//GEN-LAST:event_cancelBtnE1ActionPerformed
-
+    
+    /**
+     * This method allows to select value from part type combo box.
+     * @param evt Listening click event on choose combo box.
+     */
     private void partTypeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTypeComboBoxActionPerformed
         if(String.valueOf(partTypeComboBox.getSelectedItem()) != "-Choose-"){
             addingNewPart();
         }
     }//GEN-LAST:event_partTypeComboBoxActionPerformed
-
+    
+    /**
+     * This method is empty.
+     * @param evt 
+     */
     private void partTypeComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_partTypeComboBoxItemStateChanged
 
     }//GEN-LAST:event_partTypeComboBoxItemStateChanged
 
+    /**
+     * This method cancels and closes add part panel.
+     * @param evt Listening click event on cancel Button.
+     */
     private void addPartCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartCancelBtnActionPerformed
         AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
         this.dispose();
         frm.setVisible(true);
     }//GEN-LAST:event_addPartCancelBtnActionPerformed
-
+    
+    /**
+     * This method saves new part.
+     * @param evt Listening click event on save Button.
+     */
     private void addPartSaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartSaveBtnActionPerformed
-        //addingNewPartValidation();
         saveNewPart(true);
     }//GEN-LAST:event_addPartSaveBtnActionPerformed
 
+    /**
+     * This method is empty.
+     * @param evt 
+     */
     private void addPartFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addPartFocusGained
         
     }//GEN-LAST:event_addPartFocusGained
-
-    private void addPartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addPartMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addPartMouseClicked
-
     
-    private void partTypeComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTypeComboBox2ActionPerformed
+    /**
+     * This method is empty.
+     * @param evt 
+     */
+    private void addPartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addPartMouseClicked
         
+    }//GEN-LAST:event_addPartMouseClicked
+    
+    /**
+     * This method allows to select component type in view components panel.
+     * @param evt Listening click event on Choose combo box.
+     */
+    private void partTypeComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTypeComboBox2ActionPerformed
         if(String.valueOf(partTypeComboBox2.getSelectedItem()) != "-Choose-"){
-           // addingNewPart();
-           
-           getSelectedPart();
+            getSelectedPart();
         } 
     }//GEN-LAST:event_partTypeComboBox2ActionPerformed
 
+    /**
+     * This method allows to view all parts in the table depend on selected component type
+     * @param evt Listening click event on element.
+     */
     private void viewAllPartsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewAllPartsTableMouseClicked
 
-        //String selected = viewAllPartsTable.getS
         String partType = String.valueOf(partTypeComboBox2.getSelectedItem());
         partTypeComboBox.setSelectedItem(partType);
         
-
-        
-       for(int column = 0; column < viewAllPartsTable.getColumnCount(); column++) {
+        for(int column = 0; column < viewAllPartsTable.getColumnCount(); column++) {
            String value = String.valueOf(viewAllPartsTable.getValueAt(viewAllPartsTable.getSelectedRow(), column)), name = String.valueOf(viewAllPartsTable.getModel().getColumnName(column));
            if(name.equals("PartID")){
                partIDLable.setText(value);
            }
            
            if(name != "PartType" || name != "PartID"){
-            System.out.println(name +" "+value);
              Component input = getComponentByName(name+"Input");
-              if (input instanceof JTextField) {        
+             if (input instanceof JTextField) {        
                 JTextField mytext = (JTextField) input;
                 mytext.setText(value);
                 
@@ -1884,15 +1959,12 @@ public class BuildForm extends javax.swing.JFrame {
                     mytext.setEnabled(false);
                     mytext.setBackground(Color.green);
                     addPartTitle.setText("Edit '"+value+"'");
-
                 }
-               }
-              
-             
+              }
         }
        }
        
-       partTypeComboBox.setEnabled(false);
+        partTypeComboBox.setEnabled(false);
        
         addPartUpdateBtn.setVisible(true);
         deletePart.setVisible(true);
@@ -1903,10 +1975,18 @@ public class BuildForm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_viewAllPartsTableMouseClicked
 
+    /**
+     * This method allows to update part.
+     * @param evt Listening click event on update Button.
+     */
     private void addPartUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartUpdateBtnActionPerformed
         saveNewPart(false);
     }//GEN-LAST:event_addPartUpdateBtnActionPerformed
 
+    /**
+     * This method allows to delete part from db.
+     * @param evt Listening click event on delete Button.
+     */
     private void deletePartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePartActionPerformed
         currentUser.deletePart(partIDLable.getText());
         AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
@@ -1914,41 +1994,71 @@ public class BuildForm extends javax.swing.JFrame {
         frm.setVisible(true);
     }//GEN-LAST:event_deletePartActionPerformed
 
+    /**
+     * This method is empty.
+     * @param evt 
+     */
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
+    /**
+     * This method is empty.
+     * @param evt 
+     */
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    /**
+     * This method is empty.
+     * @param evt 
+     */
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
-
+    
+    /**
+     * This method cancel comparation between builds.
+     * @param evt Listening click event on cancel Button.
+     */
     private void cancelBtnCompareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnCompareActionPerformed
-        
         AdminUserFrame frm = new AdminUserFrame(currentUser); //opens general user form
         this.dispose();
         frm.setVisible(true);
     }//GEN-LAST:event_cancelBtnCompareActionPerformed
 
+    /**
+     * This method allows to select build to compare from second list.
+     * @param evt Listening click event on list.
+     */
     private void buildsTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildsTwoActionPerformed
-       
-         if(String.valueOf(buildsTwo.getSelectedItem()) != "-Choose-"){
+        if(String.valueOf(buildsTwo.getSelectedItem()) != "-Choose-"){
             String build = buildsTwo.getSelectedItem().toString();
             getPartsToCompare(build, "two");
-         }
+        }
     }//GEN-LAST:event_buildsTwoActionPerformed
-
+    
+    /**
+     * This is empty method.
+     * @param evt 
+     */
     private void viewBuildOneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewBuildOneMouseClicked
 
     }//GEN-LAST:event_viewBuildOneMouseClicked
 
+    /** 
+     * This is empty method.
+     * @param evt 
+     */
     private void viewBuildTwoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewBuildTwoMouseClicked
 
     }//GEN-LAST:event_viewBuildTwoMouseClicked
 
+    /**
+     * This method allows to select build to compare from first list.
+     * @param evt Listening click event on list.
+     */
     private void buildsOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildsOneActionPerformed
         
          if(String.valueOf(buildsOne.getSelectedItem()) != "-Choose-"){
@@ -1957,6 +2067,10 @@ public class BuildForm extends javax.swing.JFrame {
          }
     }//GEN-LAST:event_buildsOneActionPerformed
 
+    /**
+     * This method allows to delete build from program.
+     * @param evt Listening click event on delete Button.
+     */
     private void deleteBuildBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBuildBtnActionPerformed
       int answer = JOptionPane.showConfirmDialog(null, "Are You Sure You Want to Delete your Build?", "Delete Build", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
        
@@ -1970,6 +2084,10 @@ public class BuildForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_deleteBuildBtnActionPerformed
 
+    /**
+     * This method allows to select part from table, by click on it.
+     * @param evt Listening click event on part form list.
+     */
     private void partsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partsTableMouseClicked
 
         int row =  partsTable.getSelectedRow();
@@ -1986,53 +2104,49 @@ public class BuildForm extends javax.swing.JFrame {
 
                 case "Motherboard": newBuild.setMotherboard(Integer.parseInt(PartID),partMake+" "+partModel,price);
                 choosenPartLabel();
-                //accessoriesLabelSelectedPart.setVisible(true);
-                //processorLabelSelectedPart.setText(newBuild.getCPU() + " - " + newBuild.getPartName("CPU"));
-
-                // motherboardBtn.setText(newBuild.getPartName(choosenPart));
+                
                 enbleButtons();
                 this.setCursor(new Cursor(Cursor.WAIT_CURSOR));
                 runCompatibilityCheck();
 
                 break;
                 case "CPU": newBuild.setCPU(Integer.parseInt(PartID),partMake+" "+partModel,price);
-                // processorBtn.setText("Processor "+PartID);
 
                 choosenPartLabel();
                 processorBtn.setBackground(color); // sets color on green after selected part
                 break;
                 case "RAM": newBuild.setRAM(Integer.parseInt(PartID),partMake+" "+partModel,price);
-                // ramBtn.setText("RAM "+PartID);
+                
                 choosenPartLabel();
                 ramBtn.setBackground(color); // sets color on green after selected part
                 break;
+                
                 case "GPU": newBuild.setGPU(Integer.parseInt(PartID),partMake+" "+partModel,price);
-                // graphicsBtn.setText("Graphics card \n"+PartID);
                 choosenPartLabel();
                 graphicsBtn.setBackground(color); // sets color on green after selected part
                 break;
+                
                 case "Storage": newBuild.setStorage(Integer.parseInt(PartID),partMake+" "+partModel,price);
-                //  hddBtn.setText("HDD \n"+PartID);
                 choosenPartLabel();
                 hddBtn.setBackground(color); // sets color on green after selected part
                 break;
+                
                 case "Accessory": newBuild.setAccessory(Integer.parseInt(PartID),partMake+" "+partModel,price);
-                // accessoriesBtn.setText("Accessories \n"+PartID);
                 choosenPartLabel();
                 accessoriesBtn.setBackground(color); // sets color on green after selected part
                 break;
+                
                 case "PSU": newBuild.setPSU(Integer.parseInt(PartID),partMake+" "+partModel,price);
-                //  supplyBtn.setText("Power Supply \n"+PartID);
                 choosenPartLabel();
                 supplyBtn.setBackground(color); // sets color on green after selected part
                 break;
+                
                 case "PCCase": newBuild.setPCCase(Integer.parseInt(PartID),partMake+" "+partModel,price);
-                //  caseBtn.setText("Case \n"+PartID);
                 choosenPartLabel();
                 caseBtn.setBackground(color); // sets color on green after selected part
                 break;
+                
                 case "Cooler": newBuild.setCooler(Integer.parseInt(PartID),partMake+" "+partModel,price);
-                //  coolingBtn.setText("Cooling \n"+PartID);
                 choosenPartLabel();
                 coolingBtn.setBackground(color); // sets color on green after selected part
                 break;
@@ -2041,17 +2155,23 @@ public class BuildForm extends javax.swing.JFrame {
             buildPanel.setVisible(true);
             addBuildPanel.setVisible(false);
             this.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-            //runCompatibilityCheck();
-
         }
     }//GEN-LAST:event_partsTableMouseClicked
 
+    /**
+     * This method close new build panel.
+     * @param evt Listening click event on cancel Button.
+     */
     private void buildCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildCancelBtnActionPerformed
-
         buildPanel.setVisible(true);
         addBuildPanel.setVisible(false);
     }//GEN-LAST:event_buildCancelBtnActionPerformed
     
+    /**
+     * 
+     * @param buildName
+     * @param BuildNum 
+     */
     public void getPartsToCompare(String buildName, String BuildNum){
        
         TableColumn colBuild = new TableColumn();
@@ -2059,10 +2179,6 @@ public class BuildForm extends javax.swing.JFrame {
         columns.add("PC");
         columns.add("Parts");
 
-        
-       
-        //jTableBuild.disable();
-        
         JTable table = null;
         JLabel lable = null;
         if(BuildNum.equals("one")){
@@ -2071,16 +2187,10 @@ public class BuildForm extends javax.swing.JFrame {
         }else{
             table = (JTable) viewBuildTwo;
             lable = (JLabel) buildTotalCostCompTwo;
-
         }
         
-        
-
         DefaultTableModel model = (DefaultTableModel) table.getModel();
-                
         
-                       
-        //TableColumn col1 = new TableColumn(model.getColumnCount());
         for (String temp : columns) { //Adds columns to table.
             colBuild.setHeaderValue(temp);
             table.addColumn(colBuild);
@@ -2091,11 +2201,9 @@ public class BuildForm extends javax.swing.JFrame {
 
         try {
             Statement stmt = (Statement) con.createStatement();
-           // String query = ("Select P.PartID, P.Make, P.Model, P.Price, Speed, Cores, Graphics FROM CPU JOIN Part AS P on CPU.ID=P.PartID");
+       
             String query = "Select P.PartType,P.Model, P.Make FROM Build AS B JOIN Part AS P ON P.PartID IN(B.Motherboard,B.CPU,B.RAM,B.Storage,B.GPU,B.PSU,B.PCCase,B.Cooler,B.Accessory) where Account = '"+currentUser.getUsername()+"' AND BuildName = '"+buildName+"';";
-                       // System.out.println(query);
-
-
+                    
                 stmt.executeQuery(query);
                 ResultSet rs = stmt.getResultSet();
                 
@@ -2104,8 +2212,6 @@ public class BuildForm extends javax.swing.JFrame {
                 String partType = rs.getString("PartType");
                 String part = (rs.getString("Model")+" - "+rs.getString("Make"));   
                 model.addRow(new Object[]{partType,part});
-                
-                   
                 }
                 
                 Statement st = (Statement) con.createStatement();
@@ -2114,9 +2220,7 @@ public class BuildForm extends javax.swing.JFrame {
                 ResultSet result = st.getResultSet();
     
                 while (result.next()) {
-                 
                     lable.setText(result.getString("totalBuildCost"));
-                
                 }   
              
         
@@ -2158,7 +2262,7 @@ public class BuildForm extends javax.swing.JFrame {
         newBuildTitleLable.setText(value);
         newBuild.getBuild(currentUser.getUsername(), value);
         enbleButtons();
-        System.out.println(newBuild.getCPU()+newBuild.getPartName("CPU"));
+   
         
         //
     }
