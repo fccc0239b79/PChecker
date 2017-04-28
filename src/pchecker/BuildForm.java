@@ -2168,9 +2168,9 @@ public class BuildForm extends javax.swing.JFrame {
     }//GEN-LAST:event_buildCancelBtnActionPerformed
     
     /**
-     * 
-     * @param buildName
-     * @param BuildNum 
+     * This method get selected builds to compare using two parameters
+     * @param buildName is how build is named
+     * @param BuildNum is the number of build in db
      */
     public void getPartsToCompare(String buildName, String BuildNum){
        
@@ -2229,12 +2229,8 @@ public class BuildForm extends javax.swing.JFrame {
         }
     }
     
-    
-    
-    
-    
     /**
-     * getSelectedPart() allows to get a list selected component from jComboBox. Display all available parts from database in table.
+     * This method allows to get a list selected component from jComboBox. Display all available parts from database in table.
      */
     public void getSelectedPart(){
         
